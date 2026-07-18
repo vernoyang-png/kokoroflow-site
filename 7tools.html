@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
@@ -88,7 +88,24 @@
       <p class="lead">Calculate tips, sales tax, mortgage payments, BMI with feet and pounds, time zones, currency estimates, and more. No sign-up required.</p>
     </section>
 
-    <div class="button-row"><button onclick="pickItems()">Pick Now</button><button class="secondary" onclick="clearPicker()">Clear</button></div><div class="result" id="picker-result">Enter options, or fill source count.</div>
+    
+
+    <nav class="tool-nav" aria-label="Tool navigation" id="tools">
+      <a href="#picker">Random Picker</a><a href="tip-calculator.html">Tip</a><a href="sales-tax-calculator.html">Sales Tax</a><a href="#currency">Currency</a><a href="mortgage-calculator.html">Mortgage</a>
+      <a href="bmi-calculator.html">BMI</a><a href="password-generator.html">Password</a><a href="#unit">Unit</a><a href="#wordcount">Word Count</a><a href="#timezone">Time Zone</a>
+    </nav>
+
+    <div class="grid">
+      <section class="tool" id="picker">
+        <h2>Random Picker</h2><p class="tool-desc">Enter a list, or use source count for choices like 12 choose 3.</p>
+        <label for="picker-input">Option pool</label><textarea id="picker-input">Coffee
+Tea
+Lunch
+Walk
+Study
+Rest</textarea>
+        <div class="fields"><div><label for="picker-count-select">Number to pick</label><select id="picker-count-select"><option value="1" selected>1 item</option><option value="2">2 items</option><option value="3">3 items</option><option value="4">4 items</option><option value="5">5 items</option><option value="6">6 items</option><option value="7">7 items</option><option value="8">8 items</option><option value="9">9 items</option><option value="10">10 items</option></select></div><div><label for="picker-source-count">Source count</label><input id="picker-source-count" type="number" min="1" max="999" placeholder="For 12 choose 3, enter 12"></div></div>
+        <div class="button-row"><button onclick="pickItems()">Pick Now</button><button class="secondary" onclick="clearPicker()">Clear</button></div><div class="result" id="picker-result">Enter options, or fill source count.</div>
       </section>
 
       <section class="tool" id="tip">
@@ -122,7 +139,13 @@
       </section>
     </div>
 
-    <div class="button-row"><button onclick="makePassword()">Generate</button><button class="secondary" onclick="copyText('password-result')">Copy</button></div><div class="result" id="password-result">Your password will appear here.</div>
+    
+
+    <div class="grid">
+      <section class="tool" id="password">
+        <h2>Password Generator</h2><p class="tool-desc">Generate a local random password with optional symbols and similar-character exclusion.</p>
+        <div class="fields"><div><label for="pwd-length">Length</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div><div><label for="pwd-uppercase">Uppercase</label><select id="pwd-uppercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-lowercase">Lowercase</label><select id="pwd-lowercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-numbers">Numbers</label><select id="pwd-numbers"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-symbols">Symbols</label><select id="pwd-symbols"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-exclude-similar">Similar characters</label><select id="pwd-exclude-similar"><option value="yes" selected>Exclude 0/O/1/l</option><option value="no">Keep all</option></select></div></div>
+        <div class="button-row"><button onclick="makePassword()">Generate</button><button class="secondary" onclick="copyText('password-result')">Copy</button></div><div class="result" id="password-result">Your password will appear here.</div>
       </section>
 
       <section class="tool" id="unit">
@@ -144,7 +167,10 @@
       </section>
     </div>
 
-    </footer>
+    
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="https://www.kokoroflow.net/">Home</a><a href="https://www.kokoroflow.net/ai-prompt-journal.html">AI Prompts</a><a href="https://www.kokoroflow.net/7tools-zh.html">中文</a><a href="https://www.kokoroflow.net/privacy.html">Privacy Policy</a><a href="https://www.kokoroflow.net/contact.html">Contact</a></div></div></footer>
 
   <script>
     const $ = id => document.getElementById(id);
@@ -260,5 +286,6 @@
   </script>
 </body>
 </html>
+
 
 
