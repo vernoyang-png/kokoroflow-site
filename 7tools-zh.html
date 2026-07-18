@@ -1,0 +1,360 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>KokoroFlow 常用工具箱｜10 個免費線上工具</title>
+  <meta name="description" content="KokoroFlow 常用工具箱提供隨機選擇、貨幣換算、貸款、BMI、密碼、單位換算、日期差、字數、百分比與色碼轉換等免費線上工具。">
+  <link rel="canonical" href="https://www.kokoroflow.net/7tools.html">
+      <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/7tools-zh.html">
+  <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/7tools.html">
+<link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368;
+      --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed;
+      --warn:#fff4d8; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1160px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.72; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:var(--wrap); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links { display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    .nav-links a.lang-link { color: var(--accent); background: var(--accent-soft); }
+    main { max-width:var(--wrap); margin:0 auto; padding:64px 24px; }
+    .hero { max-width:760px; margin-bottom:28px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:18px; font-size:clamp(36px,6vw,64px); line-height:1.12; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(17px,2.1vw,20px); }
+    .ad-wrap { margin:30px 0; padding:14px; min-height:112px; display:grid; place-items:center; border:1px dashed var(--line); border-radius:var(--radius); background:var(--surface-2); overflow:hidden; }
+    .ad-label { margin-bottom:8px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; text-align:center; }
+    .tool-nav { display:flex; flex-wrap:wrap; gap:8px; margin:30px 0; }
+    .tool-nav a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--muted); text-decoration:none; font-weight:700; font-size:14px; }
+    .tool-nav a:hover { color:var(--text); border-color:var(--accent); }
+    .grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; align-items:start; }
+    .tool { scroll-margin-top:96px; padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .tool h2 { margin-bottom:8px; font-size:24px; line-height:1.25; }
+    .tool-desc { margin-bottom:18px; color:var(--muted); font-size:15px; }
+    .fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .field-full { grid-column:1 / -1; }
+    label { display:block; margin-bottom:6px; font-weight:700; font-size:14px; }
+    input, select, textarea { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--text); font:inherit; }
+    .field-note { display:block; margin-top:6px; color:var(--muted); font-size:12px; line-height:1.45; }
+    textarea { min-height:116px; resize:vertical; }
+    input:focus, select:focus, textarea:focus { outline:3px solid var(--accent-soft); border-color:var(--accent); }
+    .button-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:14px; }
+    button { min-height:44px; padding:10px 16px; border:0; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
+    button.secondary { background:var(--surface-2); color:var(--text); border:1px solid var(--line); }
+    button:hover { transform:translateY(-1px); }
+    .result { margin-top:16px; padding:16px; border-radius:8px; background:var(--accent-soft); color:#244f46; font-weight:700; word-break:break-word; }
+    .result small { display:block; margin-top:6px; color:var(--muted); font-weight:500; }
+    .swatch { width:100%; height:50px; border:1px solid var(--line); border-radius:8px; background:#2f6f62; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:var(--wrap); margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:920px) { .hero,.grid { grid-template-columns:1fr; } }
+    @media (max-width:640px) {
+      .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; }
+      .nav-links { justify-content:flex-start; }
+      main { padding:42px 16px; }
+      .fields { grid-template-columns:1fr; }
+      .tool { padding:20px; }
+      .footer-inner { padding:28px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a class="brand" href="https://www.kokoroflow.net/index-zh.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/index-zh.html">首頁</a>
+        <a href="#tools">工具</a>
+        <a href="jasiami.html">今天吃什麼</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Free Utility Toolkit</p>
+        <h1>10 個常用線上工具，一頁快速完成。</h1>
+        <p class="lead">免註冊、手機與電腦都能使用。適合日常計算、文字整理、隨機決策與簡單轉換。</p>
+      </div>
+    </section>
+
+    <div class="ad-wrap" aria-label="廣告">
+      <div>
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <nav class="tool-nav" aria-label="工具快速導覽" id="tools">
+      <a href="#picker">隨機選擇</a><a href="#currency">貨幣換算</a><a href="#loan">貸款</a><a href="#bmi">BMI</a><a href="#password">密碼</a>
+      <a href="#unit">單位換算</a><a href="#datecalc">日期差</a><a href="#wordcount">字數</a><a href="#percent">百分比</a><a href="#color">色碼轉換</a>
+    </nav>
+
+    <div class="grid">
+      <section class="tool" id="picker">
+        <h2>隨機選擇器</h2><p class="tool-desc">輸入你的選項池，再決定要抽幾個。適合抽獎、分組、排順序、今天選什麼。</p>
+        <label for="picker-input">選項池</label><textarea id="picker-input" placeholder="一行一個選項，或用逗號分隔。例如：\n咖啡\n茶\n果汁">咖啡
+茶
+果汁
+氣泡水
+早餐
+午餐
+晚餐
+散步
+閱讀
+休息</textarea>
+        <div class="fields"><div><label for="picker-count-select">抽出數量</label><select id="picker-count-select"><option value="1" selected>1 個</option><option value="2">2 個</option><option value="3">3 個</option><option value="4">4 個</option><option value="5">5 個</option><option value="6">6 個</option><option value="7">7 個</option><option value="8">8 個</option><option value="9">9 個</option><option value="10">10 個</option></select></div><div><label for="picker-source-count">來源數量</label><input id="picker-source-count" type="number" min="1" max="999" value="" placeholder="例如 9 選 1 的 9" inputmode="numeric"><small class="field-note">有填來源數量時，會從 1 到該數字中抽選。</small></div></div>
+        <div class="button-row"><button onclick="pickItems()">開始抽選</button><button class="secondary" onclick="setPickerPreset('meals')">套用餐點範例</button><button class="secondary" onclick="setPickerPreset('activities')">套用活動範例</button><button class="secondary" onclick="setPickerPreset('draw')">套用抽獎範例</button><button class="secondary" onclick="clearPicker()">清空</button></div>
+        <div class="result" id="picker-result">可輸入選項池，或填來源數量做 9 選 1 這類抽選。</div>
+      </section>
+
+            <section class="tool" id="currency">
+        <h2>貨幣換算</h2><p class="tool-desc">輸入金額與幣別後自動帶入參考匯率，也可手動微調匯率。</p>
+        <div class="fields">
+          <div><label for="currency-amount">來源金額</label><input id="currency-amount" type="number" value="1000" step="0.01" oninput="calcCurrency()"></div>
+          <div><label for="currency-from">來源貨幣</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="TWD" selected>TWD 新台幣</option><option value="USD">USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
+          <div><label for="currency-to">換算貨幣</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="TWD">TWD 新台幣</option><option value="USD" selected>USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
+          <div><label for="currency-rate">匯率</label><input id="currency-rate" type="number" value="0.030769" step="0.000001" oninput="calcCurrency('manual')"><small class="field-note">公開 API 匯率並非銀行即時牌告匯率，僅供參考。</small></div>
+          <div class="field-full"><label for="currency-result-amount">換算金額</label><input id="currency-result-amount" type="text" value="" readonly></div>
+        </div>
+        <div class="result" id="currency-result">匯率會依幣別自動更新；若公開 API 暫時無法取得，會改用內建參考匯率。</div>
+      </section>
+
+      <section class="tool" id="loan">
+        <h2>貸款月付試算</h2><p class="tool-desc">以本金、年利率與年限估算每月付款。</p>
+        <div class="fields"><div><label for="loan-amount">貸款金額</label><input id="loan-amount" type="number" value="1000000"></div><div><label for="loan-rate">年利率 %</label><input id="loan-rate" type="number" value="2.2" step="0.01"></div><div><label for="loan-years">年限</label><input id="loan-years" type="number" value="20"></div></div>
+        <div class="button-row"><button onclick="calcLoan()">試算</button></div><div class="result" id="loan-result">月付金額會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="bmi">
+        <h2>BMI 計算</h2><p class="tool-desc">輸入身高體重，快速估算 BMI。</p>
+        <div class="fields"><div><label for="bmi-height">身高 cm</label><input id="bmi-height" type="number" value="170"></div><div><label for="bmi-weight">體重 kg</label><input id="bmi-weight" type="number" value="65"></div></div>
+        <div class="button-row"><button onclick="calcBMI()">計算 BMI</button></div><div class="result" id="bmi-result">BMI 結果會顯示在這裡</div>
+      </section>
+    </div>
+
+    <div class="ad-wrap" aria-label="廣告">
+      <div>
+        <div class="ad-label">Sponsored</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_MIDDLE" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+        <div class="grid">
+      <section class="tool" id="password">
+        <h2>密碼產生器</h2><p class="tool-desc">產生本機端隨機密碼，可加入符號並排除容易看錯的字元。</p>
+        <div class="fields">
+          <div><label for="pwd-length">長度</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div>
+          <div><label for="pwd-uppercase">大寫字母</label><select id="pwd-uppercase"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-lowercase">小寫字母</label><select id="pwd-lowercase"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-numbers">數字</label><select id="pwd-numbers"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-symbols">符號</label><select id="pwd-symbols"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-exclude-similar">排除相近字元</label><select id="pwd-exclude-similar"><option value="yes" selected>排除 0/O/1/l 等</option><option value="no">保留全部</option></select></div>
+        </div>
+        <div class="button-row"><button onclick="makePassword()">產生密碼</button><button class="secondary" onclick="copyText('password-result')">複製</button></div><div class="result" id="password-result">密碼會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="unit">
+        <h2>單位換算</h2><p class="tool-desc">長度與重量分組選擇，來源單位與目的單位分開設定。</p>
+        <div class="fields">
+          <div><label for="unit-value">來源數值</label><input id="unit-value" type="number" value="100" step="0.01" oninput="convertUnit()"></div>
+          <div><label for="unit-from">來源單位</label><select id="unit-from" onchange="convertUnit()"><optgroup label="長度"><option value="cm" selected>公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in">英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+          <div class="field-full"><label for="unit-to">目的單位</label><select id="unit-to" onchange="convertUnit()"><optgroup label="長度"><option value="cm">公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in" selected>英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+        </div>
+        <div class="button-row"><button onclick="convertUnit()">換算</button></div><div class="result" id="unit-result">換算結果會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="datecalc">
+        <h2>日期差計算</h2><p class="tool-desc">計算兩個日期相差幾天。</p>
+        <div class="fields"><div><label for="date-start">開始日期</label><input id="date-start" type="date"></div><div><label for="date-end">結束日期</label><input id="date-end" type="date"></div></div>
+        <div class="button-row"><button onclick="calcDateDiff()">計算天數</button></div><div class="result" id="date-result">日期差會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="wordcount">
+        <h2>字數統計</h2><p class="tool-desc">統計中文字數、英文單字、字元與行數。</p>
+        <label for="word-input">文字</label><textarea id="word-input" oninput="countWords()">KokoroFlow 讓常用工具更好用。</textarea>
+        <div class="result" id="word-result">開始輸入文字後自動統計</div>
+      </section>
+
+      <section class="tool" id="percent">
+        <h2>百分比計算</h2><p class="tool-desc">計算折扣、成長率或某數值的百分比。</p>
+        <div class="fields">
+          <div><label for="percent-a">數值 A</label><input id="percent-a" type="number" value="1200"></div>
+          <div><label for="percent-b">數值 B / 百分比</label><input id="percent-b" type="number" value="15"></div>
+          <div class="field-full"><label for="percent-mode">計算模式</label><select id="percent-mode"><option value="of">A 的 B% 是多少</option><option value="rate">A 到 B 的變化率</option><option value="discount">A 打 B 折後價格</option></select></div>
+        </div>
+        <div class="button-row"><button onclick="calcPercent()">計算</button></div><div class="result" id="percent-result">請輸入數值後計算</div>
+      </section>
+
+      <section class="tool" id="color">
+        <h2>色碼轉換</h2><p class="tool-desc">將 HEX 色碼轉為 RGB，並預覽顏色。</p>
+        <div class="fields"><div><label for="color-hex">HEX 色碼</label><input id="color-hex" type="text" value="#2f6f62"></div><div><label>顏色預覽</label><div class="swatch" id="color-swatch"></div></div></div>
+        <div class="button-row"><button onclick="convertColor()">轉換</button></div><div class="result" id="color-result">RGB 結果會顯示在這裡</div>
+      </section>
+    </div><div class="ad-wrap" aria-label="廣告">
+      <div>
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_BOTTOM" data-ad-format="autorelaxed"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div class="footer-links"><a href="https://www.kokoroflow.net/index-zh.html">首頁</a><a href="jasiami.html">今天吃什麼</a><a href="https://www.kokoroflow.net/privacy.html">隱私權政策</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 0 }).format(n);
+    function nums(id){ return Number($(id).value) || 0; }
+    const pickerPresets = {
+      meals: ['早餐','午餐','晚餐','下午茶','宵夜','火鍋','便當','麵食','咖啡','甜點'],
+      activities: ['散步','閱讀','運動','看電影','學習 30 分鐘','冥想','寫日記','聽音樂','整理桌面','休息'],
+      draw: ['一號','二號','三號','四號','五號','六號','七號','八號','九號','十號']
+    };
+    function getPickerItems(){
+      const sourceCount = Number($('picker-source-count').value);
+      if (sourceCount > 0) return Array.from({ length: Math.floor(sourceCount) }, (_, i) => String(i + 1));
+      return $('picker-input').value.split(/\n|,/).map(s=>s.trim()).filter(Boolean);
+    }
+    function setPickerPreset(name){ $('picker-input').value = (pickerPresets[name] || pickerPresets.meals).join('\n'); $('picker-count-select').value = '1'; $('picker-source-count').value = ''; $('picker-result').textContent = '已套用範例，可自行增減選項或填入來源數量。'; }
+    function clearPicker(){ $('picker-input').value = ''; $('picker-count-select').value = '1'; $('picker-source-count').value = ''; $('picker-result').textContent = '已清空，請輸入選項池，或填入來源數量，例如 9 選 1。'; }
+    function pickItems(){
+      const items = getPickerItems();
+      const wanted = Math.max(1, Number($('picker-count-select').value) || 1);
+      if (!items.length) { $('picker-result').textContent = '請先輸入至少 1 個選項，或填入來源數量。'; return; }
+      if (wanted > items.length) { $('picker-result').textContent = `你目前只有 ${items.length} 個來源，無法抽出 ${wanted} 個。請減少抽出數量，或增加更多來源。`; return; }
+      const pool = [...items];
+      for (let i = pool.length - 1; i > 0; i--) {
+        const random = crypto.getRandomValues(new Uint32Array(1))[0] / 4294967296;
+        const j = Math.floor(random * (i + 1));
+        [pool[i], pool[j]] = [pool[j], pool[i]];
+      }
+      const picks = pool.slice(0, wanted);
+      $('picker-result').innerHTML = `共 ${items.length} 個來源，抽出 ${wanted} 個：<br>${picks.map(item=>item).join('<br>')}`;
+    }
+    function calcPercent(){
+      const a = nums('percent-a'), b = nums('percent-b'), m = $('percent-mode').value;
+      let text = '';
+      if (m === 'of') text = `${a} 的 ${b}% = ${(a * b / 100).toFixed(2)}`;
+      if (m === 'rate') text = a === 0 ? '數值 A 不能為 0' : `從 ${a} 到 ${b} 的變化率 = ${(((b - a) / a) * 100).toFixed(2)}%`;
+      if (m === 'discount') text = `${a} 打 ${b} 折後 = ${money(a * b / 10)}`;
+      $('percent-result').textContent = text;
+    }
+    const currencyRatesToTWD = { TWD:1, USD:32.5, JPY:0.215, CNY:4.48, HKD:4.16, EUR:35, GBP:41.2, KRW:0.0235, SGD:24.1, AUD:21.5, CAD:23.7, THB:0.89 };
+    let currencyRateSource = '內建參考匯率';
+    function setCurrencyRate(rate, source){
+      currencyRateSource = source;
+      $('currency-rate').value = rate.toFixed(rate >= 1 ? 4 : 6);
+      calcCurrency();
+    }
+    function fallbackCurrencyRate(){
+      const from = $('currency-from').value, to = $('currency-to').value;
+      const rate = currencyRatesToTWD[from] / currencyRatesToTWD[to];
+      setCurrencyRate(rate, '內建參考匯率');
+    }
+    async function updateCurrencyRate(){
+      const from = $('currency-from').value, to = $('currency-to').value;
+      if (from === to) { setCurrencyRate(1, '相同幣別'); return; }
+      $('currency-result').innerHTML = '正在取得公開 API 參考匯率...<small>匯率並非銀行即時牌告匯率，僅供參考。</small>';
+      try {
+        const response = await fetch(`https://open.er-api.com/v6/latest/${encodeURIComponent(from)}`, { cache:'no-store' });
+        if (!response.ok) throw new Error('rate api failed');
+        const data = await response.json();
+        const rate = data && data.rates ? Number(data.rates[to]) : 0;
+        if (!rate) throw new Error('currency not found');
+        setCurrencyRate(rate, '公開 API 參考匯率');
+      } catch (error) {
+        fallbackCurrencyRate();
+      }
+    }
+    function calcCurrency(mode){
+      if (mode === 'manual') currencyRateSource = '手動輸入匯率';
+      const amount = nums('currency-amount'), rate = nums('currency-rate');
+      const to = $('currency-to').value;
+      const value = amount * rate;
+      $('currency-result-amount').value = `${new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 4 }).format(value)} ${to}`;
+      $('currency-result').innerHTML = `${amount} ${$('currency-from').value} ≈ ${$('currency-result-amount').value}<small>${currencyRateSource}，並非銀行即時牌告匯率，僅供參考。</small>`;
+    }function calcLoan(){ const p=nums('loan-amount'), r=nums('loan-rate')/100/12, m=nums('loan-years')*12; const pay=r ? p*r*Math.pow(1+r,m)/(Math.pow(1+r,m)-1) : p/m; $('loan-result').innerHTML=`每月約 ${money(pay)} 元<small>總付款約 ${money(pay*m)} 元，僅供估算。</small>`; }
+    function calcBMI(){ const h=nums('bmi-height')/100, w=nums('bmi-weight'); const bmi=w/(h*h); let level=bmi<18.5?'過輕':bmi<24?'正常':bmi<27?'過重':'肥胖'; $('bmi-result').textContent=`BMI ${bmi.toFixed(1)}，分類：${level}`; }
+    function makePassword(){
+      const len = Math.max(8, Math.min(128, nums('pwd-length')));
+      const groups = [];
+      if ($('pwd-uppercase').value === 'yes') groups.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+      if ($('pwd-lowercase').value === 'yes') groups.push('abcdefghijklmnopqrstuvwxyz');
+      if ($('pwd-numbers').value === 'yes') groups.push('0123456789');
+      if ($('pwd-symbols').value === 'yes') groups.push("!@#$%^&*()-_=+[]{};:,.?/'\"|~`");
+      let chars = groups.join('');
+      if ($('pwd-exclude-similar').value === 'yes') chars = chars.split('').filter(ch => !'0O1Il|5S2Z8B'.includes(ch)).join('');
+      if (!chars.length) { $('password-result').textContent = '請至少選擇一種字元類型。'; return; }
+      let out = '';
+      crypto.getRandomValues(new Uint32Array(len)).forEach(n => out += chars[n % chars.length]);
+      $('password-result').textContent = out;
+    }
+    async function copyText(id){ const text=$(id).textContent; try{ await navigator.clipboard.writeText(text); $(id).innerHTML=`${text}<small>已複製</small>`; }catch(e){} }
+    function countWords(){ const t=$('word-input').value; const zh=(t.match(/[\u4e00-\u9fff]/g)||[]).length; const en=(t.match(/[A-Za-z0-9]+(?:[-'][A-Za-z0-9]+)*/g)||[]).length; $('word-result').textContent=`中文字：${zh}，英文/數字詞：${en}，字元：${t.length}，行數：${t ? t.split(/\n/).length : 0}`; }
+    function calcDateDiff(){ const a=new Date($('date-start').value), b=new Date($('date-end').value); if(isNaN(a)||isNaN(b)){ $('date-result').textContent='請選擇兩個日期'; return; } $('date-result').textContent=`相差 ${Math.abs(Math.round((b-a)/86400000))} 天`; }
+    const unitData = {
+      cm:{ group:'length', base:0.01, label:'公分' }, m:{ group:'length', base:1, label:'公尺' }, km:{ group:'length', base:1000, label:'公里' }, in:{ group:'length', base:0.0254, label:'英吋' }, ft:{ group:'length', base:0.3048, label:'英尺' }, yd:{ group:'length', base:0.9144, label:'碼' }, mi:{ group:'length', base:1609.344, label:'英里' },
+      g:{ group:'weight', base:0.001, label:'公克' }, kg:{ group:'weight', base:1, label:'公斤' }, oz:{ group:'weight', base:0.0283495, label:'盎司' }, lb:{ group:'weight', base:0.453592, label:'磅' }
+    };
+    function convertUnit(){
+      const value = nums('unit-value'), from = $('unit-from').value, to = $('unit-to').value;
+      const a = unitData[from], b = unitData[to];
+      if (a.group !== b.group) { $('unit-result').textContent = '來源單位與目的單位需同為長度或同為重量。'; return; }
+      const result = value * a.base / b.base;
+      $('unit-result').textContent = `${value} ${a.label} = ${Number(result.toFixed(6)).toLocaleString('zh-TW')} ${b.label}`;
+    }
+    function convertColor(){ let h=$('color-hex').value.trim().replace('#',''); if(h.length===3) h=h.split('').map(x=>x+x).join(''); if(!/^[0-9a-fA-F]{6}$/.test(h)){ $('color-result').textContent='請輸入正確 HEX 色碼，例如 #2f6f62'; return; } const r=parseInt(h.slice(0,2),16), g=parseInt(h.slice(2,4),16), b=parseInt(h.slice(4,6),16); $('color-swatch').style.background='#'+h; $('color-result').textContent=`RGB(${r}, ${g}, ${b})`; }
+    const today=new Date(), later=new Date(Date.now()+7*86400000); $('date-start').value=today.toISOString().slice(0,10); $('date-end').value=later.toISOString().slice(0,10);
+    countWords(); convertColor(); calcBMI(); calcPercent(); calcLoan(); convertUnit(); updateCurrencyRate(); makePassword();
+  </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

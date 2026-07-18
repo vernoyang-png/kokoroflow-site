@@ -1,0 +1,248 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>今天吃什麼？｜台灣選餐幫手</title>
+  <meta name="description" content="今天吃什麼？台灣選餐幫手提供早餐、午餐、晚餐隨機選擇，可依中式、西式、飯類、麵類、湯品鍋物分類抽選，也能加入自訂餐點。">
+  <link rel="canonical" href="https://www.kokoroflow.net/jasiami.html">
+    <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368;
+      --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed;
+      --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1040px;
+    }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.72; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:var(--wrap); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links { display:flex; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:64px 24px; }
+    .hero { max-width:760px; margin-bottom:28px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:18px; font-size:clamp(36px,6vw,64px); line-height:1.12; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(17px,2.1vw,20px); }
+    .quick-nav { display:flex; flex-wrap:wrap; gap:8px; margin:26px 0; }
+    .quick-nav a { min-height:42px; display:inline-flex; align-items:center; padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--muted); text-decoration:none; font-weight:800; }
+    .quick-nav a:hover { color:var(--text); border-color:var(--accent); }
+    .ad-wrap { margin:30px 0; padding:14px; min-height:112px; display:grid; place-items:center; border:1px dashed var(--line); border-radius:var(--radius); background:var(--surface-2); overflow:hidden; }
+    .ad-label { margin-bottom:8px; color:var(--muted); font-size:11px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; text-align:center; }
+    .meal-grid { display:grid; gap:18px; }
+    .meal-card { scroll-margin-top:96px; padding:26px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .meal-head { display:flex; justify-content:space-between; gap:16px; align-items:start; padding-bottom:18px; margin-bottom:18px; border-bottom:1px solid var(--line); }
+    .meal-head h2 { margin-bottom:6px; font-size:28px; line-height:1.2; }
+    .meal-head p { margin-bottom:0; color:var(--muted); }
+    .badge { padding:5px 10px; border-radius:999px; background:var(--accent-soft); color:var(--accent); font-weight:800; font-size:12px; white-space:nowrap; }
+    .tabs, .cat-tabs { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+    .tab, .cat-tab { min-height:40px; border:1px solid var(--line); border-radius:999px; padding:8px 13px; background:#fff; color:var(--muted); font:inherit; font-weight:800; cursor:pointer; }
+    .tab.active, .cat-tab.active { color:#fff; background:var(--text); border-color:var(--text); }
+    .list-box { margin:14px 0; padding:16px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface-2); }
+    .list-meta { margin-bottom:10px; color:var(--muted); font-size:14px; font-weight:700; }
+    .food-tags { display:flex; flex-wrap:wrap; gap:8px; }
+    .food-tag { padding:7px 11px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--text); font:inherit; font-weight:700; font-size:14px; cursor:pointer; }
+    button.food-tag { min-height:auto; }
+    .food-tag.off { opacity:.48; text-decoration:line-through; background:#fff; color:var(--muted); }
+    .list-actions { display:flex; gap:8px; align-items:center; justify-content:space-between; flex-wrap:wrap; margin-bottom:10px; }
+    .list-hint { color:var(--muted); font-size:13px; font-weight:700; }
+    button.small-button { min-height:34px; padding:6px 11px; font-size:13px; }
+    .controls { display:grid; grid-template-columns:minmax(0,1fr) auto; gap:10px; margin:14px 0; }
+    input { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--text); font:inherit; }
+    input:focus { outline:3px solid var(--accent-soft); border-color:var(--accent); }
+    button { min-height:44px; padding:10px 16px; border:0; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
+    button.secondary { background:var(--surface-2); color:var(--text); border:1px solid var(--line); }
+    .pick-row { display:flex; flex-wrap:wrap; gap:10px; align-items:center; justify-content:space-between; margin-top:14px; padding:14px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }
+    .stepper { display:flex; align-items:center; gap:8px; font-weight:800; }
+    .stepper button { width:38px; padding:0; border-radius:50%; }
+    .result { margin-top:16px; padding:22px; border-radius:var(--radius); background:linear-gradient(135deg,var(--accent),#244f46); color:#fff; text-align:center; }
+    .result-label { margin-bottom:8px; opacity:.85; font-weight:700; }
+    .result-main { font-size:clamp(28px,7vw,46px); line-height:1.2; font-weight:800; }
+    .result-more { display:flex; justify-content:center; flex-wrap:wrap; gap:8px; margin-top:12px; }
+    .result-more span { padding:7px 10px; border-radius:999px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.28); }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:var(--wrap); margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:640px) {
+      .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; }
+      .nav-links { justify-content:flex-start; }
+      main { padding:42px 16px; }
+      .meal-card { padding:20px; }
+      .meal-head { flex-direction:column; }
+      .controls { grid-template-columns:1fr; }
+      .pick-row { align-items:stretch; flex-direction:column; }
+      .footer-inner { padding:28px 16px; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">首頁</a>
+        <a href="7tools.html">工具箱</a>
+        <a href="#breakfast">早餐</a>
+        <a href="#lunch">午餐</a>
+        <a href="#dinner">晚餐</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Taiwan Meal Picker</p>
+      <h1>今天吃什麼？讓選擇變輕鬆。</h1>
+      <p class="lead">早餐、午餐、晚餐都可以依分類抽選。也能加入自己的餐點清單，適合一個人、家庭或同事聚餐時快速決定。</p>
+    </section>
+
+    <nav class="quick-nav" aria-label="餐別快速導覽">
+      <a href="#breakfast">早餐</a><a href="#lunch">午餐</a><a href="#dinner">晚餐</a>
+    </nav>
+
+    <div class="ad-wrap" aria-label="廣告">
+      <div>
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_MEAL_TOP" data-ad-format="auto" data-full-width-responsive="true"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+
+    <div class="meal-grid">
+      <section class="meal-card" id="breakfast"><div class="meal-head"><div><h2>早餐</h2><p>從早餐店、傳統早點到簡單西式，快速開始一天。</p></div><span class="badge">Morning</span></div><div id="breakfast-ui"></div></section>
+      <section class="meal-card" id="lunch"><div class="meal-head"><div><h2>午餐</h2><p>適合上班日、外食族與不知道要吃什麼的中午。</p></div><span class="badge">Lunch</span></div><div id="lunch-ui"></div></section>
+
+      <div class="ad-wrap" aria-label="廣告">
+        <div>
+          <div class="ad-label">Sponsored</div>
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_MEAL_MIDDLE" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+      </div>
+
+      <section class="meal-card" id="dinner"><div class="meal-head"><div><h2>晚餐</h2><p>下班後不想再做決定，就讓清單幫你挑一個。</p></div><span class="badge">Dinner</span></div><div id="dinner-ui"></div></section>
+    </div>
+
+    <div class="ad-wrap" aria-label="廣告">
+      <div>
+        <div class="ad-label">Advertisement</div>
+        <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-7127191372584167" data-ad-slot="REPLACE_WITH_AD_SLOT_MEAL_BOTTOM" data-ad-format="autorelaxed"></ins>
+        <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div class="footer-links"><a href="https://www.kokoroflow.net/">首頁</a><a href="7tools.html">常用工具箱</a><a href="https://www.kokoroflow.net/privacy.html">隱私權政策</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const FOOD_DB = {
+      breakfast: {
+        chinese: {
+          rice: ['飯糰','蛋餅','蘿蔔糕','肉鬆飯糰','鮪魚飯糰','蔥抓餅','燒餅油條'],
+          noodle: ['鐵板麵','鍋燒意麵','米粉湯','陽春麵','乾拌麵','肉羹麵'],
+          soup: ['豆漿配燒餅','鹹豆漿','玉米濃湯','蛋花湯']
+        },
+        western: ['三明治','吐司','漢堡','貝果','可頌','沙拉盒','優格燕麥','鬆餅','咖啡配麵包'],
+        mixed: ['飯糰','蛋餅','蘿蔔糕','蔥抓餅','燒餅油條','鹹豆漿','鐵板麵','鍋燒意麵','米粉湯','水煎包','小籠包','肉包','菜包','韭菜盒','刈包','三明治','漢堡','吐司','可頌','咖啡配麵包']
+      },
+      lunch: {
+        chinese: {
+          rice: ['滷肉飯','雞肉飯','排骨便當','雞腿便當','燒臘飯','咖哩飯','控肉飯','炒飯'],
+          noodle: ['牛肉麵','乾麵','餛飩麵','麻醬麵','炒麵','鍋燒麵','涼麵'],
+          soup: ['水餃酸辣湯','火鍋','關東煮','肉羹湯','貢丸湯']
+        },
+        western: ['義大利麵','燉飯','漢堡','披薩','沙拉','烤雞餐盒','潛艇堡','墨西哥捲'],
+        mixed: ['滷肉飯','雞肉飯','控肉飯','排骨便當','雞腿便當','燒臘飯','炒飯','炒麵','牛肉麵','乾麵','餛飩麵','麻醬麵','涼麵','水餃','肉圓','蚵仔煎','臭豆腐','鹽酥雞','關東煮','漢堡']
+      },
+      dinner: {
+        chinese: {
+          rice: ['熱炒配白飯','海南雞飯','石鍋拌飯','日式丼飯','鐵板燒','便當','粥品'],
+          noodle: ['拉麵','烏龍麵','炒泡麵','拌麵','越南河粉','擔仔麵'],
+          soup: ['個人火鍋','麻辣鍋','薑母鴨','羊肉爐','酸菜白肉鍋','砂鍋魚頭']
+        },
+        western: ['牛排','義大利麵','披薩','烤雞','BBQ','焗烤飯','漢堡排','沙拉碗'],
+        mixed: ['鹽酥雞','滷味','臭豆腐','蚵仔煎','肉圓','大腸包小腸','雞排','甜不辣','關東煮','魷魚羹','肉羹麵','牛肉麵','鍋燒意麵','炒飯','炒麵','熱炒','鐵板燒','個人火鍋','披薩','牛排']
+      }
+    };
+    const state = {
+      breakfast:{style:'chinese',cat:'rice',custom:{rice:[],noodle:[],soup:[],western:[],mixed:[]},excluded:[],pickCount:1},
+      lunch:{style:'chinese',cat:'rice',custom:{rice:[],noodle:[],soup:[],western:[],mixed:[]},excluded:[],pickCount:1},
+      dinner:{style:'chinese',cat:'rice',custom:{rice:[],noodle:[],soup:[],western:[],mixed:[]},excluded:[],pickCount:1}
+    };
+    const mealNames = { breakfast:'早餐', lunch:'午餐', dinner:'晚餐' };
+    const catNames = { rice:'飯類', noodle:'麵類', soup:'湯品鍋物', western:'西式', mixed:'混合路邊攤' };
+    function baseList(meal){
+      const s=state[meal];
+      if(s.style==='western') return [...FOOD_DB[meal].western,...s.custom.western];
+      if(s.style==='mixed') return [...FOOD_DB[meal].mixed,...s.custom.mixed];
+      return [...FOOD_DB[meal].chinese[s.cat],...s.custom[s.cat]];
+    }
+    function currentList(meal){ const s=state[meal]; return baseList(meal).filter(food=>!s.excluded.includes(food)); }
+    function currentLabel(s){ return s.style==='chinese' ? catNames[s.cat] : catNames[s.style]; }
+    function renderMeal(meal){
+      const s=state[meal], isChinese=s.style==='chinese', fullList=baseList(meal), list=currentList(meal);
+      document.getElementById(`${meal}-ui`).innerHTML = `
+        <div class="tabs">
+          <button class="tab ${s.style==='chinese'?'active':''}" onclick="setStyle('${meal}','chinese')">中式</button>
+          <button class="tab ${s.style==='western'?'active':''}" onclick="setStyle('${meal}','western')">西式</button>
+          <button class="tab ${s.style==='mixed'?'active':''}" onclick="setStyle('${meal}','mixed')">混合</button>
+        </div>
+        ${isChinese ? `<div class="cat-tabs">
+          <button class="cat-tab ${s.cat==='rice'?'active':''}" onclick="setCat('${meal}','rice')">飯類</button>
+          <button class="cat-tab ${s.cat==='noodle'?'active':''}" onclick="setCat('${meal}','noodle')">麵類</button>
+          <button class="cat-tab ${s.cat==='soup'?'active':''}" onclick="setCat('${meal}','soup')">湯品鍋物</button>
+        </div>` : ''}
+        <div class="list-box">
+          <div class="list-actions"><div class="list-meta">目前清單：${currentLabel(s)}，可抽 ${list.length} / 共 ${fullList.length} 個選項</div><button class="secondary small-button" onclick="restoreAll('${meal}')">全部恢復</button></div>
+          <div class="list-hint">點餐點可取消選取，再點一次恢復。</div>
+          <div class="food-tags">${fullList.map(food => `<button class="food-tag ${s.excluded.includes(food)?'off':''}" onclick="toggleFood('${meal}','${food}')" type="button">${food}</button>`).join('')}</div>
+        </div>
+        <div class="controls">
+          <input type="text" id="add-${meal}" placeholder="新增自訂餐點，例如：鹽酥雞" onkeydown="if(event.key==='Enter')addCustom('${meal}')">
+          <button onclick="addCustom('${meal}')">新增</button>
+        </div>
+        <div class="pick-row">
+          <div class="stepper"><span>抽出數量</span><button onclick="changeCount('${meal}',-1)">-</button><span id="cnt-${meal}">${s.pickCount}</span><button onclick="changeCount('${meal}',1)">+</button></div>
+          <button onclick="pickMeal('${meal}')">幫我決定 ${mealNames[meal]}</button>
+        </div>
+        <div id="result-${meal}"></div>`;
+    }
+    function setStyle(meal,style){ state[meal].style=style; renderMeal(meal); }
+    function setCat(meal,cat){ state[meal].cat=cat; renderMeal(meal); }
+    function toggleFood(meal,food){ const excluded=state[meal].excluded; const i=excluded.indexOf(food); i>=0 ? excluded.splice(i,1) : excluded.push(food); renderMeal(meal); }
+    function restoreAll(meal){ state[meal].excluded=[]; renderMeal(meal); }
+    function changeCount(meal,delta){ state[meal].pickCount=Math.max(1,Math.min(3,state[meal].pickCount+delta)); document.getElementById(`cnt-${meal}`).textContent=state[meal].pickCount; }
+    function addCustom(meal){ const input=document.getElementById(`add-${meal}`); const val=input.value.trim(); if(!val) return; const key=state[meal].style==='chinese'?state[meal].cat:state[meal].style; state[meal].custom[key].push(val); input.value=''; renderMeal(meal); }
+    function pickMeal(meal){
+      const list=currentList(meal);
+      if(!list.length){ document.getElementById(`result-${meal}`).innerHTML = `<div class="result"><div class="result-label">目前沒有可抽選項</div><div class="result-main">請恢復餐點</div></div>`; return; }
+      const n=Math.min(state[meal].pickCount,list.length), picks=[...list].sort(()=>Math.random()-.5).slice(0,n);
+      document.getElementById(`result-${meal}`).innerHTML = `<div class="result"><div class="result-label">${mealNames[meal]}就吃這個</div><div class="result-main">${picks[0]}</div>${picks.length>1?`<div class="result-more">${picks.slice(1).map(p=>`<span>備選：${p}</span>`).join('')}</div>`:''}</div>`;
+    }
+    renderMeal('breakfast'); renderMeal('lunch'); renderMeal('dinner');
+  </script>
+</body>
+</html>
+
+
+

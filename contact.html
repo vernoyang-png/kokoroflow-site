@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>聯絡 KokoroFlow｜意見回饋與工具建議</title>
+  <meta name="description" content="聯絡 KokoroFlow，回報問題、提出新工具建議，或分享使用上的意見。">
+  <link rel="canonical" href="https://www.kokoroflow.net/contact.html">
+    <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1040px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.75; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:72px 24px; }
+    .page-hero { max-width:760px; margin-bottom:34px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(34px, 6vw, 58px); line-height:1.14; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:18px; }
+    .layout { display:grid; grid-template-columns:minmax(0, 1fr) 320px; gap:22px; align-items:start; }
+    .contact-card, .info-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .contact-card { padding:30px; }
+    .form-grid { display:grid; gap:18px; }
+    label { display:block; margin-bottom:7px; font-weight:700; }
+    input, select, textarea {
+      width:100%;
+      min-height:46px;
+      padding:11px 12px;
+      border:1px solid var(--line);
+      border-radius:8px;
+      background:#fff;
+      color:var(--text);
+      font:inherit;
+    }
+    textarea { min-height:150px; resize:vertical; }
+    input:focus, select:focus, textarea:focus { outline:3px solid var(--accent-soft); border-color:var(--accent); }
+    .hint { margin:6px 0 0; color:var(--muted); font-size:13px; }
+    .submit { min-height:48px; border:0; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
+    .submit:hover { background:#34363a; }
+    .info-card { padding:24px; background:var(--surface-2); }
+    .info-card h2 { margin-bottom:10px; font-size:22px; }
+    .info-card p, .info-card li { color:var(--muted); }
+    .info-card ul { margin:0; padding-left:20px; }
+    .info-card li { margin:8px 0; }
+    .note { margin-top:16px; padding:14px; border-radius:8px; background:var(--accent-soft); color:#244f46; font-size:14px; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:860px) { .layout { grid-template-columns:1fr; } }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:46px 16px; } .contact-card, .info-card { padding:22px; } .footer-inner { padding:28px 16px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a class="brand" href="index.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="index.html">首頁</a>
+        <a href="index.html#tools">工具</a>
+        <a href="about.html">關於</a>
+        <a href="privacy.html">隱私</a>
+        <a href="contact.html" aria-current="page">聯絡</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Contact</p>
+      <h1>告訴我們你需要什麼工具。</h1>
+      <p class="lead">無論是問題回報、功能建議，或只是想分享使用心得，都可以從這裡開始。</p>
+    </section>
+
+    <div class="layout">
+      <section class="contact-card" aria-label="聯絡表單">
+        <form action="mailto:hello@kokoroflow.net" method="post" enctype="text/plain">
+          <div class="form-grid">
+            <div>
+              <label for="name">您的稱呼</label>
+              <input id="name" name="name" type="text" autocomplete="name" placeholder="例：小明" required>
+            </div>
+            <div>
+              <label for="email">電子郵件</label>
+              <input id="email" name="email" type="email" autocomplete="email" placeholder="your@email.com">
+              <p class="hint">如果希望收到回覆，請留下可聯絡的信箱。</p>
+            </div>
+            <div>
+              <label for="type">留言類型</label>
+              <select id="type" name="type">
+                <option value="bug">回報問題 / Bug</option>
+                <option value="suggestion">建議新工具</option>
+                <option value="feedback">一般意見回饋</option>
+                <option value="other">其他</option>
+              </select>
+            </div>
+            <div>
+              <label for="message">留言內容</label>
+              <textarea id="message" name="message" placeholder="請描述您的問題、建議或使用情境..." required></textarea>
+            </div>
+            <button class="submit" type="submit">送出留言</button>
+          </div>
+        </form>
+      </section>
+
+      <aside class="info-card" aria-label="聯絡說明">
+        <h2>建議提供</h2>
+        <ul>
+          <li>你使用的是手機還是電腦</li>
+          <li>發生問題的工具網址</li>
+          <li>你原本期待完成的任務</li>
+          <li>若是新工具建議，請描述使用情境</li>
+        </ul>
+        <div class="note">目前表單會開啟你的郵件軟體寄送內容。若你的主機已有正式表單服務，可再把 action 換成實際收件端點。</div>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">首頁</a>
+        <a href="about.html">關於我們</a>
+        <a href="privacy.html">隱私權政策</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
+
