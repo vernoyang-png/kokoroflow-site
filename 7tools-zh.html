@@ -6,11 +6,11 @@
   <meta name="theme-color" content="#f7f4ee">
   <title>KokoroFlow 常用工具箱｜10 個免費線上工具</title>
   <meta name="description" content="KokoroFlow 常用工具箱提供隨機選擇、貨幣換算、貸款、BMI、密碼、單位換算、日期差、字數、百分比與色碼轉換等免費線上工具。">
-  <link rel="canonical" href="https://www.kokoroflow.net/7tools.html">
+  <link rel="canonical" href="https://www.kokoroflow.net/7tools-zh.html">
       <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/7tools-zh.html">
   <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/7tools.html">
+  <link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/7tools.html">
 <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;800&display=swap" rel="stylesheet">
@@ -101,7 +101,26 @@
       </div>
     </section>
 
-    <div class="button-row"><button onclick="pickItems()">開始抽選</button><button class="secondary" onclick="setPickerPreset('meals')">套用餐點範例</button><button class="secondary" onclick="setPickerPreset('activities')">套用活動範例</button><button class="secondary" onclick="setPickerPreset('draw')">套用抽獎範例</button><button class="secondary" onclick="clearPicker()">清空</button></div>
+    <nav class="tool-nav" aria-label="工具快速導覽" id="tools">
+      <a href="#picker">隨機選擇</a><a href="#currency">貨幣換算</a><a href="#loan">貸款</a><a href="#bmi">BMI</a><a href="#password">密碼</a>
+      <a href="#unit">單位換算</a><a href="#datecalc">日期差</a><a href="#wordcount">字數</a><a href="#percent">百分比</a><a href="#color">色碼轉換</a>
+    </nav>
+
+    <div class="grid">
+      <section class="tool" id="picker">
+        <h2>隨機選擇器</h2><p class="tool-desc">輸入你的選項池，再決定要抽幾個。適合抽獎、分組、排順序、今天選什麼。</p>
+        <label for="picker-input">選項池</label><textarea id="picker-input" placeholder="一行一個選項，或用逗號分隔。例如：\n咖啡\n茶\n果汁">咖啡
+茶
+果汁
+氣泡水
+早餐
+午餐
+晚餐
+散步
+閱讀
+休息</textarea>
+        <div class="fields"><div><label for="picker-count-select">抽出數量</label><select id="picker-count-select"><option value="1" selected>1 個</option><option value="2">2 個</option><option value="3">3 個</option><option value="4">4 個</option><option value="5">5 個</option><option value="6">6 個</option><option value="7">7 個</option><option value="8">8 個</option><option value="9">9 個</option><option value="10">10 個</option></select></div><div><label for="picker-source-count">來源數量</label><input id="picker-source-count" type="number" min="1" max="999" value="" placeholder="例如 9 選 1 的 9" inputmode="numeric"><small class="field-note">有填來源數量時，會從 1 到該數字中抽選。</small></div></div>
+        <div class="button-row"><button onclick="pickItems()">開始抽選</button><button class="secondary" onclick="setPickerPreset('meals')">套用餐點範例</button><button class="secondary" onclick="setPickerPreset('activities')">套用活動範例</button><button class="secondary" onclick="setPickerPreset('draw')">套用抽獎範例</button><button class="secondary" onclick="clearPicker()">清空</button></div>
         <div class="result" id="picker-result">可輸入選項池，或填來源數量做 9 選 1 這類抽選。</div>
       </section>
 
@@ -130,7 +149,34 @@
       </section>
     </div>
 
-    <div class="button-row"><button onclick="calcDateDiff()">計算天數</button></div><div class="result" id="date-result">日期差會顯示在這裡</div>
+        <div class="grid">
+      <section class="tool" id="password">
+        <h2>密碼產生器</h2><p class="tool-desc">產生本機端隨機密碼，可加入符號並排除容易看錯的字元。</p>
+        <div class="fields">
+          <div><label for="pwd-length">長度</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div>
+          <div><label for="pwd-uppercase">大寫字母</label><select id="pwd-uppercase"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-lowercase">小寫字母</label><select id="pwd-lowercase"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-numbers">數字</label><select id="pwd-numbers"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-symbols">符號</label><select id="pwd-symbols"><option value="yes">包含</option><option value="no">不包含</option></select></div>
+          <div><label for="pwd-exclude-similar">排除相近字元</label><select id="pwd-exclude-similar"><option value="yes" selected>排除 0/O/1/l 等</option><option value="no">保留全部</option></select></div>
+        </div>
+        <div class="button-row"><button onclick="makePassword()">產生密碼</button><button class="secondary" onclick="copyText('password-result')">複製</button></div><div class="result" id="password-result">密碼會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="unit">
+        <h2>單位換算</h2><p class="tool-desc">長度與重量分組選擇，來源單位與目的單位分開設定。</p>
+        <div class="fields">
+          <div><label for="unit-value">來源數值</label><input id="unit-value" type="number" value="100" step="0.01" oninput="convertUnit()"></div>
+          <div><label for="unit-from">來源單位</label><select id="unit-from" onchange="convertUnit()"><optgroup label="長度"><option value="cm" selected>公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in">英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+          <div class="field-full"><label for="unit-to">目的單位</label><select id="unit-to" onchange="convertUnit()"><optgroup label="長度"><option value="cm">公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in" selected>英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+        </div>
+        <div class="button-row"><button onclick="convertUnit()">換算</button></div><div class="result" id="unit-result">換算結果會顯示在這裡</div>
+      </section>
+
+      <section class="tool" id="datecalc">
+        <h2>日期差計算</h2><p class="tool-desc">計算兩個日期相差幾天。</p>
+        <div class="fields"><div><label for="date-start">開始日期</label><input id="date-start" type="date"></div><div><label for="date-end">結束日期</label><input id="date-end" type="date"></div></div>
+        <div class="button-row"><button onclick="calcDateDiff()">計算天數</button></div><div class="result" id="date-result">日期差會顯示在這裡</div>
       </section>
 
       <section class="tool" id="wordcount">
@@ -154,11 +200,6 @@
         <div class="fields"><div><label for="color-hex">HEX 色碼</label><input id="color-hex" type="text" value="#2f6f62"></div><div><label>顏色預覽</label><div class="swatch" id="color-swatch"></div></div></div>
         <div class="button-row"><button onclick="convertColor()">轉換</button></div><div class="result" id="color-result">RGB 結果會顯示在這裡</div>
       </section>
-    </div><div class="ad-wrap" aria-label="廣告">
-      <div>
-        <div class="ad-label">Advertisement</div>
-        
-      </div>
     </div>
   </main>
 
