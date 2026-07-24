@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>30 ChatGPT Prompts for Creators | KokoroFlow AI Prompt Journal</title>
+  <meta name="description" content="Start with 30 practical ChatGPT prompts for creators, freelancers, bloggers, and small business owners. Plan content, write faster, and build a simple AI prompt workflow.">
+  <link rel="canonical" href="https://www.kokoroflow.net/ai-prompt-journal.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <meta property="og:title" content="30 ChatGPT Prompts for Creators">
+  <meta property="og:description" content="A simple AI prompt journal page for creators, freelancers, and small business owners.">
+  <meta property="og:url" content="https://www.kokoroflow.net/ai-prompt-journal.html">
+  <meta property="og:type" content="article">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1080px; }
+    * { box-sizing:border-box; }
+    body { margin:0; min-height:100vh; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.75; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:var(--wrap); margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width:164px; height:48px; display:block; object-fit:contain; border-radius:6px; }
+    .nav-links { display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:700; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:72px 24px; }
+    .hero { display:grid; grid-template-columns:minmax(0, 1.05fr) 360px; gap:34px; align-items:center; margin-bottom:34px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:18px; font-size:clamp(38px,7vw,68px); line-height:1.08; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(17px,2.2vw,20px); }
+    .pin-preview { aspect-ratio:2/3; padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:linear-gradient(160deg,#fffdf8 0%,#f2eadb 100%); box-shadow:var(--shadow); display:flex; flex-direction:column; justify-content:center; gap:16px; overflow:hidden; }
+    .pin-number { font-size:88px; line-height:.9; font-weight:800; letter-spacing:0; }
+    .pin-title { font-size:36px; line-height:1.05; font-weight:800; }
+    .pin-strip { height:42px; background:var(--accent); opacity:.75; }
+    .section { margin-top:22px; padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .section h2 { margin-bottom:12px; font-size:clamp(24px,3vw,34px); line-height:1.2; }
+    .section p { color:var(--muted); }
+    .cta-row { display:flex; gap:10px; flex-wrap:wrap; margin-top:18px; }
+    .button { min-height:46px; display:inline-flex; align-items:center; justify-content:center; padding:11px 18px; border-radius:999px; background:var(--text); color:#fff; text-decoration:none; font-weight:800; }
+    .button.secondary { background:var(--surface-2); color:var(--text); border:1px solid var(--line); }
+    .prompt-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .prompt { padding:16px; border:1px solid var(--line); border-radius:var(--radius); background:#fbf8f1; }
+    .prompt strong { display:block; margin-bottom:6px; }
+    .prompt span { color:var(--muted); font-size:14px; }
+    .workflow { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:16px; }
+    .step { padding:18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); }
+    .step strong { display:block; margin-bottom:6px; }
+    .disclosure { font-size:14px; color:var(--muted); }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:var(--wrap); margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:860px) { .hero { grid-template-columns:1fr; } .pin-preview { max-width:360px; } .workflow { grid-template-columns:repeat(2,minmax(0,1fr)); } }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:46px 16px; } .section { padding:22px; } .prompt-grid, .workflow { grid-template-columns:1fr; } .footer-inner { padding:28px 16px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="index.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links"><a href="index.html">Home</a><a href="7tools.html">Tools</a><a href="guides.html">Guides</a><a href="evelyn.html">Evelyn</a><a href="ai-prompt-journal.html" aria-current="page">AI Prompts</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="lang-link" href="index-zh.html" lang="zh-Hant">中文</a></div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <div>
+        <p class="eyebrow">AI Prompt Journal</p>
+        <h1>30 ChatGPT Prompts for Creators</h1>
+        <p class="lead">A simple starting point for creators, freelancers, bloggers, and small business owners who want to plan content, write faster, and turn ideas into useful work.</p>
+        <div class="cta-row">
+          <a class="button" href="#prompts">View the prompts</a>
+          <a class="button secondary" href="7tools.html">Use free tools</a>
+        </div>
+      </div>
+      <div class="pin-preview" aria-label="Pinterest pin preview">
+        <div class="pin-number">30</div>
+        <div class="pin-title">ChatGPT Prompts for Creators</div>
+        <div class="pin-strip"></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>How to use this page</h2>
+      <p>Pick one prompt, add your audience and topic, then ask ChatGPT for a first draft. Review the result, check facts, adjust the voice, and save the best prompt in your own journal.</p>
+      <div class="workflow">
+        <div class="step"><strong>1. Choose</strong><span>Select a prompt for the task.</span></div>
+        <div class="step"><strong>2. Add context</strong><span>Include audience, goal, tone, and format.</span></div>
+        <div class="step"><strong>3. Review</strong><span>Edit facts, examples, and brand voice.</span></div>
+        <div class="step"><strong>4. Reuse</strong><span>Save what worked for next time.</span></div>
+      </div>
+    </section>
+
+    <section class="section" id="prompts">
+      <h2>Starter prompt list</h2>
+      <div class="prompt-grid">
+        <div class="prompt"><strong>Content ideas</strong><span>Give me 20 content ideas for [audience] who want to [goal]. Group them by beginner, intermediate, and advanced.</span></div>
+        <div class="prompt"><strong>Blog outline</strong><span>Create an SEO-friendly outline for a blog post about [topic] for [audience]. Include H2 sections and search intent.</span></div>
+        <div class="prompt"><strong>Pinterest pin titles</strong><span>Write 15 Pinterest-friendly titles for a pin about [topic]. Keep them clear, benefit-driven, and under 70 characters.</span></div>
+        <div class="prompt"><strong>Short video script</strong><span>Write a 30-second short video script teaching [topic]. Include a hook, 3 points, and a simple call to action.</span></div>
+        <div class="prompt"><strong>Email newsletter</strong><span>Draft a short newsletter for [audience] about [topic]. Make it helpful, calm, and practical.</span></div>
+        <div class="prompt"><strong>Product idea</strong><span>Suggest 10 simple digital product ideas for [audience] based on problems related to [topic].</span></div>
+        <div class="prompt"><strong>Freelance offer</strong><span>Help me turn my skill in [skill] into 5 clear freelance service packages for [target customer].</span></div>
+        <div class="prompt"><strong>Website copy</strong><span>Write homepage copy for a website that helps [audience] solve [problem]. Include headline, subheadline, and CTA.</span></div>
+        <div class="prompt"><strong>Repurpose content</strong><span>Turn this blog idea into 5 Pinterest pins, 3 short videos, and 1 newsletter topic: [idea].</span></div>
+        <div class="prompt"><strong>Weekly plan</strong><span>Create a simple 7-day content plan for [audience] around [topic], using one main idea per day.</span></div>
+        <div class="prompt"><strong>Audience research</strong><span>Describe the main goals, fears, questions, and buying triggers of [audience] interested in [topic].</span></div>
+        <div class="prompt"><strong>Problem list</strong><span>List 25 practical problems [audience] faces when trying to [goal]. Rank them by urgency and content potential.</span></div>
+        <div class="prompt"><strong>Lead magnet</strong><span>Create 10 free download ideas for [audience] about [topic]. Include title, promise, and what pages it should contain.</span></div>
+        <div class="prompt"><strong>Product description</strong><span>Write a clear product description for [product] for [audience]. Focus on benefits, use cases, and simple outcomes.</span></div>
+        <div class="prompt"><strong>FAQ builder</strong><span>Create 12 frequently asked questions and answers for beginners learning about [topic].</span></div>
+        <div class="prompt"><strong>Comparison article</strong><span>Create a comparison outline for [tool/product A] vs [tool/product B] for [audience]. Include who each one is best for.</span></div>
+        <div class="prompt"><strong>Affiliate disclosure</strong><span>Write a short, friendly affiliate disclosure for a blog post recommending [product type]. Keep it transparent and simple.</span></div>
+        <div class="prompt"><strong>Social captions</strong><span>Write 10 Instagram or Threads captions about [topic] for [audience]. Keep them practical and non-hype.</span></div>
+        <div class="prompt"><strong>YouTube outline</strong><span>Create a YouTube video outline about [topic] with hook, intro, 5 sections, examples, and CTA.</span></div>
+        <div class="prompt"><strong>Checklist</strong><span>Create a beginner-friendly checklist for [audience] who want to complete [task].</span></div>
+        <div class="prompt"><strong>Landing page structure</strong><span>Design a simple landing page structure for a free [resource] about [topic]. Include sections and CTA text.</span></div>
+        <div class="prompt"><strong>SEO keywords</strong><span>Suggest keyword ideas for [topic], grouped by informational, commercial, and beginner search intent.</span></div>
+        <div class="prompt"><strong>Content calendar</strong><span>Build a 30-day content calendar for [audience] around [topic], including blog, Pinterest, and email ideas.</span></div>
+        <div class="prompt"><strong>Rewrite for clarity</strong><span>Rewrite this text to be clearer, calmer, and easier for beginners to understand: [paste text].</span></div>
+        <div class="prompt"><strong>Tone adjustment</strong><span>Rewrite this copy in a helpful, trustworthy, and practical tone without sounding salesy: [paste copy].</span></div>
+        <div class="prompt"><strong>Offer positioning</strong><span>Help me position [product/service] for [audience]. Include pain point, promise, proof, and CTA.</span></div>
+        <div class="prompt"><strong>Case study draft</strong><span>Create a simple case study template showing how [audience] can use [tool/service] to solve [problem].</span></div>
+        <div class="prompt"><strong>Prompt improvement</strong><span>Improve this prompt so it gives more specific and useful results: [paste prompt].</span></div>
+        <div class="prompt"><strong>Decision guide</strong><span>Create a decision guide to help [audience] choose between [option A], [option B], and [option C].</span></div>
+        <div class="prompt"><strong>Reflection journal</strong><span>Create 7 reflection questions for creators reviewing their weekly content, tools, and business progress.</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Recommended next steps</h2>
+      <p>Start by saving your favorite prompts, then build a repeatable workflow for planning articles, Pinterest pins, emails, and product ideas. KokoroFlow will continue adding practical tools, prompt examples, and creator resources.</p>
+      <div class="cta-row">
+        <a class="button" href="index.html">Back to KokoroFlow</a>
+        <a class="button secondary" href="7tools.html">Open free tools</a>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Affiliate disclosure</h2>
+      <p class="disclosure">Some resource links on KokoroFlow may be affiliate links. If you click and make a qualifying purchase, KokoroFlow may earn a commission at no extra cost to you. Affiliate relationships are identified clearly, and recommendations remain focused on relevance and practical value.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="7tools.html">Free Online Tools</a>
+        <a href="guides.html">Guides</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
