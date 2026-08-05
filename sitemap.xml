@@ -19,4 +19,6 @@
   <url><loc>https://www.kokoroflow.net/about.html</loc><priority>0.5</priority></url>
   <url><loc>https://www.kokoroflow.net/privacy.html</loc><priority>0.4</priority></url>
   <url><loc>https://www.kokoroflow.net/contact.html</loc><priority>0.4</priority></url>
+  <url><loc>https://www.kokoroflow.net/terms.html</loc><priority>0.4</priority></url>
+  <url><loc>https://www.kokoroflow.net/disclaimer.html</loc><priority>0.4</priority></url>
 </urlset>
