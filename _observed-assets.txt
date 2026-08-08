@@ -1,0 +1,6 @@
+https://www.kokoroflow.net/calculator.css
+https://www.kokoroflow.net/kokoroflow-logo.jpg
+https://www.kokoroflow.net/pdf-lib.min.js
+https://www.kokoroflow.net/tool-common.js
+https://www.kokoroflow.net/tool-pages.css
+https://www.kokoroflow.net/tool-shell.js

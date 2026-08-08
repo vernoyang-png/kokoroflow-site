@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-<head>
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f4ee">
@@ -76,7 +75,7 @@
       .footer-inner { padding:28px 16px; }
     }
   </style>
-</head>
+<link rel="stylesheet" href="flow-palette.css"></head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <header class="site-header">
@@ -118,7 +117,7 @@
 散步
 閱讀
 休息</textarea>
-        <div class="fields"><div><label for="picker-count-select">抽出數量</label><select id="picker-count-select"><option value="1" selected>1 個</option><option value="2">2 個</option><option value="3">3 個</option><option value="4">4 個</option><option value="5">5 個</option><option value="6">6 個</option><option value="7">7 個</option><option value="8">8 個</option><option value="9">9 個</option><option value="10">10 個</option></select></div><div><label for="picker-source-count">來源數量</label><input id="picker-source-count" type="number" min="1" max="999" value="" placeholder="例如 9 選 1 的 9" inputmode="numeric"><small class="field-note">有填來源數量時，會從 1 到該數字中抽選。</small></div></div>
+        <div class="fields"><div><label for="picker-count-select">抽出數量</label><select id="picker-count-select"><option value="1" selected="">1 個</option><option value="2">2 個</option><option value="3">3 個</option><option value="4">4 個</option><option value="5">5 個</option><option value="6">6 個</option><option value="7">7 個</option><option value="8">8 個</option><option value="9">9 個</option><option value="10">10 個</option></select></div><div><label for="picker-source-count">來源數量</label><input id="picker-source-count" type="number" min="1" max="999" value="" placeholder="例如 9 選 1 的 9" inputmode="numeric"><small class="field-note">有填來源數量時，會從 1 到該數字中抽選。</small></div></div>
         <div class="button-row"><button onclick="pickItems()">開始抽選</button><button class="secondary" onclick="setPickerPreset('meals')">套用餐點範例</button><button class="secondary" onclick="setPickerPreset('activities')">套用活動範例</button><button class="secondary" onclick="setPickerPreset('draw')">套用抽獎範例</button><button class="secondary" onclick="clearPicker()">清空</button></div>
         <div class="result" id="picker-result">可輸入選項池，或填來源數量做 9 選 1 這類抽選。</div>
       </section>
@@ -127,24 +126,24 @@
         <h2>貨幣換算</h2><p class="tool-desc">輸入金額與幣別後自動帶入參考匯率，也可手動微調匯率。</p>
         <div class="fields">
           <div><label for="currency-amount">來源金額</label><input id="currency-amount" type="number" value="1000" step="0.01" oninput="calcCurrency()"></div>
-          <div><label for="currency-from">來源貨幣</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="TWD" selected>TWD 新台幣</option><option value="USD">USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
-          <div><label for="currency-to">換算貨幣</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="TWD">TWD 新台幣</option><option value="USD" selected>USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
+          <div><label for="currency-from">來源貨幣</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="TWD" selected="">TWD 新台幣</option><option value="USD">USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
+          <div><label for="currency-to">換算貨幣</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="TWD">TWD 新台幣</option><option value="USD" selected="">USD 美元</option><option value="JPY">JPY 日圓</option><option value="CNY">CNY 人民幣</option><option value="HKD">HKD 港幣</option><option value="EUR">EUR 歐元</option><option value="GBP">GBP 英鎊</option><option value="KRW">KRW 韓元</option><option value="SGD">SGD 新加坡幣</option><option value="AUD">AUD 澳幣</option><option value="CAD">CAD 加幣</option><option value="THB">THB 泰銖</option></select></div>
           <div><label for="currency-rate">匯率</label><input id="currency-rate" type="number" value="0.030769" step="0.000001" oninput="calcCurrency('manual')"><small class="field-note">公開 API 匯率並非銀行即時牌告匯率，僅供參考。</small></div>
-          <div class="field-full"><label for="currency-result-amount">換算金額</label><input id="currency-result-amount" type="text" value="" readonly></div>
+          <div class="field-full"><label for="currency-result-amount">換算金額</label><input id="currency-result-amount" type="text" value="" readonly=""></div>
         </div>
-        <div class="result" id="currency-result">匯率會依幣別自動更新；若公開 API 暫時無法取得，會改用內建參考匯率。</div>
+        <div class="result" id="currency-result">正在取得公開 API 參考匯率...<small>匯率並非銀行即時牌告匯率，僅供參考。</small></div>
       </section>
 
       <section class="tool" id="loan">
         <h2>貸款月付試算</h2><p class="tool-desc">以本金、年利率與年限估算每月付款。</p>
         <div class="fields"><div><label for="loan-amount">貸款金額</label><input id="loan-amount" type="number" value="1000000"></div><div><label for="loan-rate">年利率 %</label><input id="loan-rate" type="number" value="2.2" step="0.01"></div><div><label for="loan-years">年限</label><input id="loan-years" type="number" value="20"></div></div>
-        <div class="button-row"><button onclick="calcLoan()">試算</button></div><div class="result" id="loan-result">月付金額會顯示在這裡</div>
+        <div class="button-row"><button onclick="calcLoan()">試算</button></div><div class="result" id="loan-result">每月約 5,154 元<small>總付款約 1,236,983 元，僅供估算。</small></div>
       </section>
 
       <section class="tool" id="bmi">
         <h2>BMI 計算</h2><p class="tool-desc">輸入身高體重，快速估算 BMI。</p>
         <div class="fields"><div><label for="bmi-height">身高 cm</label><input id="bmi-height" type="number" value="170"></div><div><label for="bmi-weight">體重 kg</label><input id="bmi-weight" type="number" value="65"></div></div>
-        <div class="button-row"><button onclick="calcBMI()">計算 BMI</button></div><div class="result" id="bmi-result">BMI 結果會顯示在這裡</div>
+        <div class="button-row"><button onclick="calcBMI()">計算 BMI</button></div><div class="result" id="bmi-result">BMI 22.5，分類：正常</div>
       </section>
     </div>
 
@@ -157,19 +156,19 @@
           <div><label for="pwd-lowercase">小寫字母</label><select id="pwd-lowercase"><option value="yes">包含</option><option value="no">不包含</option></select></div>
           <div><label for="pwd-numbers">數字</label><select id="pwd-numbers"><option value="yes">包含</option><option value="no">不包含</option></select></div>
           <div><label for="pwd-symbols">符號</label><select id="pwd-symbols"><option value="yes">包含</option><option value="no">不包含</option></select></div>
-          <div><label for="pwd-exclude-similar">排除相近字元</label><select id="pwd-exclude-similar"><option value="yes" selected>排除 0/O/1/l 等</option><option value="no">保留全部</option></select></div>
+          <div><label for="pwd-exclude-similar">排除相近字元</label><select id="pwd-exclude-similar"><option value="yes" selected="">排除 0/O/1/l 等</option><option value="no">保留全部</option></select></div>
         </div>
-        <div class="button-row"><button onclick="makePassword()">產生密碼</button><button class="secondary" onclick="copyText('password-result')">複製</button></div><div class="result" id="password-result">密碼會顯示在這裡</div>
+        <div class="button-row"><button onclick="makePassword()">產生密碼</button><button class="secondary" onclick="copyText('password-result')">複製</button></div><div class="result" id="password-result">w%R!#Er6j.`(zi=D</div>
       </section>
 
       <section class="tool" id="unit">
         <h2>單位換算</h2><p class="tool-desc">長度與重量分組選擇，來源單位與目的單位分開設定。</p>
         <div class="fields">
           <div><label for="unit-value">來源數值</label><input id="unit-value" type="number" value="100" step="0.01" oninput="convertUnit()"></div>
-          <div><label for="unit-from">來源單位</label><select id="unit-from" onchange="convertUnit()"><optgroup label="長度"><option value="cm" selected>公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in">英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
-          <div class="field-full"><label for="unit-to">目的單位</label><select id="unit-to" onchange="convertUnit()"><optgroup label="長度"><option value="cm">公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in" selected>英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+          <div><label for="unit-from">來源單位</label><select id="unit-from" onchange="convertUnit()"><optgroup label="長度"><option value="cm" selected="">公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in">英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
+          <div class="field-full"><label for="unit-to">目的單位</label><select id="unit-to" onchange="convertUnit()"><optgroup label="長度"><option value="cm">公分 cm</option><option value="m">公尺 m</option><option value="km">公里 km</option><option value="in" selected="">英吋 in</option><option value="ft">英尺 ft</option><option value="yd">碼 yd</option><option value="mi">英里 mi</option></optgroup><optgroup label="重量"><option value="g">公克 g</option><option value="kg">公斤 kg</option><option value="oz">盎司 oz</option><option value="lb">磅 lb</option></optgroup></select></div>
         </div>
-        <div class="button-row"><button onclick="convertUnit()">換算</button></div><div class="result" id="unit-result">換算結果會顯示在這裡</div>
+        <div class="button-row"><button onclick="convertUnit()">換算</button></div><div class="result" id="unit-result">100 公分 = 39.37 英吋</div>
       </section>
 
       <section class="tool" id="datecalc">
@@ -181,7 +180,7 @@
       <section class="tool" id="wordcount">
         <h2>字數統計</h2><p class="tool-desc">統計中文字數、英文單字、字元與行數。</p>
         <label for="word-input">文字</label><textarea id="word-input" oninput="countWords()">KokoroFlow 讓常用工具更好用。</textarea>
-        <div class="result" id="word-result">開始輸入文字後自動統計</div>
+        <div class="result" id="word-result">中文字：8，英文/數字詞：1，字元：20，行數：1</div>
       </section>
 
       <section class="tool" id="percent">
@@ -191,13 +190,13 @@
           <div><label for="percent-b">數值 B / 百分比</label><input id="percent-b" type="number" value="15"></div>
           <div class="field-full"><label for="percent-mode">計算模式</label><select id="percent-mode"><option value="of">A 的 B% 是多少</option><option value="rate">A 到 B 的變化率</option><option value="discount">A 打 B 折後價格</option></select></div>
         </div>
-        <div class="button-row"><button onclick="calcPercent()">計算</button></div><div class="result" id="percent-result">請輸入數值後計算</div>
+        <div class="button-row"><button onclick="calcPercent()">計算</button></div><div class="result" id="percent-result">1200 的 15% = 180.00</div>
       </section>
 
       <section class="tool" id="color">
         <h2>色碼轉換</h2><p class="tool-desc">將 HEX 色碼轉為 RGB，並預覽顏色。</p>
-        <div class="fields"><div><label for="color-hex">HEX 色碼</label><input id="color-hex" type="text" value="#2f6f62"></div><div><label>顏色預覽</label><div class="swatch" id="color-swatch"></div></div></div>
-        <div class="button-row"><button onclick="convertColor()">轉換</button></div><div class="result" id="color-result">RGB 結果會顯示在這裡</div>
+        <div class="fields"><div><label for="color-hex">HEX 色碼</label><input id="color-hex" type="text" value="#2f6f62"></div><div><label>顏色預覽</label><div class="swatch" id="color-swatch" style="background: rgb(47, 111, 98);"></div></div></div>
+        <div class="button-row"><button onclick="convertColor()">轉換</button></div><div class="result" id="color-result">RGB(47, 111, 98)</div>
       </section>
     </div>
   </main>
@@ -315,8 +314,6 @@
     const today=new Date(), later=new Date(Date.now()+7*86400000); $('date-start').value=today.toISOString().slice(0,10); $('date-end').value=later.toISOString().slice(0,10);
     countWords(); convertColor(); calcBMI(); calcPercent(); calcLoan(); convertUnit(); updateCurrencyRate(); makePassword();
   </script>
-</body>
-</html>
 
 
 
@@ -335,3 +332,6 @@
 
 
 
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

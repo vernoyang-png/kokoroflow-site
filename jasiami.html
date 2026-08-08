@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="zh-Hant-TW">
-<head>
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f4ee">
@@ -87,7 +86,7 @@
       .footer-inner { padding:28px 16px; }
     }
   </style>
-</head>
+<link rel="stylesheet" href="flow-palette.css"></head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <header class="site-header">
@@ -115,10 +114,82 @@
     </nav>
 
     <div class="meal-grid">
-      <section class="meal-card" id="breakfast"><div class="meal-head"><div><h2>早餐</h2><p>從早餐店、傳統早點到簡單西式，快速開始一天。</p></div><span class="badge">Morning</span></div><div id="breakfast-ui"></div></section>
-      <section class="meal-card" id="lunch"><div class="meal-head"><div><h2>午餐</h2><p>適合上班日、外食族與不知道要吃什麼的中午。</p></div><span class="badge">Lunch</span></div><div id="lunch-ui"></div></section>
+      <section class="meal-card" id="breakfast"><div class="meal-head"><div><h2>早餐</h2><p>從早餐店、傳統早點到簡單西式，快速開始一天。</p></div><span class="badge">Morning</span></div><div id="breakfast-ui">
+        <div class="tabs">
+          <button class="tab active" onclick="setStyle('breakfast','chinese')">中式</button>
+          <button class="tab " onclick="setStyle('breakfast','western')">西式</button>
+          <button class="tab " onclick="setStyle('breakfast','mixed')">混合</button>
+        </div>
+        <div class="cat-tabs">
+          <button class="cat-tab active" onclick="setCat('breakfast','rice')">飯類</button>
+          <button class="cat-tab " onclick="setCat('breakfast','noodle')">麵類</button>
+          <button class="cat-tab " onclick="setCat('breakfast','soup')">湯品鍋物</button>
+        </div>
+        <div class="list-box">
+          <div class="list-actions"><div class="list-meta">目前清單：飯類，可抽 7 / 共 7 個選項</div><button class="secondary small-button" onclick="restoreAll('breakfast')">全部恢復</button></div>
+          <div class="list-hint">點餐點可取消選取，再點一次恢復。</div>
+          <div class="food-tags"><button class="food-tag " onclick="toggleFood('breakfast','飯糰')" type="button">飯糰</button><button class="food-tag " onclick="toggleFood('breakfast','蛋餅')" type="button">蛋餅</button><button class="food-tag " onclick="toggleFood('breakfast','蘿蔔糕')" type="button">蘿蔔糕</button><button class="food-tag " onclick="toggleFood('breakfast','肉鬆飯糰')" type="button">肉鬆飯糰</button><button class="food-tag " onclick="toggleFood('breakfast','鮪魚飯糰')" type="button">鮪魚飯糰</button><button class="food-tag " onclick="toggleFood('breakfast','蔥抓餅')" type="button">蔥抓餅</button><button class="food-tag " onclick="toggleFood('breakfast','燒餅油條')" type="button">燒餅油條</button></div>
+        </div>
+        <div class="controls">
+          <input type="text" id="add-breakfast" placeholder="新增自訂餐點，例如：鹽酥雞" onkeydown="if(event.key==='Enter')addCustom('breakfast')">
+          <button onclick="addCustom('breakfast')">新增</button>
+        </div>
+        <div class="pick-row">
+          <div class="stepper"><span>抽出數量</span><button onclick="changeCount('breakfast',-1)">-</button><span id="cnt-breakfast">1</span><button onclick="changeCount('breakfast',1)">+</button></div>
+          <button onclick="pickMeal('breakfast')">幫我決定 早餐</button>
+        </div>
+        <div id="result-breakfast"></div></div></section>
+      <section class="meal-card" id="lunch"><div class="meal-head"><div><h2>午餐</h2><p>適合上班日、外食族與不知道要吃什麼的中午。</p></div><span class="badge">Lunch</span></div><div id="lunch-ui">
+        <div class="tabs">
+          <button class="tab active" onclick="setStyle('lunch','chinese')">中式</button>
+          <button class="tab " onclick="setStyle('lunch','western')">西式</button>
+          <button class="tab " onclick="setStyle('lunch','mixed')">混合</button>
+        </div>
+        <div class="cat-tabs">
+          <button class="cat-tab active" onclick="setCat('lunch','rice')">飯類</button>
+          <button class="cat-tab " onclick="setCat('lunch','noodle')">麵類</button>
+          <button class="cat-tab " onclick="setCat('lunch','soup')">湯品鍋物</button>
+        </div>
+        <div class="list-box">
+          <div class="list-actions"><div class="list-meta">目前清單：飯類，可抽 8 / 共 8 個選項</div><button class="secondary small-button" onclick="restoreAll('lunch')">全部恢復</button></div>
+          <div class="list-hint">點餐點可取消選取，再點一次恢復。</div>
+          <div class="food-tags"><button class="food-tag " onclick="toggleFood('lunch','滷肉飯')" type="button">滷肉飯</button><button class="food-tag " onclick="toggleFood('lunch','雞肉飯')" type="button">雞肉飯</button><button class="food-tag " onclick="toggleFood('lunch','排骨便當')" type="button">排骨便當</button><button class="food-tag " onclick="toggleFood('lunch','雞腿便當')" type="button">雞腿便當</button><button class="food-tag " onclick="toggleFood('lunch','燒臘飯')" type="button">燒臘飯</button><button class="food-tag " onclick="toggleFood('lunch','咖哩飯')" type="button">咖哩飯</button><button class="food-tag " onclick="toggleFood('lunch','控肉飯')" type="button">控肉飯</button><button class="food-tag " onclick="toggleFood('lunch','炒飯')" type="button">炒飯</button></div>
+        </div>
+        <div class="controls">
+          <input type="text" id="add-lunch" placeholder="新增自訂餐點，例如：鹽酥雞" onkeydown="if(event.key==='Enter')addCustom('lunch')">
+          <button onclick="addCustom('lunch')">新增</button>
+        </div>
+        <div class="pick-row">
+          <div class="stepper"><span>抽出數量</span><button onclick="changeCount('lunch',-1)">-</button><span id="cnt-lunch">1</span><button onclick="changeCount('lunch',1)">+</button></div>
+          <button onclick="pickMeal('lunch')">幫我決定 午餐</button>
+        </div>
+        <div id="result-lunch"></div></div></section>
 
-      <section class="meal-card" id="dinner"><div class="meal-head"><div><h2>晚餐</h2><p>下班後不想再做決定，就讓清單幫你挑一個。</p></div><span class="badge">Dinner</span></div><div id="dinner-ui"></div></section>
+      <section class="meal-card" id="dinner"><div class="meal-head"><div><h2>晚餐</h2><p>下班後不想再做決定，就讓清單幫你挑一個。</p></div><span class="badge">Dinner</span></div><div id="dinner-ui">
+        <div class="tabs">
+          <button class="tab active" onclick="setStyle('dinner','chinese')">中式</button>
+          <button class="tab " onclick="setStyle('dinner','western')">西式</button>
+          <button class="tab " onclick="setStyle('dinner','mixed')">混合</button>
+        </div>
+        <div class="cat-tabs">
+          <button class="cat-tab active" onclick="setCat('dinner','rice')">飯類</button>
+          <button class="cat-tab " onclick="setCat('dinner','noodle')">麵類</button>
+          <button class="cat-tab " onclick="setCat('dinner','soup')">湯品鍋物</button>
+        </div>
+        <div class="list-box">
+          <div class="list-actions"><div class="list-meta">目前清單：飯類，可抽 7 / 共 7 個選項</div><button class="secondary small-button" onclick="restoreAll('dinner')">全部恢復</button></div>
+          <div class="list-hint">點餐點可取消選取，再點一次恢復。</div>
+          <div class="food-tags"><button class="food-tag " onclick="toggleFood('dinner','熱炒配白飯')" type="button">熱炒配白飯</button><button class="food-tag " onclick="toggleFood('dinner','海南雞飯')" type="button">海南雞飯</button><button class="food-tag " onclick="toggleFood('dinner','石鍋拌飯')" type="button">石鍋拌飯</button><button class="food-tag " onclick="toggleFood('dinner','日式丼飯')" type="button">日式丼飯</button><button class="food-tag " onclick="toggleFood('dinner','鐵板燒')" type="button">鐵板燒</button><button class="food-tag " onclick="toggleFood('dinner','便當')" type="button">便當</button><button class="food-tag " onclick="toggleFood('dinner','粥品')" type="button">粥品</button></div>
+        </div>
+        <div class="controls">
+          <input type="text" id="add-dinner" placeholder="新增自訂餐點，例如：鹽酥雞" onkeydown="if(event.key==='Enter')addCustom('dinner')">
+          <button onclick="addCustom('dinner')">新增</button>
+        </div>
+        <div class="pick-row">
+          <div class="stepper"><span>抽出數量</span><button onclick="changeCount('dinner',-1)">-</button><span id="cnt-dinner">1</span><button onclick="changeCount('dinner',1)">+</button></div>
+          <button onclick="pickMeal('dinner')">幫我決定 晚餐</button>
+        </div>
+        <div id="result-dinner"></div></div></section>
     </div>
   </main>
 
@@ -216,8 +287,9 @@
     }
     renderMeal('breakfast'); renderMeal('lunch'); renderMeal('dinner');
   </script>
-</body>
-</html>
 
 
 
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

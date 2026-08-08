@@ -1,10 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f2ea">
-  <title>Salary & Take-Home Pay Calculator by State (2026) | KokoroFlow</title>
+  <title>Salary &amp; Take-Home Pay Calculator by State (2026) | KokoroFlow</title>
   <meta name="description" content="Estimate 2026 take-home pay by US state, including federal income tax, Social Security, Medicare, state income tax, and salary conversions.">
   <link rel="canonical" href="https://www.kokoroflow.net/salary-calculator.html">
   <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
@@ -17,49 +16,49 @@
     main{max-width:var(--wrap);margin:0 auto;padding:58px 24px 64px}.hero{max-width:850px;margin-bottom:28px}.eyebrow{margin:0 0 12px;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}h1,h2,h3,p{margin-top:0}h1{margin-bottom:16px;font-size:clamp(36px,6vw,62px);line-height:1.1}.lead{color:var(--muted);font-size:clamp(17px,2vw,20px)}.layout{display:grid;grid-template-columns:minmax(0,1.08fr) minmax(300px,.92fr);gap:18px;align-items:start}.tool,.article,.related{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow)}.tool h2,.article h2,.related h2{font-size:24px;margin-bottom:10px}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.field-full{grid-column:1/-1}label{display:block;margin-bottom:6px;font-weight:800;font-size:14px}input,select{width:100%;min-height:46px;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:#fff;color:var(--text);font:inherit}input:focus,select:focus{outline:3px solid var(--accent-soft);border-color:var(--accent)}.field-note{display:block;margin-top:6px;color:var(--muted);font-size:12px;line-height:1.45}.button-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}button{min-height:46px;padding:10px 18px;border:0;border-radius:999px;background:var(--text);color:#fff;font:inherit;font-weight:800;cursor:pointer}button:hover{transform:translateY(-1px)}.results{margin-top:18px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.result-card{padding:15px;border-radius:8px;background:var(--accent-soft);color:#244f46}.result-label{display:block;color:var(--muted);font-size:12px;font-weight:700}.result-value{display:block;font-size:21px;font-weight:800;line-height:1.3}.result-note{grid-column:1/-1;margin:0;color:var(--muted);font-size:13px}.article p,.article li,.related p{color:var(--muted)}.article ul{padding-left:20px}.ad-wrap{margin:28px 0;padding:14px;min-height:112px;display:grid;place-items:center;border:1px dashed var(--line);border-radius:var(--radius);background:var(--surface-2);overflow:hidden}.ad-label{margin-bottom:8px;color:var(--muted);font-size:11px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;text-align:center}.related{margin-top:18px}.related-links{display:flex;gap:10px;flex-wrap:wrap}.related-links a{padding:8px 12px;border:1px solid var(--line);border-radius:999px;background:#fff;text-decoration:none;color:var(--muted);font-weight:700}.site-footer{border-top:1px solid var(--line);background:var(--surface)}.footer-inner{max-width:var(--wrap);margin:0 auto;padding:30px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:14px}.footer-links{display:flex;gap:16px;flex-wrap:wrap}.footer-links a{text-decoration:none}
     @media(max-width:820px){.layout{grid-template-columns:1fr}.nav{align-items:flex-start;flex-direction:column;padding:12px 16px}main{padding:42px 16px}.tool,.article,.related{padding:20px}.footer-inner{padding:28px 16px}}@media(max-width:520px){.fields,.results{grid-template-columns:1fr}.field-full,.result-note{grid-column:auto}}
   </style>
-</head>
+<link rel="stylesheet" href="flow-palette.css"></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header"><nav class="nav" aria-label="Main navigation"><a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a><div class="nav-links"><a href="https://www.kokoroflow.net/">Home</a><a href="https://www.kokoroflow.net/7tools.html">All Tools</a><a href="https://www.kokoroflow.net/ai-prompt-journal.html">AI Prompts</a></div></nav></header>
   <main id="main">
-    <section class="hero"><p class="eyebrow">2026 KokoroFlow calculator</p><h1>Salary & Take-Home Pay Calculator</h1><p class="lead">Convert your salary and estimate take-home pay after federal payroll taxes and state income tax.</p></section>
+    <section class="hero"><p class="eyebrow">2026 KokoroFlow calculator</p><h1>Salary &amp; Take-Home Pay Calculator</h1><p class="lead">Convert your salary and estimate take-home pay after federal payroll taxes and state income tax.</p></section>
     <div class="layout">
       <section class="tool" aria-labelledby="calculator-title">
         <h2 id="calculator-title">Convert your salary</h2>
         <p>Enter a gross pay amount and choose how often you receive it.</p>
         <div class="fields">
           <div><label for="pay-amount">Pay amount ($)</label><input id="pay-amount" type="number" min="0" step="0.01" value="75000" inputmode="decimal"></div>
-          <div><label for="pay-period">Pay period</label><select id="pay-period"><option value="annual" selected>Annual</option><option value="monthly">Monthly</option><option value="biweekly">Biweekly</option><option value="weekly">Weekly</option><option value="daily">Daily</option><option value="hourly">Hourly</option></select></div>
+          <div><label for="pay-period">Pay period</label><select id="pay-period"><option value="annual" selected="">Annual</option><option value="monthly">Monthly</option><option value="biweekly">Biweekly</option><option value="weekly">Weekly</option><option value="daily">Daily</option><option value="hourly">Hourly</option></select></div>
           <div><label for="hours-week">Hours per week</label><input id="hours-week" type="number" min="1" max="168" step="0.5" value="40" inputmode="decimal"></div>
           <div><label for="days-week">Workdays per week</label><input id="days-week" type="number" min="1" max="7" step="1" value="5" inputmode="numeric"></div>
           <div class="field-full"><label for="unpaid-weeks">Unpaid weeks off per year</label><input id="unpaid-weeks" type="number" min="0" max="51" step="0.5" value="0" inputmode="decimal"><span class="field-note">Use 0 if your vacation and holidays are paid.</span></div>
-          <div><label for="filing-status">Federal filing status</label><select id="filing-status"><option value="single" selected>Single</option><option value="joint">Married filing jointly</option></select></div>
-          <div><label for="state">Work state</label><select id="state"></select></div>
+          <div><label for="filing-status">Federal filing status</label><select id="filing-status"><option value="single" selected="">Single</option><option value="joint">Married filing jointly</option></select></div>
+          <div><label for="state">Work state</label><select id="state"><option value="AL">Alabama</option><option value="AK">Alaska</option><option value="AZ">Arizona</option><option value="AR">Arkansas</option><option value="CA" selected="">California</option><option value="CO">Colorado</option><option value="CT">Connecticut</option><option value="DE">Delaware</option><option value="DC">Washington, DC</option><option value="FL">Florida</option><option value="GA">Georgia</option><option value="HI">Hawaii</option><option value="ID">Idaho</option><option value="IL">Illinois</option><option value="IN">Indiana</option><option value="IA">Iowa</option><option value="KS">Kansas</option><option value="KY">Kentucky</option><option value="LA">Louisiana</option><option value="ME">Maine</option><option value="MD">Maryland</option><option value="MA">Massachusetts</option><option value="MI">Michigan</option><option value="MN">Minnesota</option><option value="MS">Mississippi</option><option value="MO">Missouri</option><option value="MT">Montana</option><option value="NE">Nebraska</option><option value="NV">Nevada</option><option value="NH">New Hampshire</option><option value="NJ">New Jersey</option><option value="NM">New Mexico</option><option value="NY">New York</option><option value="NC">North Carolina</option><option value="ND">North Dakota</option><option value="OH">Ohio</option><option value="OK">Oklahoma</option><option value="OR">Oregon</option><option value="PA">Pennsylvania</option><option value="RI">Rhode Island</option><option value="SC">South Carolina</option><option value="SD">South Dakota</option><option value="TN">Tennessee</option><option value="TX">Texas</option><option value="UT">Utah</option><option value="VT">Vermont</option><option value="VA">Virginia</option><option value="WA">Washington</option><option value="WV">West Virginia</option><option value="WI">Wisconsin</option><option value="WY">Wyoming</option></select></div>
           <div><label for="pretax-deductions">Annual pre-tax deductions ($)</label><input id="pretax-deductions" type="number" min="0" step="100" value="0" inputmode="decimal"><span class="field-note">For example, eligible 401(k), HSA, or benefit deductions.</span></div>
-          <div><label for="state-rate">Estimated state tax rate (%)</label><input id="state-rate" type="number" min="0" max="20" step="0.01" value="0" inputmode="decimal"><span class="field-note" id="state-rate-note">Editable planning rate; local taxes are not included.</span></div>
+          <div><label for="state-rate">Estimated state tax rate (%)</label><input id="state-rate" type="number" min="0" max="20" step="0.01" value="0" inputmode="decimal"><span class="field-note" id="state-rate-note">Editable representative 2026 planning rate; progressive brackets, deductions, credits, and local taxes are simplified.</span></div>
         </div>
         <div class="button-row"><button type="button" id="calculate-button">Calculate Salary</button></div>
         <div class="results" id="salary-results" aria-live="polite">
-          <div class="result-card"><span class="result-label">Hourly</span><strong class="result-value" id="hourly-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Daily</span><strong class="result-value" id="daily-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Weekly</span><strong class="result-value" id="weekly-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Biweekly</span><strong class="result-value" id="biweekly-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Monthly</span><strong class="result-value" id="monthly-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Annual</span><strong class="result-value" id="annual-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Federal income tax</span><strong class="result-value" id="federal-tax-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Social Security</span><strong class="result-value" id="social-security-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Medicare</span><strong class="result-value" id="medicare-result">—</strong></div>
-          <div class="result-card"><span class="result-label">State income tax</span><strong class="result-value" id="state-tax-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Estimated annual take-home</span><strong class="result-value" id="takehome-annual-result">—</strong></div>
-          <div class="result-card"><span class="result-label">Estimated monthly take-home</span><strong class="result-value" id="takehome-monthly-result">—</strong></div>
-          <p class="result-note" id="result-note">Planning estimate only. Credits, dependents, local taxes, special state deductions, benefits, and other payroll items are not included.</p>
+          <div class="result-card"><span class="result-label">Hourly</span><strong class="result-value" id="hourly-result">$36.06</strong></div>
+          <div class="result-card"><span class="result-label">Daily</span><strong class="result-value" id="daily-result">$288.46</strong></div>
+          <div class="result-card"><span class="result-label">Weekly</span><strong class="result-value" id="weekly-result">$1,442.31</strong></div>
+          <div class="result-card"><span class="result-label">Biweekly</span><strong class="result-value" id="biweekly-result">$2,884.62</strong></div>
+          <div class="result-card"><span class="result-label">Monthly</span><strong class="result-value" id="monthly-result">$6,250.00</strong></div>
+          <div class="result-card"><span class="result-label">Annual</span><strong class="result-value" id="annual-result">$75,000.00</strong></div>
+          <div class="result-card"><span class="result-label">Federal income tax</span><strong class="result-value" id="federal-tax-result">$7,670.00</strong></div>
+          <div class="result-card"><span class="result-label">Social Security</span><strong class="result-value" id="social-security-result">$4,650.00</strong></div>
+          <div class="result-card"><span class="result-label">Medicare</span><strong class="result-value" id="medicare-result">$1,087.50</strong></div>
+          <div class="result-card"><span class="result-label">State income tax</span><strong class="result-value" id="state-tax-result">$6,975.00</strong></div>
+          <div class="result-card"><span class="result-label">Estimated annual take-home</span><strong class="result-value" id="takehome-annual-result">$54,617.50</strong></div>
+          <div class="result-card"><span class="result-label">Estimated monthly take-home</span><strong class="result-value" id="takehome-monthly-result">$4,551.46</strong></div>
+          <p class="result-note" id="result-note">2026 planning estimate using 52 paid weeks and a 9.30% state planning rate. Local taxes, credits, special state deductions, and other payroll items are not included.</p>
         </div>
       </section>
       <article class="article"><h2>How the 2026 tax estimate works</h2><p>The calculator applies the 2026 federal standard deduction and progressive federal tax brackets, then estimates employee Social Security and Medicare taxes.</p><h3>State version</h3><p>Select any state or Washington, DC. The state field loads a representative 2026 planning rate that you can edit. States with graduated brackets, deductions, credits, county taxes, or city taxes can differ materially from this estimate.</p><h3>Not included</h3><ul><li>Tax credits, dependents, itemized deductions, bonuses, and investment income.</li><li>Local income taxes and state payroll programs.</li><li>Employer benefits and post-tax deductions.</li></ul><p>This is an educational planning estimate, not tax, legal, or financial advice.</p><p><strong>2026 references:</strong> <a href="https://www.irs.gov/newsroom/irs-releases-tax-inflation-adjustments-for-tax-year-2026-including-amendments-from-the-one-big-beautiful-bill" target="_blank" rel="noopener">IRS federal brackets</a>, <a href="https://www.irs.gov/taxtopics/tc751" target="_blank" rel="noopener">IRS payroll tax rates</a>, and <a href="https://taxfoundation.org/data/all/state/state-income-tax-rates-2026/" target="_blank" rel="noopener">state rate structures</a>.</p></article>
     </div>
     <section class="related"><h2>More KokoroFlow tools</h2><p>Use another simple calculator when you need a quick estimate.</p><div class="related-links"><a href="tip-calculator.html">Tip</a><a href="sales-tax-calculator.html">Sales Tax</a><a href="mortgage-calculator.html">Mortgage</a><a href="bmi-calculator.html">BMI</a><a href="password-generator.html">Password</a><a href="7tools.html">All Tools</a></div></section>
   </main>
-  <footer class="site-footer"><div class="footer-inner"><div>&copy; 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="disclaimer.html">Disclaimer</a></div></div></footer>
   <script>
     const $ = id => document.getElementById(id);
     const money = value => new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', maximumFractionDigits:2 }).format(value);
@@ -146,5 +145,6 @@
     $('state').addEventListener('change', updateStateRate);
     populateStates();
   </script>
-</body>
-</html>
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>

@@ -1,6 +1,5 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
+<!DOCTYPE html>
+<html lang="en"><head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f2ea">
@@ -64,7 +63,7 @@
     @media (max-width:920px) { .grid { grid-template-columns:1fr; } }
     @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:42px 16px; } .fields { grid-template-columns:1fr; } .tool { padding:20px; } .footer-inner { padding:28px 16px; } }
   </style>
-</head>
+<link rel="stylesheet" href="flow-palette.css"></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
@@ -109,64 +108,64 @@ Lunch
 Walk
 Study
 Rest</textarea>
-        <div class="fields"><div><label for="picker-count-select">Number to pick</label><select id="picker-count-select"><option value="1" selected>1 item</option><option value="2">2 items</option><option value="3">3 items</option><option value="4">4 items</option><option value="5">5 items</option><option value="6">6 items</option><option value="7">7 items</option><option value="8">8 items</option><option value="9">9 items</option><option value="10">10 items</option></select></div><div><label for="picker-source-count">Source count</label><input id="picker-source-count" type="number" min="1" max="999" placeholder="For 12 choose 3, enter 12"></div></div>
+        <div class="fields"><div><label for="picker-count-select">Number to pick</label><select id="picker-count-select"><option value="1" selected="">1 item</option><option value="2">2 items</option><option value="3">3 items</option><option value="4">4 items</option><option value="5">5 items</option><option value="6">6 items</option><option value="7">7 items</option><option value="8">8 items</option><option value="9">9 items</option><option value="10">10 items</option></select></div><div><label for="picker-source-count">Source count</label><input id="picker-source-count" type="number" min="1" max="999" placeholder="For 12 choose 3, enter 12"></div></div>
         <div class="button-row"><button onclick="pickItems()">Pick Now</button><button class="secondary" onclick="clearPicker()">Clear</button></div><div class="result" id="picker-result">Enter options, or fill source count.</div>
       </section>
 
       <section class="tool" id="tip">
         <h2>Tip Calculator</h2><p class="tool-desc">Estimate tip, total, and per-person amount for restaurants or deliveries.</p>
         <div class="fields"><div><label for="tip-bill">Bill amount $</label><input id="tip-bill" type="number" value="48.50" step="0.01"></div><div><label for="tip-rate">Tip %</label><input id="tip-rate" type="number" value="20" step="0.5"></div><div><label for="tip-people">People</label><input id="tip-people" type="number" value="2" min="1"></div></div>
-        <div class="button-row"><button onclick="calcTip()">Calculate Tip</button></div><div class="result" id="tip-result">Tip and total will appear here.</div>
+        <div class="button-row"><button onclick="calcTip()">Calculate Tip</button></div><div class="result" id="tip-result">Tip: $9.70 | Total: $58.20<small>Per person: $29.10</small></div>
       </section>
 
       <section class="tool" id="salestax">
         <h2>Sales Tax Calculator</h2><p class="tool-desc">Enter a price and local tax rate to estimate the final checkout total.</p>
         <div class="fields"><div><label for="tax-price">Price $</label><input id="tax-price" type="number" value="99.99" step="0.01"></div><div><label for="tax-rate">Sales tax %</label><input id="tax-rate" type="number" value="8.25" step="0.01"></div></div>
-        <div class="button-row"><button onclick="calcSalesTax()">Calculate Total</button></div><div class="result" id="tax-result">Final total will appear here.</div>
+        <div class="button-row"><button onclick="calcSalesTax()">Calculate Total</button></div><div class="result" id="tax-result">Sales tax: $8.25 | Final total: $108.24</div>
       </section>
 
       <section class="tool" id="currency">
         <h2>Currency Converter</h2><p class="tool-desc">Use public API reference rates when available. Rates are for reference only.</p>
-        <div class="fields"><div><label for="currency-amount">Amount</label><input id="currency-amount" type="number" value="100" step="0.01" oninput="calcCurrency()"></div><div><label for="currency-from">From</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="USD" selected>USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD">CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-to">To</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="USD">USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD" selected>CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-rate">Rate</label><input id="currency-rate" type="number" value="32.5" step="0.000001" oninput="calcCurrency('manual')"><small class="field-note">Not a live bank rate. Reference only.</small></div><div class="field-full"><label for="currency-result-amount">Converted amount</label><input id="currency-result-amount" type="text" readonly></div></div>
-        <div class="result" id="currency-result">Rate will update by currency pair.</div>
+        <div class="fields"><div><label for="currency-amount">Amount</label><input id="currency-amount" type="number" value="100" step="0.01" oninput="calcCurrency()"></div><div><label for="currency-from">From</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="USD" selected="">USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD">CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-to">To</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="USD">USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD" selected="">CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-rate">Rate</label><input id="currency-rate" type="number" value="32.5" step="0.000001" oninput="calcCurrency('manual')"><small class="field-note">Not a live bank rate. Reference only.</small></div><div class="field-full"><label for="currency-result-amount">Converted amount</label><input id="currency-result-amount" type="text" readonly=""></div></div>
+        <div class="result" id="currency-result">Getting public API reference rate...<small>Rates are not live bank rates.</small></div>
       </section>
 
       <section class="tool" id="mortgage">
         <h2>Mortgage Calculator</h2><p class="tool-desc">Estimate a US-style monthly principal and interest payment.</p>
         <div class="fields"><div><label for="home-price">Home price $</label><input id="home-price" type="number" value="400000"></div><div><label for="down-payment">Down payment $</label><input id="down-payment" type="number" value="80000"></div><div><label for="mortgage-rate">APR %</label><input id="mortgage-rate" type="number" value="6.75" step="0.01"></div><div><label for="mortgage-years">Term years</label><input id="mortgage-years" type="number" value="30"></div></div>
-        <div class="button-row"><button onclick="calcMortgage()">Calculate Mortgage</button></div><div class="result" id="mortgage-result">Estimated payment will appear here.</div>
+        <div class="button-row"><button onclick="calcMortgage()">Calculate Mortgage</button></div><div class="result" id="mortgage-result">Loan amount: $320,000.00 | Estimated P&amp;I: $2,075.51 / month<small>Taxes, insurance, HOA, and PMI are not included.</small></div>
       </section>
 
       <section class="tool" id="bmi">
         <h2>BMI Calculator</h2><p class="tool-desc">Designed for US units: feet, inches, and pounds.</p>
         <div class="fields"><div><label for="bmi-ft">Height ft</label><input id="bmi-ft" type="number" value="5"></div><div><label for="bmi-in">Height in</label><input id="bmi-in" type="number" value="8"></div><div><label for="bmi-lb">Weight lb</label><input id="bmi-lb" type="number" value="160"></div></div>
-        <div class="button-row"><button onclick="calcBMI()">Calculate BMI</button></div><div class="result" id="bmi-result">BMI result will appear here.</div>
+        <div class="button-row"><button onclick="calcBMI()">Calculate BMI</button></div><div class="result" id="bmi-result">BMI: 24.3 (Normal range)</div>
       </section>
     </div>
 
     <div class="grid">
       <section class="tool" id="password">
         <h2>Password Generator</h2><p class="tool-desc">Generate a local random password with optional symbols and similar-character exclusion.</p>
-        <div class="fields"><div><label for="pwd-length">Length</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div><div><label for="pwd-uppercase">Uppercase</label><select id="pwd-uppercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-lowercase">Lowercase</label><select id="pwd-lowercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-numbers">Numbers</label><select id="pwd-numbers"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-symbols">Symbols</label><select id="pwd-symbols"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-exclude-similar">Similar characters</label><select id="pwd-exclude-similar"><option value="yes" selected>Exclude 0/O/1/l</option><option value="no">Keep all</option></select></div></div>
-        <div class="button-row"><button onclick="makePassword()">Generate</button><button class="secondary" onclick="copyText('password-result')">Copy</button></div><div class="result" id="password-result">Your password will appear here.</div>
+        <div class="fields"><div><label for="pwd-length">Length</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div><div><label for="pwd-uppercase">Uppercase</label><select id="pwd-uppercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-lowercase">Lowercase</label><select id="pwd-lowercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-numbers">Numbers</label><select id="pwd-numbers"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-symbols">Symbols</label><select id="pwd-symbols"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-exclude-similar">Similar characters</label><select id="pwd-exclude-similar"><option value="yes" selected="">Exclude 0/O/1/l</option><option value="no">Keep all</option></select></div></div>
+        <div class="button-row"><button onclick="makePassword()">Generate</button><button class="secondary" onclick="copyText('password-result')">Copy</button></div><div class="result" id="password-result">K}u7oGA!P;3tUj6o</div>
       </section>
 
       <section class="tool" id="unit">
         <h2>Unit Converter</h2><p class="tool-desc">Common US conversions: inches, feet, miles, pounds, and metric units.</p>
-        <div class="fields"><div><label for="unit-value">Value</label><input id="unit-value" type="number" value="10" step="0.01" oninput="convertUnit()"></div><div><label for="unit-from">From unit</label><select id="unit-from" onchange="convertUnit()"><optgroup label="Length"><option value="in" selected>Inches</option><option value="ft">Feet</option><option value="mi">Miles</option><option value="cm">Centimeters</option><option value="m">Meters</option><option value="km">Kilometers</option></optgroup><optgroup label="Weight"><option value="lb">Pounds</option><option value="oz">Ounces</option><option value="kg">Kilograms</option><option value="g">Grams</option></optgroup></select></div><div class="field-full"><label for="unit-to">To unit</label><select id="unit-to" onchange="convertUnit()"><optgroup label="Length"><option value="in">Inches</option><option value="ft">Feet</option><option value="mi">Miles</option><option value="cm" selected>Centimeters</option><option value="m">Meters</option><option value="km">Kilometers</option></optgroup><optgroup label="Weight"><option value="lb">Pounds</option><option value="oz">Ounces</option><option value="kg">Kilograms</option><option value="g">Grams</option></optgroup></select></div></div>
-        <div class="result" id="unit-result">Conversion result will appear here.</div>
+        <div class="fields"><div><label for="unit-value">Value</label><input id="unit-value" type="number" value="10" step="0.01" oninput="convertUnit()"></div><div><label for="unit-from">From unit</label><select id="unit-from" onchange="convertUnit()"><optgroup label="Length"><option value="in" selected="">Inches</option><option value="ft">Feet</option><option value="mi">Miles</option><option value="cm">Centimeters</option><option value="m">Meters</option><option value="km">Kilometers</option></optgroup><optgroup label="Weight"><option value="lb">Pounds</option><option value="oz">Ounces</option><option value="kg">Kilograms</option><option value="g">Grams</option></optgroup></select></div><div class="field-full"><label for="unit-to">To unit</label><select id="unit-to" onchange="convertUnit()"><optgroup label="Length"><option value="in">Inches</option><option value="ft">Feet</option><option value="mi">Miles</option><option value="cm" selected="">Centimeters</option><option value="m">Meters</option><option value="km">Kilometers</option></optgroup><optgroup label="Weight"><option value="lb">Pounds</option><option value="oz">Ounces</option><option value="kg">Kilograms</option><option value="g">Grams</option></optgroup></select></div></div>
+        <div class="result" id="unit-result">10 in = 25.4 cm</div>
       </section>
 
       <section class="tool" id="wordcount">
         <h2>Word Counter</h2><p class="tool-desc">Count words, characters, sentences, and estimated reading time.</p>
         <label for="word-input">Text</label><textarea id="word-input" oninput="countWords()">KokoroFlow makes everyday tools easier to use.</textarea>
-        <div class="result" id="word-result">Start typing to count text automatically.</div>
+        <div class="result" id="word-result">Words: 7 | Characters: 46 | Sentences: 1 | Reading time: about 1 min</div>
       </section>
 
       <section class="tool" id="timezone">
         <h2>US Time Zone Converter</h2><p class="tool-desc">Convert a time between Eastern, Central, Mountain, Pacific, Alaska, and Hawaii time.</p>
-        <div class="fields"><div><label for="tz-time">Time</label><input id="tz-time" type="time" value="09:00"></div><div><label for="tz-from">From</label><select id="tz-from"><option value="-5" selected>Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8">Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div><div class="field-full"><label for="tz-to">To</label><select id="tz-to"><option value="-5">Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8" selected>Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div></div>
-        <div class="button-row"><button onclick="convertTimeZone()">Convert Time</button></div><div class="result" id="timezone-result">Converted time will appear here.</div>
+        <div class="fields"><div><label for="tz-time">Time</label><input id="tz-time" type="time" value="09:00"></div><div><label for="tz-from">From</label><select id="tz-from"><option value="-5" selected="">Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8">Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div><div class="field-full"><label for="tz-to">To</label><select id="tz-to"><option value="-5">Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8" selected="">Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div></div>
+        <div class="button-row"><button onclick="convertTimeZone()">Convert Time</button></div><div class="result" id="timezone-result">Converted time: 6:00 AM</div>
       </section>
     </div>
   </main>
@@ -285,5 +284,6 @@ Rest</textarea>
 
     calcTip(); calcSalesTax(); updateCurrencyRate(); calcMortgage(); calcBMI(); makePassword(); convertUnit(); countWords(); convertTimeZone();
   </script>
-</body>
-</html>
+
+
+</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>
