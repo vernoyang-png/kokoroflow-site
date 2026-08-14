@@ -60,10 +60,12 @@
     .footer-inner { max-width:var(--wrap); margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
     .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
     .footer-links a { text-decoration:none; }
+    .link-card{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+    .link-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .link-card .card-arrow{margin-top:16px;color:var(--accent-2);font-weight:800;font-size:14px}
     @media (max-width:920px) { .grid { grid-template-columns:1fr; } }
     @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:42px 16px; } .fields { grid-template-columns:1fr; } .tool { padding:20px; } .footer-inner { padding:28px 16px; } }
-  </style>
-<link rel="stylesheet" href="flow-palette.css"></head>
+  </style></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
@@ -99,6 +101,45 @@
       </nav>
     </section>
 
+    <section class="hero" aria-labelledby="linked-tools-title">
+      <p class="eyebrow">Full calculators</p>
+      <h2 id="linked-tools-title">Open the full version of each calculator.</h2>
+      <p class="lead">These tools have their own dedicated page with a complete input set, worked examples, and detailed guidance. Tap a card to open it.</p>
+    </section>
+
+    <div class="grid">
+      <a class="tool link-card" href="tip-calculator.html">
+        <div><h2>Tip Calculator</h2><p class="tool-desc">Estimate tip, total, and per-person amount for restaurants or deliveries.</p></div>
+        <span class="card-arrow">Open Tip Calculator →</span>
+      </a>
+      <a class="tool link-card" href="sales-tax-calculator.html">
+        <div><h2>Sales Tax Calculator</h2><p class="tool-desc">Enter a price and local tax rate to estimate the final checkout total.</p></div>
+        <span class="card-arrow">Open Sales Tax Calculator →</span>
+      </a>
+      <a class="tool link-card" href="currency-converter.html">
+        <div><h2>Currency Converter</h2><p class="tool-desc">Convert common currencies using a current public reference rate.</p></div>
+        <span class="card-arrow">Open Currency Converter →</span>
+      </a>
+      <a class="tool link-card" href="mortgage-calculator.html">
+        <div><h2>Mortgage Calculator</h2><p class="tool-desc">Estimate a US-style monthly principal and interest payment, with an extra-payment option.</p></div>
+        <span class="card-arrow">Open Mortgage Calculator →</span>
+      </a>
+      <a class="tool link-card" href="bmi-calculator.html">
+        <div><h2>BMI Calculator</h2><p class="tool-desc">Designed for US units: feet, inches, and pounds, with a visual reference scale.</p></div>
+        <span class="card-arrow">Open BMI Calculator →</span>
+      </a>
+      <a class="tool link-card" href="password-generator.html">
+        <div><h2>Password Generator</h2><p class="tool-desc">Generate a local random password with optional symbols and similar-character exclusion.</p></div>
+        <span class="card-arrow">Open Password Generator →</span>
+      </a>
+    </div>
+
+    <section class="hero" aria-labelledby="quick-tools-title">
+      <p class="eyebrow">Quick tools</p>
+      <h2 id="quick-tools-title">No dedicated page needed — use these right here.</h2>
+      <p class="lead">These simple utilities run entirely on this page.</p>
+    </section>
+
     <div class="grid">
       <section class="tool" id="picker">
         <h2>Random Picker</h2><p class="tool-desc">Enter a list, or use source count for choices like 12 choose 3.</p>
@@ -110,44 +151,6 @@ Study
 Rest</textarea>
         <div class="fields"><div><label for="picker-count-select">Number to pick</label><select id="picker-count-select"><option value="1" selected="">1 item</option><option value="2">2 items</option><option value="3">3 items</option><option value="4">4 items</option><option value="5">5 items</option><option value="6">6 items</option><option value="7">7 items</option><option value="8">8 items</option><option value="9">9 items</option><option value="10">10 items</option></select></div><div><label for="picker-source-count">Source count</label><input id="picker-source-count" type="number" min="1" max="999" placeholder="For 12 choose 3, enter 12"></div></div>
         <div class="button-row"><button onclick="pickItems()">Pick Now</button><button class="secondary" onclick="clearPicker()">Clear</button></div><div class="result" id="picker-result">Enter options, or fill source count.</div>
-      </section>
-
-      <section class="tool" id="tip">
-        <h2>Tip Calculator</h2><p class="tool-desc">Estimate tip, total, and per-person amount for restaurants or deliveries.</p>
-        <div class="fields"><div><label for="tip-bill">Bill amount $</label><input id="tip-bill" type="number" value="48.50" step="0.01"></div><div><label for="tip-rate">Tip %</label><input id="tip-rate" type="number" value="20" step="0.5"></div><div><label for="tip-people">People</label><input id="tip-people" type="number" value="2" min="1"></div></div>
-        <div class="button-row"><button onclick="calcTip()">Calculate Tip</button></div><div class="result" id="tip-result">Tip: $9.70 | Total: $58.20<small>Per person: $29.10</small></div>
-      </section>
-
-      <section class="tool" id="salestax">
-        <h2>Sales Tax Calculator</h2><p class="tool-desc">Enter a price and local tax rate to estimate the final checkout total.</p>
-        <div class="fields"><div><label for="tax-price">Price $</label><input id="tax-price" type="number" value="99.99" step="0.01"></div><div><label for="tax-rate">Sales tax %</label><input id="tax-rate" type="number" value="8.25" step="0.01"></div></div>
-        <div class="button-row"><button onclick="calcSalesTax()">Calculate Total</button></div><div class="result" id="tax-result">Sales tax: $8.25 | Final total: $108.24</div>
-      </section>
-
-      <section class="tool" id="currency">
-        <h2>Currency Converter</h2><p class="tool-desc">Use public API reference rates when available. Rates are for reference only.</p>
-        <div class="fields"><div><label for="currency-amount">Amount</label><input id="currency-amount" type="number" value="100" step="0.01" oninput="calcCurrency()"></div><div><label for="currency-from">From</label><select id="currency-from" onchange="updateCurrencyRate()"><option value="USD" selected="">USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD">CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-to">To</label><select id="currency-to" onchange="updateCurrencyRate()"><option value="USD">USD US dollar</option><option value="TWD">TWD Taiwan dollar</option><option value="JPY">JPY Japanese yen</option><option value="EUR">EUR Euro</option><option value="GBP">GBP British pound</option><option value="CAD" selected="">CAD Canadian dollar</option><option value="AUD">AUD Australian dollar</option><option value="SGD">SGD Singapore dollar</option><option value="HKD">HKD Hong Kong dollar</option></select></div><div><label for="currency-rate">Rate</label><input id="currency-rate" type="number" value="32.5" step="0.000001" oninput="calcCurrency('manual')"><small class="field-note">Not a live bank rate. Reference only.</small></div><div class="field-full"><label for="currency-result-amount">Converted amount</label><input id="currency-result-amount" type="text" readonly=""></div></div>
-        <div class="result" id="currency-result">Getting public API reference rate...<small>Rates are not live bank rates.</small></div>
-      </section>
-
-      <section class="tool" id="mortgage">
-        <h2>Mortgage Calculator</h2><p class="tool-desc">Estimate a US-style monthly principal and interest payment.</p>
-        <div class="fields"><div><label for="home-price">Home price $</label><input id="home-price" type="number" value="400000"></div><div><label for="down-payment">Down payment $</label><input id="down-payment" type="number" value="80000"></div><div><label for="mortgage-rate">APR %</label><input id="mortgage-rate" type="number" value="6.75" step="0.01"></div><div><label for="mortgage-years">Term years</label><input id="mortgage-years" type="number" value="30"></div></div>
-        <div class="button-row"><button onclick="calcMortgage()">Calculate Mortgage</button></div><div class="result" id="mortgage-result">Loan amount: $320,000.00 | Estimated P&amp;I: $2,075.51 / month<small>Taxes, insurance, HOA, and PMI are not included.</small></div>
-      </section>
-
-      <section class="tool" id="bmi">
-        <h2>BMI Calculator</h2><p class="tool-desc">Designed for US units: feet, inches, and pounds.</p>
-        <div class="fields"><div><label for="bmi-ft">Height ft</label><input id="bmi-ft" type="number" value="5"></div><div><label for="bmi-in">Height in</label><input id="bmi-in" type="number" value="8"></div><div><label for="bmi-lb">Weight lb</label><input id="bmi-lb" type="number" value="160"></div></div>
-        <div class="button-row"><button onclick="calcBMI()">Calculate BMI</button></div><div class="result" id="bmi-result">BMI: 24.3 (Normal range)</div>
-      </section>
-    </div>
-
-    <div class="grid">
-      <section class="tool" id="password">
-        <h2>Password Generator</h2><p class="tool-desc">Generate a local random password with optional symbols and similar-character exclusion.</p>
-        <div class="fields"><div><label for="pwd-length">Length</label><input id="pwd-length" type="number" min="8" max="128" value="16"></div><div><label for="pwd-uppercase">Uppercase</label><select id="pwd-uppercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-lowercase">Lowercase</label><select id="pwd-lowercase"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-numbers">Numbers</label><select id="pwd-numbers"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-symbols">Symbols</label><select id="pwd-symbols"><option value="yes">Include</option><option value="no">Exclude</option></select></div><div><label for="pwd-exclude-similar">Similar characters</label><select id="pwd-exclude-similar"><option value="yes" selected="">Exclude 0/O/1/l</option><option value="no">Keep all</option></select></div></div>
-        <div class="button-row"><button onclick="makePassword()">Generate</button><button class="secondary" onclick="copyText('password-result')">Copy</button></div><div class="result" id="password-result">K}u7oGA!P;3tUj6o</div>
       </section>
 
       <section class="tool" id="unit">
@@ -193,70 +196,6 @@ Rest</textarea>
     }
     function clearPicker(){ $('picker-input').value = ''; $('picker-source-count').value = ''; $('picker-count-select').value = '1'; $('picker-result').textContent = 'Cleared. Enter options or source count.'; }
 
-    function calcTip(){
-      const bill = nums('tip-bill'), rate = nums('tip-rate') / 100, people = Math.max(1, nums('tip-people'));
-      const tip = bill * rate, total = bill + tip;
-      $('tip-result').innerHTML = `Tip: ${dollars(tip)} | Total: ${dollars(total)}<small>Per person: ${dollars(total / people)}</small>`;
-    }
-    function calcSalesTax(){
-      const price = nums('tax-price'), rate = nums('tax-rate') / 100;
-      const tax = price * rate, total = price + tax;
-      $('tax-result').innerHTML = `Sales tax: ${dollars(tax)} | Final total: ${dollars(total)}`;
-    }
-
-    const fallbackRates = { USD:1, TWD:32.5, JPY:157, EUR:.92, GBP:.79, CAD:1.36, AUD:1.5, SGD:1.35, HKD:7.8 };
-    let currencyRateSource = 'Built-in reference rate';
-    function setCurrencyRate(rate, source){ currencyRateSource = source; $('currency-rate').value = Number(rate).toFixed(rate >= 1 ? 4 : 6); calcCurrency(); }
-    function fallbackCurrencyRate(){ const from = $('currency-from').value, to = $('currency-to').value; setCurrencyRate((fallbackRates[to] || 1) / (fallbackRates[from] || 1), 'Built-in reference rate'); }
-    async function updateCurrencyRate(){
-      const from = $('currency-from').value, to = $('currency-to').value;
-      if (from === to) { setCurrencyRate(1, 'Same currency'); return; }
-      $('currency-result').innerHTML = 'Getting public API reference rate...<small>Rates are not live bank rates.</small>';
-      try {
-        const response = await fetch(`https://open.er-api.com/v6/latest/${encodeURIComponent(from)}`, { cache:'no-store' });
-        if (!response.ok) throw new Error('rate API failed');
-        const data = await response.json();
-        const rate = Number(data && data.rates && data.rates[to]);
-        if (!rate) throw new Error('currency missing');
-        setCurrencyRate(rate, 'Public API reference rate');
-      } catch (error) { fallbackCurrencyRate(); }
-    }
-    function calcCurrency(mode){
-      if (mode === 'manual') currencyRateSource = 'Manual rate';
-      const amount = nums('currency-amount'), rate = nums('currency-rate'), to = $('currency-to').value;
-      $('currency-result-amount').value = `${fmt(amount * rate)} ${to}`;
-      $('currency-result').innerHTML = `${amount} ${$('currency-from').value} is about ${$('currency-result-amount').value}<small>${currencyRateSource}. Reference only.</small>`;
-    }
-
-    function calcMortgage(){
-      const price = nums('home-price'), down = nums('down-payment'), principal = Math.max(0, price - down), months = Math.max(1, nums('mortgage-years') * 12), r = nums('mortgage-rate') / 100 / 12;
-      const pay = r ? principal * r * Math.pow(1 + r, months) / (Math.pow(1 + r, months) - 1) : principal / months;
-      $('mortgage-result').innerHTML = `Loan amount: ${dollars(principal)} | Estimated P&I: ${dollars(pay)} / month<small>Taxes, insurance, HOA, and PMI are not included.</small>`;
-    }
-    function calcBMI(){
-      const inches = nums('bmi-ft') * 12 + nums('bmi-in'), pounds = nums('bmi-lb');
-      if (!inches || !pounds) { $('bmi-result').textContent = 'Please enter height and weight.'; return; }
-      const bmi = pounds / (inches * inches) * 703;
-      const level = bmi < 18.5 ? 'Underweight' : bmi < 25 ? 'Normal range' : bmi < 30 ? 'Overweight range' : 'Higher range';
-      $('bmi-result').textContent = `BMI: ${bmi.toFixed(1)} (${level})`;
-    }
-
-    function makePassword(){
-      const len = Math.max(8, Math.min(128, nums('pwd-length')));
-      const groups = [];
-      if ($('pwd-uppercase').value === 'yes') groups.push('ABCDEFGHIJKLMNOPQRSTUVWXYZ');
-      if ($('pwd-lowercase').value === 'yes') groups.push('abcdefghijklmnopqrstuvwxyz');
-      if ($('pwd-numbers').value === 'yes') groups.push('0123456789');
-      if ($('pwd-symbols').value === 'yes') groups.push("!@#$%^&*()-_=+[]{};:,.?/'\"|~`");
-      let chars = groups.join('');
-      if ($('pwd-exclude-similar').value === 'yes') chars = chars.split('').filter(ch => !'0O1Il|5S2Z8B'.includes(ch)).join('');
-      if (!chars.length) { $('password-result').textContent = 'Please include at least one character type.'; return; }
-      let out = '';
-      crypto.getRandomValues(new Uint32Array(len)).forEach(n => out += chars[n % chars.length]);
-      $('password-result').textContent = out;
-    }
-    async function copyText(id){ const text = $(id).textContent; try { await navigator.clipboard.writeText(text); $(id).innerHTML = `${text}<small>Copied</small>`; } catch(e) {} }
-
     const unitData = {
       in:{ group:'length', base:0.0254, label:'in' }, ft:{ group:'length', base:0.3048, label:'ft' }, mi:{ group:'length', base:1609.344, label:'mi' }, cm:{ group:'length', base:0.01, label:'cm' }, m:{ group:'length', base:1, label:'m' }, km:{ group:'length', base:1000, label:'km' },
       lb:{ group:'weight', base:0.45359237, label:'lb' }, oz:{ group:'weight', base:0.028349523125, label:'oz' }, kg:{ group:'weight', base:1, label:'kg' }, g:{ group:'weight', base:0.001, label:'g' }
@@ -282,7 +221,7 @@ Rest</textarea>
       $('timezone-result').textContent = `Converted time: ${display}`;
     }
 
-    calcTip(); calcSalesTax(); updateCurrencyRate(); calcMortgage(); calcBMI(); makePassword(); convertUnit(); countWords(); convertTimeZone();
+    convertUnit(); countWords(); convertTimeZone();
   </script>
 
 
