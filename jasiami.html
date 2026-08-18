@@ -85,8 +85,8 @@
       .pick-row { align-items:stretch; flex-direction:column; }
       .footer-inner { padding:28px 16px; }
     }
-  </style>
-<link rel="stylesheet" href="flow-palette.css"></head>
+    .guide-section{padding:36px 0 64px}.guide-stack{display:grid;gap:18px}.guide-block{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}.guide-block h2{margin:0 0 12px;font-size:1.35rem}.guide-block p,.guide-block li{color:var(--muted)}.guide-block ul,.guide-block ol{margin:0;padding-left:22px}.guide-block li+li{margin-top:8px}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.faq-list{display:grid;gap:10px}.faq-list details{padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}.faq-list summary{cursor:pointer;font-weight:700;color:var(--text)}.faq-list details p{margin:10px 0 0}@media(max-width:680px){.guide-grid{grid-template-columns:1fr}.guide-block{padding:20px}}
+  </style></head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
   <header class="site-header">
@@ -94,7 +94,7 @@
       <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
       <div class="nav-links">
         <a href="https://www.kokoroflow.net/">首頁</a>
-        <a href="7tools.html">工具箱</a>
+        <a href="free-tools-zh.html">工具箱</a>
         <a href="#breakfast">早餐</a>
         <a href="#lunch">午餐</a>
         <a href="#dinner">晚餐</a>
@@ -193,10 +193,37 @@
     </div>
   </main>
 
+  <section class="guide-section" aria-labelledby="guide-title"><div class="guide-stack" style="max-width:var(--wrap);margin:0 auto;padding:0 24px">
+    <div class="guide-block"><h2 id="guide-title">為什麼會做這個小工具？</h2><p>「今天吃什麼」是每天都會遇到的小煩惱，選項太多反而更難決定。這個工具把早餐、午餐、晚餐分開處理，並依中式、西式、混合路邊攤等分類整理常見選項，讓你可以直接抽選，或先排除不想吃的項目後再抽，快速幫自己、家人或同事做決定。</p></div>
+
+    <div class="guide-grid">
+      <div class="guide-block"><h2>怎麼使用</h2><ol>
+        <li>選擇要決定的餐別：早餐、午餐或晚餐</li>
+        <li>選擇風格：中式、西式或混合，中式還可再選飯類、麵類、湯品鍋物</li>
+        <li>點選餐點標籤可以暫時排除不想吃的選項，再點一次可以恢復</li>
+        <li>也可以在下方輸入框新增自己常吃、但清單裡沒有的餐點</li>
+        <li>設定要抽出幾個選項，按下「幫我決定」就會隨機抽出結果</li>
+      </ol></div>
+      <div class="guide-block"><h2>適合的使用情境</h2><ul>
+        <li>自己一個人吃飯，實在想不出來要吃什麼</li>
+        <li>朋友聚餐意見不合，用抽選當公平的裁決方式</li>
+        <li>辦公室訂便當，用「抽出數量」一次決定 2-3 個選項讓大家投票</li>
+        <li>想避開最近常吃的東西，先排除幾樣再抽</li>
+      </ul></div>
+    </div>
+
+    <div class="guide-block"><h2>常見問題</h2><div class="faq-list">
+      <details><summary>我新增的自訂餐點會被儲存嗎？</summary><p>不會，自訂餐點只存在於這次瀏覽的頁面中，重新整理頁面或關閉分頁後就會消失。這是為了不需要帳號登入、也不會蒐集任何個人資料的簡單設計。</p></details>
+      <details><summary>抽選的邏輯公平嗎？</summary><p>抽選是在你的瀏覽器裡用亂數隨機排序後選取，每個未被排除的選項機率相同，不會刻意偏向某一項。</p></details>
+      <details><summary>可以一次抽多個選項嗎？</summary><p>可以，「抽出數量」最多可以設定到 3 個，適合想要一個主選、再搭配備選方案的情況。</p></details>
+      <details><summary>這個工具會用到我的個人資料嗎？</summary><p>不會，所有清單和抽選都在你的瀏覽器本機執行，不會上傳任何資料，也沒有使用帳號或追蹤機制。</p></details>
+    </div></div>
+  </div></section>
+
   <footer class="site-footer">
     <div class="footer-inner">
       <div>© 2026 KokoroFlow. All rights reserved.</div>
-      <div class="footer-links"><a href="https://www.kokoroflow.net/">首頁</a><a href="7tools.html">常用工具箱</a><a href="https://www.kokoroflow.net/privacy.html">隱私權政策</a></div>
+      <div class="footer-links"><a href="https://www.kokoroflow.net/">首頁</a><a href="free-tools-zh.html">常用工具箱</a><a href="https://www.kokoroflow.net/privacy.html">隱私權政策</a></div>
     </div>
   </footer>
 
