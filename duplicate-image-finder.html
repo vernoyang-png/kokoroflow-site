@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Duplicate & Similar Image Finder – Free, Private, No Upload | KokoroFlow</title>
+  <meta name="description" content="Find duplicate and visually similar photos in your browser. Select a folder of images and instantly see which ones match — nothing is uploaded, everything runs on your device.">
+  <link rel="canonical" href="https://www.kokoroflow.net/duplicate-image-finder.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .drop-zone{border:2px dashed var(--line);border-radius:var(--radius);padding:36px 20px;text-align:center;background:var(--surface2);cursor:pointer;transition:border-color .15s,background .15s}
+    .drop-zone:hover,.drop-zone.drag{border-color:var(--accent);background:var(--soft)}
+    .drop-zone p{margin:0;color:var(--muted);font-weight:700}
+    .drop-zone input{display:none}
+    .progress-row{margin-top:14px;display:flex;align-items:center;gap:10px;font-size:13px;color:var(--muted)}
+    .progress-bar{flex:1;height:8px;border-radius:99px;background:var(--surface2);overflow:hidden}
+    .progress-fill{height:100%;width:0%;background:var(--accent);transition:width .2s}
+    .threshold-row{margin-top:16px;display:flex;align-items:center;gap:12px}
+    .threshold-row input[type=range]{flex:1}
+    .group{margin-top:18px;padding:16px;border:1px solid var(--line);border-radius:9px;background:#fff}
+    .group-head{display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-weight:800;font-size:14px}
+    .group-head .tag{padding:3px 9px;border-radius:999px;font-size:11px;font-weight:800;letter-spacing:.04em}
+    .tag.exact{background:#fde2e1;color:#8a2620}
+    .tag.similar{background:var(--soft);color:#244f46}
+    .thumb-row{display:flex;flex-wrap:wrap;gap:10px}
+    .thumb{width:96px;text-align:center}
+    .thumb img{width:96px;height:96px;object-fit:cover;border-radius:8px;border:1px solid var(--line);display:block}
+    .thumb .fname{margin-top:4px;font-size:11px;color:var(--muted);word-break:break-all}
+    .empty-state{margin-top:18px;color:var(--muted);font-size:14px}
+    .stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+    .stat-pill{padding:8px 14px;border-radius:999px;background:var(--soft);color:#244f46;font-size:13px;font-weight:700}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Image tool</p>
+      <h1>Duplicate & Similar Image Finder</h1>
+      <p class="lead">Select a batch of photos and instantly see which ones are exact duplicates or visually near-identical. Everything runs in your browser — nothing is uploaded anywhere.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Scan your photos</h2>
+        <div class="drop-zone" id="drop-zone">
+          <p id="drop-label">Click to select images, or drag and drop them here</p>
+          <input type="file" id="file-input" accept="image/*" multiple>
+        </div>
+        <div class="progress-row" id="progress-row" style="display:none">
+          <span id="progress-text">Analyzing 0 / 0</span>
+          <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+        </div>
+
+        <div class="threshold-row">
+          <label for="threshold" style="margin:0;white-space:nowrap">Similarity sensitivity</label>
+          <input type="range" id="threshold" min="0" max="12" value="4" oninput="onThresholdChange()">
+          <span id="threshold-label" style="font-weight:800;font-size:13px;min-width:70px">Balanced</span>
+        </div>
+        <small class="note">Lower = only near-identical images match. Higher = catches more loosely similar images too.</small>
+
+        <div class="stat-row" id="stat-row" style="display:none">
+          <span class="stat-pill" id="stat-total"></span>
+          <span class="stat-pill" id="stat-groups"></span>
+        </div>
+
+        <div id="results"></div>
+        <p class="empty-state" id="empty-state">No images scanned yet. Select a batch of photos above to get started.</p>
+      </section>
+
+      <aside class="article">
+        <h2>How this works</h2>
+        <p>Each image is reduced to a tiny 9×8 grayscale grid, and a 64-bit fingerprint (a "difference hash") is generated from how its pixel brightness changes step to step. Two images with an identical fingerprint are exact duplicates; images with a very close fingerprint are visually similar — even if they were resized, re-compressed, or saved in a different format.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Every image is read and hashed directly in your browser using the Canvas API.</li>
+          <li><strong>Storage:</strong> Nothing is saved — refreshing the page clears everything.</li>
+          <li><strong>Limits:</strong> Very large batches (500+ high-resolution photos) may take a little longer since all processing happens on your device's CPU, not a server.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="exif-metadata-remover.html">EXIF Remover</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Will this catch resized or cropped copies of the same photo?</strong><br>Resized copies, yes — the hash is based on relative brightness patterns, not exact pixel size, so a photo and its smaller resized version will usually still match. Cropped or rotated versions are harder to catch reliably, since cropping changes which parts of the image are compared.</p>
+      <p><strong>Why does raising the sensitivity slider find more matches?</strong><br>The slider controls how many of the 64 fingerprint bits are allowed to differ before two images still count as a match. A stricter setting only flags near-perfect duplicates; a looser setting also catches images that are merely visually similar, like two photos taken seconds apart in the same scene.</p>
+      <p><strong>Does this work with HEIC photos from an iPhone?</strong><br>It depends on your browser's built-in image support — Safari can usually display HEIC files directly, while some other browsers may not render them. If a thumbnail doesn't appear, try converting the batch with the <a href="image-converter.html">Image Converter</a> first.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const dropZone = $('drop-zone'), fileInput = $('file-input');
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('drag');
+      handleFiles(Array.from(e.dataTransfer.files).filter(f => f.type.startsWith('image/')));
+    });
+    fileInput.addEventListener('change', () => handleFiles(Array.from(fileInput.files)));
+
+    const thresholdLabels = {0:'Exact only',1:'Very strict',2:'Very strict',3:'Strict',4:'Balanced',5:'Balanced',6:'Relaxed',7:'Relaxed',8:'Loose',9:'Loose',10:'Very loose',11:'Very loose',12:'Broadest'};
+    function onThresholdChange(){
+      $('threshold-label').textContent = thresholdLabels[$('threshold').value] || 'Balanced';
+      if (lastImages.length) renderGroups();
+    }
+
+    let lastImages = [];
+
+    async function handleFiles(files){
+      if (!files.length) return;
+      $('drop-label').textContent = `${files.length} image${files.length>1?'s':''} selected — click to choose a different batch`;
+      $('progress-row').style.display = 'flex';
+      $('empty-state').style.display = 'none';
+      $('results').innerHTML = '';
+      lastImages = [];
+
+      for (let i = 0; i < files.length; i++){
+        $('progress-text').textContent = `Analyzing ${i+1} / ${files.length}`;
+        $('progress-fill').style.width = `${Math.round(((i+1)/files.length)*100)}%`;
+        try {
+          const hash = await hashImageFile(files[i]);
+          const url = URL.createObjectURL(files[i]);
+          lastImages.push({ name: files[i].name, hash, url });
+        } catch(e) { /* skip unreadable file */ }
+        await new Promise(r => setTimeout(r, 0));
+      }
+      $('progress-row').style.display = 'none';
+      renderGroups();
+    }
+
+    function hashImageFile(file){
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.onload = () => {
+          try { resolve(dHash(img)); } catch(e){ reject(e); }
+        };
+        img.onerror = reject;
+        img.src = URL.createObjectURL(file);
+      });
+    }
+
+    function dHash(img){
+      const w = 9, h = 8;
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      const data = ctx.getImageData(0, 0, w, h).data;
+      const gray = [];
+      for (let i = 0; i < data.length; i += 4){
+        gray.push(0.299*data[i] + 0.587*data[i+1] + 0.114*data[i+2]);
+      }
+      let bits = '';
+      for (let row = 0; row < h; row++){
+        for (let col = 0; col < w-1; col++){
+          const left = gray[row*w+col], right = gray[row*w+col+1];
+          bits += left > right ? '1' : '0';
+        }
+      }
+      return bits;
+    }
+
+    function hamming(a, b){
+      let d = 0;
+      for (let i = 0; i < a.length; i++) if (a[i] !== b[i]) d++;
+      return d;
+    }
+
+    function renderGroups(){
+      const threshold = Number($('threshold').value);
+      const used = new Array(lastImages.length).fill(false);
+      const groups = [];
+
+      for (let i = 0; i < lastImages.length; i++){
+        if (used[i]) continue;
+        const cluster = [i];
+        for (let j = i+1; j < lastImages.length; j++){
+          if (used[j]) continue;
+          if (hamming(lastImages[i].hash, lastImages[j].hash) <= threshold) cluster.push(j);
+        }
+        if (cluster.length > 1){
+          cluster.forEach(idx => used[idx] = true);
+          groups.push(cluster);
+        }
+      }
+
+      $('stat-row').style.display = lastImages.length ? 'flex' : 'none';
+      $('stat-total').textContent = `${lastImages.length} image${lastImages.length!==1?'s':''} scanned`;
+      $('stat-groups').textContent = `${groups.length} duplicate/similar group${groups.length!==1?'s':''} found`;
+
+      const container = $('results');
+      if (!groups.length){
+        container.innerHTML = lastImages.length ? '<p class="empty-state">No duplicates or similar images found at this sensitivity level. Try raising the slider.</p>' : '';
+        return;
+      }
+
+      container.innerHTML = groups.map((cluster, gi) => {
+        const items = cluster.map(idx => lastImages[idx]);
+        const exact = cluster.every((idx, k) => k===0 || lastImages[idx].hash === lastImages[cluster[0]].hash);
+        return `<div class="group">
+          <div class="group-head"><span>Group ${gi+1} — ${items.length} images</span><span class="tag ${exact?'exact':'similar'}">${exact?'Exact match':'Similar'}</span></div>
+          <div class="thumb-row">${items.map(it => `<div class="thumb"><img src="${it.url}" alt="${it.name}"><div class="fname">${it.name}</div></div>`).join('')}</div>
+        </div>`;
+      }).join('');
+    }
+  </script>
+</body></html>

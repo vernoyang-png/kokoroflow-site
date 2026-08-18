@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Folder Comparison Report – Free, Private, No Upload | KokoroFlow</title>
+  <meta name="description" content="Compare two folders and see exactly which files are only in A, only in B, or different between them. Generates a report only — nothing is uploaded, copied, or synced.">
+  <link rel="canonical" href="https://www.kokoroflow.net/folder-diff-checker.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .drop-pair{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .drop-zone{border:2px dashed var(--line);border-radius:var(--radius);padding:26px 14px;text-align:center;background:var(--surface2);cursor:pointer}
+    .drop-zone:hover{border-color:var(--accent);background:var(--soft)}
+    .drop-zone p{margin:0;color:var(--muted);font-weight:700;font-size:13.5px}
+    .drop-zone .folder-label{display:block;margin-bottom:6px;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);font-weight:800}
+    .drop-zone input{display:none}
+    .banner{margin-top:14px;padding:12px 14px;border-radius:8px;background:var(--soft);color:#244f46;font-size:13px;font-weight:700}
+    .stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .stat-pill{padding:8px 14px;border-radius:999px;font-size:13px;font-weight:700}
+    .stat-pill.only-a{background:#ffe9d9;color:#8a4a12}
+    .stat-pill.only-b{background:#e0ecff;color:#1d3f8a}
+    .stat-pill.diff{background:#fde2e1;color:#8a2620}
+    .stat-pill.same{background:var(--soft);color:#244f46}
+    .diff-section{margin-top:20px}
+    .diff-section h3{font-size:15px;margin-bottom:8px}
+    .diff-list{list-style:none;margin:0;padding:0;border:1px solid var(--line);border-radius:9px;overflow:hidden}
+    .diff-list li{padding:9px 14px;font-size:13.5px;border-bottom:1px solid var(--line);word-break:break-all}
+    .diff-list li:last-child{border-bottom:0}
+    .diff-list li.only-a{background:#fff7f0}
+    .diff-list li.only-b{background:#f0f5ff}
+    .diff-list li.diff{background:#fff5f5}
+    .empty-state{margin-top:18px;color:var(--muted);font-size:14px}
+    .browser-note{margin-top:10px;padding:10px 12px;border-radius:8px;background:#fff4d8;color:#7a5a00;font-size:12.5px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · File tool</p>
+      <h1>Folder Comparison Report</h1>
+      <p class="lead">Select two folders and see a clear report of what's only in Folder A, only in Folder B, or present in both but different in size. This tool only compares and reports — it never copies, deletes, or syncs anything.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Select two folders to compare</h2>
+        <div class="drop-pair">
+          <div class="drop-zone" id="zone-a" onclick="document.getElementById('input-a').click()">
+            <span class="folder-label">Folder A</span>
+            <p id="label-a">Click to select Folder A</p>
+            <input type="file" id="input-a" webkitdirectory multiple>
+          </div>
+          <div class="drop-zone" id="zone-b" onclick="document.getElementById('input-b').click()">
+            <span class="folder-label">Folder B</span>
+            <p id="label-b">Click to select Folder B</p>
+            <input type="file" id="input-b" webkitdirectory multiple>
+          </div>
+        </div>
+        <p class="browser-note">This uses your browser's folder-selection feature, which works best in Chrome, Edge, and other Chromium-based browsers. Safari and Firefox may prompt differently or have limited support.</p>
+
+        <div class="actions">
+          <button onclick="compareFolders()">Compare folders</button>
+        </div>
+
+        <div class="stat-row" id="stat-row" style="display:none">
+          <span class="stat-pill only-a" id="stat-only-a"></span>
+          <span class="stat-pill only-b" id="stat-only-b"></span>
+          <span class="stat-pill diff" id="stat-diff"></span>
+          <span class="stat-pill same" id="stat-same"></span>
+        </div>
+
+        <div id="results"></div>
+        <p class="empty-state" id="empty-state">Select both folders above, then click Compare to generate a report.</p>
+      </section>
+
+      <aside class="article">
+        <h2>What this compares</h2>
+        <p>Every file's relative path, name, and size inside each folder is read directly by your browser. Files are matched by their relative path within each folder, then compared on file size to flag likely differences. This is a <strong>comparison report only</strong> — it does not read file contents byte-by-byte, and it never copies, moves, deletes, or synchronizes anything between the two folders.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Folder contents are listed locally in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is saved after you leave the page.</li>
+          <li><strong>Limits:</strong> Folders with tens of thousands of files may take a few seconds to list.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="duplicate-image-finder.html">Duplicate Image Finder</a>
+        <a href="batch-file-renamer.html">Batch File Renamer</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Can this tool sync or merge the two folders for me?</strong><br>No — by design, this tool only produces a report of differences. Browsers don't allow a webpage to write, copy, or delete files on your computer without your explicit action in a native file dialog, so any actual copying or merging needs to be done manually using your operating system's file manager.</p>
+      <p><strong>Why does it compare file size instead of exact content?</strong><br>Reading and hashing the full contents of every file in two large folders directly in a browser can be slow, especially for large media files. Comparing size is a fast, reliable first check — if you need byte-for-byte certainty on a specific file, you can always open both copies directly to confirm.</p>
+      <p><strong>Does the folder structure (subfolders) matter?</strong><br>Yes — files are matched by their full relative path, so a file in the same subfolder location in both A and B will be correctly matched, even if there are many nested folders.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let filesA = null, filesB = null;
+
+    $('input-a').addEventListener('change', e => {
+      filesA = Array.from(e.target.files);
+      $('label-a').textContent = `${filesA.length} files selected`;
+    });
+    $('input-b').addEventListener('change', e => {
+      filesB = Array.from(e.target.files);
+      $('label-b').textContent = `${filesB.length} files selected`;
+    });
+
+    function relPath(file){
+      return file.webkitRelativePath.split('/').slice(1).join('/');
+    }
+
+    function compareFolders(){
+      if (!filesA || !filesB){
+        $('empty-state').textContent = 'Please select both Folder A and Folder B first.';
+        $('empty-state').style.display = 'block';
+        return;
+      }
+      const mapA = {}, mapB = {};
+      filesA.forEach(f => mapA[relPath(f)] = f.size);
+      filesB.forEach(f => mapB[relPath(f)] = f.size);
+
+      const onlyA = [], onlyB = [], diff = [], same = [];
+      const allPaths = new Set([...Object.keys(mapA), ...Object.keys(mapB)]);
+      allPaths.forEach(p => {
+        const inA = p in mapA, inB = p in mapB;
+        if (inA && !inB) onlyA.push(p);
+        else if (!inA && inB) onlyB.push(p);
+        else if (mapA[p] !== mapB[p]) diff.push(p);
+        else same.push(p);
+      });
+
+      $('empty-state').style.display = 'none';
+      $('stat-row').style.display = 'flex';
+      $('stat-only-a').textContent = `${onlyA.length} only in A`;
+      $('stat-only-b').textContent = `${onlyB.length} only in B`;
+      $('stat-diff').textContent = `${diff.length} different size`;
+      $('stat-same').textContent = `${same.length} identical`;
+
+      const section = (title, cls, list) => list.length ? `
+        <div class="diff-section"><h3>${title}</h3>
+        <ul class="diff-list">${list.map(p => `<li class="${cls}">${p}</li>`).join('')}</ul></div>` : '';
+
+      $('results').innerHTML =
+        section('Only in Folder A', 'only-a', onlyA) +
+        section('Only in Folder B', 'only-b', onlyB) +
+        section('Present in both, different size', 'diff', diff);
+    }
+  </script>
+</body></html>

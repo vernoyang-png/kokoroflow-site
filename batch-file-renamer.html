@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Batch File Renamer – Free, Private, No Upload | KokoroFlow</title>
+  <meta name="description" content="Rename dozens of files at once with prefixes, suffixes, sequential numbering, or find-and-replace rules. Everything runs in your browser — download the renamed files as a single ZIP.">
+  <link rel="canonical" href="https://www.kokoroflow.net/batch-file-renamer.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+  <style>
+    .drop-zone{border:2px dashed var(--line);border-radius:var(--radius);padding:32px 20px;text-align:center;background:var(--surface2);cursor:pointer;transition:border-color .15s,background .15s}
+    .drop-zone:hover,.drop-zone.drag{border-color:var(--accent);background:var(--soft)}
+    .drop-zone p{margin:0;color:var(--muted);font-weight:700}
+    .drop-zone input{display:none}
+    .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin:14px 0}
+    .mode-tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-weight:800;font-size:13px;cursor:pointer}
+    .mode-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .mode-fields{display:none}
+    .mode-fields.active{display:grid}
+    table.rename-table{width:100%;border-collapse:collapse;margin-top:16px;font-size:13.5px}
+    table.rename-table th,table.rename-table td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line)}
+    table.rename-table th{font-size:11px;text-transform:uppercase;letter-spacing:.04em;color:var(--muted)}
+    .arrow{color:var(--accent);font-weight:800}
+    .empty-state{margin-top:18px;color:var(--muted);font-size:14px}
+    .file-count-pill{padding:8px 14px;border-radius:999px;background:var(--soft);color:#244f46;font-size:13px;font-weight:700;display:inline-block;margin-top:12px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · File tool</p>
+      <h1>Batch File Renamer</h1>
+      <p class="lead">Select a batch of files, choose a renaming rule, preview every new name, then download them all at once as a ZIP. Nothing is uploaded — renaming happens entirely in your browser.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Select files to rename</h2>
+        <div class="drop-zone" id="drop-zone">
+          <p id="drop-label">Click to select files, or drag and drop them here</p>
+          <input type="file" id="file-input" multiple>
+        </div>
+        <div id="file-count-wrap" style="display:none"><span class="file-count-pill" id="file-count-pill"></span></div>
+
+        <h2 style="margin-top:22px">Choose a renaming rule</h2>
+        <div class="mode-tabs">
+          <div class="mode-tab active" data-mode="prefix" onclick="setMode('prefix')">Add prefix</div>
+          <div class="mode-tab" data-mode="suffix" onclick="setMode('suffix')">Add suffix</div>
+          <div class="mode-tab" data-mode="sequence" onclick="setMode('sequence')">Sequential numbering</div>
+          <div class="mode-tab" data-mode="replace" onclick="setMode('replace')">Find &amp; replace</div>
+        </div>
+
+        <div class="fields mode-fields active" data-mode="prefix">
+          <div class="full"><label for="prefix-text">Text to add before each filename</label><input id="prefix-text" type="text" value="2026-vacation_" oninput="renderPreview()"></div>
+        </div>
+        <div class="fields mode-fields" data-mode="suffix">
+          <div class="full"><label for="suffix-text">Text to add before the file extension</label><input id="suffix-text" type="text" value="_edited" oninput="renderPreview()"></div>
+        </div>
+        <div class="fields mode-fields" data-mode="sequence">
+          <div><label for="seq-base">Base name</label><input id="seq-base" type="text" value="photo" oninput="renderPreview()"></div>
+          <div><label for="seq-start">Start number</label><input id="seq-start" type="number" value="1" oninput="renderPreview()"></div>
+          <div><label for="seq-digits">Digits (padding)</label><input id="seq-digits" type="number" value="3" min="1" max="6" oninput="renderPreview()"></div>
+        </div>
+        <div class="fields mode-fields" data-mode="replace">
+          <div><label for="find-text">Find</label><input id="find-text" type="text" placeholder="e.g. IMG_" oninput="renderPreview()"></div>
+          <div><label for="replace-text">Replace with</label><input id="replace-text" type="text" placeholder="e.g. photo_" oninput="renderPreview()"></div>
+        </div>
+
+        <table class="rename-table" id="rename-table" style="display:none">
+          <thead><tr><th>Original name</th><th></th><th>New name</th></tr></thead>
+          <tbody id="rename-tbody"></tbody>
+        </table>
+        <p class="empty-state" id="empty-state">No files selected yet. Choose a batch of files above to preview the renamed results.</p>
+
+        <div class="actions">
+          <button id="download-btn" onclick="downloadZip()" style="display:none">Download renamed files (.zip)</button>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>How this works</h2>
+        <p>Browsers don't allow a webpage to directly rename files sitting on your computer — that's a deliberate security limit, not a bug. Instead, this tool reads each selected file, applies your renaming rule, and packages everything into a single ZIP file with the new names already applied, ready to extract wherever you like.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Files are read and repackaged entirely in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is kept after you leave the page.</li>
+          <li><strong>Limits:</strong> Very large batches (hundreds of high-resolution files) may take a moment to zip since it all happens on your device.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="duplicate-image-finder.html">Duplicate Image Finder</a>
+        <a href="image-compressor.html">Image Compressor</a>
+        <a href="image-converter.html">Image Converter</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Does this actually rename the files on my computer?</strong><br>Not directly — for security reasons, browsers can't modify files sitting on your hard drive. Instead, this tool creates copies with the new names inside a downloadable ZIP, which you can then extract to replace or supplement your originals.</p>
+      <p><strong>What happens if two files end up with the same new name?</strong><br>The preview table lets you check every result before downloading. If a rule like find-and-replace produces a collision, you'll see two identical names in the preview — try adjusting the rule, or switch to sequential numbering, which never produces duplicates.</p>
+      <p><strong>Does sequential numbering keep the original file extensions?</strong><br>Yes — only the name portion is replaced with the base name and number; each file's original extension (.jpg, .pdf, .docx, etc.) is preserved automatically.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const dropZone = $('drop-zone'), fileInput = $('file-input');
+    let files = [];
+    let currentMode = 'prefix';
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    dropZone.addEventListener('dragover', e => { e.preventDefault(); dropZone.classList.add('drag'); });
+    dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag'));
+    dropZone.addEventListener('drop', e => {
+      e.preventDefault(); dropZone.classList.remove('drag');
+      handleFiles(Array.from(e.dataTransfer.files));
+    });
+    fileInput.addEventListener('change', () => handleFiles(Array.from(fileInput.files)));
+
+    function handleFiles(list){
+      if (!list.length) return;
+      files = list;
+      $('drop-label').textContent = `${files.length} file${files.length>1?'s':''} selected — click to choose a different batch`;
+      $('file-count-wrap').style.display = 'block';
+      $('file-count-pill').textContent = `${files.length} file${files.length>1?'s':''} ready`;
+      $('empty-state').style.display = 'none';
+      $('rename-table').style.display = 'table';
+      $('download-btn').style.display = 'inline-flex';
+      renderPreview();
+    }
+
+    function setMode(mode){
+      currentMode = mode;
+      document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === mode));
+      document.querySelectorAll('.mode-fields').forEach(f => f.classList.toggle('active', f.dataset.mode === mode));
+      renderPreview();
+    }
+
+    function splitExt(name){
+      const i = name.lastIndexOf('.');
+      if (i <= 0) return [name, ''];
+      return [name.slice(0, i), name.slice(i)];
+    }
+
+    function computeNewNames(){
+      if (currentMode === 'prefix'){
+        const p = $('prefix-text').value;
+        return files.map(f => p + f.name);
+      }
+      if (currentMode === 'suffix'){
+        const s = $('suffix-text').value;
+        return files.map(f => { const [base, ext] = splitExt(f.name); return base + s + ext; });
+      }
+      if (currentMode === 'sequence'){
+        const base = $('seq-base').value || 'file';
+        const start = Number($('seq-start').value) || 1;
+        const digits = Math.max(1, Math.min(6, Number($('seq-digits').value) || 3));
+        return files.map((f, i) => {
+          const [, ext] = splitExt(f.name);
+          const num = String(start + i).padStart(digits, '0');
+          return `${base}_${num}${ext}`;
+        });
+      }
+      if (currentMode === 'replace'){
+        const find = $('find-text').value, repl = $('replace-text').value;
+        if (!find) return files.map(f => f.name);
+        return files.map(f => f.name.split(find).join(repl));
+      }
+      return files.map(f => f.name);
+    }
+
+    function renderPreview(){
+      if (!files.length) return;
+      const newNames = computeNewNames();
+      $('rename-tbody').innerHTML = files.map((f, i) =>
+        `<tr><td>${f.name}</td><td class="arrow">→</td><td>${newNames[i]}</td></tr>`
+      ).join('');
+    }
+
+    async function downloadZip(){
+      if (!files.length) return;
+      const btn = $('download-btn');
+      const originalLabel = btn.textContent;
+      btn.textContent = 'Zipping…';
+      btn.disabled = true;
+      const zip = new JSZip();
+      const newNames = computeNewNames();
+      const usedNames = {};
+      for (let i = 0; i < files.length; i++){
+        let name = newNames[i];
+        if (usedNames[name] !== undefined){
+          usedNames[name]++;
+          const [base, ext] = splitExt(name);
+          name = `${base} (${usedNames[name]})${ext}`;
+        } else {
+          usedNames[name] = 0;
+        }
+        const buf = await files[i].arrayBuffer();
+        zip.file(name, buf);
+      }
+      const blob = await zip.generateAsync({ type: 'blob' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'renamed-files.zip';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+      btn.textContent = originalLabel;
+      btn.disabled = false;
+    }
+  </script>
+</body></html>

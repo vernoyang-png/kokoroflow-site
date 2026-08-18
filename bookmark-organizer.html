@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Bookmark Cleaner & Organizer – Free, Private, No Upload | KokoroFlow</title>
+  <meta name="description" content="Import your exported browser bookmarks, remove duplicates and dead-looking entries, sort them, and export a clean bookmarks file back. Nothing is uploaded — all local.">
+  <link rel="canonical" href="https://www.kokoroflow.net/bookmark-organizer.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .drop-zone{border:2px dashed var(--line);border-radius:var(--radius);padding:30px 20px;text-align:center;background:var(--surface2);cursor:pointer}
+    .drop-zone:hover{border-color:var(--accent);background:var(--soft)}
+    .drop-zone p{margin:0;color:var(--muted);font-weight:700}
+    .drop-zone input{display:none}
+    .stat-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+    .stat-pill{padding:8px 14px;border-radius:999px;background:var(--soft);color:#244f46;font-size:13px;font-weight:700}
+    .bm-list{list-style:none;margin:16px 0 0;padding:0;border:1px solid var(--line);border-radius:9px;overflow:hidden;max-height:520px;overflow-y:auto}
+    .bm-item{display:flex;align-items:center;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line);font-size:13.5px}
+    .bm-item:last-child{border-bottom:0}
+    .bm-item.removed{opacity:.4;text-decoration:line-through}
+    .bm-item .bm-title{font-weight:700;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .bm-item .bm-url{color:var(--muted);font-size:11.5px;flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .bm-item button{min-height:30px;padding:4px 10px;font-size:12px}
+    .dup-tag{padding:2px 8px;border-radius:999px;background:#fde2e1;color:#8a2620;font-size:10.5px;font-weight:800}
+    .empty-state{margin-top:18px;color:var(--muted);font-size:14px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Browser tool</p>
+      <h1>Bookmark Cleaner & Organizer</h1>
+      <p class="lead">Import a bookmarks file exported from your browser, spot duplicate links, remove the ones you don't need, and export a cleaned-up file to import back. Everything happens in your browser — nothing is uploaded.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Import your bookmarks</h2>
+        <div class="drop-zone" id="drop-zone">
+          <p id="drop-label">Click to select your exported bookmarks .html file</p>
+          <input type="file" id="file-input" accept=".html,text/html">
+        </div>
+        <small class="note">In Chrome: Bookmarks menu → Bookmark Manager → ⋮ menu → Export bookmarks. In Firefox: Bookmarks → Manage Bookmarks → Import and Backup → Export Bookmarks to HTML.</small>
+
+        <div class="stat-row" id="stat-row" style="display:none">
+          <span class="stat-pill" id="stat-total"></span>
+          <span class="stat-pill" id="stat-dupes"></span>
+          <span class="stat-pill" id="stat-kept"></span>
+        </div>
+
+        <ul class="bm-list" id="bm-list" style="display:none"></ul>
+        <p class="empty-state" id="empty-state">No bookmarks imported yet. Select your exported bookmarks file above.</p>
+
+        <div class="actions">
+          <button id="remove-dupes-btn" onclick="removeAllDuplicates()" style="display:none" class="secondary">Remove all duplicates at once</button>
+          <button id="download-btn" onclick="downloadBookmarks()" style="display:none">Download cleaned bookmarks (.html)</button>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>How this works</h2>
+        <p>Browser bookmark exports are a standard HTML file format that every major browser can both write and read. This tool parses that file, flags entries that share the exact same URL as duplicates, and lets you remove anything you don't want — then rebuilds a valid bookmarks file you can import straight back into any browser.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. The bookmarks file is parsed and edited entirely in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is saved — refreshing the page clears everything.</li>
+          <li>This tool does not check whether links are still live; it only organizes what's in the file you import.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="duplicate-image-finder.html">Duplicate Image Finder</a>
+        <a href="batch-file-renamer.html">Batch File Renamer</a>
+        <a href="folder-diff-checker.html">Folder Diff Checker</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Will this delete bookmarks directly from my browser?</strong><br>No — it only works on the exported file you import. To apply the cleaned-up result, you'll need to import the downloaded file back into your browser afterward (most browsers let you choose to replace or merge on import).</p>
+      <p><strong>Does this check if the links still work?</strong><br>No, this tool only organizes and de-duplicates what's already in your export — it doesn't visit any of the links, since checking hundreds of live URLs from a browser tab isn't reliable due to cross-site request restrictions.</p>
+      <p><strong>Can I use this across different browsers, like exporting from Chrome and importing into Firefox?</strong><br>Yes — the bookmarks HTML export format is a shared standard supported by Chrome, Firefox, Edge, and Safari, so a cleaned file exported here should import into any of them.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const dropZone = $('drop-zone'), fileInput = $('file-input');
+    let bookmarks = []; // {title, url, removed}
+
+    dropZone.addEventListener('click', () => fileInput.click());
+    fileInput.addEventListener('change', () => {
+      const file = fileInput.files[0];
+      if (!file) return;
+      $('drop-label').textContent = `${file.name} — click to import a different file`;
+      const reader = new FileReader();
+      reader.onload = e => parseBookmarks(e.target.result);
+      reader.readAsText(file);
+    });
+
+    function parseBookmarks(html){
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const anchors = Array.from(doc.querySelectorAll('a'));
+      bookmarks = anchors.map(a => ({
+        title: a.textContent.trim() || a.getAttribute('href'),
+        url: a.getAttribute('href') || '',
+        removed: false
+      })).filter(b => b.url);
+
+      markDuplicates();
+      renderList();
+    }
+
+    function markDuplicates(){
+      const seen = {};
+      bookmarks.forEach(b => {
+        if (seen[b.url] !== undefined){
+          b.isDupe = true;
+        } else {
+          seen[b.url] = true;
+          b.isDupe = false;
+        }
+      });
+    }
+
+    function renderList(){
+      $('empty-state').style.display = 'none';
+      $('bm-list').style.display = 'block';
+      $('remove-dupes-btn').style.display = 'inline-flex';
+      $('download-btn').style.display = 'inline-flex';
+      $('stat-row').style.display = 'flex';
+
+      const total = bookmarks.length;
+      const dupeCount = bookmarks.filter(b => b.isDupe).length;
+      const kept = bookmarks.filter(b => !b.removed).length;
+      $('stat-total').textContent = `${total} bookmarks imported`;
+      $('stat-dupes').textContent = `${dupeCount} duplicate URLs`;
+      $('stat-kept').textContent = `${kept} will be kept`;
+
+      $('bm-list').innerHTML = bookmarks.map((b, i) => `
+        <li class="bm-item ${b.removed ? 'removed' : ''}">
+          ${b.isDupe ? '<span class="dup-tag">DUPLICATE</span>' : ''}
+          <span class="bm-title">${escapeHtml(b.title)}</span>
+          <span class="bm-url">${escapeHtml(b.url)}</span>
+          <button class="secondary" onclick="toggleRemove(${i})">${b.removed ? 'Keep' : 'Remove'}</button>
+        </li>`).join('');
+    }
+
+    function toggleRemove(i){
+      bookmarks[i].removed = !bookmarks[i].removed;
+      renderList();
+    }
+
+    function removeAllDuplicates(){
+      const seen = {};
+      bookmarks.forEach(b => {
+        if (seen[b.url]) { b.removed = true; }
+        else { seen[b.url] = true; }
+      });
+      renderList();
+    }
+
+    function escapeHtml(s){
+      return s.replace(/[&<>"']/g, m => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
+    }
+
+    function downloadBookmarks(){
+      const kept = bookmarks.filter(b => !b.removed);
+      const body = kept.map(b => `    <DT><A HREF="${b.url}">${escapeHtml(b.title)}</A>`).join('\n');
+      const doc = `<!DOCTYPE NETSCAPE-Bookmark-file-1>
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=UTF-8">
+<TITLE>Bookmarks</TITLE>
+<H1>Bookmarks</H1>
+<DL><p>
+<DT><H3>Cleaned Bookmarks</H3>
+<DL><p>
+${body}
+</DL><p>
+</DL><p>`;
+      const blob = new Blob([doc], { type: 'text/html' });
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'cleaned-bookmarks.html';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    }
+  </script>
+</body></html>
