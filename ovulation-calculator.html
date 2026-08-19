@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>排卵日計算器｜隱私模式，不需帳號 | KokoroFlow</title>
+  <meta name="description" content="輸入最後一次月經日期與週期天數，估算排卵日與可能受孕機率較高的區間。全部在瀏覽器本機計算，不需要帳號、不會上傳任何資料。">
+  <link rel="canonical" href="https://www.kokoroflow.net/ovulation-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/ovulation-calculator.html">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .disclaimer-banner{margin-bottom:16px;padding:14px 16px;border-radius:8px;background:#fff4d8;color:#7a5a00;font-size:13px;line-height:1.6}
+    .cal-strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+    .cal-day{padding:8px 10px;border-radius:8px;font-size:12px;font-weight:700;background:var(--surface-2);color:var(--muted);min-width:64px;text-align:center}
+    .cal-day.fertile{background:#ffe3e0;color:#8a2620}
+    .cal-day.peak{background:var(--text);color:#fff}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 健康小工具（隱私模式）</p>
+      <h1>排卵日計算器</h1>
+      <p class="lead">輸入最後一次月經開始日期與平均週期天數，估算排卵日與可能受孕機率較高的區間。不需要帳號、不需要下載 App，資料只留在你的裝置上。</p>
+    </section>
+
+    <div class="disclaimer-banner">
+      <strong>請注意：</strong>本工具僅根據標準週期公式進行概略估算，每個人實際排卵時間會因體質、壓力、健康狀況而有落差，不能取代驗孕、基礎體溫量測或醫師的專業判斷。若你有備孕、避孕或月經週期異常等需求，請諮詢婦產科醫師。
+    </div>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>計算你的排卵日</h2>
+        <div class="fields">
+          <div><label for="lmp">最後一次月經開始日期</label><input id="lmp" type="date" oninput="calc()"></div>
+          <div><label for="cycle">平均週期天數</label><input id="cycle" type="number" value="28" min="20" max="45" oninput="calc()"></div>
+        </div>
+        <div class="actions"><button onclick="calc()">計算排卵日</button></div>
+
+        <div class="result" id="result"></div>
+        <div class="cal-strip" id="cal-strip"></div>
+      </section>
+
+      <aside class="article">
+        <h2>計算邏輯</h2>
+        <p>一般常見的估算方式，是假設排卵日大約落在下次月經來潮前的第 14 天（黃體期平均約 14 天），並以此往前推算受孕機率較高的區間（一般抓排卵日前 5 天到排卵日後 1 天）。這個公式對週期規律的人比較準確，如果你的週期本身就不固定，估算誤差會比較大。</p>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，所有計算在瀏覽器本機完成</li>
+          <li><strong>儲存：</strong>不會儲存任何資料，重新整理頁面後全部清空，也沒有帳號或雲端同步機制</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>週期不規律還能用這個工具嗎？</strong><br>可以用，但準確度會下降，因為這個公式假設每個週期長度都差不多。如果你的週期經常大幅波動，建議搭配基礎體溫量測，或諮詢醫師使用更精確的追蹤方式。</p>
+      <p><strong>這個工具可以拿來當避孕依據嗎？</strong><br>不建議。安全期推算法本身準確度有限，不應該單獨作為避孕方式，如果有避孕需求，請諮詢醫師選擇可靠的避孕方法。</p>
+      <p><strong>為什麼不需要註冊帳號？</strong><br>這類個人健康資料相對敏感，本工具刻意設計成完全不需要帳號、不會上傳任何資料，你輸入的日期只會暫時顯示在畫面上，重新整理頁面就會清空，不會被記錄或追蹤。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    function addDays(date, days){
+      const d = new Date(date);
+      d.setDate(d.getDate() + days);
+      return d;
+    }
+    function fmtDate(d){
+      return `${d.getFullYear()}/${d.getMonth()+1}/${d.getDate()}`;
+    }
+    function fmtShort(d){
+      return `${d.getMonth()+1}/${d.getDate()}`;
+    }
+
+    function calc(){
+      const lmpVal = $('lmp').value;
+      const cycle = Number($('cycle').value) || 28;
+      if (!lmpVal){
+        $('result').innerHTML = '<strong>請選擇最後一次月經開始日期</strong>';
+        $('cal-strip').innerHTML = '';
+        return;
+      }
+      const lmp = new Date(lmpVal + 'T00:00:00');
+      const nextPeriod = addDays(lmp, cycle);
+      const ovulation = addDays(nextPeriod, -14);
+      const fertileStart = addDays(ovulation, -5);
+      const fertileEnd = addDays(ovulation, 1);
+
+      $('result').innerHTML = `<strong>預估排卵日：${fmtDate(ovulation)}</strong>
+        <small>受孕機率較高區間：${fmtDate(fertileStart)} 至 ${fmtDate(fertileEnd)}｜預估下次月經：${fmtDate(nextPeriod)}</small>`;
+
+      const strip = [];
+      for (let i = -3; i <= 3; i++){
+        const d = addDays(ovulation, i);
+        const isPeak = i === 0;
+        const isFertile = d >= fertileStart && d <= fertileEnd;
+        strip.push(`<div class="cal-day ${isPeak?'peak':isFertile?'fertile':''}">${fmtShort(d)}</div>`);
+      }
+      $('cal-strip').innerHTML = strip.join('');
+    }
+  </script>
+</body></html>

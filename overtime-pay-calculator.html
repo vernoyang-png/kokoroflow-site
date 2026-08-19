@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>加班費計算器｜依勞基法平日/休息日/國定假日倍率試算 | KokoroFlow</title>
+  <meta name="description" content="依照勞動基準法規定的平日、休息日、國定假日加班倍率，快速計算加班費金額。免登入，全部在瀏覽器完成計算。">
+  <link rel="canonical" href="https://www.kokoroflow.net/overtime-pay-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/overtime-pay-calculator.html">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 台灣勞工工具</p>
+      <h1>加班費計算器</h1>
+      <p class="lead">依照勞動基準法規定的加班倍率，輸入月薪與加班時數，快速算出加班費金額。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>計算加班費</h2>
+        <div class="fields">
+          <div><label for="salary">月薪（元）</label><input id="salary" type="number" value="36000" oninput="calc()"></div>
+          <div><label for="type">加班類型</label>
+            <select id="type" onchange="calc()">
+              <option value="weekday">平日加班</option>
+              <option value="restday">休息日加班</option>
+              <option value="holiday">國定假日/例假日出勤</option>
+            </select>
+          </div>
+          <div class="full"><label for="hours">加班時數</label><input id="hours" type="number" value="3" step="0.5" min="0" oninput="calc()"></div>
+        </div>
+        <div class="actions"><button onclick="calc()">計算加班費</button></div>
+
+        <div class="result" id="result"></div>
+      </section>
+
+      <aside class="article">
+        <h2>加班倍率規則</h2>
+        <ul>
+          <li><strong>平日加班：</strong>前 2 小時以 1⅓ 倍計算，第 3 小時起以 1⅔ 倍計算，每日加班上限 4 小時（特殊情形經工會或勞資會議同意可延長至 12 小時）</li>
+          <li><strong>休息日加班：</strong>前 2 小時以 1⅓ 倍計算，第 3 至 8 小時以 1⅔ 倍計算，超過 8 小時以 2⅔ 倍計算</li>
+          <li><strong>國定假日/例假日出勤：</strong>當日出勤原則上以 2 倍計算工資</li>
+        </ul>
+        <h2>時薪換算方式</h2>
+        <p>本工具以「月薪 ÷ 240」估算平均時薪（即月薪除以每月平均工時 30 天 × 8 小時），這是常見的概估方式，實際計算方式可能因公司規定而略有不同。</p>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="taiwan-salary-calculator.html">實領薪水計算器</a>
+        <a href="taiwan-mortgage-calculator.html">房貸利率試算器</a>
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>休息日加班一定要以「日」為單位計算嗎？</strong><br>是的，休息日出勤只要工作，就算不到 1 小時也以 4 小時計，超過 4 小時未滿 8 小時者以 8 小時計，超過 8 小時者則依實際時數計算，這個工具目前以你輸入的實際時數計算，建議依實際情況自行對照。</p>
+      <p><strong>國定假日出勤一定要休假嗎？</strong><br>依法雇主經徵得勞工同意於國定假日工作，除當日工資照給外，加班部分應依平日延長工時規定另給加班費，實際規則建議以勞動部公告及公司規定為準。</p>
+      <p><strong>這個工具能取代人資的正式計算嗎？</strong><br>不能，本工具僅提供快速估算，正式加班費計算應以公司薪資規則、工時紀錄與勞動基準法為準，如有爭議建議洽詢當地勞工局。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 0 }).format(Math.round(n));
+    function nums(id){ return Number($(id).value) || 0; }
+
+    function calc(){
+      const salary = nums('salary');
+      const hours = nums('hours');
+      const type = $('type').value;
+      if (!salary || !hours){
+        $('result').innerHTML = '<strong>請輸入月薪與加班時數</strong>';
+        return;
+      }
+      const hourly = salary / 240;
+      let pay = 0, breakdown = '';
+
+      if (type === 'weekday'){
+        const h1 = Math.min(hours, 2), h2 = Math.max(0, hours - 2);
+        pay = h1 * hourly * (4/3) + h2 * hourly * (5/3);
+        breakdown = `前2小時 ${h1}hr × 1⅓倍 + 超過部分 ${h2}hr × 1⅔倍`;
+      } else if (type === 'restday'){
+        const h1 = Math.min(hours, 2), h2 = Math.min(Math.max(0, hours-2), 6), h3 = Math.max(0, hours - 8);
+        pay = h1 * hourly * (4/3) + h2 * hourly * (5/3) + h3 * hourly * (8/3);
+        breakdown = `前2小時 × 1⅓倍 + 3-8小時 ${h2}hr × 1⅔倍 + 超過8小時 ${h3}hr × 2⅔倍`;
+      } else {
+        pay = hours * hourly * 2;
+        breakdown = `${hours}hr × 2倍`;
+      }
+
+      $('result').innerHTML = `<strong>加班費：約 NT$ ${money(pay)}</strong>
+        <small>估算時薪 NT$ ${money(hourly)}／小時｜計算方式：${breakdown}</small>`;
+    }
+    calc();
+  </script>
+</body></html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>台灣實領薪水計算器｜勞健保、所得稅試算 | KokoroFlow</title>
+  <meta name="description" content="輸入月薪，快速估算扣除勞保、健保、所得稅後的實領薪水。免登入、免下載，所有計算都在你的瀏覽器完成。">
+  <link rel="canonical" href="https://www.kokoroflow.net/taiwan-salary-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/taiwan-salary-calculator.html">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 台灣薪資工具</p>
+      <h1>台灣實領薪水計算器</h1>
+      <p class="lead">輸入月薪，快速估算扣除勞保、健保、所得稅代扣後的實際到手金額。全部在你的瀏覽器裡計算，不會上傳任何資料。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>計算你的實領薪水</h2>
+        <div class="fields">
+          <div><label for="salary">月薪（元）</label><input id="salary" type="number" value="40000" oninput="calc()"></div>
+          <div><label for="dependents">扶養親屬人數</label><input id="dependents" type="number" value="0" min="0" oninput="calc()"></div>
+          <div class="full"><label for="insured">是否為勞健保投保單位（一般受僱員工請選是）</label>
+            <select id="insured" onchange="calc()"><option value="yes" selected>是，正常投保</option><option value="no">否，不計算勞健保</option></select>
+          </div>
+        </div>
+        <div class="actions"><button onclick="calc()">計算實領薪水</button></div>
+
+        <div class="result" id="result">
+          <strong>實領薪水：約 NT$ 37,200</strong>
+          <small>勞保費約 NT$ 960｜健保費約 NT$ 620｜代扣所得稅約 NT$ 0（估算值）</small>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>計算方式說明</h2>
+        <p>本工具使用 2026 年公告的一般費率估算：勞保費率 12%（員工負擔 20%）、就業保險費率 1%（員工負擔 20%）、健保費率 5.17%（員工負擔 30%，以本人不含眷屬計算），並依投保薪資分級表估算實際投保金額。所得稅代扣採用簡化版薪資所得扣繳辦法試算，實際金額會依扶養親屬、其他免稅額而有差異。</p>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，所有計算在瀏覽器本機完成</li>
+          <li><strong>用途：</strong>僅供概估參考，正式薪資請以公司薪資單或勞保局試算為準</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="overtime-pay-calculator.html">加班費計算器</a>
+        <a href="taiwan-mortgage-calculator.html">房貸利率試算器</a>
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>勞健保是用月薪直接計算嗎？</strong><br>不是，勞保和健保是依照「投保薪資分級表」對應到最接近的級距金額計算，不是直接用實際月薪相乘。這個工具會自動抓最接近的級距估算，但正式金額仍以勞保局、健保署公告的分級表為準。</p>
+      <p><strong>為什麼我的所得稅代扣是 0？</strong><br>如果月薪加上扶養親屬換算後的金額，還沒有超過薪資所得扣繳辦法規定的起扣門檻，公司通常不會預先代扣所得稅，但年度總所得仍需要在隔年 5 月申報綜合所得稅。</p>
+      <p><strong>這個工具跟公司實際薪資單會一致嗎？</strong><br>不一定完全一致，因為每家公司的加保級距、扣繳方式、其他津貼獎金計算方式可能不同，這個工具僅供快速參考估算，正式薪資仍以公司薪資單為準。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 0 }).format(Math.round(n));
+    function nums(id){ return Number($(id).value) || 0; }
+
+    // 勞保投保薪資分級表（簡化，2026年常見級距，元）
+    const laborGrades = [26400,27600,28800,30300,31800,33300,34800,36300,38200,40100,42000,43900,45800];
+    // 健保投保金額分級（簡化，與勞保級距接近但略有不同，此處以相同級距簡化估算）
+    function nearestGrade(salary, grades){
+      let g = grades[0];
+      for (const x of grades) if (salary >= x) g = x; else break;
+      return Math.min(g, grades[grades.length-1]);
+    }
+
+    function estimateIncomeTax(salary, dependents){
+      // 簡化版薪資所得扣繳試算：以每月薪資扣除基本生活費概算後，超過門檻部分約抓 5% 概估
+      const monthlyExemption = 9000 * (1 + dependents); // 簡化概估每人月免稅額基準
+      const taxable = salary - monthlyExemption;
+      if (taxable <= 0) return 0;
+      return Math.round(taxable * 0.05 / 10) * 10; // 概估5%，四捨五入到十元
+    }
+
+    function calc(){
+      const salary = nums('salary');
+      const dependents = nums('dependents');
+      const insured = $('insured').value;
+
+      if (!salary){
+        $('result').innerHTML = '<strong>請輸入月薪</strong>';
+        return;
+      }
+
+      let laborFee = 0, healthFee = 0;
+      if (insured === 'yes'){
+        const grade = nearestGrade(salary, laborGrades);
+        laborFee = Math.round(grade * 0.12 * 0.2);
+        healthFee = Math.round(grade * 0.0517 * 0.3);
+      }
+
+      const tax = estimateIncomeTax(salary, dependents);
+      const net = salary - laborFee - healthFee - tax;
+
+      $('result').innerHTML = `<strong>實領薪水：約 NT$ ${money(net)}</strong>
+        <small>勞保費約 NT$ ${money(laborFee)}｜健保費約 NT$ ${money(healthFee)}｜代扣所得稅約 NT$ ${money(tax)}（估算值，僅供參考）</small>`;
+    }
+    calc();
+  </script>
+</body></html>

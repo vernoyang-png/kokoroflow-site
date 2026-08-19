@@ -75,6 +75,9 @@
       .footer-inner { padding:28px 16px; }
     }
     .guide-section{padding:36px 0 64px}.guide-stack{display:grid;gap:18px}.guide-block{padding:24px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface)}.guide-block h2{margin:0 0 12px;font-size:1.35rem}.guide-block p,.guide-block li{color:var(--muted)}.guide-block ul,.guide-block ol{margin:0;padding-left:22px}.guide-block li+li{margin-top:8px}.guide-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}.faq-list{display:grid;gap:10px}.faq-list details{padding:14px 16px;border:1px solid var(--line);border-radius:8px;background:var(--bg)}.faq-list summary{cursor:pointer;font-weight:700;color:var(--text)}.faq-list details p{margin:10px 0 0}@media(max-width:680px){.guide-grid{grid-template-columns:1fr}.guide-block{padding:20px}}
+    .link-card{display:flex;flex-direction:column;justify-content:space-between;text-decoration:none;color:inherit;transition:transform .15s,border-color .15s}
+    .link-card:hover{transform:translateY(-2px);border-color:var(--accent)}
+    .link-card .card-arrow{margin-top:16px;color:var(--accent-2);font-weight:800;font-size:14px}
   </style></head>
 <body>
   <a class="skip-link" href="#main">跳到主要內容</a>
@@ -199,7 +202,38 @@
         <div class="button-row"><button onclick="convertColor()">轉換</button></div><div class="result" id="color-result">RGB(47, 111, 98)</div>
       </section>
     </div>
-  </main>
+
+    <section class="hero" aria-labelledby="tw-tools-title" style="margin-top:34px">
+      <p class="eyebrow">台灣專屬工具</p>
+      <h2 id="tw-tools-title">為台灣使用情境設計的完整工具</h2>
+      <p class="lead">以下工具內容較多，各自有獨立頁面，點卡片即可開啟。</p>
+    </section>
+    <div class="grid">
+      <a class="tool link-card" href="taiwan-salary-calculator.html">
+        <div><h2>台灣實領薪水計算器</h2><p class="tool-desc">輸入月薪，估算扣除勞保、健保、所得稅後的實領金額。</p></div>
+        <span class="card-arrow">開啟實領薪水計算器 →</span>
+      </a>
+      <a class="tool link-card" href="overtime-pay-calculator.html">
+        <div><h2>加班費計算器</h2><p class="tool-desc">依勞基法平日/休息日/國定假日倍率，快速算出加班費。</p></div>
+        <span class="card-arrow">開啟加班費計算器 →</span>
+      </a>
+      <a class="tool link-card" href="taiwan-mortgage-calculator.html">
+        <div><h2>房貸利率試算器</h2><p class="tool-desc">支援寬限期設定，適合評估新青安等兩段式房貸方案。</p></div>
+        <span class="card-arrow">開啟房貸試算器 →</span>
+      </a>
+      <a class="tool link-card" href="taiwan-deposit-calculator.html">
+        <div><h2>定存利息試算器</h2><p class="tool-desc">支援整存整付與零存整付，估算定存到期本息。</p></div>
+        <span class="card-arrow">開啟定存試算器 →</span>
+      </a>
+      <a class="tool link-card" href="invoice-lottery-checker.html">
+        <div><h2>統一發票對獎檢查器</h2><p class="tool-desc">輸入發票號碼，自動比對最新一期中獎號碼。</p></div>
+        <span class="card-arrow">開啟對獎檢查器 →</span>
+      </a>
+      <a class="tool link-card" href="ovulation-calculator.html">
+        <div><h2>排卵日計算器</h2><p class="tool-desc">輸入經期資訊，估算排卵日與受孕機率較高的區間。</p></div>
+        <span class="card-arrow">開啟排卵日計算器 →</span>
+      </a>
+    </div>
 
   <section class="guide-section" aria-labelledby="guide-title"><div class="guide-stack" style="max-width:var(--wrap);margin:0 auto;padding:0 24px">
     <div class="guide-block"><h2 id="guide-title">這個工具箱能幫你做什麼？</h2><p>KokoroFlow 常用工具箱把 10 個日常最容易用到的小工具整理在同一頁：隨機抽選、貨幣換算、貸款試算、BMI 計算、密碼產生、單位換算、日期差計算、字數統計、百分比計算、色碼轉換。不需要註冊帳號、不需要下載任何東西，開啟頁面就能直接輸入使用。</p></div>
@@ -343,24 +377,5 @@
     const today=new Date(), later=new Date(Date.now()+7*86400000); $('date-start').value=today.toISOString().slice(0,10); $('date-end').value=later.toISOString().slice(0,10);
     countWords(); convertColor(); calcBMI(); calcPercent(); calcLoan(); convertUnit(); updateCurrencyRate(); makePassword();
   </script>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-</body><div id="codex-browser-sidebar-comments-root" style="position: fixed; inset: 0px; pointer-events: none; z-index: 2147483647;"></div></html>
+  </main>
+</body></html>

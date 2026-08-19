@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>台灣房貸利率試算器｜寬限期/兩段式利率計算 | KokoroFlow</title>
+  <meta name="description" content="輸入貸款金額、利率、寬限期，快速試算每月還款金額，適合首購族評估房貸負擔。免登入，全部在瀏覽器完成計算。">
+  <link rel="canonical" href="https://www.kokoroflow.net/taiwan-mortgage-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/taiwan-mortgage-calculator.html">
+  <link rel="stylesheet" href="calculator.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 台灣房貸工具</p>
+      <h1>台灣房貸利率試算器</h1>
+      <p class="lead">支援「寬限期」設定（寬限期間只繳利息，之後才開始本息攤還），適合評估新青安貸款這類兩段式還款結構。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>試算每月還款金額</h2>
+        <div class="fields">
+          <div><label for="loan">貸款金額（元）</label><input id="loan" type="number" value="8000000" oninput="calc()"></div>
+          <div><label for="rate">年利率（%）</label><input id="rate" type="number" value="2.1" step="0.01" oninput="calc()"></div>
+          <div><label for="years">貸款年限（年）</label><input id="years" type="number" value="40" oninput="calc()"></div>
+          <div><label for="grace">寬限期（年，可設0）</label><input id="grace" type="number" value="5" oninput="calc()"></div>
+        </div>
+        <div class="actions"><button onclick="calc()">計算每月還款</button></div>
+
+        <div class="result" id="result"></div>
+        <small class="note">利率會隨銀行、政策方案（如新青安貸款）調整，請填入你實際貸款的核准利率，不要使用本工具內建的預設數字當作正式依據。</small>
+      </section>
+
+      <aside class="article">
+        <h2>寬限期怎麼影響還款？</h2>
+        <p>寬限期間（例如新青安貸款常見的前 5 年）只需要繳交利息，本金完全不用攤還，所以這段期間的月付金會明顯比較低；寬限期結束後，剩餘本金會在剩下的年限內攤還完畢，所以之後的月付金會比一般房貸更高一些，評估負擔能力時建議把兩個階段都納入考慮。</p>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，所有計算在瀏覽器本機完成</li>
+          <li><strong>用途：</strong>僅供概估參考，正式貸款條件請以銀行核貸文件為準</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="taiwan-deposit-calculator.html">定存利息試算器</a>
+        <a href="taiwan-salary-calculator.html">實領薪水計算器</a>
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>新青安貸款的利率跟這個工具的預設值一樣嗎？</strong><br>不一定，新青安等政策性貸款的優惠利率會依央行政策、承貸銀行、申請人條件（例如是否為原住民、身障、多子女家庭等加碼優惠）而不同，請以你實際申請時銀行核准的利率為準，本工具的預設數字僅供示範。</p>
+      <p><strong>寬限期結束後月付金會突然變很多嗎？</strong><br>是的，這是寬限期貸款常見的特性，因為寬限期間完全沒有攤還本金，等於把還本金的壓力集中到剩餘年限，建議在申請前用這個工具先試算寬限期結束後的月付金，確認自己屆時的收入負擔得起。</p>
+      <p><strong>40年房貸真的比較划算嗎？</strong><br>年限拉長會讓每月負擔變輕，但總繳利息會明顯增加，是否划算要看你重視「每月現金流壓力小」還是「總支出成本低」，兩者互相取捨，沒有絕對答案。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 0 }).format(Math.round(n));
+    function nums(id){ return Number($(id).value) || 0; }
+
+    function calc(){
+      const loan = nums('loan'), rate = nums('rate')/100, years = nums('years'), grace = nums('grace');
+      if (!loan || !years){
+        $('result').innerHTML = '<strong>請輸入貸款金額與年限</strong>';
+        return;
+      }
+      const monthlyRate = rate / 12;
+      const graceMonths = grace * 12;
+      const gracePayment = loan * monthlyRate;
+
+      const repayMonths = (years - grace) * 12;
+      let normalPayment = 0;
+      if (repayMonths > 0){
+        normalPayment = monthlyRate
+          ? loan * monthlyRate * Math.pow(1+monthlyRate, repayMonths) / (Math.pow(1+monthlyRate, repayMonths) - 1)
+          : loan / repayMonths;
+      }
+
+      let html = '';
+      if (graceMonths > 0){
+        html += `<strong>寬限期內每月還款（僅繳利息）：約 NT$ ${money(gracePayment)}</strong><br>`;
+      }
+      html += `<strong>寬限期後每月還款（本息攤還）：約 NT$ ${money(normalPayment)}</strong>
+        <small>貸款總額 NT$ ${money(loan)}，年利率 ${(rate*100).toFixed(2)}%，總年限 ${years} 年${grace ? `（含 ${grace} 年寬限期）` : ''}</small>`;
+      $('result').innerHTML = html;
+    }
+    calc();
+  </script>
+</body></html>

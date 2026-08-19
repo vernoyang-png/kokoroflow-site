@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>定存利息試算器｜整存整付、零存整付計算 | KokoroFlow</title>
+  <meta name="description" content="輸入本金、年利率、存款年限，快速估算定期存款到期本息，支援整存整付與零存整付兩種模式。免登入，全部在瀏覽器完成計算。">
+  <link rel="canonical" href="https://www.kokoroflow.net/taiwan-deposit-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/taiwan-deposit-calculator.html">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .mode-tabs{display:flex;gap:8px;margin-bottom:14px}
+    .mode-tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-weight:800;font-size:13px;cursor:pointer}
+    .mode-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .mode-fields{display:none}
+    .mode-fields.active{display:grid}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 台灣理財工具</p>
+      <h1>定存利息試算器</h1>
+      <p class="lead">支援「整存整付」（一筆本金存到期）和「零存整付」（每月固定存一筆）兩種常見定存方式，快速估算到期可領本息。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>試算定存本息</h2>
+        <div class="mode-tabs">
+          <div class="mode-tab active" data-mode="lump" onclick="setMode('lump')">整存整付</div>
+          <div class="mode-tab" data-mode="monthly" onclick="setMode('monthly')">零存整付</div>
+        </div>
+
+        <div class="fields mode-fields active" data-mode="lump">
+          <div><label for="lump-principal">本金（元）</label><input id="lump-principal" type="number" value="500000" oninput="calc()"></div>
+          <div><label for="lump-rate">年利率（%）</label><input id="lump-rate" type="number" value="2.0" step="0.01" oninput="calc()"></div>
+          <div class="full"><label for="lump-years">存款期間（年）</label><input id="lump-years" type="number" value="1" step="0.25" oninput="calc()"></div>
+        </div>
+        <div class="fields mode-fields" data-mode="monthly">
+          <div><label for="m-monthly">每月存入金額（元）</label><input id="m-monthly" type="number" value="10000" oninput="calc()"></div>
+          <div><label for="m-rate">年利率（%）</label><input id="m-rate" type="number" value="2.0" step="0.01" oninput="calc()"></div>
+          <div class="full"><label for="m-months">存款期間（月）</label><input id="m-months" type="number" value="12" oninput="calc()"></div>
+        </div>
+
+        <div class="actions"><button onclick="calc()">計算到期本息</button></div>
+        <div class="result" id="result"></div>
+      </section>
+
+      <aside class="article">
+        <h2>兩種定存方式的差別</h2>
+        <ul>
+          <li><strong>整存整付：</strong>一次存入一筆本金，到期領回本金加利息，是最常見的定存方式，本工具採單利計算（台灣多數銀行定存以單利計息）。</li>
+          <li><strong>零存整付：</strong>每月固定存入一筆金額，每一筆存款各自依存入時間長短計息，到期時把本金和所有利息一次領回，適合每月固定儲蓄的人。</li>
+        </ul>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，所有計算在瀏覽器本機完成</li>
+          <li><strong>用途：</strong>僅供概估參考，正式利率請以銀行公告牌告利率為準</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="taiwan-salary-calculator.html">實領薪水計算器</a>
+        <a href="taiwan-mortgage-calculator.html">房貸利率試算器</a>
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>定存利息要繳稅嗎？</strong><br>單筆利息所得在一定金額以下通常會先扣繳 10% 利息所得稅，年度合計未達 27 萬元的儲蓄投資特別扣除額內可以在申報綜合所得稅時退回，實際規定請以國稅局公告為準。</p>
+      <p><strong>提前解約會怎樣？</strong><br>定存提前解約通常會改用較低的「機動利率」或打折計息，實際規則依各銀行規定不同，若有提前動用資金的可能，建議選擇利率較高但可分期解約的定存方案，或直接洽詢銀行確認解約規則。</p>
+      <p><strong>零存整付的利息怎麼算比較準？</strong><br>每一筆存款的計息天數不同（第一個月存的錢計息時間最長，最後一個月存的錢計息時間最短），本工具採簡化平均估算，正式金額會依銀行實際計息公式而略有差異。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('zh-TW', { maximumFractionDigits: 0 }).format(Math.round(n));
+    function nums(id){ return Number($(id).value) || 0; }
+    let currentMode = 'lump';
+
+    function setMode(mode){
+      currentMode = mode;
+      document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode===mode));
+      document.querySelectorAll('.mode-fields').forEach(f => f.classList.toggle('active', f.dataset.mode===mode));
+      calc();
+    }
+
+    function calc(){
+      if (currentMode === 'lump'){
+        const p = nums('lump-principal'), r = nums('lump-rate')/100, y = nums('lump-years');
+        if (!p || !y){ $('result').innerHTML = '<strong>請輸入本金與期間</strong>'; return; }
+        const interest = p * r * y;
+        $('result').innerHTML = `<strong>到期本息合計：約 NT$ ${money(p+interest)}</strong>
+          <small>本金 NT$ ${money(p)}，利息約 NT$ ${money(interest)}（單利計算）</small>`;
+      } else {
+        const m = nums('m-monthly'), r = nums('m-rate')/100, n = nums('m-months');
+        if (!m || !n){ $('result').innerHTML = '<strong>請輸入每月存入金額與期間</strong>'; return; }
+        const principal = m * n;
+        // 簡化估算：每筆平均計息月數 = (n+1)/2
+        const avgMonths = (n + 1) / 2;
+        const interest = m * n * r * (avgMonths / 12);
+        $('result').innerHTML = `<strong>到期本息合計：約 NT$ ${money(principal+interest)}</strong>
+          <small>累積本金 NT$ ${money(principal)}，估算利息約 NT$ ${money(interest)}</small>`;
+      }
+    }
+    calc();
+  </script>
+</body></html>

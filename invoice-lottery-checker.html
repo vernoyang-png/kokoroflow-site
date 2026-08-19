@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>統一發票對獎檢查器｜115年5-6月最新獎號 | KokoroFlow</title>
+  <meta name="description" content="輸入統一發票號碼，自動比對最新一期中獎號碼，一次可檢查多張發票。免登入，全部在瀏覽器完成比對。">
+  <link rel="canonical" href="https://www.kokoroflow.net/invoice-lottery-checker.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/invoice-lottery-checker.html">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .period-banner{margin-bottom:16px;padding:12px 14px;border-radius:8px;background:var(--accent-soft);color:#244f46;font-size:13px;font-weight:700}
+    .invoice-row{display:flex;align-items:center;gap:10px;padding:10px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .invoice-row:last-child{border-bottom:0}
+    .invoice-row input{max-width:160px}
+    .prize-tag{padding:4px 10px;border-radius:999px;font-size:12px;font-weight:800;white-space:nowrap}
+    .prize-tag.win{background:#e4f0eb;color:#1a5c3f}
+    .prize-tag.none{background:var(--surface-2);color:var(--muted)}
+    .remove-row{background:transparent;color:var(--muted);border:1px solid var(--line);min-height:32px;padding:2px 10px;font-size:12px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/7tools.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · 台灣生活工具</p>
+      <h1>統一發票對獎檢查器</h1>
+      <p class="lead">輸入發票上的 8 位數號碼，自動比對最新一期中獎號碼，一次可以檢查多張發票。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="period-banner">目前對獎期別：115 年（2026 年）5-6 月期｜兌獎期間至 115 年 11 月 5 日止｜下一期（7-8月）獎號預計 115 年 9 月 25 日公布</div>
+
+        <h2>輸入發票號碼</h2>
+        <div id="invoice-rows"></div>
+        <div class="actions" style="margin-top:10px">
+          <button class="secondary" onclick="addRow()">新增一張發票</button>
+          <button onclick="checkAll()">全部對獎</button>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>本期中獎號碼</h2>
+        <p><strong>特別獎（1000萬元）：</strong>38548029</p>
+        <p><strong>特獎（200萬元）：</strong>10138845</p>
+        <p><strong>頭獎（20萬元）：</strong>24121106、28589937、83663333</p>
+        <p style="font-size:12.5px;color:var(--muted)">二獎至六獎依頭獎號碼末幾碼相符判定，本工具已自動計算。資料來源：財政部電子發票整合服務平台。</p>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，所有比對在瀏覽器本機完成</li>
+          <li><strong>提醒：</strong>本期資料每兩個月更新一次，請留意期限內兌獎</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="taiwan-salary-calculator.html">實領薪水計算器</a>
+        <a href="free-tools-zh.html">回到工具箱</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>中獎後要怎麼領獎？</strong><br>中三獎以上須臨櫃兌領並依規定扣繳 20% 所得稅款，五獎以下可在四大超商用多媒體事務機列印證明聯後兌領，若使用雲端發票並設定自動匯款，中獎獎金會在開獎日次月 6 日起自動入帳，詳細規定請以財政部公告為準。</p>
+      <p><strong>雲端發票有額外的中獎機會嗎？</strong><br>有，使用手機條碼、悠遊卡、信用卡等載具儲存的電子發票，除了一般獎項對獎機會外，還能額外參加「雲端發票專屬獎」的抽獎，雲端專屬獎號碼需另外到財政部稅務入口網查詢，本工具目前僅比對一般獎項號碼。</p>
+      <p><strong>這個工具的資料多久更新一次？</strong><br>統一發票每兩個月開獎一次（1-2月、3-4月、5-6月……），本工具會在每次開獎後更新中獎號碼，如果你發現顯示的期別已經過期，請留意網站是否已更新。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+
+    // 115年(2026年) 5-6月期 官方中獎號碼
+    const SPECIAL_SPECIAL = '38548029'; // 特別獎 1000萬
+    const SPECIAL = '10138845';         // 特獎 200萬
+    const FIRST = ['24121106','28589937','83663333']; // 頭獎 20萬 x3
+
+    const PRIZE_NAMES = {8:'頭獎（20萬元）',7:'二獎（4萬元）',6:'三獎（1萬元）',5:'四獎（4,000元）',4:'五獎（1,000元）',3:'六獎（200元）'};
+
+    let rowCount = 0;
+
+    function addRow(value=''){
+      rowCount++;
+      const id = `inv-${rowCount}`;
+      const div = document.createElement('div');
+      div.className = 'invoice-row';
+      div.innerHTML = `<input id="${id}" type="text" maxlength="8" placeholder="8位數發票號碼" value="${value}">
+        <span class="prize-tag none" id="${id}-tag">尚未對獎</span>
+        <button class="remove-row" onclick="this.parentElement.remove()">移除</button>`;
+      $('invoice-rows').appendChild(div);
+    }
+
+    function checkNumber(num){
+      num = num.replace(/\D/g, '');
+      if (num.length !== 8) return { win:false, label:'號碼格式錯誤（需8位數字）' };
+      if (num === SPECIAL_SPECIAL) return { win:true, label:'🎉 特別獎（1000萬元）' };
+      if (num === SPECIAL) return { win:true, label:'🎉 特獎（200萬元）' };
+
+      let best = 0;
+      FIRST.forEach(f => {
+        for (let k = 8; k >= 3; k--){
+          if (num.slice(-k) === f.slice(-k)){ best = Math.max(best, k); break; }
+        }
+      });
+      if (best >= 3) return { win:true, label:`🎉 ${PRIZE_NAMES[best]}` };
+      return { win:false, label:'銘謝惠顧' };
+    }
+
+    function checkAll(){
+      document.querySelectorAll('.invoice-row').forEach(row => {
+        const input = row.querySelector('input');
+        const tag = row.querySelector('.prize-tag');
+        const result = checkNumber(input.value);
+        tag.textContent = result.label;
+        tag.className = 'prize-tag ' + (result.win ? 'win' : 'none');
+      });
+    }
+
+    addRow(); addRow(); addRow();
+  </script>
+</body></html>
