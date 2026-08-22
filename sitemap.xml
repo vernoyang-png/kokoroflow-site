@@ -161,6 +161,14 @@
 <priority>0.6</priority>
 </url>
 <url>
+<loc>https://www.kokoroflow.net/qr-code-generator.html</loc>
+<priority>0.8</priority>
+</url>
+<url>
+<loc>https://www.kokoroflow.net/qr-code-generator-zh.html</loc>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://www.kokoroflow.net/third-party-licenses.html</loc>
 <priority>0.3</priority>
 </url>

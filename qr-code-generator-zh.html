@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>QR Code 產生器｜LINE、WhatsApp、Telegram、電子名片 | KokoroFlow</title>
+  <meta name="description" content="免費QR Code產生器，支援網址、文字、Wi-Fi、LINE/WhatsApp/Telegram加好友連結、社群連結、電子名片(vCard)。全部在瀏覽器完成，不上傳、不需帳號。">
+  <link rel="canonical" href="https://www.kokoroflow.net/qr-code-generator-zh.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/qr-code-generator-zh.html">
+  <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/qr-code-generator.html">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .mode-tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-weight:800;font-size:13px;cursor:pointer}
+    .mode-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .mode-fields{display:none}
+    .mode-fields.active{display:grid}
+    .qr-preview-wrap{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px;border:1px solid var(--line);border-radius:9px;background:#fff}
+    #qr-canvas-holder{min-height:216px;display:flex;align-items:center;justify-content:center}
+    #qr-canvas-holder img, #qr-canvas-holder canvas{border-radius:6px}
+    .qr-placeholder{color:var(--muted);font-size:13px;text-align:center;max-width:220px}
+    .color-row{display:flex;gap:12px;align-items:center}
+    .color-row input[type=color]{width:52px;min-height:40px;padding:2px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a href="https://www.kokoroflow.net/free-tools-zh.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">首頁</a>
+        <a href="https://www.kokoroflow.net/free-tools-zh.html">工具箱</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/qr-code-generator.html" lang="en">English</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · QR Code 工具</p>
+      <h1>QR Code 產生器</h1>
+      <p class="lead">產生網址、文字、Wi-Fi、LINE/WhatsApp/Telegram加好友、社群連結、電子名片的QR Code。全部在瀏覽器裡完成，不上傳、不需要帳號。</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>選擇要產生的內容類型</h2>
+        <div class="mode-tabs">
+          <div class="mode-tab active" data-mode="text" onclick="setMode('text')">文字／網址</div>
+          <div class="mode-tab" data-mode="wifi" onclick="setMode('wifi')">Wi-Fi</div>
+          <div class="mode-tab" data-mode="line" onclick="setMode('line')">LINE</div>
+          <div class="mode-tab" data-mode="whatsapp" onclick="setMode('whatsapp')">WhatsApp</div>
+          <div class="mode-tab" data-mode="telegram" onclick="setMode('telegram')">Telegram</div>
+          <div class="mode-tab" data-mode="social" onclick="setMode('social')">社群連結</div>
+          <div class="mode-tab" data-mode="vcard" onclick="setMode('vcard')">電子名片</div>
+        </div>
+
+        <div class="fields mode-fields active" data-mode="text">
+          <div class="full"><label for="text-input">文字或網址</label><textarea id="text-input" oninput="generate()">https://www.kokoroflow.net/</textarea></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="wifi">
+          <div><label for="wifi-ssid">網路名稱（SSID）</label><input id="wifi-ssid" type="text" oninput="generate()" placeholder="我的家用Wi-Fi"></div>
+          <div><label for="wifi-pass">密碼</label><input id="wifi-pass" type="text" oninput="generate()" placeholder="••••••••"></div>
+          <div class="full"><label for="wifi-type">加密類型</label><select id="wifi-type" onchange="generate()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">無密碼</option></select></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="line">
+          <div class="full"><label for="line-id">LINE ID</label><input id="line-id" type="text" oninput="generate()" placeholder="你的LINE ID"></div>
+          <small class="note">掃描後會直接開啟LINE並跳出加好友畫面。可以在LINE App「設定→個人檔案」找到你的LINE ID。</small>
+        </div>
+
+        <div class="fields mode-fields" data-mode="whatsapp">
+          <div><label for="wa-phone">手機號碼（含國碼，不要加+或空格）</label><input id="wa-phone" type="text" oninput="generate()" placeholder="886912345678"></div>
+          <div class="full"><label for="wa-msg">預設訊息（選填）</label><input id="wa-msg" type="text" oninput="generate()" placeholder="嗨！我掃到你的QR Code了"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="telegram">
+          <div class="full"><label for="tg-username">Telegram 用戶名</label><input id="tg-username" type="text" oninput="generate()" placeholder="你的Telegram用戶名"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="social">
+          <div><label for="social-platform">平台</label>
+            <select id="social-platform" onchange="generate()">
+              <option value="instagram">Instagram</option>
+              <option value="youtube">YouTube 頻道</option>
+              <option value="x">X（Twitter）</option>
+            </select>
+          </div>
+          <div class="full"><label for="social-handle">帳號名稱</label><input id="social-handle" type="text" oninput="generate()" placeholder="你的帳號"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="vcard">
+          <div><label for="vc-name">姓名</label><input id="vc-name" type="text" oninput="generate()" placeholder="王小明"></div>
+          <div><label for="vc-org">公司/組織（選填）</label><input id="vc-org" type="text" oninput="generate()" placeholder="公司名稱"></div>
+          <div><label for="vc-phone">電話</label><input id="vc-phone" type="text" oninput="generate()" placeholder="+886 912 345 678"></div>
+          <div><label for="vc-email">Email</label><input id="vc-email" type="email" oninput="generate()" placeholder="name@example.com"></div>
+          <div class="full"><label for="vc-url">網站（選填）</label><input id="vc-url" type="text" oninput="generate()" placeholder="https://example.com"></div>
+        </div>
+
+        <div class="color-row" style="margin-top:16px">
+          <div><label for="qr-color" style="margin-bottom:4px">QR Code 顏色</label><input id="qr-color" type="color" value="#202124" oninput="generate()"></div>
+          <div><label for="qr-bg" style="margin-bottom:4px">背景色</label><input id="qr-bg" type="color" value="#ffffff" oninput="generate()"></div>
+        </div>
+
+        <div class="qr-preview-wrap">
+          <div id="qr-canvas-holder"><span class="qr-placeholder">填寫左側欄位後，QR Code會顯示在這裡。</span></div>
+          <button id="download-btn" onclick="downloadQR()" style="display:none">下載 PNG</button>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>運作原理</h2>
+        <p>每種模式都會先組成掃描器看得懂的正確格式——例如WhatsApp用 <code>wa.me</code> 連結、LINE用 <code>line.me</code> 連結、Telegram用 <code>t.me</code> 連結、電子名片用標準的vCard格式，再把這段內容轉成QR Code，全部都在你的瀏覽器裡完成渲染。</p>
+        <h2>隱私</h2>
+        <ul>
+          <li><strong>上傳：</strong>無，QR Code在本機產生與顯示，你輸入的任何內容都不會被傳送出去</li>
+          <li><strong>儲存：</strong>不會儲存任何資料，重新整理頁面後所有欄位會清空</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>更多 KokoroFlow 工具</h2>
+      <div class="related-links">
+        <a href="free-tools-zh.html">回到工具箱</a>
+        <a href="taiwan-salary-calculator.html">實領薪水計算器</a>
+        <a href="invoice-lottery-checker.html">統一發票對獎檢查器</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>常見問題</h2>
+      <p><strong>LINE的QR Code跟LINE App裡自己產生的一樣嗎？</strong><br>使用的是LINE官方的加好友連結格式，所以用手機相機或LINE內建的掃描功能掃描，都會跳出跟LINE自己產生的QR Code一樣的加好友畫面。要注意的是，你的LINE帳號需要先開啟「允許被加入好友」的ID搜尋設定，這個QR Code才會有效。</p>
+      <p><strong>WhatsApp的QR Code不用先把對方存成聯絡人也能用嗎？</strong><br>可以，WhatsApp的 wa.me 連結即使對方沒有把你的號碼存成聯絡人，掃描後也能直接開啟對話視窗，這也是為什麼這種格式常被用在名片、活動看板上的原因。</p>
+      <p><strong>什麼是電子名片（vCard），跟純文字QR Code有什麼不同？</strong><br>vCard是一種標準的聯絡人資料格式。手機掃描到vCard格式的QR Code時，會直接跳出「加入聯絡人」的提示，姓名、電話、Email會自動填好，不用像純文字QR Code那樣還要自己手動輸入。</p>
+      <p><strong>下載的QR Code可以印出來用嗎？</strong><br>可以，下載的是PNG圖檔，適合印在名片、海報、桌牌上。如果要印得比較小張，建議編碼的內容盡量簡短——內容越長，QR Code的圖案會越密集，掃描起來也會比較困難。</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let currentMode = 'text';
+    let qr = null;
+
+    function setMode(mode){
+      currentMode = mode;
+      document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode===mode));
+      document.querySelectorAll('.mode-fields').forEach(f => f.classList.toggle('active', f.dataset.mode===mode));
+      generate();
+    }
+
+    function buildPayload(){
+      if (currentMode === 'text'){
+        return $('text-input').value.trim();
+      }
+      if (currentMode === 'wifi'){
+        const ssid = $('wifi-ssid').value.trim();
+        if (!ssid) return '';
+        const pass = $('wifi-pass').value;
+        const type = $('wifi-type').value;
+        return `WIFI:T:${type};S:${ssid};P:${type==='nopass'?'':pass};;`;
+      }
+      if (currentMode === 'line'){
+        const id = $('line-id').value.trim().replace(/^@/, '');
+        return id ? `https://line.me/ti/p/~${encodeURIComponent(id)}` : '';
+      }
+      if (currentMode === 'whatsapp'){
+        const phone = $('wa-phone').value.replace(/\D/g, '');
+        if (!phone) return '';
+        const msg = $('wa-msg').value.trim();
+        return `https://wa.me/${phone}${msg ? '?text=' + encodeURIComponent(msg) : ''}`;
+      }
+      if (currentMode === 'telegram'){
+        const u = $('tg-username').value.trim().replace(/^@/, '');
+        return u ? `https://t.me/${encodeURIComponent(u)}` : '';
+      }
+      if (currentMode === 'social'){
+        const handle = $('social-handle').value.trim().replace(/^@/, '');
+        if (!handle) return '';
+        const platform = $('social-platform').value;
+        if (platform === 'instagram') return `https://instagram.com/${encodeURIComponent(handle)}`;
+        if (platform === 'youtube') return `https://youtube.com/@${encodeURIComponent(handle)}`;
+        if (platform === 'x') return `https://x.com/${encodeURIComponent(handle)}`;
+      }
+      if (currentMode === 'vcard'){
+        const name = $('vc-name').value.trim();
+        if (!name) return '';
+        const org = $('vc-org').value.trim();
+        const phone = $('vc-phone').value.trim();
+        const email = $('vc-email').value.trim();
+        const url = $('vc-url').value.trim();
+        let v = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\n`;
+        if (org) v += `ORG:${org}\n`;
+        if (phone) v += `TEL:${phone}\n`;
+        if (email) v += `EMAIL:${email}\n`;
+        if (url) v += `URL:${url}\n`;
+        v += `END:VCARD`;
+        return v;
+      }
+      return '';
+    }
+
+    function generate(){
+      const payload = buildPayload();
+      const holder = $('qr-canvas-holder');
+      holder.innerHTML = '';
+      if (!payload){
+        holder.innerHTML = '<span class="qr-placeholder">填寫左側欄位後，QR Code會顯示在這裡。</span>';
+        $('download-btn').style.display = 'none';
+        return;
+      }
+      qr = new QRCode(holder, {
+        text: payload,
+        width: 216,
+        height: 216,
+        colorDark: $('qr-color').value,
+        colorLight: $('qr-bg').value,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      $('download-btn').style.display = 'inline-flex';
+    }
+
+    function downloadQR(){
+      const holder = $('qr-canvas-holder');
+      const img = holder.querySelector('img');
+      const canvas = holder.querySelector('canvas');
+      const src = img ? img.src : (canvas ? canvas.toDataURL('image/png') : null);
+      if (!src) return;
+      const a = document.createElement('a');
+      a.href = src;
+      a.download = 'qr-code.png';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+
+    generate();
+  </script>
+</body></html>

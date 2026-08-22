@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>QR Code Generator – LINE, WhatsApp, Telegram, Contact Card | KokoroFlow</title>
+  <meta name="description" content="Free QR code generator for links, text, Wi-Fi, LINE/WhatsApp/Telegram chat links, social profiles, and vCard contact cards. Everything runs in your browser — no upload, no account.">
+  <link rel="canonical" href="https://www.kokoroflow.net/qr-code-generator.html">
+  <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/qr-code-generator.html">
+  <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/qr-code-generator-zh.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+  <style>
+    .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .mode-tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-weight:800;font-size:13px;cursor:pointer}
+    .mode-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .mode-fields{display:none}
+    .mode-fields.active{display:grid}
+    .qr-preview-wrap{margin-top:20px;display:flex;flex-direction:column;align-items:center;gap:12px;padding:24px;border:1px solid var(--line);border-radius:9px;background:#fff}
+    #qr-canvas-holder{min-height:216px;display:flex;align-items:center;justify-content:center}
+    #qr-canvas-holder img, #qr-canvas-holder canvas{border-radius:6px}
+    .qr-placeholder{color:var(--muted);font-size:13px;text-align:center;max-width:220px}
+    .color-row{display:flex;gap:12px;align-items:center}
+    .color-row input[type=color]{width:52px;min-height:40px;padding:2px;cursor:pointer}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/qr-code-generator-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · QR tool</p>
+      <h1>QR Code Generator</h1>
+      <p class="lead">Create a scannable QR code for a link, a LINE/WhatsApp/Telegram chat, a social profile, or a full contact card. Everything is generated in your browser — nothing is uploaded or stored.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Choose what to encode</h2>
+        <div class="mode-tabs">
+          <div class="mode-tab active" data-mode="text" onclick="setMode('text')">Text / URL</div>
+          <div class="mode-tab" data-mode="wifi" onclick="setMode('wifi')">Wi-Fi</div>
+          <div class="mode-tab" data-mode="line" onclick="setMode('line')">LINE</div>
+          <div class="mode-tab" data-mode="whatsapp" onclick="setMode('whatsapp')">WhatsApp</div>
+          <div class="mode-tab" data-mode="telegram" onclick="setMode('telegram')">Telegram</div>
+          <div class="mode-tab" data-mode="social" onclick="setMode('social')">Social profile</div>
+          <div class="mode-tab" data-mode="vcard" onclick="setMode('vcard')">Contact card</div>
+        </div>
+
+        <div class="fields mode-fields active" data-mode="text">
+          <div class="full"><label for="text-input">Text or URL</label><textarea id="text-input" oninput="generate()">https://www.kokoroflow.net/</textarea></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="wifi">
+          <div><label for="wifi-ssid">Network name (SSID)</label><input id="wifi-ssid" type="text" oninput="generate()" placeholder="MyHomeWiFi"></div>
+          <div><label for="wifi-pass">Password</label><input id="wifi-pass" type="text" oninput="generate()" placeholder="••••••••"></div>
+          <div class="full"><label for="wifi-type">Security type</label><select id="wifi-type" onchange="generate()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">No password</option></select></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="line">
+          <div class="full"><label for="line-id">LINE ID</label><input id="line-id" type="text" oninput="generate()" placeholder="your_line_id"></div>
+          <small class="note">Scanning opens LINE directly to add you as a friend. Find your LINE ID under Settings → Profile in the LINE app.</small>
+        </div>
+
+        <div class="fields mode-fields" data-mode="whatsapp">
+          <div><label for="wa-phone">Phone number (with country code, no + or spaces)</label><input id="wa-phone" type="text" oninput="generate()" placeholder="886912345678"></div>
+          <div class="full"><label for="wa-msg">Pre-filled message (optional)</label><input id="wa-msg" type="text" oninput="generate()" placeholder="Hi! I found you via QR code."></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="telegram">
+          <div class="full"><label for="tg-username">Telegram username</label><input id="tg-username" type="text" oninput="generate()" placeholder="your_telegram_username"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="social">
+          <div><label for="social-platform">Platform</label>
+            <select id="social-platform" onchange="generate()">
+              <option value="instagram">Instagram</option>
+              <option value="youtube">YouTube channel</option>
+              <option value="x">X (Twitter)</option>
+            </select>
+          </div>
+          <div class="full"><label for="social-handle">Username / handle</label><input id="social-handle" type="text" oninput="generate()" placeholder="your_handle"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="vcard">
+          <div><label for="vc-name">Full name</label><input id="vc-name" type="text" oninput="generate()" placeholder="Jane Doe"></div>
+          <div><label for="vc-org">Organization (optional)</label><input id="vc-org" type="text" oninput="generate()" placeholder="Company name"></div>
+          <div><label for="vc-phone">Phone</label><input id="vc-phone" type="text" oninput="generate()" placeholder="+886 912 345 678"></div>
+          <div><label for="vc-email">Email</label><input id="vc-email" type="email" oninput="generate()" placeholder="jane@example.com"></div>
+          <div class="full"><label for="vc-url">Website (optional)</label><input id="vc-url" type="text" oninput="generate()" placeholder="https://example.com"></div>
+        </div>
+
+        <div class="color-row" style="margin-top:16px">
+          <div><label for="qr-color" style="margin-bottom:4px">QR color</label><input id="qr-color" type="color" value="#202124" oninput="generate()"></div>
+          <div><label for="qr-bg" style="margin-bottom:4px">Background</label><input id="qr-bg" type="color" value="#ffffff" oninput="generate()"></div>
+        </div>
+
+        <div class="qr-preview-wrap">
+          <div id="qr-canvas-holder"><span class="qr-placeholder">Your QR code will appear here as you fill in the fields.</span></div>
+          <button id="download-btn" onclick="downloadQR()" style="display:none">Download PNG</button>
+        </div>
+      </section>
+
+      <aside class="article">
+        <h2>How this works</h2>
+        <p>Each mode builds the correctly-formatted data a QR scanner expects — a <code>wa.me</code> link for WhatsApp, a <code>line.me</code> link for LINE, a <code>t.me</code> link for Telegram, or a standard vCard block for contact cards — then renders it as a QR code entirely in your browser.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. The QR code is generated and rendered locally; nothing you type is sent anywhere.</li>
+          <li><strong>Storage:</strong> Nothing is saved — refreshing the page clears every field.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="password-generator.html">Password Generator</a>
+        <a href="bookmark-organizer.html">Bookmark Organizer</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Does the LINE QR code work the same as the one in the LINE app?</strong><br>It uses LINE's standard add-friend link format, so scanning it with a phone camera or the LINE in-app scanner opens the same add-friend screen as LINE's own QR code. Your LINE ID must be set to allow adding by ID for this to work.</p>
+      <p><strong>Will the WhatsApp QR code work without saving my number first?</strong><br>Yes — WhatsApp's <code>wa.me</code> links open a chat with that number even if it isn't saved as a contact, which is exactly why this format is commonly used for business cards and event signage.</p>
+      <p><strong>What is a vCard, and why would I use it instead of a plain text QR code?</strong><br>A vCard is a standard contact-card format. When a phone scans a vCard QR code, it offers to save the details directly as a new contact — name, phone, email, and all — instead of just showing plain text you'd have to type in manually.</p>
+      <p><strong>Can I print the downloaded QR code?</strong><br>Yes, the download is a PNG image suitable for printing on business cards, posters, or table signage. For small print sizes, keep the encoded text short — longer text creates a denser, harder-to-scan pattern.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let currentMode = 'text';
+    let qr = null;
+
+    function setMode(mode){
+      currentMode = mode;
+      document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode===mode));
+      document.querySelectorAll('.mode-fields').forEach(f => f.classList.toggle('active', f.dataset.mode===mode));
+      generate();
+    }
+
+    function buildPayload(){
+      if (currentMode === 'text'){
+        return $('text-input').value.trim();
+      }
+      if (currentMode === 'wifi'){
+        const ssid = $('wifi-ssid').value.trim();
+        if (!ssid) return '';
+        const pass = $('wifi-pass').value;
+        const type = $('wifi-type').value;
+        return `WIFI:T:${type};S:${ssid};P:${type==='nopass'?'':pass};;`;
+      }
+      if (currentMode === 'line'){
+        const id = $('line-id').value.trim().replace(/^@/, '');
+        return id ? `https://line.me/ti/p/~${encodeURIComponent(id)}` : '';
+      }
+      if (currentMode === 'whatsapp'){
+        const phone = $('wa-phone').value.replace(/\D/g, '');
+        if (!phone) return '';
+        const msg = $('wa-msg').value.trim();
+        return `https://wa.me/${phone}${msg ? '?text=' + encodeURIComponent(msg) : ''}`;
+      }
+      if (currentMode === 'telegram'){
+        const u = $('tg-username').value.trim().replace(/^@/, '');
+        return u ? `https://t.me/${encodeURIComponent(u)}` : '';
+      }
+      if (currentMode === 'social'){
+        const handle = $('social-handle').value.trim().replace(/^@/, '');
+        if (!handle) return '';
+        const platform = $('social-platform').value;
+        if (platform === 'instagram') return `https://instagram.com/${encodeURIComponent(handle)}`;
+        if (platform === 'youtube') return `https://youtube.com/@${encodeURIComponent(handle)}`;
+        if (platform === 'x') return `https://x.com/${encodeURIComponent(handle)}`;
+      }
+      if (currentMode === 'vcard'){
+        const name = $('vc-name').value.trim();
+        if (!name) return '';
+        const org = $('vc-org').value.trim();
+        const phone = $('vc-phone').value.trim();
+        const email = $('vc-email').value.trim();
+        const url = $('vc-url').value.trim();
+        let v = `BEGIN:VCARD\nVERSION:3.0\nFN:${name}\n`;
+        if (org) v += `ORG:${org}\n`;
+        if (phone) v += `TEL:${phone}\n`;
+        if (email) v += `EMAIL:${email}\n`;
+        if (url) v += `URL:${url}\n`;
+        v += `END:VCARD`;
+        return v;
+      }
+      return '';
+    }
+
+    function generate(){
+      const payload = buildPayload();
+      const holder = $('qr-canvas-holder');
+      holder.innerHTML = '';
+      if (!payload){
+        holder.innerHTML = '<span class="qr-placeholder">Your QR code will appear here as you fill in the fields.</span>';
+        $('download-btn').style.display = 'none';
+        return;
+      }
+      qr = new QRCode(holder, {
+        text: payload,
+        width: 216,
+        height: 216,
+        colorDark: $('qr-color').value,
+        colorLight: $('qr-bg').value,
+        correctLevel: QRCode.CorrectLevel.M
+      });
+      $('download-btn').style.display = 'inline-flex';
+    }
+
+    function downloadQR(){
+      const holder = $('qr-canvas-holder');
+      const img = holder.querySelector('img');
+      const canvas = holder.querySelector('canvas');
+      const src = img ? img.src : (canvas ? canvas.toDataURL('image/png') : null);
+      if (!src) return;
+      const a = document.createElement('a');
+      a.href = src;
+      a.download = 'qr-code.png';
+      document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    }
+
+    generate();
+  </script>
+</body></html>
