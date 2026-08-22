@@ -1,33 +1,184 @@
-<!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-<title>International Time Zone Converter | KokoroFlow</title><meta name="description" content="Convert a date and time between major cities in the United States, Canada, United Kingdom, and Europe with daylight-saving rules.">
-<link rel="canonical" href="https://www.kokoroflow.net/time-zone-converter.html"><link rel="icon" href="kokoroflow-logo.jpg">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><link rel="stylesheet" href="styles.css">
-<style>
-.calculator{max-width:860px;margin:0 auto 54px;padding:28px;border:1px solid var(--line);border-radius:var(--radius);background:#fff;box-shadow:var(--shadow)}.fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.field-full{grid-column:1/-1}label{display:block;margin-bottom:6px;font-weight:750}input,select{width:100%;min-height:48px;padding:10px 12px;border:1px solid var(--line);border-radius:10px;background:#fff;font:inherit}button{margin-top:18px;min-height:48px;padding:10px 18px;border:0;border-radius:10px;background:var(--green);color:#fff;font:inherit;font-weight:800}.result{margin-top:18px;padding:22px;border-radius:12px;background:var(--soft)}.result strong{display:block;font-size:1.35rem}.result span{display:block;color:var(--muted)}@media(max-width:620px){.fields{grid-template-columns:1fr}.field-full{grid-column:auto}}
-</style></head>
-<body><a class="skip-link" href="#main">Skip to content</a><header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html"><img src="kokoroflow-logo.jpg" alt=""><span>KokoroFlow</span></a><div class="nav-links"><a href="index.html">Home</a><a href="7tools.html">Tools</a><a href="guides.html">Guides</a><a href="evelyn.html">Evelyn</a><a href="ai-prompt-journal.html">AI Prompts</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="lang-link" href="index-zh.html" lang="zh-Hant">中文</a></div></nav></header>
-<main id="main"><section class="page-hero"><div class="wrap content"><p class="eyebrow">Travel and work tool</p><h1>International Time Zone Converter</h1><p class="lead">Convert a specific date and time between major North American and European cities.</p></div></section>
-<section class="wrap calculator" aria-labelledby="tool-title"><h2 id="tool-title">Convert a time</h2><div class="fields">
-<div class="field-full"><label for="date-time">Date and time in the starting city</label><input id="date-time" type="datetime-local"></div>
-<div><label for="from-zone">Starting city</label><select id="from-zone">
-<option value="America/New_York">New York / Toronto</option><option value="America/Chicago">Chicago</option><option value="America/Denver">Denver</option><option value="America/Los_Angeles">Los Angeles / Vancouver</option><option value="America/Phoenix">Phoenix</option>
-<option value="Europe/London">London</option><option value="Europe/Dublin">Dublin</option><option value="Europe/Paris">Paris / Brussels</option><option value="Europe/Berlin">Berlin / Amsterdam</option><option value="Europe/Madrid">Madrid</option><option value="Europe/Rome">Rome</option><option value="Europe/Athens">Athens</option><option value="Europe/Helsinki">Helsinki</option>
-</select></div>
-<div><label for="to-zone">Destination city</label><select id="to-zone">
-<option value="America/New_York">New York / Toronto</option><option value="America/Chicago">Chicago</option><option value="America/Denver">Denver</option><option value="America/Los_Angeles">Los Angeles / Vancouver</option><option value="America/Phoenix">Phoenix</option>
-<option value="Europe/London" selected>London</option><option value="Europe/Dublin">Dublin</option><option value="Europe/Paris">Paris / Brussels</option><option value="Europe/Berlin">Berlin / Amsterdam</option><option value="Europe/Madrid">Madrid</option><option value="Europe/Rome">Rome</option><option value="Europe/Athens">Athens</option><option value="Europe/Helsinki">Helsinki</option>
-</select></div></div><button type="button" id="convert">Convert time</button><div class="result" id="result" aria-live="polite"></div></section>
-<article class="wrap content"><h2>Why the date is required</h2><p>Time differences can change when regions begin or end daylight saving time on different dates. This converter uses the selected date and the browser's current time-zone database instead of assuming a fixed year-round offset.</p>
-<h2>Use the result safely</h2><p>For an important meeting, include the date and reference city in the invitation, then ask participants to confirm the time displayed by their own calendar. Local rules and software time-zone data can change.</p>
-<p>Read our <a href="guide-time-zones.html">guide to planning meetings across time zones</a> for a repeatable scheduling workflow.</p></article></main>
-<footer class="site-footer"><div class="footer-inner"><div><strong>KokoroFlow</strong></div><div class="footer-links"><a href="7tools.html">All tools</a><a href="guides.html">Guides</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a></div></div></footer>
-<script>
-const dateInput=document.getElementById('date-time'),fromZone=document.getElementById('from-zone'),toZone=document.getElementById('to-zone'),result=document.getElementById('result');
-function initialValue(){const d=new Date(Date.now()+3600000);dateInput.value=`${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,'0')}-${String(d.getDate()).padStart(2,'0')}T${String(d.getHours()).padStart(2,'0')}:00`;}
-function partsAt(date,zone){const p=new Intl.DateTimeFormat('en-CA',{timeZone:zone,year:'numeric',month:'2-digit',day:'2-digit',hour:'2-digit',minute:'2-digit',second:'2-digit',hourCycle:'h23'}).formatToParts(date);return Object.fromEntries(p.filter(x=>x.type!=='literal').map(x=>[x.type,x.value]));}
-function offsetAt(date,zone){const p=partsAt(date,zone);return Date.UTC(+p.year,+p.month-1,+p.day,+p.hour,+p.minute,+p.second)-date.getTime();}
-function zonedToInstant(value,zone){const [day,time]=value.split('T');const [y,m,d]=day.split('-').map(Number);const [h,min]=time.split(':').map(Number);const wall=Date.UTC(y,m-1,d,h,min);let instant=new Date(wall-offsetAt(new Date(wall),zone));instant=new Date(wall-offsetAt(instant,zone));return instant;}
-function convert(){if(!dateInput.value){result.textContent='Choose a date and time.';return;}try{const instant=zonedToInstant(dateInput.value,fromZone.value);const formatted=new Intl.DateTimeFormat('en-GB',{timeZone:toZone.value,dateStyle:'full',timeStyle:'short',timeZoneName:'short'}).format(instant);const source=new Intl.DateTimeFormat('en-GB',{timeZone:fromZone.value,dateStyle:'medium',timeStyle:'short',timeZoneName:'short'}).format(instant);result.innerHTML=`<strong>${formatted}</strong><span>Starting time: ${source}</span>`;}catch(e){result.textContent='This time could not be converted. Check the date and try again.';}}
-initialValue();document.getElementById('convert').addEventListener('click',convert);[dateInput,fromZone,toZone].forEach(el=>el.addEventListener('change',convert));convert();
-</script></body></html>
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Time Zone Converter – Compare Multiple Time Zones | KokoroFlow</title>
+  <meta name="description" content="Convert a time between any time zones, including US zones and international cities. See multiple target time zones at once. Free, no sign-up, runs in your browser.">
+  <link rel="canonical" href="https://www.kokoroflow.net/time-zone-converter.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .tz-result-list{display:grid;gap:10px;margin-top:14px}
+    .tz-result-row{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:8px;background:var(--accent-soft);color:#244f46}
+    .tz-result-row .tz-name{font-weight:800;font-size:13.5px}
+    .tz-result-row .tz-time{font-weight:800;font-size:16px}
+    .tz-result-row .tz-date{font-size:11.5px;color:#3c6d63;display:block}
+    .tz-remove{background:transparent;border:1px solid var(--line);color:var(--muted);min-height:30px;padding:2px 10px;font-size:12px}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Time tool</p>
+      <h1>Time Zone Converter</h1>
+      <p class="lead">Convert a time from your source zone into one or more target time zones at once — handy for scheduling calls, remote work, or travel.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Convert a time</h2>
+        <div class="fields">
+          <div><label for="tz-date">Date</label><input id="tz-date" type="date" oninput="convert()"></div>
+          <div><label for="tz-time">Time</label><input id="tz-time" type="time" value="09:00" oninput="convert()"></div>
+          <div class="full"><label for="tz-from">From time zone</label>
+            <select id="tz-from" onchange="convert()">
+              <option value="America/New_York">Eastern Time (New York)</option>
+              <option value="America/Chicago">Central Time (Chicago)</option>
+              <option value="America/Denver">Mountain Time (Denver)</option>
+              <option value="America/Los_Angeles" selected>Pacific Time (Los Angeles)</option>
+              <option value="America/Anchorage">Alaska Time</option>
+              <option value="Pacific/Honolulu">Hawaii Time</option>
+              <option value="UTC">UTC</option>
+              <option value="Europe/London">London</option>
+              <option value="Europe/Paris">Paris / Berlin</option>
+              <option value="Asia/Taipei">Taipei</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="Asia/Shanghai">Shanghai / Hong Kong</option>
+              <option value="Asia/Singapore">Singapore</option>
+              <option value="Asia/Kolkata">India (Kolkata)</option>
+              <option value="Australia/Sydney">Sydney</option>
+            </select>
+          </div>
+          <div class="full"><label for="tz-to">Add a target time zone</label>
+            <select id="tz-to" onchange="addTarget()">
+              <option value="">Select a time zone to add...</option>
+              <option value="America/New_York">Eastern Time (New York)</option>
+              <option value="America/Chicago">Central Time (Chicago)</option>
+              <option value="America/Denver">Mountain Time (Denver)</option>
+              <option value="America/Los_Angeles">Pacific Time (Los Angeles)</option>
+              <option value="America/Anchorage">Alaska Time</option>
+              <option value="Pacific/Honolulu">Hawaii Time</option>
+              <option value="UTC">UTC</option>
+              <option value="Europe/London">London</option>
+              <option value="Europe/Paris">Paris / Berlin</option>
+              <option value="Asia/Taipei">Taipei</option>
+              <option value="Asia/Tokyo">Tokyo</option>
+              <option value="Asia/Shanghai">Shanghai / Hong Kong</option>
+              <option value="Asia/Singapore">Singapore</option>
+              <option value="Asia/Kolkata">India (Kolkata)</option>
+              <option value="Australia/Sydney">Sydney</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="tz-result-list" id="tz-results"></div>
+      </section>
+
+      <aside class="article">
+        <h2>About time zone conversion</h2>
+        <p>This tool uses your browser's built-in time zone database, which follows the same official IANA time zone rules used by phones and computers — including daylight saving time transitions, so a converted time will automatically reflect whether each region observes DST on that particular date.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Conversion happens entirely in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is saved between visits.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>More KokoroFlow tools</h2>
+      <div class="related-links">
+        <a href="trip-budget-calculator.html">Trip Budget</a>
+        <a href="fuel-economy-converter.html">Fuel Economy Converter</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>Frequently asked questions</h2>
+      <p><strong>Does this account for daylight saving time?</strong><br>Yes — because the conversion uses the standard IANA time zone database, it automatically applies the correct daylight saving offset (or lack of it) for the specific date you enter, not just a fixed hour difference.</p>
+      <p><strong>Can I compare more than two time zones at once?</strong><br>Yes, add as many target time zones as you need from the dropdown — each one gets its own row showing the converted date and time, which is useful for scheduling a call across several countries at once.</p>
+      <p><strong>Why does the date sometimes shift to the next or previous day?</strong><br>Time zones can be many hours apart, so converting a late evening time in one zone can land on the following morning somewhere else — and vice versa. Each result row shows the actual converted date alongside the time to make this clear.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    let targets = ['America/New_York', 'Asia/Taipei'];
+
+    const zoneLabels = {
+      'America/New_York':'Eastern Time (New York)','America/Chicago':'Central Time (Chicago)',
+      'America/Denver':'Mountain Time (Denver)','America/Los_Angeles':'Pacific Time (Los Angeles)',
+      'America/Anchorage':'Alaska Time','Pacific/Honolulu':'Hawaii Time','UTC':'UTC',
+      'Europe/London':'London','Europe/Paris':'Paris / Berlin','Asia/Taipei':'Taipei',
+      'Asia/Tokyo':'Tokyo','Asia/Shanghai':'Shanghai / Hong Kong','Asia/Singapore':'Singapore',
+      'Asia/Kolkata':'India (Kolkata)','Australia/Sydney':'Sydney'
+    };
+
+    function addTarget(){
+      const val = $('tz-to').value;
+      if (val && !targets.includes(val)){
+        targets.push(val);
+        convert();
+      }
+      $('tz-to').value = '';
+    }
+
+    function removeTarget(zone){
+      targets = targets.filter(z => z !== zone);
+      convert();
+    }
+
+    function convert(){
+      const dateVal = $('tz-date').value;
+      const timeVal = $('tz-time').value || '09:00';
+      const fromZone = $('tz-from').value;
+
+      const today = new Date();
+      const dateStr = dateVal || today.toISOString().slice(0,10);
+
+      // Interpret the entered date/time as being in the "from" zone by
+      // finding the UTC instant that displays as that wall-clock time there.
+      const naiveUTC = new Date(`${dateStr}T${timeVal}:00Z`);
+      const asIfUTC = new Date(naiveUTC.toLocaleString('en-US', { timeZone: fromZone }));
+      const offsetMs = naiveUTC.getTime() - asIfUTC.getTime();
+      const trueInstant = new Date(naiveUTC.getTime() + offsetMs);
+
+      $('tz-results').innerHTML = targets.map(zone => {
+        const label = zoneLabels[zone] || zone;
+        const timeStr = trueInstant.toLocaleTimeString('en-US', { timeZone: zone, hour:'numeric', minute:'2-digit', hour12:true });
+        const dateStr2 = trueInstant.toLocaleDateString('en-US', { timeZone: zone, weekday:'short', month:'short', day:'numeric' });
+        return `<div class="tz-result-row">
+          <div><span class="tz-name">${label}</span><span class="tz-date">${dateStr2}</span></div>
+          <div style="display:flex;align-items:center;gap:10px">
+            <span class="tz-time">${timeStr}</span>
+            <button class="tz-remove" onclick="removeTarget('${zone}')">Remove</button>
+          </div>
+        </div>`;
+      }).join('') || '<p style="color:var(--muted);font-size:13px">Add a time zone above to see the converted time.</p>';
+    }
+
+    $('tz-date').value = new Date().toISOString().slice(0,10);
+    convert();
+  </script>
+</body></html>

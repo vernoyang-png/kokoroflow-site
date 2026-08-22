@@ -169,6 +169,14 @@
 <priority>0.7</priority>
 </url>
 <url>
+<loc>https://www.kokoroflow.net/fuel-economy-converter.html</loc>
+<priority>0.7</priority>
+</url>
+<url>
+<loc>https://www.kokoroflow.net/time-zone-converter.html</loc>
+<priority>0.7</priority>
+</url>
+<url>
 <loc>https://www.kokoroflow.net/third-party-licenses.html</loc>
 <priority>0.3</priority>
 </url>
