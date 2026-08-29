@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Return or Keep Calculator – Is Returning It Actually Worth It? | KokoroFlow</title>
+  <meta name="description" content="Work out whether returning an item is worth the shipping, restocking fee, and your time — or whether keeping, reselling, or regifting comes out ahead. Free, no sign-up.">
+  <link rel="canonical" href="https://www.kokoroflow.net/return-or-keep-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .verdict{margin-top:16px;padding:18px;border-radius:9px;font-weight:800;font-size:17px}
+    .verdict.keep{background:#fff0e4;color:#8a4a12}
+    .verdict.return{background:var(--accent-soft);color:#244f46}
+    .verdict.close{background:var(--surface-2);color:var(--muted)}
+    .verdict small{display:block;margin-top:8px;font-weight:500;font-size:13.5px;color:inherit;opacity:.85}
+    .breakdown{width:100%;border-collapse:collapse;margin-top:16px;font-size:14px}
+    .breakdown th,.breakdown td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+    .breakdown th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    .breakdown td:last-child{text-align:right;font-weight:700}
+    .formula{padding:14px 16px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.8;margin:12px 0}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Shopping calculator</p>
+      <h1>Return or Keep Calculator</h1>
+      <p class="lead">Returning something isn't free. Between return shipping, restocking fees, and the trip to the drop-off point, a "full refund" often isn't full. This works out what you'd actually recover — and compares it to reselling or just keeping it.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Compare your options</h2>
+        <div class="fields">
+          <div><label for="price">What you paid ($)</label><input id="price" type="number" value="89.99" step="0.01" oninput="calc()"></div>
+          <div><label for="refund-pct">Refund offered (%)</label><input id="refund-pct" type="number" value="100" step="1" oninput="calc()"></div>
+          <div><label for="ship">Return shipping you pay ($)</label><input id="ship" type="number" value="8.50" step="0.01" oninput="calc()"></div>
+          <div><label for="restock">Restocking fee ($)</label><input id="restock" type="number" value="0" step="0.01" oninput="calc()"></div>
+          <div><label for="minutes">Your time (minutes)</label><input id="minutes" type="number" value="35" oninput="calc()"></div>
+          <div><label for="rate">Value of your time ($/hour)</label><input id="rate" type="number" value="25" step="0.5" oninput="calc()"></div>
+          <div><label for="resale">Realistic resale price ($)</label><input id="resale" type="number" value="45" step="0.01" oninput="calc()"></div>
+          <div><label for="resale-fee">Resale fees + shipping ($)</label><input id="resale-fee" type="number" value="9" step="0.01" oninput="calc()"></div>
+          <div class="full"><label for="usevalue">If you keep it, what's it worth to you? ($)</label><input id="usevalue" type="number" value="30" step="0.01" oninput="calc()"><small class="note">Be honest — if you'd never use it, this is close to $0. If you'd have bought something similar anyway, it's near full price.</small></div>
+        </div>
+        <div class="actions"><button onclick="calc()">Compare</button></div>
+
+        <div id="verdict" class="verdict close"></div>
+
+        <table class="breakdown">
+          <thead><tr><th>Option</th><th>Net value to you</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+
+      <aside class="article">
+        <h2>The formula</h2>
+        <div class="formula">
+Return  = (Price × Refund%) − Shipping<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;− Restocking − Time cost<br><br>
+Resell  = Resale price − Fees − Time cost<br><br>
+Keep&nbsp;&nbsp;&nbsp;&nbsp;= Value it has to you<br><br>
+Time cost = (Minutes ÷ 60) × Hourly rate
+        </div>
+        <p class="note">The money you originally paid is gone in every scenario, so it isn't part of the comparison — only what you get back from here matters. Economists call this ignoring the sunk cost.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Everything runs in your browser.</li>
+          <li><strong>Storage:</strong> Nothing saved; refreshing clears the form.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="related-links">
+        <a href="real-use-unit-cost-calculator.html">Real-Use Unit Cost</a>
+        <a href="sales-tax-calculator.html">Sales Tax</a>
+        <a href="printer-cost-per-page-calculator.html">Printer Cost per Page</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>A worked example</h2>
+      <p>You bought a jacket online for <strong>$89.99</strong>. It doesn't fit. The retailer offers a full refund but deducts <strong>$8.50</strong> for return shipping. Driving to the drop-off point and packing it up takes about <strong>35 minutes</strong>, and you value your time at <strong>$25/hour</strong>.</p>
+      <ul>
+        <li><strong>Return:</strong> $89.99 − $8.50 shipping − $14.58 time = <strong>$66.91</strong></li>
+        <li><strong>Resell</strong> at a realistic $45, minus $9 in platform fees and shipping, minus the same time cost = <strong>$21.42</strong></li>
+        <li><strong>Keep:</strong> you'd wear it occasionally, so it's genuinely worth about <strong>$30</strong> to you</li>
+      </ul>
+      <p>Returning wins clearly here — the shipping fee and half an hour of hassle still leave you far ahead of the other two. But flip one number: if the refund were only 70% (a common "opened item" policy), returning drops to $40.42, and the gap narrows sharply. At a 50% refund, keeping the jacket would win.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li><strong>"Value to you" is a judgement, not a measurement.</strong> It's the number most people get wrong, usually by overestimating how much they'll use something they already regret buying.</li>
+        <li><strong>Resale prices are optimistic until proven.</strong> Check completed listings, not asking prices, and remember items often sit unsold for weeks.</li>
+        <li><strong>Return windows and policies vary.</strong> This assumes the return is actually accepted. Confirm the deadline, the condition requirements, and whether the refund goes to store credit rather than cash.</li>
+        <li><strong>Store credit isn't cash.</strong> If the refund is credit you're unlikely to spend, discount it — treat $50 of credit at a store you rarely use as considerably less than $50.</li>
+        <li><strong>It ignores storage and clutter.</strong> Keeping something you don't want has a real, if unmeasured, cost.</li>
+        <li>This is a budgeting estimate, not financial advice.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p><strong>Why doesn't the price I paid show up in the comparison?</strong><br>Because it's already spent no matter what you choose next — it's the same in all three options, so it can't change which one wins. Including it tends to push people toward returning out of a feeling that they "have to get their money back," even when keeping the item is genuinely worth more.</p>
+      <p><strong>What hourly rate should I use for my time?</strong><br>If the return would eat into paid work, use your actual rate. If it's coming out of free time, use what you'd genuinely pay to avoid the errand — for many people that's somewhere between $10 and $30 an hour. Setting it to $0 is fine if the trip is on a route you're taking anyway.</p>
+      <p><strong>The retailer says "free returns." Do I still need this?</strong><br>Free return shipping removes one cost, not all of them. Restocking fees, refunds issued as store credit, and your own time still apply — set shipping to $0 and the rest of the comparison still holds.</p>
+      <p><strong>What if I'd have to buy a replacement anyway?</strong><br>Then the honest "value to you" of keeping it goes up, because keeping it saves you that future purchase. Enter what the replacement would have cost you.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const money = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+    const num = id => Number($(id).value) || 0;
+
+    function calc(){
+      const price = num('price');
+      const refundPct = num('refund-pct') / 100;
+      const timeCost = (num('minutes') / 60) * num('rate');
+
+      const ret = (price * refundPct) - num('ship') - num('restock') - timeCost;
+      const resell = num('resale') - num('resale-fee') - timeCost;
+      const keep = num('usevalue');
+
+      const opts = [
+        {name:'Return it', val:ret, cls:'return'},
+        {name:'Resell it', val:resell, cls:'return'},
+        {name:'Keep it', val:keep, cls:'keep'}
+      ].sort((a,b) => b.val - a.val);
+
+      $('rows').innerHTML = opts.map(o =>
+        `<tr><td>${o.name}</td><td>${money(o.val)}</td></tr>`).join('');
+
+      const best = opts[0], second = opts[1];
+      const gap = best.val - second.val;
+      const v = $('verdict');
+
+      if (gap < Math.max(5, best.val * 0.08)){
+        v.className = 'verdict close';
+        v.innerHTML = `It's close — ${best.name.toLowerCase()} edges ahead by ${money(gap)}
+          <small>When the gap is this small, the numbers aren't really deciding it. Go with whichever causes less hassle.</small>`;
+      } else {
+        v.className = 'verdict ' + best.cls;
+        v.innerHTML = `${best.name} — ahead by ${money(gap)}
+          <small>Net value ${money(best.val)}, versus ${money(second.val)} for ${second.name.toLowerCase()}.</small>`;
+      }
+    }
+    calc();
+  </script>
+</body></html>

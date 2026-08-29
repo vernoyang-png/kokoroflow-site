@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Partial-Month Utilities Split Calculator – Fair Share by Days Lived | KokoroFlow</title>
+  <meta name="description" content="Split a utility bill fairly when someone moved in or out mid-cycle. Works out each person's share by the days they actually lived there, including fixed service fees. Free, no sign-up.">
+  <link rel="canonical" href="https://www.kokoroflow.net/partial-month-utilities-split-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .person-row{display:grid;grid-template-columns:1.4fr .8fr auto;gap:10px;align-items:end;padding:12px 0;border-bottom:1px solid var(--line)}
+    .person-row:last-of-type{border-bottom:0}
+    .person-row label{font-size:12px}
+    .rm{background:transparent;border:1px solid var(--line);color:var(--muted);min-height:40px;padding:2px 12px;font-size:12px}
+    .rm:hover{border-color:var(--accent);color:var(--accent)}
+    .formula{padding:14px 16px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.8;margin:12px 0}
+    .breakdown{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+    .breakdown th,.breakdown td{text-align:left;padding:10px;border-bottom:1px solid var(--line)}
+    .breakdown th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    .breakdown td:last-child,.breakdown th:last-child{text-align:right}
+    .breakdown tfoot td{font-weight:800;border-bottom:0;border-top:2px solid var(--line-strong,var(--line))}
+    .warn{margin-top:12px;padding:11px 14px;border-radius:8px;background:#fff4d8;color:#7a5a00;font-size:13px}
+    @media(max-width:620px){.person-row{grid-template-columns:1fr 1fr}.person-row .rm{grid-column:1/-1}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Household calculator</p>
+      <h1>Partial-Month Utilities Split Calculator</h1>
+      <p class="lead">Someone moved in on the 12th. Someone else left before the bill arrived. This works out each person's fair share based on the days they actually lived there — and handles fixed service charges separately, since those don't depend on who was home.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Bill details</h2>
+        <div class="fields">
+          <div><label for="total">Total bill ($)</label><input id="total" type="number" value="184.60" step="0.01" oninput="calc()"></div>
+          <div><label for="days">Days in billing period</label><input id="days" type="number" value="30" oninput="calc()"></div>
+          <div class="full"><label for="fixed">Fixed service charge ($)</label><input id="fixed" type="number" value="24.00" step="0.01" oninput="calc()"><small class="note">Standing charges, meter fees, and base rates that apply no matter how much is used. Split evenly among everyone on the lease. Set to 0 to skip.</small></div>
+        </div>
+
+        <h2 style="margin-top:22px">Who lived there</h2>
+        <div id="people"></div>
+        <div class="actions">
+          <button class="secondary" onclick="addPerson()">Add person</button>
+          <button onclick="calc()">Calculate split</button>
+        </div>
+
+        <div id="warn"></div>
+
+        <table class="breakdown" id="table" style="display:none">
+          <thead><tr><th>Person</th><th>Days</th><th>Usage share</th><th>Fixed</th><th>Owes</th></tr></thead>
+          <tbody id="rows"></tbody>
+          <tfoot><tr><td colspan="4">Total</td><td id="sum"></td></tr></tfoot>
+        </table>
+      </section>
+
+      <aside class="article">
+        <h2>The formula</h2>
+        <div class="formula">
+Usage pool = Total − Fixed charge<br><br>
+Person-days = Σ (each person's days)<br><br>
+Usage share =<br>
+&nbsp;&nbsp;Usage pool × (their days ÷ person-days)<br><br>
+Fixed share = Fixed ÷ number of people<br><br>
+<strong>Owed = Usage share + Fixed share</strong>
+        </div>
+        <p class="note">Splitting by person-days rather than by calendar days means a month where two people overlapped for a week is handled correctly — that week's cost is divided between them, not counted twice.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. The split is calculated in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is saved — refreshing clears everything.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="related-links">
+        <a href="business-days-calculator.html">Business Days</a>
+        <a href="tip-calculator.html">Tip Calculator</a>
+        <a href="real-use-unit-cost-calculator.html">Real-Use Unit Cost</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>A worked example</h2>
+      <p>An electricity bill for a 30-day cycle comes to <strong>$184.60</strong>, of which <strong>$24.00</strong> is a fixed service charge. Three roommates share the flat:</p>
+      <ul>
+        <li><strong>Alex</strong> — there all 30 days</li>
+        <li><strong>Sam</strong> — there all 30 days</li>
+        <li><strong>Jordan</strong> — moved in on the 19th, so 12 days</li>
+      </ul>
+      <p>First, separate the usage pool: $184.60 − $24.00 = <strong>$160.60</strong>. Total person-days: 30 + 30 + 12 = <strong>72</strong>.</p>
+      <div class="formula">Alex&nbsp;&nbsp;&nbsp;= $160.60 × (30 ÷ 72) = $66.92<br>Sam&nbsp;&nbsp;&nbsp;&nbsp;= $160.60 × (30 ÷ 72) = $66.92<br>Jordan = $160.60 × (12 ÷ 72) = $26.77</div>
+      <p>Then add the fixed charge, split three ways at <strong>$8.00</strong> each:</p>
+      <ul>
+        <li>Alex: $66.92 + $8.00 = <strong>$74.92</strong></li>
+        <li>Sam: $66.92 + $8.00 = <strong>$74.92</strong></li>
+        <li>Jordan: $26.77 + $8.00 = <strong>$34.77</strong></li>
+      </ul>
+      <p>Compare that to a naive three-way split of $61.53 each — Jordan would have overpaid by nearly $27 for a flat they lived in for less than half the cycle.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li><strong>It assumes everyone uses roughly the same amount per day.</strong> Days lived is a proxy for usage, not a measurement of it. Someone working from home all winter genuinely uses more heating than a housemate who's out twelve hours a day.</li>
+        <li><strong>Seasonal bills aren't evenly distributed within the month.</strong> A cold snap in the first week means those days cost more than days at the end — day-count splitting can't see that.</li>
+        <li><strong>Whether the fixed charge should be split evenly is a judgement call.</strong> Splitting it evenly among current occupants is the common convention, but if someone was on the lease for only part of the cycle, you may prefer to prorate it too.</li>
+        <li><strong>It doesn't decide who's legally liable.</strong> Whoever's name is on the account owes the utility company in full regardless of what this says; this is for settling up between housemates.</li>
+        <li><strong>Guests, subletting, and empty rooms aren't modelled.</strong> Add them as their own line if you want them counted.</li>
+        <li>Rounding means individual shares may differ from the total by a cent or two.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p><strong>Should the move-in day count as a full day?</strong><br>Pick a convention and apply it to everyone. Counting the move-in day and not the move-out day (or the reverse) is simple and avoids double-counting the changeover day when one person replaces another.</p>
+      <p><strong>Why separate the fixed charge instead of splitting everything by days?</strong><br>Because the standing charge is paid for the connection existing, not for anything being used. If you prorate it by days, a housemate who was away for three weeks pays almost nothing toward keeping the account open — which most people find unfair. If you disagree, set the fixed field to 0 and everything splits by days.</p>
+      <p><strong>What if the bill period doesn't match the calendar month?</strong><br>That's exactly what the "days in billing period" field is for. Use the dates printed on the bill, not the month, and count each person's days within that window.</p>
+      <p><strong>Someone used far more than everyone else. Can I adjust for that?</strong><br>Not directly — this splits by time, not by consumption. The practical workaround is to agree a flat surcharge for the heavy user and enter the remainder here, or to give them more "days" as a rough weighting. Both are negotiations rather than calculations.</p>
+      <p><strong>Can I use this for internet, water, or gas as well?</strong><br>Yes. Any bill with a usage component and an optional standing charge works the same way. For internet, where nearly the whole bill is fixed, you may find putting the entire amount in the fixed field and splitting evenly is closer to fair.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const num = id => Number($(id).value) || 0;
+    const money = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+    let count = 0;
+
+    function addPerson(name, days){
+      count++;
+      const id = 'p' + count;
+      const div = document.createElement('div');
+      div.className = 'person-row';
+      div.dataset.id = id;
+      div.innerHTML = `
+        <div><label for="${id}-name">Name</label><input id="${id}-name" type="text" value="${name || 'Person ' + count}" oninput="calc()"></div>
+        <div><label for="${id}-days">Days lived there</label><input id="${id}-days" type="number" value="${days != null ? days : 30}" oninput="calc()"></div>
+        <button class="rm" onclick="this.parentElement.remove(); calc()">Remove</button>`;
+      $('people').appendChild(div);
+      calc();
+    }
+
+    function calc(){
+      const rowsEls = Array.from(document.querySelectorAll('.person-row'));
+      const people = rowsEls.map(r => {
+        const id = r.dataset.id;
+        return { name: $(id + '-name').value.trim() || 'Unnamed', days: Number($(id + '-days').value) || 0 };
+      });
+
+      const total = num('total'), fixed = num('fixed'), period = num('days');
+      const usagePool = total - fixed;
+      const personDays = people.reduce((s, p) => s + p.days, 0);
+      const warn = $('warn');
+      warn.innerHTML = '';
+
+      if (!people.length || personDays <= 0){
+        $('table').style.display = 'none';
+        return;
+      }
+      if (fixed > total){
+        warn.innerHTML = '<div class="warn">The fixed charge is larger than the total bill — check those two numbers.</div>';
+        $('table').style.display = 'none';
+        return;
+      }
+      const over = people.filter(p => period && p.days > period);
+      if (over.length){
+        warn.innerHTML = `<div class="warn">${over.map(p => p.name).join(', ')} ${over.length > 1 ? 'have' : 'has'} more days than the billing period is long. That's usually a typo.</div>`;
+      }
+
+      const fixedEach = people.length ? fixed / people.length : 0;
+      let sum = 0;
+      $('rows').innerHTML = people.map(p => {
+        const usage = usagePool * (p.days / personDays);
+        const owed = usage + fixedEach;
+        sum += owed;
+        return `<tr><td>${p.name}</td><td>${p.days}</td><td>${money(usage)}</td><td>${money(fixedEach)}</td><td><strong>${money(owed)}</strong></td></tr>`;
+      }).join('');
+      $('sum').textContent = money(sum);
+      $('table').style.display = 'table';
+    }
+
+    addPerson('Alex', 30);
+    addPerson('Sam', 30);
+    addPerson('Jordan', 12);
+  </script>
+</body></html>

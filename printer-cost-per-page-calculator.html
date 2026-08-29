@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Printer Cost per Page & Break-even Calculator | KokoroFlow</title>
+  <meta name="description" content="Calculate your real cost per printed page including ink, paper, and the printer itself — then find the break-even point between two printers or between printing at home and at a print shop.">
+  <link rel="canonical" href="https://www.kokoroflow.net/printer-cost-per-page-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .mode-tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+    .mode-tab{padding:8px 14px;border:1px solid var(--line);border-radius:999px;background:#fff;color:var(--muted);font-weight:800;font-size:13px;cursor:pointer}
+    .mode-tab.active{background:var(--text);color:#fff;border-color:var(--text)}
+    .mode-fields{display:none}
+    .mode-fields.active{display:grid}
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .cols h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:10px}
+    .formula{padding:14px 16px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.8;margin:12px 0}
+    .breakdown{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+    .breakdown th,.breakdown td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+    .breakdown th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    .breakdown td:last-child{text-align:right;font-weight:700}
+    @media(max-width:620px){.cols{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Home office calculator</p>
+      <h1>Printer Cost per Page &amp; Break-even Calculator</h1>
+      <p class="lead">The cheap printer is rarely the cheap printer. Work out what a page actually costs you once ink and paper are counted — then find the volume at which a pricier machine with cheaper ink starts paying for itself.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <div class="mode-tabs">
+          <div class="mode-tab active" data-mode="single" onclick="setMode('single')">Cost per page</div>
+          <div class="mode-tab" data-mode="compare" onclick="setMode('compare')">Compare two printers</div>
+          <div class="mode-tab" data-mode="shop" onclick="setMode('shop')">Home vs. print shop</div>
+        </div>
+
+        <div class="fields mode-fields active" data-mode="single">
+          <div><label for="s-cart">Cartridge / toner price ($)</label><input id="s-cart" type="number" value="34.99" step="0.01" oninput="calc()"></div>
+          <div><label for="s-yield">Page yield per cartridge</label><input id="s-yield" type="number" value="220" oninput="calc()"></div>
+          <div><label for="s-paper">Paper: price per ream ($)</label><input id="s-paper" type="number" value="7.99" step="0.01" oninput="calc()"></div>
+          <div><label for="s-sheets">Sheets per ream</label><input id="s-sheets" type="number" value="500" oninput="calc()"></div>
+          <div><label for="s-printer">Printer purchase price ($)</label><input id="s-printer" type="number" value="0" step="0.01" oninput="calc()"><small class="note">Set to 0 to exclude, or enter it to spread across its lifetime.</small></div>
+          <div><label for="s-life">Expected lifetime pages</label><input id="s-life" type="number" value="0" oninput="calc()"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="compare">
+          <div class="cols full">
+            <div>
+              <h3>Printer A</h3>
+              <div><label for="a-price">Printer price ($)</label><input id="a-price" type="number" value="79" step="0.01" oninput="calc()"></div>
+              <div style="margin-top:10px"><label for="a-cart">Cartridge ($)</label><input id="a-cart" type="number" value="34.99" step="0.01" oninput="calc()"></div>
+              <div style="margin-top:10px"><label for="a-yield">Page yield</label><input id="a-yield" type="number" value="220" oninput="calc()"></div>
+            </div>
+            <div>
+              <h3>Printer B</h3>
+              <div><label for="b-price">Printer price ($)</label><input id="b-price" type="number" value="279" step="0.01" oninput="calc()"></div>
+              <div style="margin-top:10px"><label for="b-cart">Ink bottle set ($)</label><input id="b-cart" type="number" value="42" step="0.01" oninput="calc()"></div>
+              <div style="margin-top:10px"><label for="b-yield">Page yield</label><input id="b-yield" type="number" value="4500" oninput="calc()"></div>
+            </div>
+          </div>
+          <div class="full"><label for="c-monthly">Pages you print per month</label><input id="c-monthly" type="number" value="120" oninput="calc()"></div>
+        </div>
+
+        <div class="fields mode-fields" data-mode="shop">
+          <div><label for="h-cart">Your cartridge price ($)</label><input id="h-cart" type="number" value="34.99" step="0.01" oninput="calc()"></div>
+          <div><label for="h-yield">Your page yield</label><input id="h-yield" type="number" value="220" oninput="calc()"></div>
+          <div><label for="h-paperpage">Your paper cost per sheet ($)</label><input id="h-paperpage" type="number" value="0.016" step="0.001" oninput="calc()"></div>
+          <div><label for="h-printer">Printer price, if buying ($)</label><input id="h-printer" type="number" value="79" step="0.01" oninput="calc()"></div>
+          <div class="full"><label for="h-shop">Print shop price per page ($)</label><input id="h-shop" type="number" value="0.15" step="0.01" oninput="calc()"></div>
+        </div>
+
+        <div class="actions"><button onclick="calc()">Calculate</button></div>
+        <div class="result" id="result"></div>
+        <table class="breakdown" id="table" style="display:none">
+          <thead><tr><th>Component</th><th>Per page</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+
+      <aside class="article">
+        <h2>The formulas</h2>
+        <div class="formula">
+Ink per page&nbsp;&nbsp;&nbsp;= Cartridge ÷ Page yield<br>
+Paper per page = Ream ÷ Sheets<br>
+Hardware/page&nbsp;= Printer ÷ Lifetime pages<br><br>
+<strong>Cost per page = sum of the above</strong><br><br>
+Break-even pages =<br>
+&nbsp;&nbsp;(Price B − Price A) ÷<br>
+&nbsp;&nbsp;(Ink/page A − Ink/page B)
+        </div>
+        <p class="note">Break-even only exists when the pricier printer is also the cheaper one to run. If B costs more upfront <em>and</em> more per page, there is no crossover point.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. All calculations run locally in your browser.</li>
+          <li><strong>Storage:</strong> Nothing is saved between visits.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="related-links">
+        <a href="real-use-unit-cost-calculator.html">Real-Use Unit Cost</a>
+        <a href="image-dpi-print-calculator.html">Image DPI &amp; Print Size</a>
+        <a href="return-or-keep-calculator.html">Return or Keep</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>A worked example</h2>
+      <p>A $79 inkjet uses a <strong>$34.99</strong> cartridge rated for <strong>220 pages</strong>. That's <strong>15.9¢ of ink per page</strong>. Add paper at $7.99 per 500-sheet ream (<strong>1.6¢</strong>) and you're at <strong>17.5¢ per page</strong> before the printer itself is counted.</p>
+      <p>Now compare it to a <strong>$279</strong> refillable-tank model whose <strong>$42</strong> ink set covers <strong>4,500 pages</strong> — <strong>0.9¢ per page</strong>.</p>
+      <p>The tank printer costs $200 more upfront but saves 15¢ on every page:</p>
+      <div class="formula">$200 ÷ $0.150 per page ≈ <strong>1,333 pages</strong></div>
+      <p>At 120 pages a month, that's about <strong>11 months</strong> to break even. Print 30 pages a month and it takes closer to four years — long enough that the cheaper printer is the sensible buy. The right answer genuinely depends on your volume, which is exactly why the sticker price alone tells you so little.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li><strong>Manufacturer page yields are lab figures.</strong> They're measured at roughly 5% page coverage (ISO/IEC 24711 and 24712) — about a page of plain text. Photos, graphics, and full-colour documents can consume ink several times faster.</li>
+        <li><strong>Starter cartridges are usually smaller</strong> than the replacements you'll buy later, so the first cartridge isn't representative.</li>
+        <li><strong>Colour and black are often separate.</strong> This tool models a single cost per page; if you print in colour, add the colour cartridge cost to get a blended figure.</li>
+        <li><strong>Inkjets waste ink on maintenance.</strong> Printers that sit unused run cleaning cycles, and infrequent printing can mean real-world yields well below the rating.</li>
+        <li><strong>Third-party and refilled cartridges</strong> change the maths substantially, and may affect warranty coverage.</li>
+        <li>Electricity, drum units on laser printers, and repairs aren't included.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p><strong>Should I include the printer's purchase price in cost per page?</strong><br>For deciding what to buy, yes — that's what the compare mode does. For deciding whether to print a specific job at home today, no: the printer is already paid for, so only ink and paper matter for that decision.</p>
+      <p><strong>Why is my real cost per page higher than this calculator says?</strong><br>Almost always page coverage. The rated yield assumes light text coverage; if you print dense documents, images, or anything with a coloured background, you'll get through a cartridge far faster. Track how many pages you actually get from one cartridge and enter that real number instead of the rating.</p>
+      <p><strong>Are laser printers always cheaper per page?</strong><br>Usually for black-and-white text, yes — toner yields are typically in the thousands of pages. But colour lasers are expensive upfront and their drum units eventually need replacing, so the advantage narrows for colour work.</p>
+      <p><strong>How many pages should I assume a printer lasts?</strong><br>Consumer inkjets are often specified with a monthly duty cycle rather than a lifetime figure. If you have no better number, a few tens of thousands of pages is a common working assumption for home use — but treat any lifetime estimate as rough.</p>
+      <p><strong>When does using a print shop win?</strong><br>Low volume, occasional colour, or anything needing heavy stock. If you print a few dozen pages a year, a printer's purchase price alone can exceed years of print-shop charges — and you skip dried-out cartridges entirely.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const num = id => Number($(id).value) || 0;
+    const cents = n => (n * 100).toFixed(2) + '¢';
+    const money = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD'}).format(n);
+    const fmt = n => new Intl.NumberFormat('en-US',{maximumFractionDigits:0}).format(n);
+    let mode = 'single';
+
+    function setMode(m){
+      mode = m;
+      document.querySelectorAll('.mode-tab').forEach(t => t.classList.toggle('active', t.dataset.mode === m));
+      document.querySelectorAll('.mode-fields').forEach(f => f.classList.toggle('active', f.dataset.mode === m));
+      calc();
+    }
+
+    function calc(){
+      const table = $('table'), rows = $('rows');
+      table.style.display = 'none';
+
+      if (mode === 'single'){
+        const yieldPages = num('s-yield'), sheets = num('s-sheets');
+        if (!yieldPages || !sheets){ $('result').innerHTML = '<strong>Enter a page yield and sheets per ream</strong>'; return; }
+        const ink = num('s-cart') / yieldPages;
+        const paper = num('s-paper') / sheets;
+        const life = num('s-life');
+        const hw = life ? num('s-printer') / life : 0;
+        const total = ink + paper + hw;
+
+        rows.innerHTML = `
+          <tr><td>Ink / toner</td><td>${cents(ink)}</td></tr>
+          <tr><td>Paper</td><td>${cents(paper)}</td></tr>
+          ${hw ? `<tr><td>Printer hardware</td><td>${cents(hw)}</td></tr>` : ''}
+          <tr><td><strong>Total</strong></td><td>${cents(total)}</td></tr>`;
+        table.style.display = 'table';
+
+        $('result').innerHTML = `<strong>${cents(total)} per page</strong>
+          <small>That's ${money(total * 100)} per 100 pages, or ${money(total * 1000)} per 1,000.</small>`;
+      }
+
+      else if (mode === 'compare'){
+        const ya = num('a-yield'), yb = num('b-yield'), monthly = num('c-monthly');
+        if (!ya || !yb){ $('result').innerHTML = '<strong>Enter page yields for both printers</strong>'; return; }
+        const inkA = num('a-cart') / ya, inkB = num('b-cart') / yb;
+        const diffPrice = num('b-price') - num('a-price');
+        const diffInk = inkA - inkB;
+
+        rows.innerHTML = `
+          <tr><td>Printer A ink</td><td>${cents(inkA)}</td></tr>
+          <tr><td>Printer B ink</td><td>${cents(inkB)}</td></tr>`;
+        table.style.display = 'table';
+
+        if (diffInk <= 0){
+          $('result').innerHTML = `<strong>No break-even point</strong>
+            <small>Printer B costs more per page as well as more upfront, so it never catches up. Printer A wins at every volume.</small>`;
+          return;
+        }
+        if (diffPrice <= 0){
+          $('result').innerHTML = `<strong>Printer B wins immediately</strong>
+            <small>It's cheaper upfront and cheaper per page — no crossover needed.</small>`;
+          return;
+        }
+        const pages = diffPrice / diffInk;
+        const months = monthly ? pages / monthly : 0;
+        $('result').innerHTML = `<strong>Break-even at ${fmt(pages)} pages</strong>
+          <small>Printer B costs ${money(diffPrice)} more but saves ${cents(diffInk)} per page.${monthly ? ` At ${fmt(monthly)} pages a month that's about ${months.toFixed(1)} months.` : ''}</small>`;
+      }
+
+      else {
+        const hy = num('h-yield');
+        if (!hy){ $('result').innerHTML = '<strong>Enter your page yield</strong>'; return; }
+        const home = num('h-cart') / hy + num('h-paperpage');
+        const shop = num('h-shop');
+        const printer = num('h-printer');
+
+        rows.innerHTML = `
+          <tr><td>At home (ink + paper)</td><td>${cents(home)}</td></tr>
+          <tr><td>Print shop</td><td>${cents(shop)}</td></tr>`;
+        table.style.display = 'table';
+
+        const saving = shop - home;
+        if (saving <= 0){
+          $('result').innerHTML = `<strong>The print shop is cheaper per page</strong>
+            <small>At ${cents(shop)} versus ${cents(home)} at home, buying a printer never pays for itself at these prices.</small>`;
+          return;
+        }
+        const pages = printer / saving;
+        $('result').innerHTML = `<strong>Buying pays off after ${fmt(pages)} pages</strong>
+          <small>Home printing saves ${cents(saving)} per page, so a ${money(printer)} printer recovers its cost at that volume.</small>`;
+      }
+    }
+    calc();
+  </script>
+</body></html>

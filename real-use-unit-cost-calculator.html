@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Real-Use Unit Cost Calculator – What It Actually Costs You Per Use | KokoroFlow</title>
+  <meta name="description" content="Bigger isn't always cheaper. Work out the true cost per use, per serving, or per wear — including waste, spoilage, and how much you'll realistically finish. Free, no sign-up.">
+  <link rel="canonical" href="https://www.kokoroflow.net/real-use-unit-cost-calculator.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="calculator.css">
+  <style>
+    .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+    .cols h3{font-size:13px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);margin-bottom:10px}
+    .formula{padding:14px 16px;border-left:3px solid var(--accent);background:var(--surface-2);border-radius:6px;font-family:ui-monospace,Menlo,monospace;font-size:13.5px;line-height:1.8;margin:12px 0}
+    .breakdown{width:100%;border-collapse:collapse;margin-top:14px;font-size:14px}
+    .breakdown th,.breakdown td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--line)}
+    .breakdown th{font-size:11px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+    .breakdown td:last-child{text-align:right;font-weight:700}
+    .winner{background:var(--accent-soft)}
+    @media(max-width:620px){.cols{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">KokoroFlow · Shopping calculator</p>
+      <h1>Real-Use Unit Cost Calculator</h1>
+      <p class="lead">Shelf tags show cost per ounce. They don't show cost per ounce <em>you actually use</em>. If a third of the big jar goes off before you finish it, the bulk buy quietly costs more than the small one.</p>
+    </section>
+
+    <div class="layout">
+      <section class="panel">
+        <h2>Compare two sizes</h2>
+        <div class="cols">
+          <div>
+            <h3>Option A</h3>
+            <div><label for="a-price">Price ($)</label><input id="a-price" type="number" value="4.49" step="0.01" oninput="calc()"></div>
+            <div style="margin-top:10px"><label for="a-qty">Quantity (units)</label><input id="a-qty" type="number" value="12" step="0.01" oninput="calc()"></div>
+            <div style="margin-top:10px"><label for="a-waste">Share you won't use (%)</label><input id="a-waste" type="number" value="0" step="1" oninput="calc()"></div>
+          </div>
+          <div>
+            <h3>Option B</h3>
+            <div><label for="b-price">Price ($)</label><input id="b-price" type="number" value="11.99" step="0.01" oninput="calc()"></div>
+            <div style="margin-top:10px"><label for="b-qty">Quantity (units)</label><input id="b-qty" type="number" value="48" step="0.01" oninput="calc()"></div>
+            <div style="margin-top:10px"><label for="b-waste">Share you won't use (%)</label><input id="b-waste" type="number" value="30" step="1" oninput="calc()"></div>
+          </div>
+        </div>
+
+        <div class="fields" style="margin-top:16px">
+          <div class="full"><label for="unit-name">What is one unit? (label only)</label><input id="unit-name" type="text" value="serving" oninput="calc()"><small class="note">A serving, a wear, a load of laundry, an ounce, a dose — whatever you're comparing.</small></div>
+        </div>
+
+        <div class="actions"><button onclick="calc()">Compare</button></div>
+        <div class="result" id="result"></div>
+
+        <table class="breakdown" id="table" style="display:none">
+          <thead><tr><th>Option</th><th>Shelf price / unit</th><th>Real cost / unit</th></tr></thead>
+          <tbody id="rows"></tbody>
+        </table>
+      </section>
+
+      <aside class="article">
+        <h2>The formula</h2>
+        <div class="formula">
+Shelf unit cost = Price ÷ Quantity<br><br>
+Units actually used =<br>
+&nbsp;&nbsp;Quantity × (1 − Waste%)<br><br>
+<strong>Real unit cost =</strong><br>
+&nbsp;&nbsp;Price ÷ Units actually used
+        </div>
+        <p class="note">The full price is paid whether or not you finish the package — so the money spreads across fewer real uses, and the per-use cost rises.</p>
+        <h2>Privacy</h2>
+        <ul>
+          <li><strong>Upload:</strong> None. Everything is calculated in your browser.</li>
+          <li><strong>Storage:</strong> Nothing saved; refreshing clears the form.</li>
+        </ul>
+      </aside>
+    </div>
+
+    <section class="related">
+      <h2>Related tools</h2>
+      <div class="related-links">
+        <a href="return-or-keep-calculator.html">Return or Keep</a>
+        <a href="printer-cost-per-page-calculator.html">Printer Cost per Page</a>
+        <a href="sales-tax-calculator.html">Sales Tax</a>
+        <a href="7tools.html">All Tools</a>
+      </div>
+    </section>
+
+    <section class="article" style="margin-top:24px">
+      <h2>A worked example</h2>
+      <p>A 12-serving box of protein powder costs <strong>$4.49</strong> — about <strong>37.4¢ per serving</strong>. The 48-serving tub is <strong>$11.99</strong>, or <strong>25.0¢ per serving</strong> on the shelf tag. Bulk looks like an easy win: 33% cheaper.</p>
+      <p>But you've bought the big tub before, and you got bored of the flavour around the two-thirds mark. Realistically you'll finish about <strong>70%</strong> of it.</p>
+      <div class="formula">48 servings × 70% = 33.6 servings actually used<br>$11.99 ÷ 33.6 = <strong>35.7¢ per real serving</strong></div>
+      <p>The gap collapses from 33% to about 5%. And if you only get through half the tub, the real cost climbs to <strong>50¢ a serving</strong> — the small box would have been the cheaper choice all along.</p>
+      <p>This is the same reason a $180 coat worn 60 times ($3 a wear) beats a $40 coat worn four times ($10 a wear), and why a gym membership at $45 a month is only cheap if you go.</p>
+
+      <h2>Limitations</h2>
+      <ul>
+        <li><strong>The waste percentage is a guess, and it's the number that decides everything.</strong> Base it on what happened last time you bought this, not on what you intend this time.</li>
+        <li><strong>It doesn't model spoilage dates directly.</strong> For perishables, work out how many units you get through before the expiry date and convert that into a waste share.</li>
+        <li><strong>Storage, freezer space, and clutter aren't counted.</strong> Bulk buying has costs that don't show up in a per-unit figure.</li>
+        <li><strong>It assumes both options are otherwise identical.</strong> Different quality, concentration, or formulation makes a direct comparison unreliable — normalise for that first.</li>
+        <li><strong>Cash flow isn't considered.</strong> Cheaper per unit is little help if the larger size doesn't fit this week's budget.</li>
+        <li>This is a budgeting estimate, not financial advice.</li>
+      </ul>
+
+      <h2>Frequently asked questions</h2>
+      <p><strong>How do I estimate the waste percentage honestly?</strong><br>Look backwards, not forwards. If you've thrown out roughly a third of this product before, use 33% — not the 0% you're hoping for. For anything perishable, count how many servings you genuinely get through in the time before it turns, and treat the rest as waste.</p>
+      <p><strong>Can I use this for things that don't spoil?</strong><br>Yes. Waste doesn't have to mean rotting. For clothes, "units" are wears and waste is the share of the garment's life you won't use before it goes out of rotation. For subscriptions, units are months used versus months paid for.</p>
+      <p><strong>What if I'd share the extra with someone?</strong><br>Then it isn't waste — enter a lower waste share, since those units still get used. The calculation is about units consumed, not units consumed by you specifically.</p>
+      <p><strong>Does this replace the shelf's unit price tag?</strong><br>No, it corrects it. Shelf tags are accurate about what you're buying and silent about what you'll finish. Use both: the tag for a first pass, this for the sizes you're genuinely torn between.</p>
+      <p><strong>Why do both columns default to different waste levels?</strong><br>Because that's the usual real-world shape of the problem: small packages get finished, large ones often don't. If you reliably finish both, set both to 0% and you'll get the same answer the shelf tag gives.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div><a href="about.html">About</a> &nbsp;<a href="contact.html">Contact</a> &nbsp;<a href="privacy.html">Privacy</a> &nbsp;<a href="terms.html">Terms</a> &nbsp;<a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const num = id => Number($(id).value) || 0;
+    const money = n => new Intl.NumberFormat('en-US',{style:'currency',currency:'USD',minimumFractionDigits:2,maximumFractionDigits:3}).format(n);
+    const pct = n => n.toFixed(1) + '%';
+
+    function calc(){
+      const unit = $('unit-name').value.trim() || 'unit';
+      const aQty = num('a-qty'), bQty = num('b-qty');
+      if (!aQty || !bQty){
+        $('result').innerHTML = '<strong>Enter a quantity for both options</strong>';
+        $('table').style.display = 'none';
+        return;
+      }
+      const aShelf = num('a-price') / aQty;
+      const bShelf = num('b-price') / bQty;
+      const aUsed = aQty * (1 - num('a-waste')/100);
+      const bUsed = bQty * (1 - num('b-waste')/100);
+
+      if (aUsed <= 0 || bUsed <= 0){
+        $('result').innerHTML = '<strong>Waste can\'t be 100% — you\'d use none of it</strong>';
+        $('table').style.display = 'none';
+        return;
+      }
+      const aReal = num('a-price') / aUsed;
+      const bReal = num('b-price') / bUsed;
+
+      const aWins = aReal < bReal;
+      $('rows').innerHTML = `
+        <tr class="${aWins ? 'winner' : ''}"><td>Option A</td><td>${money(aShelf)}</td><td>${money(aReal)}</td></tr>
+        <tr class="${!aWins ? 'winner' : ''}"><td>Option B</td><td>${money(bShelf)}</td><td>${money(bReal)}</td></tr>`;
+      $('table').style.display = 'table';
+
+      const winner = aWins ? 'Option A' : 'Option B';
+      const wReal = Math.min(aReal, bReal), lReal = Math.max(aReal, bReal);
+      const savePct = ((lReal - wReal) / lReal) * 100;
+      const shelfWinner = aShelf < bShelf ? 'Option A' : 'Option B';
+      const flipped = shelfWinner !== winner;
+
+      $('result').innerHTML = `<strong>${winner} — ${money(wReal)} per ${unit} actually used</strong>
+        <small>${pct(savePct)} cheaper per real ${unit} than the alternative.${flipped ? ` Note this flips the shelf-price answer: on the tag alone, ${shelfWinner} looked cheaper.` : ''}</small>`;
+    }
+    calc();
+  </script>
+</body></html>
