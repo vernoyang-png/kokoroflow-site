@@ -88,7 +88,7 @@
     </section>
 
     <nav class="tool-nav" aria-label="Tool navigation" id="tools">
-      <a href="salary-calculator.html">Salary</a><a href="income-tax-calculator.html">Income Tax</a><a href="mortgage-calculator.html">Mortgage</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement</a><a href="freelance-rate-calculator.html">Freelance Rate</a><a href="currency-converter.html">Currency</a><a href="trip-budget-calculator.html">Trip Budget</a><a href="bmi-calculator.html">BMI</a><a href="calorie-calculator.html">Calories</a><a href="tip-calculator.html">Tip</a><a href="sales-tax-calculator.html">Sales Tax</a><a href="#picker">Random Picker</a><a href="password-generator.html">Password</a><a href="#unit">Unit</a><a href="#wordcount">Word Count</a><a href="#timezone">Time Zone</a><a href="image-compressor.html">Image Compressor</a><a href="image-converter.html">Image Converter</a><a href="image-dpi-print-calculator.html">DPI &amp; Print Size</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split-reorder.html">PDF Split</a><a href="exif-metadata-remover.html">EXIF Remover</a><a href="business-days-calculator.html">Business Days</a>
+      <a href="salary-calculator.html">Salary</a><a href="income-tax-calculator.html">Income Tax</a><a href="mortgage-calculator.html">Mortgage</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement</a><a href="freelance-rate-calculator.html">Freelance Rate</a><a href="currency-converter.html">Currency</a><a href="trip-budget-calculator.html">Trip Budget</a><a href="bmi-calculator.html">BMI</a><a href="calorie-calculator.html">Calories</a><a href="tip-calculator.html">Tip</a><a href="sales-tax-calculator.html">Sales Tax</a><a href="#picker">Random Picker</a><a href="password-generator.html">Password</a><a href="#unit">Unit</a><a href="#wordcount">Word Count</a><a href="time-zone-converter.html">Time Zone</a><a href="percentage-calculator.html">Percentage</a><a href="hex-rgb-color-converter.html">Color</a><a href="image-compressor.html">Image Compressor</a><a href="image-converter.html">Image Converter</a><a href="image-dpi-print-calculator.html">DPI &amp; Print Size</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split-reorder.html">PDF Split</a><a href="exif-metadata-remover.html">EXIF Remover</a><a href="business-days-calculator.html">Business Days</a>
     </nav>
 
     <section class="hero" aria-labelledby="private-tools-title">
@@ -163,6 +163,30 @@
         <div><h2>Fuel Economy Converter</h2><p class="tool-desc">Calculate real-world MPG from a trip, convert MPG ↔ L/100km, or compare two vehicles' annual fuel cost.</p></div>
         <span class="card-arrow">Open Fuel Economy Converter →</span>
       </a>
+      <a class="tool link-card" href="percentage-calculator.html">
+        <div><h2>Percentage Calculator</h2><p class="tool-desc">Percentages, increases and decreases, discounts, and working backwards to an original price.</p></div>
+        <span class="card-arrow">Open Percentage Calculator →</span>
+      </a>
+      <a class="tool link-card" href="hex-rgb-color-converter.html">
+        <div><h2>HEX to RGB Converter</h2><p class="tool-desc">Convert HEX, RGB, and HSL with a live preview and a WCAG contrast check.</p></div>
+        <span class="card-arrow">Open Color Converter →</span>
+      </a>
+      <a class="tool link-card" href="return-or-keep-calculator.html">
+        <div><h2>Return or Keep Calculator</h2><p class="tool-desc">Compare returning, reselling, or keeping an item once shipping, fees, and your time are counted.</p></div>
+        <span class="card-arrow">Open Return or Keep →</span>
+      </a>
+      <a class="tool link-card" href="printer-cost-per-page-calculator.html">
+        <div><h2>Printer Cost per Page</h2><p class="tool-desc">Real cost per printed page, plus the break-even point between two printers or a print shop.</p></div>
+        <span class="card-arrow">Open Printer Cost Calculator →</span>
+      </a>
+      <a class="tool link-card" href="real-use-unit-cost-calculator.html">
+        <div><h2>Real-Use Unit Cost</h2><p class="tool-desc">What a product actually costs per use once the share you never finish is accounted for.</p></div>
+        <span class="card-arrow">Open Real-Use Unit Cost →</span>
+      </a>
+      <a class="tool link-card" href="partial-month-utilities-split-calculator.html">
+        <div><h2>Partial-Month Utilities Split</h2><p class="tool-desc">Split a bill fairly by days lived there when someone moved in or out mid-cycle.</p></div>
+        <span class="card-arrow">Open Utilities Split →</span>
+      </a>
       <a class="tool link-card" href="time-zone-converter.html">
         <div><h2>Time Zone Converter</h2><p class="tool-desc">Convert a time across multiple time zones at once, with automatic daylight saving handling.</p></div>
         <span class="card-arrow">Open Time Zone Converter →</span>
@@ -199,16 +223,10 @@ Rest</textarea>
         <label for="word-input">Text</label><textarea id="word-input" oninput="countWords()">KokoroFlow makes everyday tools easier to use.</textarea>
         <div class="result" id="word-result">Words: 7 | Characters: 46 | Sentences: 1 | Reading time: about 1 min</div>
       </section>
-
-      <section class="tool" id="timezone">
-        <h2>US Time Zone Converter</h2><p class="tool-desc">Convert a time between Eastern, Central, Mountain, Pacific, Alaska, and Hawaii time.</p>
-        <div class="fields"><div><label for="tz-time">Time</label><input id="tz-time" type="time" value="09:00"></div><div><label for="tz-from">From</label><select id="tz-from"><option value="-5" selected="">Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8">Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div><div class="field-full"><label for="tz-to">To</label><select id="tz-to"><option value="-5">Eastern ET</option><option value="-6">Central CT</option><option value="-7">Mountain MT</option><option value="-8" selected="">Pacific PT</option><option value="-9">Alaska AKT</option><option value="-10">Hawaii HT</option></select></div></div>
-        <div class="button-row"><button onclick="convertTimeZone()">Convert Time</button></div><div class="result" id="timezone-result">Converted time: 6:00 AM</div>
-      </section>
     </div>
   </main>
 
-  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="third-party-licenses.html">Open-source licenses</a><a href="disclaimer.html">Disclaimer</a></div></div></footer>
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="affiliate-disclosure.html">Affiliate Disclosure</a><a href="third-party-licenses.html">Open-source licenses</a><a href="disclaimer.html">Disclaimer</a></div></div></footer>
 
   <script>
     const $ = id => document.getElementById(id);
@@ -247,16 +265,8 @@ Rest</textarea>
       const minutes = Math.max(1, Math.ceil(words / 200));
       $('word-result').textContent = `Words: ${words} | Characters: ${$('word-input').value.length} | Sentences: ${sentences} | Reading time: about ${minutes} min`;
     }
-    function convertTimeZone(){
-      const [h, m] = $('tz-time').value.split(':').map(Number);
-      const diff = Number($('tz-to').value) - Number($('tz-from').value);
-      const total = (h * 60 + m + diff * 60 + 1440) % 1440;
-      const hh = Math.floor(total / 60), mm = total % 60;
-      const display = new Date(2000,0,1,hh,mm).toLocaleTimeString('en-US', { hour:'numeric', minute:'2-digit' });
-      $('timezone-result').textContent = `Converted time: ${display}`;
-    }
 
-    convertUnit(); countWords(); convertTimeZone();
+    convertUnit(); countWords();
   </script>
 
 
