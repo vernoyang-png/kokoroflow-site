@@ -1,16 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f4ee">
   <title>隱私權政策｜KokoroFlow</title>
-  <meta name="description" content="KokoroFlow 的隱私權政策，說明資料收集、Cookie、第三方服務與聯絡方式。">
+  <meta name="description" content="KokoroFlow 隱私權政策，說明本機檔案處理、計算機資料、Cookie、廣告與隱私選擇。">
   <link rel="canonical" href="https://www.kokoroflow.net/privacy.html">
-    <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
 
-  
-  
   <style>
     :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:900px; }
     * { box-sizing:border-box; }
@@ -38,12 +36,19 @@
     .block p:last-child { margin-bottom:0; }
     .block ul { margin:0; padding-left:22px; color:var(--muted); }
     .block li { margin:8px 0; }
+    .block a { color:var(--accent); font-weight:700; text-decoration:none; }
+    .block a:hover { text-decoration:underline; }
     .notice { padding:18px 20px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); color:#244f46; }
+    .related { margin-top:16px; padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .related h2 { margin-bottom:14px; font-size:22px; }
+    .related-links { display:flex; flex-wrap:wrap; gap:10px; }
+    .related-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); text-decoration:none; color:var(--text); font-size:14px; font-weight:600; }
+    .related-links a:hover { background:var(--accent-soft); border-color:var(--accent); }
     .site-footer { border-top:1px solid var(--line); background:var(--surface); }
     .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
     .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
     .footer-links a { text-decoration:none; }
-    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:46px 16px; } .block { padding:22px; } .footer-inner { padding:28px 16px; } }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:46px 16px; } .block, .related { padding:22px; } .footer-inner { padding:28px 16px; } }
   </style>
 </head>
 <body>
@@ -53,52 +58,74 @@
       <a class="brand" href="index.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
       <div class="nav-links">
         <a href="index.html">首頁</a>
-        <a href="index.html#tools">工具</a>
-        <a href="about.html">關於</a>
-        <a href="privacy.html" aria-current="page">隱私</a>
-        <a href="contact.html">聯絡</a>
+        <a href="7tools.html">所有工具</a>
+        <a href="contact-zh.html">聯絡</a>
       </div>
     </nav>
   </header>
 
   <main id="main">
     <section class="page-hero">
-      <p class="eyebrow">Privacy Policy</p>
+      <p class="eyebrow">最後更新：2026 年 8 月</p>
       <h1>隱私權政策</h1>
-      <p class="lead">我們希望工具簡單好用，也希望資料處理方式清楚、透明。</p>
-      <div class="notice">最後更新：2026 年 7 月 1 日。本頁為一般性網站隱私說明，若個別工具頁有額外說明，請以該頁內容為準。</div>
+      <p class="lead">本政策說明當你使用 KokoroFlow 時，哪些資訊可能會被處理。</p>
     </section>
 
     <section class="policy" aria-label="隱私權政策內容">
       <div class="block">
-        <h2>1. 我們收集哪些資料</h2>
-        <p>KokoroFlow 的主要工具以免註冊方式提供。一般情況下，我們不要求使用者建立帳號，也不主動要求姓名、電話或地址等個人資料。</p>
-        <p>當你透過聯絡頁或電子郵件主動提供資料時，我們會使用你提供的資訊回覆問題或處理建議。</p>
+        <h2>計算機工具的資料處理</h2>
+        <p>大多數計算機的輸入內容，都是直接在你的瀏覽器中處理完成。KokoroFlow 不需要註冊帳號，也不會刻意儲存你在計算機中輸入的財務、健康、旅行、工作或其他數值。</p>
       </div>
 
       <div class="block">
-        <h2>2. 工具輸入內容</h2>
-        <p>你在工具中輸入的網址、文字、數字或其他內容，原則上僅用於完成當下操作。若某個工具需要連線到第三方服務，會在該工具頁面盡量清楚標示。</p>
+        <h2>已選取的圖片與 PDF 檔案</h2>
+        <p>標示「不上傳」的工具，會在你的瀏覽器本機端處理你選取的檔案。KokoroFlow 不會接收或儲存這些圖片或 PDF 檔案的內容。開源的 PDF 處理函式庫由 KokoroFlow 主機提供，但實際執行是在你的裝置上進行。一般讀取頁面與相關檔案的請求，仍會被網站主機服務商看見，但你選取檔案的實際內容不會包含在這類請求中。</p>
       </div>
 
       <div class="block">
-        <h2>3. Cookie 與分析資料</h2>
-        <p>網站可能使用基本的主機記錄或統計資料來了解流量、錯誤與裝置類型，例如瀏覽器、作業系統、來源頁面與大致使用時間。這些資料主要用於改善網站穩定性與體驗。</p>
+        <h2>主機與使用紀錄</h2>
+        <p>我們的主機服務商與安全服務，可能會處理標準的技術資訊，例如 IP 位址、瀏覽器類型、裝置類型、請求的頁面、來源頁面、時間戳記，以及錯誤或安全紀錄。這些資訊可能用於維運、保護與改善網站。</p>
       </div>
 
       <div class="block">
-        <h2>4. 第三方服務</h2>
-        <p>本站部分頁面可能連結到其他 KokoroFlow 子網域或第三方服務，例如字型、表單或網站主機。第三方服務的資料處理方式依其各自政策為準。</p>
+        <h2>Cookie、廣告與 Google 服務</h2>
+        <p>KokoroFlow 於審核通過後，可能使用 Google AdSense 及相關 Google 廣告服務。Google 與其他第三方廠商，可能會在你的瀏覽器上放置與讀取 Cookie，或使用網路信標、IP 位址及類似識別碼，以投放、衡量、個人化或限制廣告內容。這些工具不會將你選取的圖片或 PDF 檔案內容提供給廣告主。</p>
+        <p>你可以進一步了解 <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">Google 如何使用合作網站的資訊</a>，並透過 <a href="https://adssettings.google.com/" target="_blank" rel="noopener">Google 廣告設定</a> 管理你的偏好。</p>
       </div>
 
       <div class="block">
-        <h2>5. 資料安全</h2>
-        <p>我們會盡合理努力維護網站安全，並避免加入不必要的外部腳本。網際網路傳輸仍可能存在風險，建議不要在一般工具欄位輸入高度敏感資料。</p>
+        <h2>同意機制</h2>
+        <p>在法律要求的情況下，我們會在使用個人化廣告或特定儲存技術之前，向訪客顯示同意訊息。對於歐洲經濟區（EEA）、英國或瑞士的訪客所顯示的廣告，KokoroFlow 會使用符合資格的 Google 認證同意管理平台（CMP）。</p>
       </div>
 
       <div class="block">
-        <h2>6. 聯絡我們</h2>
-        <p>若你對隱私權政策或資料處理方式有疑問，請透過 <a href="contact.html">聯絡頁</a> 與我們聯繫。</p>
+        <h2>廣告呈現原則</h2>
+        <p>KokoroFlow 不會刻意將廣告呈現為工具結果，也不會將廣告放置在檔案選取控制項內。廣告應與上傳、轉換、計算與下載等操作介面明確區隔。</p>
+      </div>
+
+      <div class="block">
+        <h2>外部服務與連結</h2>
+        <p>部分工具可能會向第三方服務請求公開參考資料，例如匯率資訊。外部網站有各自的隱私權政策，KokoroFlow 對其實際作法不負責任。</p>
+      </div>
+
+      <div class="block">
+        <h2>兒童隱私</h2>
+        <p>KokoroFlow 服務對象為一般成年使用者，並非針對 13 歲以下兒童設計。我們不會刻意蒐集兒童的個人資料。</p>
+      </div>
+
+      <div class="block">
+        <h2>政策異動與聯絡方式</h2>
+        <p>當網站內容或相關法規要求變更時，我們可能會更新本政策。若有任何問題，歡迎寄信至 <a href="mailto:hello@kokoroflow.net">hello@kokoroflow.net</a>。</p>
+      </div>
+    </section>
+
+    <section class="related">
+      <h2>相關資訊</h2>
+      <div class="related-links">
+        <a href="terms.html">服務條款</a>
+        <a href="third-party-licenses.html">開源授權資訊</a>
+        <a href="disclaimer.html">計算機免責聲明</a>
+        <a href="contact-zh.html">聯絡我們</a>
       </div>
     </section>
   </main>
@@ -107,12 +134,14 @@
     <div class="footer-inner">
       <div>© 2026 KokoroFlow. All rights reserved.</div>
       <div class="footer-links">
-        <a href="index.html">首頁</a>
-        <a href="about.html">關於我們</a>
-        <a href="contact.html">聯絡我們</a>
+        <a href="about.html">關於</a>
+        <a href="contact-zh.html">聯絡</a>
+        <a href="privacy-zh.html">隱私權政策</a>
+        <a href="terms.html">服務條款</a>
+        <a href="third-party-licenses.html">授權資訊</a>
+        <a href="disclaimer.html">免責聲明</a>
       </div>
     </div>
   </footer>
 </body>
 </html>
-

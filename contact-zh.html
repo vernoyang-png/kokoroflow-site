@@ -1,16 +1,14 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="zh-Hant-TW">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f7f4ee">
-  <title>聯絡 KokoroFlow｜意見回饋與工具建議</title>
-  <meta name="description" content="聯絡 KokoroFlow，回報問題、提出新工具建議，或分享使用上的意見。">
+  <title>聯絡 KokoroFlow｜問題回報與工具建議</title>
+  <meta name="description" content="聯絡 KokoroFlow，回報計算機問題、提出新工具建議，或詢問使用上的問題。">
   <link rel="canonical" href="https://www.kokoroflow.net/contact.html">
-    <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
 
-  
-  
   <style>
     :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1040px; }
     * { box-sizing:border-box; }
@@ -34,6 +32,11 @@
     .layout { display:grid; grid-template-columns:minmax(0, 1fr) 320px; gap:22px; align-items:start; }
     .contact-card, .info-card { border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
     .contact-card { padding:30px; }
+    .contact-card h2 { font-size:22px; margin-bottom:10px; }
+    .contact-card p { color:var(--muted); }
+    .email-link { display:inline-block; margin:6px 0 18px; font-size:17px; font-weight:700; color:var(--accent); text-decoration:none; }
+    .email-link:hover { text-decoration:underline; }
+    .warning { margin:18px 0 24px; padding:14px 16px; border-radius:8px; background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:14px; }
     .form-grid { display:grid; gap:18px; }
     label { display:block; margin-bottom:7px; font-weight:700; }
     input, select, textarea {
@@ -52,11 +55,14 @@
     .submit { min-height:48px; border:0; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-weight:800; cursor:pointer; }
     .submit:hover { background:#34363a; }
     .info-card { padding:24px; background:var(--surface-2); }
-    .info-card h2 { margin-bottom:10px; font-size:22px; }
+    .info-card h2 { margin-bottom:10px; font-size:20px; }
     .info-card p, .info-card li { color:var(--muted); }
     .info-card ul { margin:0; padding-left:20px; }
     .info-card li { margin:8px 0; }
+    .info-card + .info-card { margin-top:16px; }
     .note { margin-top:16px; padding:14px; border-radius:8px; background:var(--accent-soft); color:#244f46; font-size:14px; }
+    .disclaimer-link { display:inline-block; margin-top:14px; font-weight:700; color:var(--accent); text-decoration:none; }
+    .disclaimer-link:hover { text-decoration:underline; }
     .site-footer { border-top:1px solid var(--line); background:var(--surface); }
     .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
     .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
@@ -72,23 +78,27 @@
       <a class="brand" href="index.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
       <div class="nav-links">
         <a href="index.html">首頁</a>
-        <a href="index.html#tools">工具</a>
+        <a href="7tools.html">所有工具</a>
         <a href="about.html">關於</a>
-        <a href="privacy.html">隱私</a>
-        <a href="contact.html" aria-current="page">聯絡</a>
+        <a href="contact-zh.html" aria-current="page">聯絡</a>
       </div>
     </nav>
   </header>
 
   <main id="main">
     <section class="page-hero">
-      <p class="eyebrow">Contact</p>
-      <h1>告訴我們你需要什麼工具。</h1>
-      <p class="lead">無論是問題回報、功能建議，或只是想分享使用心得，都可以從這裡開始。</p>
+      <p class="eyebrow">Contact KokoroFlow</p>
+      <h1>問題、更正建議與工具構想，歡迎與我們聯絡。</h1>
+      <p class="lead">告訴我們哪裡運作正常、哪裡不夠清楚，或是你希望下一個看到的實用計算機工具是什麼。</p>
     </section>
 
     <div class="layout">
       <section class="contact-card" aria-label="聯絡表單">
+        <h2>寫信給我們</h2>
+        <a class="email-link" href="mailto:hello@kokoroflow.net?subject=KokoroFlow%20feedback">hello@kokoroflow.net</a>
+        <p>回報計算機問題時，請附上頁面名稱、你輸入的數值、你原本預期的結果，以及實際得到的結果，這樣能幫助我們更快找出問題。</p>
+        <div class="warning">請勿透過信件或表單提供身分證字號、報稅資料、病歷、密碼、付款資訊等敏感個人資料。</div>
+
         <form action="mailto:hello@kokoroflow.net" method="post" enctype="text/plain">
           <div class="form-grid">
             <div>
@@ -111,22 +121,23 @@
             </div>
             <div>
               <label for="message">留言內容</label>
-              <textarea id="message" name="message" placeholder="請描述您的問題、建議或使用情境..." required></textarea>
+              <textarea id="message" name="message" placeholder="請描述頁面名稱、你使用的輸入數值、預期結果與實際結果..." required></textarea>
             </div>
             <button class="submit" type="submit">送出留言</button>
           </div>
         </form>
       </section>
 
-      <aside class="info-card" aria-label="聯絡說明">
-        <h2>建議提供</h2>
-        <ul>
-          <li>你使用的是手機還是電腦</li>
-          <li>發生問題的工具網址</li>
-          <li>你原本期待完成的任務</li>
-          <li>若是新工具建議，請描述使用情境</li>
-        </ul>
-        <div class="note">目前表單會開啟你的郵件軟體寄送內容。若你的主機已有正式表單服務，可再把 action 換成實際收件端點。</div>
+      <aside aria-label="聯絡說明">
+        <div class="info-card">
+          <h2>回覆說明</h2>
+          <p>我們會檢視每一則回報與建議，但無法提供個人化的稅務、法律、投資、貸款、營養或醫療建議。</p>
+        </div>
+        <div class="info-card">
+          <h2>聯絡我們之前</h2>
+          <p>每個計算機工具在結果附近都會列出使用的假設條件與限制。若牽涉具時效性的稅務、財務或健康決策，請以官方來源或專業人士的建議為準。</p>
+          <a class="disclaimer-link" href="disclaimer.html">閱讀計算機免責聲明</a>
+        </div>
       </aside>
     </div>
   </main>
@@ -135,12 +146,13 @@
     <div class="footer-inner">
       <div>© 2026 KokoroFlow. All rights reserved.</div>
       <div class="footer-links">
-        <a href="index.html">首頁</a>
-        <a href="about.html">關於我們</a>
+        <a href="about.html">關於</a>
+        <a href="contact-zh.html">聯絡</a>
         <a href="privacy.html">隱私權政策</a>
+        <a href="terms.html">服務條款</a>
+        <a href="disclaimer.html">免責聲明</a>
       </div>
     </div>
   </footer>
 </body>
 </html>
-
