@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>Student Laptop Guide | Top 6 Picks (2026) | KokoroFlow</title>
+  <meta name="description" content="2026 laptop recommendations for high school and college students: a transparent ranking based on budget, portability, battery, performance, and repairability.">
+  <link rel="canonical" href="https://www.kokoroflow.net/student-laptops-top-6.html">
+  <link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+
+  <style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1040px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.75; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { max-width:820px; margin:56px auto 38px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, h4, p { margin-top:0; }
+    h1 { margin-bottom:16px; font-size:clamp(30px, 5vw, 50px); line-height:1.16; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(16px, 2vw, 19px); }
+    .notice { margin-top:20px; padding:16px 18px; border-radius:var(--radius); background:var(--accent-soft); color:#244f46; font-size:14px; border:1px solid var(--line); }
+    .notice.disclosure { background:var(--surface-2); color:var(--muted); }
+    .notice.disclosure strong { display:block; margin-bottom:6px; color:var(--text); font-size:14px; }
+    .notice.disclosure p { margin:4px 0; }
+
+    .stats { margin-top:26px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+    .stat { padding:18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); text-align:center; }
+    .stat .num { display:block; font-size:20px; font-weight:800; color:var(--text); }
+    .stat .label { display:block; margin-top:4px; color:var(--muted); font-size:13px; }
+
+    section.section { margin-top:14px; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .block h2 { margin-bottom:12px; font-size:26px; line-height:1.25; }
+    .block p { color:var(--muted); }
+    .block p + p { margin-top:12px; }
+
+    .weights { margin-top:18px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; }
+    .weight { display:flex; align-items:baseline; gap:10px; padding:14px 16px; border:1px solid var(--line); border-radius:var(--radius); background:#fbf8f1; color:var(--muted); font-size:14px; }
+    .weight b { color:var(--accent-2); font-size:16px; }
+
+    .controls { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:14px; }
+    .controls button { min-height:40px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); background:var(--surface); color:var(--muted); font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+    .controls button:hover { color:var(--text); background:var(--surface-2); }
+    .controls button.active { background:var(--text); border-color:var(--text); color:#fff; }
+    #result-count { color:var(--muted); font-size:13px; margin-bottom:22px; }
+
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+    .card { display:flex; flex-direction:column; min-width:0; padding:26px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .card[hidden] { display:none !important; }
+    .rank { color:var(--accent); font-weight:800; font-size:13px; letter-spacing:.06em; margin-bottom:8px; }
+    .card h3 { margin-bottom:6px; font-size:19px; line-height:1.3; }
+    .card .tag { display:inline-block; margin-bottom:14px; padding:4px 10px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:12px; font-weight:700; }
+    .card h4 { margin:16px 0 3px; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent-2); }
+    .card h4:first-of-type { margin-top:0; }
+    .card p { color:var(--muted); font-size:14.5px; }
+    .card-links { display:flex; flex-direction:column; align-items:flex-start; gap:12px; margin-top:auto; padding-top:20px; }
+    .card .source { color:var(--accent); font-weight:700; text-decoration:none; font-size:14px; }
+    .card .source:hover { text-decoration:underline; }
+    .amazon { display:inline-flex; align-items:center; justify-content:center; min-height:44px; padding:10px 16px; border-radius:999px; background:var(--text); color:#fff; text-decoration:none; font-weight:700; font-size:14px; }
+    .amazon:hover { background:#34363a; }
+
+    .sources { margin:0; padding-left:20px; color:var(--muted); }
+    .sources li { margin:8px 0; overflow-wrap:anywhere; }
+    .sources a { color:var(--accent); font-weight:600; text-decoration:none; }
+    .sources a:hover { text-decoration:underline; }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:860px) { .stats { grid-template-columns:1fr; } .weights { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:0 16px 46px; } .page-hero { margin-top:40px; } .block, .card { padding:20px; } .footer-inner { padding:28px 16px; } }
+    @media print { .controls { display:none; } .card { break-inside:avoid; } .card[hidden] { display:flex !important; } .grid { display:block; } .card { margin-bottom:20px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="index.html"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="7tools.html">All Tools</a>
+        <a href="business-laptops-top-10.html">Business Laptops</a>
+        <a href="student-laptops-top-6.html" aria-current="page">Student Laptops</a>
+        <a href="contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Student laptop guide · updated September 11, 2026</p>
+      <h1>Top 6 Laptops for High School &amp; College Students</h1>
+      <p class="lead">Built around writing papers, online classes, research, presentations, learning to code, and everyday carrying — with options for general coursework, business, engineering, and creative majors. Pick a configuration that can last your whole program, not just chase one spec.</p>
+      <div class="notice">Minimum recommendation: 16GB memory and a 512GB SSD for general coursework; design, engineering, video editing, or local AI work should be checked against your program's software requirements. Models, pricing, keyboard layout, and availability vary by market — verify with an official or authorized retailer before paying.</div>
+      <div class="notice disclosure">
+        <strong>Affiliate disclosure</strong>
+        <p>As an Amazon Associate I earn from qualifying purchases.</p>
+        <p>Affiliate relationships do not determine rankings. Some purchase links may earn a commission. The Dell link is supplied as a standard product URL without an affiliate tracking tag.</p>
+      </div>
+      <div class="stats">
+        <div class="stat"><span class="num">6 models</span><span class="label">Picked by study scenario</span></div>
+        <div class="stat"><span class="num">6 criteria</span><span class="label">Editorial priorities</span></div>
+        <div class="stat"><span class="num">No paid placement</span><span class="label">Affiliate disclosure below</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="block">
+        <h2>Methodology and weighting</h2>
+        <p>This Top 6 is an editorial shortlist organized by study scenario, not a lab-tested performance league table. We consider software compatibility first, then the six priorities below. Percentages describe editorial priorities; they are not measured product scores, and no numerical fit scores are assigned.</p>
+        <p>Manufacturer documentation supports hardware descriptions. Recommended configurations are buying targets, not confirmation of the configuration currently selected on Amazon. Major recommendations are editorial guidance: your department's requirements take priority. This guide does not claim hands-on testing of these six laptops.</p>
+        <div class="weights">
+          <div class="weight"><b>25%</b>Budget &amp; long-term value</div>
+          <div class="weight"><b>20%</b>Portability &amp; durability</div>
+          <div class="weight"><b>18%</b>Battery &amp; charging convenience</div>
+          <div class="weight"><b>15%</b>Performance (16GB baseline)</div>
+          <div class="weight"><b>12%</b>Ports &amp; repairability</div>
+          <div class="weight"><b>10%</b>Display, camera &amp; collaboration</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 style="font-size:26px; margin:34px 0 6px;">Recommendations</h2>
+      <p class="lead" style="font-size:15px; margin-bottom:22px;">Filter by how you'll mainly use it. If your program requires specific software, follow your department's requirements first.</p>
+
+      <div class="controls" aria-label="Filter recommendations">
+        <button type="button" class="active" data-filter="all" aria-pressed="true">All 6</button>
+        <button type="button" data-filter="general" aria-pressed="false">General coursework</button>
+        <button type="button" data-filter="portable" aria-pressed="false">Portable</button>
+        <button type="button" data-filter="value" aria-pressed="false">Budget-focused</button>
+        <button type="button" data-filter="engineering" aria-pressed="false">Engineering &amp; CAD</button>
+        <button type="button" data-filter="creative" aria-pressed="false">Creative work</button>
+        <button type="button" data-filter="coding" aria-pressed="false">Coding &amp; data</button>
+        <button type="button" data-filter="windows" aria-pressed="false">Windows</button>
+        <button type="button" data-filter="macos" aria-pressed="false">macOS</button>
+      </div>
+      <p id="result-count" role="status" aria-live="polite">Showing 6 of 6 models</p>
+      <noscript><p>All six recommendations are shown. Enable JavaScript to use the filters.</p></noscript>
+
+      <div class="grid" id="cards">
+        <article class="card" data-tags="portable general macos"><div class="rank">01 / 06</div><h3>Apple MacBook Air 13-inch M5 (2026)</h3><span class="tag">Best overall for general coursework</span><h4>Best for majors</h4><p>Literature, Languages, Education, Business, Communications, Social Sciences, and general coursework</p><h4>Why we picked it</h4><p>A compact everyday choice for papers, research, presentations, and online classes when your course software supports macOS.</p><h4>Recommended configuration</h4><p>M5 / 16GB unified memory / 512GB SSD. Consider 24GB for heavier multitasking.</p><h4>Key specs</h4><p>Apple M5; 13.6-inch 2560 × 1664 Liquid Retina display; 1.23kg; two Thunderbolt 4 ports, MagSafe 3, headphone jack.</p><h4>Watch out for</h4><p>Confirm macOS support for required applications. Memory and internal storage cannot be upgraded after purchase; adapters may be needed for USB-A or HDMI.</p><div class="card-links"><a class="source" href="https://support.apple.com/en-us/126320" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://amzn.to/4imWMFM" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+        <article class="card" data-tags="portable general windows"><div class="rank">02 / 06</div><h3>ASUS Zenbook A14 UX3407</h3><span class="tag">Lightweight Windows choice</span><h4>Best for majors</h4><p>Business, Finance, Marketing, Education, Languages, and Social Sciences</p><h4>Why we picked it</h4><p>Its portable design and OLED display make it a useful fit for lecture notes, reading, spreadsheets, and presentations.</p><h4>Recommended configuration</h4><p>Snapdragon X Plus / 16GB RAM / 512GB SSD as a target configuration; verify the full UX3407 suffix.</p><h4>Key specs</h4><p>Snapdragon processor family; integrated Adreno graphics; 14-inch OLED options; USB4 Type-C, USB-A, HDMI and audio. Processor, panel, memory and weight vary by SKU.</p><h4>Watch out for</h4><p>Windows on ARM requires checking specialist apps, drivers, exam software, and peripherals. UX3407 spans multiple processor generations; the name alone does not identify a configuration.</p><div class="card-links"><a class="source" href="https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-a14-ux3407/techspec/" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://amzn.to/3Tjg6tj" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+        <article class="card" data-tags="general windows coding"><div class="rank">03 / 06</div><h3>Dell 14 Plus DB14250</h3><span class="tag">Versatile Windows study laptop</span><h4>Best for majors</h4><p>Business, Accounting, Information Systems, Computer Science, and general STEM</p><h4>Why we picked it</h4><p>A conventional Intel Windows platform is a practical starting point for business applications, programming, and general technical coursework.</p><h4>Recommended configuration</h4><p>Core Ultra 7 256V / 16GB RAM / 1TB SSD / 14-inch 2.5K display as the target; check the selected Amazon variant.</p><h4>Key specs</h4><p>Intel Core Ultra platform; integrated graphics; 14-inch display; memory, resolution and ports should be checked against the DB14250 configuration in the official manual.</p><h4>Watch out for</h4><p>Integrated graphics are not a substitute for a dedicated GPU in demanding 3D work. For virtual machines or large datasets, consider a configuration with more memory before purchase.</p><div class="card-links"><a class="source" href="https://www.dell.com/support/product-details/en-us/product/dell-db14250-laptop/resources/manuals" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://www.amazon.com/dp/B0F2K5DYNK" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+        <article class="card" data-tags="portable general value windows"><div class="rank">04 / 06</div><h3>HP OmniBook 5 14-inch</h3><span class="tag">Budget-conscious general study</span><h4>Best for majors</h4><p>Humanities, Education, Business, Communications, and budget-conscious general students</p><h4>Why we picked it</h4><p>A compact option for everyday writing, web research, video classes, and office work when its current price fits your budget.</p><h4>Recommended configuration</h4><p>At least 16GB RAM / 512GB SSD. Verify the complete model number, processor and display before ordering.</p><h4>Key specs</h4><p>14-inch Windows laptop family. CPU architecture, panel, ports, memory and weight depend on the submodel; the linked HP source covers the 14-he0000 Snapdragon series.</p><h4>Watch out for</h4><p>The family name is not an exact SKU. Snapdragon versions run Windows on ARM, so confirm course and exam software compatibility. Compare the actual offer before treating this as the cheapest pick.</p><div class="card-links"><a class="source" href="https://support.hp.com/us-en/document/ish_12543533-12543577-16" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://amzn.to/46PJ5bf" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+        <article class="card" data-tags="engineering creative windows coding"><div class="rank">05 / 06</div><h3>Lenovo LOQ 15</h3><span class="tag">Dedicated graphics for engineering and 3D</span><h4>Best for majors</h4><p>Mechanical Engineering, Architecture, Civil Engineering, CAD, 3D, Game Development, and STEM</p><h4>Why we picked it</h4><p>Choose a dedicated NVIDIA GPU configuration when coursework includes 3D modeling, rendering, or game development.</p><h4>Recommended configuration</h4><p>Target an RTX 5050 configuration with 16GB RAM and 1TB SSD; consider 32GB for larger CAD projects. Confirm the CPU and exact model.</p><h4>Key specs</h4><p>15-inch-class Windows gaming laptop family; CPU, GPU, display, ports and weight vary by generation. The manufacturer reference is an example LOQ 15IRX10 family, not proof of the Amazon SKU.</p><h4>Watch out for</h4><p>Expect more carrying weight, charger bulk, fan noise, and battery compromises than an ultraportable. Verify your department's GPU, VRAM and certified-driver requirements.</p><div class="card-links"><a class="source" href="https://psref.lenovo.com/Product/LOQ/LOQ_15IRX10" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://amzn.to/46PdGFM" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+        <article class="card" data-tags="creative coding macos"><div class="rank">06 / 06</div><h3>Apple MacBook Pro 14-inch M5</h3><span class="tag">Creative work and development</span><h4>Best for majors</h4><p>Graphic Design, Photography, Film &amp; Video, Music Production, Computer Science, and Data Science</p><h4>Why we picked it</h4><p>A high-quality display and broad media capabilities suit creative coursework and development in a macOS-compatible workflow.</p><h4>Recommended configuration</h4><p>M5 / 16GB unified memory / 512GB SSD minimum; consider 24GB or 32GB and 1TB for media projects or larger datasets.</p><h4>Key specs</h4><p>Apple M5; 14.2-inch Liquid Retina XDR display with ProMotion up to 120Hz; Thunderbolt 4, HDMI, SDXC, MagSafe 3 and headphone jack.</p><h4>Watch out for</h4><p>Costs more than a general coursework laptop. Check plug-ins and course software; CUDA-dependent workloads need a compatible NVIDIA system or remote compute. Memory and storage are not user-upgradeable.</p><div class="card-links"><a class="source" href="https://support.apple.com/en-us/125405" target="_blank" rel="noopener">Manufacturer specs ↗</a><a class="amazon" href="https://amzn.to/46ObjTJ" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon ↗</a></div></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="block">
+        <h2>Sources and limitations</h2>
+        <p>Updated September 11, 2026. The official references below describe these models or model families. Family documentation can include configurations other than those offered by an Amazon seller. No live prices, stock guarantees, battery-test results, or independent benchmark scores are claimed here.</p>
+        <p>The supplied Amazon links are provided as purchase destinations. Short-link destinations and all currently selected seller configurations could not be independently verified during this update. Check the full model number, CPU, RAM, SSD, display, seller, warranty, and return terms on the product page. Recommended configurations may differ from the linked offer. School software, exam tools, OS architecture, and GPU requirements can change which laptop is suitable.</p>
+        <ol class="sources">
+          <li><a href="https://support.apple.com/en-us/126320" target="_blank" rel="noopener">Apple MacBook Air 13-inch M5 (2026) — official specifications / model-family documentation</a></li>
+          <li><a href="https://www.asus.com/us/laptops/for-home/zenbook/asus-zenbook-a14-ux3407/techspec/" target="_blank" rel="noopener">ASUS Zenbook A14 UX3407 — official specifications / model-family documentation</a></li>
+          <li><a href="https://www.dell.com/support/product-details/en-us/product/dell-db14250-laptop/resources/manuals" target="_blank" rel="noopener">Dell 14 Plus DB14250 — official specifications / model-family documentation</a></li>
+          <li><a href="https://support.hp.com/us-en/document/ish_12543533-12543577-16" target="_blank" rel="noopener">HP OmniBook 5 14-inch — official specifications / model-family documentation</a></li>
+          <li><a href="https://psref.lenovo.com/Product/LOQ/LOQ_15IRX10" target="_blank" rel="noopener">Lenovo LOQ 15 — official specifications / model-family documentation</a></li>
+          <li><a href="https://support.apple.com/en-us/125405" target="_blank" rel="noopener">Apple MacBook Pro 14-inch M5 — official specifications / model-family documentation</a></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Student Laptop Guide · General information only. Not a purchase, warranty, or software-compatibility guarantee.</span>
+      <span class="footer-links"><a href="business-laptops-top-10.html">Business Laptop Guide →</a></span>
+    </div>
+  </footer>
+
+  <script>const buttons=[...document.querySelectorAll('[data-filter]')],cards=[...document.querySelectorAll('#cards .card')];buttons.forEach(b=>b.addEventListener('click',()=>{buttons.forEach(x=>{const active=x===b;x.classList.toggle('active',active);x.setAttribute('aria-pressed',String(active))});const f=b.dataset.filter;cards.forEach(c=>c.hidden=f!=='all'&&!c.dataset.tags.split(' ').includes(f));document.getElementById('result-count').textContent='Showing '+cards.filter(c=>!c.hidden).length+' of '+cards.length+' models'}));</script>
+</body>
+</html>
