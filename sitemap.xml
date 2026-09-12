@@ -1,11 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  These two <url> entries belong in kokoroflow.net's main sitemap.xml
-  (the one at https://www.kokoroflow.net/sitemap.xml) alongside your
-  existing pages — this file is just the two entries to copy in, not a
-  separate sitemap to upload on its own.
+  Draft sitemap.xml for kokoroflow.net, assembled from every URL that has
+  actually appeared in our conversation so far (7tools.html's own links,
+  the footer links on 7tools.html, and the two /Evaluation/ laptop guides).
+  This has NOT been verified against your live server — please spot-check
+  before publishing, especially the pages flagged in comments below.
 -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+  <!-- Home -->
+  <url>
+    <loc>https://www.kokoroflow.net/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+
+  <!-- Tool index pages -->
+  <url>
+    <loc>https://www.kokoroflow.net/7tools.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!-- Referenced via hreflang="zh-Hant" on 7tools.html — content not reviewed, listed as an entry point only -->
+  <url>
+    <loc>https://www.kokoroflow.net/free-tools-zh.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/ai-prompt-journal.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Full calculators (own dedicated pages) -->
+  <url><loc>https://www.kokoroflow.net/salary-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/income-tax-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/mortgage-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/compound-interest-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/retirement-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/freelance-rate-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/currency-converter.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/trip-budget-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/bmi-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/calorie-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/tip-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/sales-tax-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/password-generator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/time-zone-converter.html</loc></url>
+
+  <!-- Still returning 404 per your report — keep out of the sitemap until these pages exist, or confirm the correct filenames -->
+  <!--
+  <url><loc>https://www.kokoroflow.net/percentage-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/hex-rgb-color-converter.html</loc></url>
+  -->
+
+  <!-- Privacy-first file & photo tools -->
+  <url><loc>https://www.kokoroflow.net/image-compressor.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/image-converter.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/image-dpi-print-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/pdf-merge.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/pdf-split-reorder.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/exif-metadata-remover.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/business-days-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/duplicate-image-finder.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/batch-file-renamer.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/folder-diff-checker.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/bookmark-organizer.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/qr-code-generator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/fuel-economy-converter.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/return-or-keep-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/printer-cost-per-page-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/real-use-unit-cost-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/partial-month-utilities-split-calculator.html</loc></url>
+
+  <!-- Site / policy pages (from 7tools.html footer) -->
+  <url><loc>https://www.kokoroflow.net/about.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/about-zh.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/contact.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/contact-zh.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/privacy.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/privacy-zh.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/terms.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/affiliate-disclosure.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/third-party-licenses.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/disclaimer.html</loc></url>
+
+  <!-- Evaluation guides -->
   <url>
     <loc>https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html</loc>
     <lastmod>2026-09-08</lastmod>
@@ -16,4 +93,5 @@
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
 </urlset>
