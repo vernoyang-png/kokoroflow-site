@@ -44,13 +44,8 @@
   <url><loc>https://www.kokoroflow.net/sales-tax-calculator.html</loc></url>
   <url><loc>https://www.kokoroflow.net/password-generator.html</loc></url>
   <url><loc>https://www.kokoroflow.net/time-zone-converter.html</loc></url>
-
-  <!-- Still returning 404 per your report — keep out of the sitemap until these pages exist, or confirm the correct filenames -->
-  <!--
   <url><loc>https://www.kokoroflow.net/percentage-calculator.html</loc></url>
   <url><loc>https://www.kokoroflow.net/hex-rgb-color-converter.html</loc></url>
-  -->
-
   <!-- Privacy-first file & photo tools -->
   <url><loc>https://www.kokoroflow.net/image-compressor.html</loc></url>
   <url><loc>https://www.kokoroflow.net/image-converter.html</loc></url>
@@ -92,6 +87,12 @@
     <loc>https://www.kokoroflow.net/Evaluation/student-laptops-top-6.html</loc>
     <lastmod>2026-09-11</lastmod>
     <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Evelyn (affiliate recommendations sub-site) -->
+  <url>
+    <loc>https://www.kokoroflow.net/evelyn/</loc>
+    <changefreq>weekly</changefreq>
   </url>
 
 </urlset>
