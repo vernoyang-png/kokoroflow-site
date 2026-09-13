@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Free Printable Worksheets | Checklists &amp; Budget Templates | KokoroFlow</title>
+  <meta name="description" content="Free printable worksheets: an 8-week moving checklist and a one-page monthly budget template. Print directly from your browser, no account or software needed.">
+  <link rel="canonical" href="https://www.kokoroflow.net/printable-worksheets.html">
+  <link rel="icon" type="image/jpeg" href="/kokoroflow-logo.jpg">
+
+  <style>
+    :root { --bg:#f6f2ea; --surface:#fffdf8; --surface-2:#ece4d7; --text:#202124; --muted:#62666c; --line:#ddd4c6; --accent:#2f6f62; --accent-2:#9b5532; --accent-soft:#e4f0eb; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:900px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(221,212,198,.9); background:rgba(246,242,234,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1160px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; text-decoration:none; }
+    .brand-logo { width:164px; height:48px; display:block; object-fit:contain; border-radius:6px; }
+    .nav-links { display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:700; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:56px 24px 72px; }
+    .hero { max-width:760px; margin-bottom:30px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:16px; font-size:clamp(30px,5vw,48px); line-height:1.15; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(16px,2vw,19px); }
+    .toc { display:flex; flex-wrap:wrap; gap:8px; margin:26px 0; }
+    .toc a { padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--muted); text-decoration:none; font-size:14px; font-weight:700; }
+    .toc a:hover { color:var(--text); border-color:var(--accent); }
+    .worksheet { scroll-margin-top:24px; padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); margin-bottom:24px; }
+    .worksheet h2 { margin-bottom:6px; font-size:22px; }
+    .worksheet-desc { margin-bottom:18px; color:var(--muted); font-size:14.5px; }
+    .print-btn { display:inline-flex; align-items:center; gap:6px; min-height:40px; padding:8px 16px; border:0; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-weight:800; cursor:pointer; margin-bottom:20px; }
+    .print-btn:hover { transform:translateY(-1px); }
+    .checklist-week { margin-bottom:16px; }
+    .checklist-week h3 { font-size:14px; font-weight:800; color:var(--accent-2); text-transform:uppercase; letter-spacing:.04em; margin-bottom:8px; }
+    .checklist-week ul { margin:0; padding-left:0; list-style:none; }
+    .checklist-week li { display:flex; align-items:flex-start; gap:10px; padding:7px 0; border-bottom:1px solid var(--line); font-size:14.5px; }
+    .checklist-week li::before { content:''; flex-shrink:0; width:18px; height:18px; margin-top:2px; border:2px solid var(--line); border-radius:4px; }
+    .budget-table { width:100%; border-collapse:collapse; margin-top:6px; }
+    .budget-table th { text-align:left; font-size:12px; text-transform:uppercase; letter-spacing:.05em; color:var(--accent-2); padding:8px 6px; border-bottom:2px solid var(--line); }
+    .budget-table td { padding:10px 6px; border-bottom:1px solid var(--line); font-size:14.5px; }
+    .budget-table td.fill { color:var(--muted); }
+    .budget-table tr.total td { font-weight:800; border-top:2px solid var(--line); border-bottom:none; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:1160px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:40px 16px 46px; } .worksheet { padding:20px; } .footer-inner { padding:28px 16px; } }
+    @media print {
+      .site-header, .toc, .print-btn, .site-footer, .hero { display:none; }
+      body { background:#fff; }
+      .worksheet { box-shadow:none; border:none; page-break-after:always; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="/kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a href="https://www.kokoroflow.net/ai-prompt-journal.html">AI Prompts</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Printable worksheets</p>
+      <h1>Free Printable Worksheets</h1>
+      <p class="lead">Simple, print-ready templates for common life admin. No account, no download, no editing software — just open, print, and fill in by hand.</p>
+    </section>
+
+    <nav class="toc" aria-label="Worksheet index">
+      <a href="#moving-checklist">Moving Checklist</a>
+      <a href="#budget-worksheet">Monthly Budget Worksheet</a>
+    </nav>
+
+    <article class="worksheet" id="moving-checklist">
+      <h2>8-Week Moving Checklist</h2>
+      <p class="worksheet-desc">A countdown checklist from 8 weeks before your move to moving day itself. Print it and check items off by hand as you go.</p>
+      <button class="print-btn" onclick="window.print()">🖨 Print this checklist</button>
+
+      <div class="checklist-week">
+        <h3>8 weeks before</h3>
+        <ul>
+          <li>Research and get quotes from moving companies</li>
+          <li>Create a moving budget</li>
+          <li>Start a "keep, donate, toss" sort of your belongings</li>
+          <li>Research your new area (schools, utilities providers, parking rules)</li>
+        </ul>
+      </div>
+      <div class="checklist-week">
+        <h3>6 weeks before</h3>
+        <ul>
+          <li>Book your moving company or truck rental</li>
+          <li>Start collecting boxes and packing materials</li>
+          <li>Use up frozen and perishable food</li>
+          <li>Request time off work for moving day if needed</li>
+        </ul>
+      </div>
+      <div class="checklist-week">
+        <h3>4 weeks before</h3>
+        <ul>
+          <li>Submit a change-of-address form</li>
+          <li>Notify banks, subscriptions, and insurance of your new address</li>
+          <li>Schedule utility disconnection at old address and connection at new address</li>
+          <li>Begin packing non-essential rooms</li>
+        </ul>
+      </div>
+      <div class="checklist-week">
+        <h3>2 weeks before</h3>
+        <ul>
+          <li>Confirm moving company date and time</li>
+          <li>Arrange care for kids or pets on moving day</li>
+          <li>Pack most of your home, leaving out daily essentials</li>
+          <li>Transfer or cancel local memberships (gym, etc.)</li>
+        </ul>
+      </div>
+      <div class="checklist-week">
+        <h3>Moving day</h3>
+        <ul>
+          <li>Do a final walkthrough of every room and closet</li>
+          <li>Take photos of utility meters at both properties</li>
+          <li>Keep essentials box (chargers, medication, snacks) with you, not on the truck</li>
+          <li>Hand over keys and confirm final address with movers</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="worksheet" id="budget-worksheet">
+      <h2>Monthly Budget Worksheet</h2>
+      <p class="worksheet-desc">A one-page template to track income, fixed costs, variable spending, and savings by hand. Print one per month.</p>
+      <button class="print-btn" onclick="window.print()">🖨 Print this worksheet</button>
+
+      <table class="budget-table">
+        <thead><tr><th>Income</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Paycheck(s)</td><td class="fill">___________</td></tr>
+          <tr><td>Other income</td><td class="fill">___________</td></tr>
+          <tr class="total"><td>Total income</td><td class="fill">___________</td></tr>
+        </tbody>
+      </table>
+
+      <table class="budget-table">
+        <thead><tr><th>Fixed costs</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Rent / mortgage</td><td class="fill">___________</td></tr>
+          <tr><td>Utilities</td><td class="fill">___________</td></tr>
+          <tr><td>Insurance</td><td class="fill">___________</td></tr>
+          <tr><td>Loan / debt payments</td><td class="fill">___________</td></tr>
+          <tr class="total"><td>Total fixed costs</td><td class="fill">___________</td></tr>
+        </tbody>
+      </table>
+
+      <table class="budget-table">
+        <thead><tr><th>Variable spending</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Groceries</td><td class="fill">___________</td></tr>
+          <tr><td>Transportation</td><td class="fill">___________</td></tr>
+          <tr><td>Personal / entertainment</td><td class="fill">___________</td></tr>
+          <tr><td>Other</td><td class="fill">___________</td></tr>
+          <tr class="total"><td>Total variable spending</td><td class="fill">___________</td></tr>
+        </tbody>
+      </table>
+
+      <table class="budget-table">
+        <thead><tr><th>Savings &amp; leftover</th><th>Amount</th></tr></thead>
+        <tbody>
+          <tr><td>Savings / investing</td><td class="fill">___________</td></tr>
+          <tr class="total"><td>Income minus all spending</td><td class="fill">___________</td></tr>
+        </tbody>
+      </table>
+    </article>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a><a href="https://www.kokoroflow.net/contact.html">Contact</a><a href="https://www.kokoroflow.net/privacy.html">Privacy</a><a href="https://www.kokoroflow.net/terms.html">Terms</a><a href="https://www.kokoroflow.net/disclaimer.html">Disclaimer</a></div></div></footer>
+</body>
+</html>

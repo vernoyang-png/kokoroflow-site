@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f2ea">
+  <title>Texas Paycheck Calculator | Take-Home Pay 2026 | KokoroFlow</title>
+  <meta name="description" content="Estimate your take-home pay in Texas. Texas has no state income tax, so this calculator focuses on federal tax, FICA, and other common paycheck deductions.">
+  <link rel="canonical" href="https://www.kokoroflow.net/texas-paycheck-calculator.html">
+  <link rel="icon" type="image/jpeg" href="/kokoroflow-logo.jpg">
+
+  <style>
+    :root { --bg:#f6f2ea; --surface:#fffdf8; --surface-2:#ece4d7; --text:#202124; --muted:#62666c; --line:#ddd4c6; --accent:#2f6f62; --accent-2:#9b5532; --accent-soft:#e4f0eb; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:900px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(221,212,198,.9); background:rgba(246,242,234,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1160px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; text-decoration:none; }
+    .brand-logo { width:164px; height:48px; display:block; object-fit:contain; border-radius:6px; }
+    .nav-links { display:flex; align-items:center; justify-content:flex-end; gap:6px; flex-wrap:wrap; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:14px; font-weight:700; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:56px 24px 72px; }
+    .hero { max-width:760px; margin-bottom:30px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1,h2,h3,p { margin-top:0; }
+    h1 { margin-bottom:16px; font-size:clamp(30px,5vw,48px); line-height:1.15; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(16px,2vw,19px); }
+    .badge { display:inline-block; margin-top:14px; padding:6px 14px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13px; font-weight:800; }
+    .tool { padding:26px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); margin-bottom:18px; }
+    .tool h2 { margin-bottom:6px; font-size:21px; }
+    .tool-desc { margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .fields { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    label { display:block; margin-bottom:6px; font-weight:800; font-size:14px; }
+    input,select { width:100%; min-height:44px; padding:10px 12px; border:1px solid var(--line); border-radius:8px; background:#fff; color:var(--text); font:inherit; }
+    input:focus,select:focus { outline:3px solid var(--accent-soft); border-color:var(--accent); }
+    .result { margin-top:20px; padding:20px; border-radius:8px; background:var(--accent-soft); color:#244f46; font-weight:700; word-break:break-word; }
+    .result .headline { font-size:19px; }
+    .breakdown { margin-top:14px; width:100%; border-collapse:collapse; font-weight:500; font-size:14px; color:#244f46; }
+    .breakdown td { padding:6px 0; border-top:1px solid rgba(36,79,70,.15); }
+    .breakdown td:last-child { text-align:right; font-weight:700; }
+    .other-states { margin-top:18px; display:flex; flex-wrap:wrap; gap:8px; }
+    .other-states a { padding:8px 14px; border:1px solid var(--line); border-radius:999px; background:var(--surface); color:var(--muted); text-decoration:none; font-size:13px; font-weight:700; }
+    .other-states a:hover { color:var(--text); border-color:var(--accent); }
+    .note { margin-top:24px; padding:14px 16px; border-radius:8px; background:var(--surface-2); color:var(--muted); font-size:13px; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:1160px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links { display:flex; gap:16px; flex-wrap:wrap; }
+    .footer-links a { text-decoration:none; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:40px 16px 46px; } .fields { grid-template-columns:1fr; } .tool { padding:20px; } .footer-inner { padding:28px 16px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="/kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/">Home</a>
+        <a href="https://www.kokoroflow.net/7tools.html">All Tools</a>
+        <a href="https://www.kokoroflow.net/ai-prompt-journal.html">AI Prompts</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Localized paycheck calculator</p>
+      <h1>Texas Paycheck Calculator</h1>
+      <p class="lead">Estimate your take-home pay as a Texas employee. Texas has no state income tax, so your paycheck deductions come down to federal withholding and FICA — this tool shows exactly what's taken out and why.</p>
+      <span class="badge">No Texas state income tax</span>
+    </section>
+
+    <section class="tool" id="calculator">
+      <h2>Enter your pay details</h2>
+      <p class="tool-desc">Estimates use 2026 federal tax brackets and standard FICA rates. This is a planning estimate, not a substitute for your actual pay stub or a tax professional.</p>
+
+      <div class="fields">
+        <div><label for="gross-pay">Gross pay</label><input id="gross-pay" type="number" value="5000" step="10" oninput="calc()"></div>
+        <div><label for="pay-frequency">Pay frequency</label><select id="pay-frequency" onchange="calc()">
+          <option value="26">Biweekly (26/yr)</option>
+          <option value="24">Semi-monthly (24/yr)</option>
+          <option value="12" selected>Monthly (12/yr)</option>
+          <option value="52">Weekly (52/yr)</option>
+        </select></div>
+        <div><label for="filing-status">Federal filing status</label><select id="filing-status" onchange="calc()">
+          <option value="single" selected>Single</option>
+          <option value="married">Married filing jointly</option>
+          <option value="head">Head of household</option>
+        </select></div>
+        <div><label for="pretax-deductions">Pre-tax deductions per pay period (401k, health insurance, etc.)</label><input id="pretax-deductions" type="number" value="200" step="10" oninput="calc()"></div>
+      </div>
+
+      <div class="result" id="calc-result">
+        <div class="headline">Calculating…</div>
+        <table class="breakdown" id="breakdown"></table>
+      </div>
+
+      <div class="note">Texas is one of nine states with no state income tax, so the biggest paycheck differences compared to states like California or New York come from state withholding, not from federal tax or FICA — those are the same nationwide. Local city or county payroll taxes are uncommon in Texas but check with your employer if you're unsure.</div>
+    </section>
+
+    <section class="tool">
+      <h2>Compare other states</h2>
+      <p class="tool-desc">Paycheck deductions vary meaningfully by state. See how take-home pay compares elsewhere:</p>
+      <div class="other-states">
+        <a href="salary-calculator.html">General Salary Calculator</a>
+      </div>
+      <p class="tool-desc" style="margin-top:14px;">California and New York versions are coming soon.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer"><div class="footer-inner"><div>© 2026 KokoroFlow. All rights reserved.</div><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a><a href="https://www.kokoroflow.net/contact.html">Contact</a><a href="https://www.kokoroflow.net/privacy.html">Privacy</a><a href="https://www.kokoroflow.net/terms.html">Terms</a><a href="https://www.kokoroflow.net/disclaimer.html">Disclaimer</a></div></div></footer>
+
+  <script>
+    const $ = id => document.getElementById(id);
+    const dollars = n => new Intl.NumberFormat('en-US', { style:'currency', currency:'USD', maximumFractionDigits:2 }).format(Number(n) || 0);
+
+    // 2026 simplified federal brackets (illustrative, single filer shown; married/head approximated by doubling/adjusting bracket widths)
+    const brackets = {
+      single: [[0,0.10],[11600,0.12],[47150,0.22],[100525,0.24],[191950,0.32],[243725,0.35],[609350,0.37]],
+      married: [[0,0.10],[23200,0.12],[94300,0.22],[201050,0.24],[383900,0.32],[487450,0.35],[731200,0.37]],
+      head: [[0,0.10],[16550,0.12],[63100,0.22],[100500,0.24],[191950,0.32],[243700,0.35],[609350,0.37]]
+    };
+    const stdDeduction = { single: 14600, married: 29200, head: 21900 };
+
+    function federalTax(annualTaxable, status){
+      const b = brackets[status];
+      let tax = 0;
+      for (let i = 0; i < b.length; i++){
+        const [threshold, rate] = b[i];
+        const next = i+1 < b.length ? b[i+1][0] : Infinity;
+        if (annualTaxable > threshold){
+          tax += (Math.min(annualTaxable, next) - threshold) * rate;
+        }
+      }
+      return tax;
+    }
+
+    function calc(){
+      const gross = Number($('gross-pay').value) || 0;
+      const freq = Number($('pay-frequency').value);
+      const status = $('filing-status').value;
+      const pretax = Number($('pretax-deductions').value) || 0;
+
+      const annualGross = gross * freq;
+      const annualPretax = pretax * freq;
+      const annualTaxable = Math.max(0, annualGross - annualPretax - stdDeduction[status]);
+      const annualFederalTax = federalTax(annualTaxable, status);
+      const perPeriodFederal = annualFederalTax / freq;
+
+      const socialSecurityWageBase = 176100; // 2026 estimate
+      const ssTaxableAnnual = Math.min(annualGross - annualPretax, socialSecurityWageBase);
+      const perPeriodSS = (ssTaxableAnnual * 0.062) / freq;
+      const perPeriodMedicare = ((annualGross - annualPretax) * 0.0145) / freq;
+
+      const stateIncomeTax = 0; // Texas
+      const netPay = gross - pretax - perPeriodFederal - perPeriodSS - perPeriodMedicare - stateIncomeTax;
+
+      $('calc-result').querySelector('.headline')?.remove();
+      const headline = document.createElement('div');
+      headline.className = 'headline';
+      headline.textContent = `Estimated take-home pay: ${dollars(netPay)} per pay period`;
+      $('calc-result').prepend(headline);
+
+      $('breakdown').innerHTML = `
+        <tr><td>Gross pay</td><td>${dollars(gross)}</td></tr>
+        <tr><td>Pre-tax deductions</td><td>-${dollars(pretax)}</td></tr>
+        <tr><td>Federal income tax</td><td>-${dollars(perPeriodFederal)}</td></tr>
+        <tr><td>Social Security (6.2%)</td><td>-${dollars(perPeriodSS)}</td></tr>
+        <tr><td>Medicare (1.45%)</td><td>-${dollars(perPeriodMedicare)}</td></tr>
+        <tr><td>Texas state income tax</td><td>$0.00</td></tr>
+        <tr><td><strong>Net pay</strong></td><td><strong>${dollars(netPay)}</strong></td></tr>
+      `;
+    }
+
+    calc();
+  </script>
+</body>
+</html>
