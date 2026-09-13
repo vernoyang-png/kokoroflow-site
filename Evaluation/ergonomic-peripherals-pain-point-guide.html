@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>Ergonomic Peripherals by Pain Point | Mice, Keyboards &amp; Monitor Arms (2026) | KokoroFlow</title>
+  <meta name="description" content="2026 ergonomic peripheral picks organized by what actually hurts: vertical mice and trackballs for wrist pain, split keyboards and monitor arms for neck and shoulder strain.">
+  <link rel="canonical" href="https://www.kokoroflow.net/Evaluation/ergonomic-peripherals-pain-point-guide.html">
+  <link rel="icon" type="image/jpeg" href="/kokoroflow-logo.jpg">
+
+  <style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:1040px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.75; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { max-width:820px; margin:56px auto 38px; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, h4, p { margin-top:0; }
+    h1 { margin-bottom:16px; font-size:clamp(30px, 5vw, 50px); line-height:1.16; letter-spacing:0; }
+    .lead { color:var(--muted); font-size:clamp(16px, 2vw, 19px); }
+    .notice { margin-top:20px; padding:16px 18px; border-radius:var(--radius); background:var(--accent-soft); color:#244f46; font-size:14px; border:1px solid var(--line); }
+    .notice.medical { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .notice.disclosure { background:var(--surface-2); color:var(--muted); }
+    .notice.disclosure strong { display:block; margin-bottom:6px; color:var(--text); font-size:14px; }
+
+    .stats { margin-top:26px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:12px; }
+    .stat { padding:18px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); text-align:center; }
+    .stat .num { display:block; font-size:20px; font-weight:800; color:var(--text); }
+    .stat .label { display:block; margin-top:4px; color:var(--muted); font-size:13px; }
+
+    section.section { margin-top:14px; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .block h2 { margin-bottom:12px; font-size:26px; line-height:1.25; }
+    .block p { color:var(--muted); }
+    .block p + p { margin-top:12px; }
+
+    .weights { margin-top:18px; display:grid; grid-template-columns:repeat(3, minmax(0,1fr)); gap:10px; }
+    .weight { display:flex; align-items:baseline; gap:10px; padding:14px 16px; border:1px solid var(--line); border-radius:var(--radius); background:#fbf8f1; color:var(--muted); font-size:14px; }
+    .weight b { color:var(--accent-2); font-size:16px; }
+
+    .controls { display:flex; flex-wrap:wrap; gap:8px; margin-bottom:26px; }
+    .controls button { min-height:40px; padding:8px 16px; border-radius:999px; border:1px solid var(--line); background:var(--surface); color:var(--muted); font:inherit; font-size:14px; font-weight:600; cursor:pointer; }
+    .controls button:hover { color:var(--text); background:var(--surface-2); }
+    .controls button.active { background:var(--text); border-color:var(--text); color:#fff; }
+
+    .grid { display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:16px; }
+    .card { padding:24px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    .card[hidden] { display:none !important; }
+    .rank { color:var(--accent); font-weight:800; font-size:13px; letter-spacing:.04em; text-transform:uppercase; margin-bottom:8px; }
+    .card h3 { margin-bottom:6px; font-size:19px; line-height:1.3; }
+    .card .tag { display:inline-block; margin-bottom:10px; padding:4px 10px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:12px; font-weight:700; }
+    .card p { color:var(--muted); font-size:14.5px; }
+    .card .spec { margin-top:12px; padding-top:12px; border-top:1px solid var(--line); color:var(--muted); font-size:13px; }
+    .card .source { color:var(--accent); font-weight:700; text-decoration:none; }
+    .card .source:hover { text-decoration:underline; }
+    .amazon-btn { display:inline-flex; align-items:center; justify-content:center; min-height:44px; margin-top:14px; padding:10px 16px; border-radius:999px; background:var(--text); color:#fff; text-decoration:none; font-weight:700; font-size:14px; }
+    .amazon-btn:hover { background:#34363a; }
+
+    .sources { margin:0; padding-left:20px; color:var(--muted); }
+    .sources li { margin:8px 0; }
+    .sources a { color:var(--accent); font-weight:600; text-decoration:none; }
+    .sources a:hover { text-decoration:underline; }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:860px) { .stats { grid-template-columns:1fr; } .weights { grid-template-columns:1fr; } .grid { grid-template-columns:1fr; } }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:0 16px 46px; } .page-hero { margin-top:40px; } .block, .card { padding:20px; } .footer-inner { padding:28px 16px; } }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <nav class="nav" aria-label="Primary">
+      <a class="brand" href="/index.html"><img class="brand-logo" src="/kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="/index.html">Home</a>
+        <a href="/7tools.html">All Tools</a>
+        <a href="renter-friendly-appliances-guide.html">Renter Appliances</a>
+        <a href="ergonomic-peripherals-pain-point-guide.html" aria-current="page">Ergonomic Peripherals</a>
+        <a href="business-laptops-top-10.html">Laptop Guides</a>
+        <a href="/contact.html">Contact</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="page-hero">
+      <p class="eyebrow">Ergonomic peripheral guide · updated September 13, 2026</p>
+      <h1>Ergonomic Peripherals by Pain Point</h1>
+      <p class="lead">"Best mouse" and "best keyboard" lists mix products for completely different problems. This guide is organized by where the strain actually shows up — wrist/forearm, or neck/shoulder — so you can match a design feature to your specific setup issue.</p>
+      <div class="notice medical"><strong>Not medical advice.</strong> This page describes ergonomic design features (grip angle, split layout, monitor height) and what reviewers and manufacturers report about them — it does not diagnose, treat, or claim to cure any condition. If pain is persistent, worsening, or affecting daily function, see a doctor or physical therapist before relying on equipment changes alone.</div>
+      <div class="stats">
+        <div class="stat"><span class="num">10 products</span><span class="label">Across 3 categories</span></div>
+        <div class="stat"><span class="num">6 criteria</span><span class="label">Published weighting</span></div>
+        <div class="stat"><span class="num">Design-focused</span><span class="label">Not a medical claim</span></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="block">
+        <h2>Methodology and weighting</h2>
+        <p>Rankings are built from cross-referenced sources: independent ergonomics-focused review outlets, manufacturer specifications, and aggregated owner reviews. <strong>Evidence weighting:</strong> 50% hands-on testing and independent reviews from ergonomics-focused testers, 25% manufacturer specs and design documentation, 15% aggregated owner reviews, 10% price-and-availability checks.</p>
+        <p>Products are grouped by the pain point their design targets, then ordered by fit within that group. This reflects design intent and reported user experience — not a clinical outcome study, and results vary by individual.</p>
+        <div class="weights">
+          <div class="weight"><b>30%</b>Ergonomic design effectiveness</div>
+          <div class="weight"><b>20%</b>Build quality &amp; durability</div>
+          <div class="weight"><b>15%</b>Adjustability / fit range</div>
+          <div class="weight"><b>15%</b>Learning curve</div>
+          <div class="weight"><b>10%</b>Value for price</div>
+          <div class="weight"><b>10%</b>Owner-reported satisfaction</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2 style="font-size:26px; margin:34px 0 6px;">Recommendations</h2>
+      <p class="lead" style="font-size:15px; margin-bottom:0;">Filter by where your strain shows up.</p>
+      <div class="notice disclosure" style="margin:22px 0;"><strong>Affiliate disclosure</strong><p>As an Amazon Associate I earn from qualifying purchases. Affiliate links do not determine the rankings on this page.</p></div>
+
+      <div class="controls" aria-label="Filter recommendations">
+        <button class="active" data-filter="all">All</button>
+        <button data-filter="wrist">Wrist / Forearm</button>
+        <button data-filter="neckshoulder">Neck / Shoulder</button>
+        <button data-filter="budget">Budget-friendly</button>
+      </div>
+
+      <div class="grid" id="cards">
+        <article class="card" data-tags="wrist"><div class="rank">01 · Wrist / Forearm</div><h3>Logitech MX Vertical Wireless Mouse</h3><span class="tag">Most-recommended vertical mouse</span><p>A 57° handshake-angle grip that keeps the forearm from rotating flat, which several ergonomics reviewers describe as reducing the muscle strain associated with a traditional flat mouse. The most consistently top-ranked pick across independent guides.</p><div class="spec">57° angle, 4,000 DPI sensor, rechargeable, multi-device pairing.<br><a class="source" href="https://deskwellnesslab.com/posts/best-ergonomic-mice-2026/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Logitech+MX+Vertical+Wireless+Mouse" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="wrist budget"><div class="rank">02 · Wrist / Forearm</div><h3>Logitech Lift Vertical Mouse</h3><span class="tag">Best for smaller hands</span><p>Same vertical design philosophy as the MX Vertical in a smaller body, with a genuine left-hand version available — most vertical mice are right-hand-only.</p><div class="spec">57° angle, smaller form factor, left- and right-hand models.<br><a class="source" href="https://ergolivingspace.com/best-ergonomic-mouse-for-wrist-pain/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Logitech+Lift+Vertical+Mouse" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="wrist budget"><div class="rank">03 · Wrist / Forearm</div><h3>Anker Vertical Ergonomic Mouse</h3><span class="tag">Best budget entry point</span><p>A steeper 60° angle at a fraction of the price of premium options — a reasonable way to test whether a vertical grip helps before committing to a pricier model.</p><div class="spec">60° angle, wireless, under $30 in most 2026 listings.<br><a class="source" href="https://gearorbit.com/posts/best-ergonomic-mouse-for-wrist-pain-2026" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Anker+Vertical+Ergonomic+Mouse" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="wrist"><div class="rank">04 · Wrist / Forearm</div><h3>Kensington Expert Wireless Trackball</h3><span class="tag">Best for zero arm movement</span><p>A stationary trackball design means the whole hand and forearm stay still — only the thumb or fingers move. Reviewers position this as the next step up when a vertical mouse alone isn't enough.</p><div class="spec">Finger/palm-operated ball, stationary base, programmable buttons.<br><a class="source" href="https://ergolivingspace.com/best-ergonomic-mouse-for-wrist-pain/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Kensington+Expert+Wireless+Trackball" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="wrist"><div class="rank">05 · Wrist / Forearm</div><h3>Evoluent VerticalMouse 4</h3><span class="tag">Most aggressive angle for severe cases</span><p>A near-90° true vertical design — steeper than the Logitech options — aimed at users for whom a shallower angle hasn't provided enough relief. Longtime users report it as their long-term daily driver.</p><div class="spec">~90° handshake position, programmable buttons, wired and wireless versions.<br><a class="source" href="https://www.rogerperkin.co.uk/work-from-home/best-vertical-mouse/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Evoluent+VerticalMouse+4" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="neckshoulder budget"><div class="rank">06 · Neck / Shoulder</div><h3>Logitech ERGO K860 Split Keyboard</h3><span class="tag">Best starting point for split keyboards</span><p>A fixed split-and-tent layout that positions both hand clusters at a natural angle, reducing the internal shoulder rotation a flat keyboard forces. Reviewers consistently recommend it as the lowest-risk entry into split keyboards — no software setup, works out of the box.</p><div class="spec">Fixed split wave design, 4° negative incline, Bluetooth + USB dongle.<br><a class="source" href="https://ergolivingspace.com/best-ergonomic-keyboards-for-neck-pain/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Logitech+ERGO+K860+Split+Keyboard" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="neckshoulder"><div class="rank">07 · Neck / Shoulder</div><h3>Kinesis Freestyle2 Ergonomic Keyboard</h3><span class="tag">Best true split for shoulder-width positioning</span><p>The two halves fully separate on a cable (extendable up to 20 inches), letting you position each hand at true shoulder width rather than a fixed split. Frequently cited for chronic shoulder and forearm discomfort specifically.</p><div class="spec">Fully split, up to 9" separation, optional tenting kit, mechanical switch options.<br><a class="source" href="https://ergogadgetpicks.com/ergonomic-keyboards-splits/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Kinesis+Freestyle2+Ergonomic+Keyboard" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="neckshoulder"><div class="rank">08 · Neck / Shoulder</div><h3>Kinesis Advantage360 Pro</h3><span class="tag">Most aggressive ergonomic correction</span><p>Contoured concave key wells combined with full split and tenting — the keyboard reviewers describe people "graduating to" when a simpler split hasn't provided enough change. Requires a genuine adjustment period.</p><div class="spec">Contoured split, adjustable tenting, wireless (Bluetooth/USB-C), full programmability.<br><a class="source" href="https://mkbguide.com/blog/split-keyboard-ergonomic-guide" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Kinesis+Advantage360+Pro" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="neckshoulder"><div class="rank">09 · Neck / Shoulder</div><h3>Ergotron LX Monitor Arm</h3><span class="tag">Best overall monitor arm for eye-level posture</span><p>Raising a monitor to eye level is one of the most cited fixes for "tech neck" caused by looking down at a screen — the LX is described as the reference standard across nearly every 2026 monitor-arm roundup for its smooth, reliable height adjustment.</p><div class="spec">3.2–11.3kg capacity, 64cm reach, 10-year warranty, C-clamp or grommet mount.<br><a class="source" href="https://techsifted.com/roundups/best-monitor-arm-2026/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Ergotron+LX+Monitor+Arm" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+
+        <article class="card" data-tags="neckshoulder budget"><div class="rank">10 · Neck / Shoulder</div><h3>Amazon Basics Single Monitor Arm</h3><span class="tag">Best budget monitor arm</span><p>Described by multiple reviewers as doing "90% of what the Ergotron does" for a fraction of the price — a reasonable way to test whether raising your monitor to eye level helps before buying a premium arm.</p><div class="spec">Up to 11.3kg capacity, 64cm reach, C-clamp mount.<br><a class="source" href="https://deskwellnesslab.com/posts/best-monitor-arms-2026/" target="_blank" rel="noopener">Review source ↗</a></div><a class="amazon-btn" href="https://www.amazon.com/s?k=Amazon+Basics+Single+Monitor+Arm" target="_blank" rel="sponsored nofollow noopener">Check price on Amazon →</a></article>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="block">
+        <h2>Sources and limitations</h2>
+        <p>Sources checked September 13, 2026, drawn from independent ergonomics-focused review outlets and manufacturer design documentation. These are product design comparisons, not a clinical or medical evaluation — individual results from any ergonomic peripheral vary, and equipment changes are one factor among many (posture, break frequency, existing conditions) in desk-related discomfort.</p>
+        <ol class="sources">
+          <li><a href="https://deskwellnesslab.com/posts/best-ergonomic-mice-2026/" target="_blank" rel="noopener">Best Ergonomic Mice for Wrist Pain: Wireless, Vertical, and Trackball Options (2026)</a></li>
+          <li><a href="https://www.rogerperkin.co.uk/work-from-home/best-vertical-mouse/" target="_blank" rel="noopener">Best Ergonomic Mouse 2026: Evoluent 4 vs Logitech MX Vertical</a></li>
+          <li><a href="https://ergolivingspace.com/best-ergonomic-mouse-for-wrist-pain/" target="_blank" rel="noopener">Best Mouse for Wrist Pain: Vertical vs Trackball Picks (2026)</a></li>
+          <li><a href="https://ergolivingspace.com/best-ergonomic-keyboards-for-neck-pain/" target="_blank" rel="noopener">Best Ergonomic Keyboards for Neck Pain (2026)</a></li>
+          <li><a href="https://mkbguide.com/blog/split-keyboard-ergonomic-guide" target="_blank" rel="noopener">Split Keyboards: Ergonomic Layouts Explained (2026)</a></li>
+          <li><a href="https://ergogadgetpicks.com/ergonomic-keyboards-splits/" target="_blank" rel="noopener">The Best Ergonomic &amp; Split Keyboards</a></li>
+          <li><a href="https://techsifted.com/roundups/best-monitor-arm-2026/" target="_blank" rel="noopener">Best Monitor Arm 2026: Clean Your Desk and Save Your Neck</a></li>
+          <li><a href="https://deskwellnesslab.com/posts/best-monitor-arms-2026/" target="_blank" rel="noopener">Best Monitor Arms 2026 for Neck &amp; Eye Strain: Optometrist's Guide</a></li>
+        </ol>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <span>Ergonomic Peripherals Guide · General product information only, not medical advice. See a doctor or physical therapist for persistent pain.</span>
+      <span class="footer-links"><a href="renter-friendly-appliances-guide.html">Renter-Friendly Appliances Guide →</a></span>
+    </div>
+  </footer>
+
+  <script>document.querySelectorAll('[data-filter]').forEach(b=>b.addEventListener('click',()=>{document.querySelectorAll('[data-filter]').forEach(x=>x.classList.remove('active'));b.classList.add('active');const f=b.dataset.filter;document.querySelectorAll('#cards .card').forEach(c=>c.hidden=f!=='all'&&!c.dataset.tags.includes(f))}))</script>
+</body>
+</html>
