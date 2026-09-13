@@ -106,6 +106,10 @@
     <loc>https://www.kokoroflow.net/evelyn/</loc>
     <changefreq>weekly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kokoroflow.net/evelyn/editorial-policy.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
 
   <url>
     <loc>https://www.kokoroflow.net/Evaluation/renter-friendly-appliances-guide.html</loc>
