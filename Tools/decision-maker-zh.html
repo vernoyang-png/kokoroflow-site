@@ -1,0 +1,161 @@
+<!doctype html><html lang="zh-TW"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>選擇困難救星｜隨機決定器 - KokoroFlow</title><meta name="description" content="貼上你的選項，一鍵隨機抽選，還能產生連結分享給朋友一起決定。免費、不需登入，所有計算都在你的瀏覽器裡完成。"><link rel="canonical" href="https://www.kokoroflow.net/Tools/decision-maker-zh.html"><link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/Tools/decision-maker-zh.html"><link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/Tools/decision-maker.html"><link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/Tools/decision-maker.html"><meta property="og:title" content="選擇困難救星｜隨機決定器"><meta property="og:description" content="貼上你的選項，一鍵隨機抽選，還能產生連結分享給朋友一起決定。免費、不需登入，所有計算都在你的瀏覽器裡完成。"><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/decision-maker-zh.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"選擇困難救星｜隨機決定器","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"貼上你的選項，一鍵隨機抽選，還能產生連結分享給朋友一起決定。","url":"https://www.kokoroflow.net/Tools/decision-maker-zh.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"選擇困難救星｜隨機決定器","item":"https://www.kokoroflow.net/Tools/decision-maker-zh.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:720px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:"Noto Sans TC",system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; color:var(--text); background:var(--bg); line-height:1.75; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:56px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:520px; margin:0 auto; }
+
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea { width:100%; min-height:150px; padding:14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); resize:vertical; outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder { color:#9aa0a6; }
+
+    .btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; margin-top:16px; padding:12px 20px; border:none; border-radius:999px; background:var(--text); color:#fff; font:inherit; font-size:15.5px; font-weight:700; cursor:pointer; transition:background-color .15s, transform .05s; }
+    .btn:hover { background:#34363a; }
+    .btn:active { transform:scale(.98); }
+    .btn-secondary { background:var(--surface-2); color:var(--text); }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+
+    #result-container { margin-top:22px; padding:22px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); text-align:center; display:none; }
+    #result-container.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.96); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .result-label { display:block; margin:0 0 6px; font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    #result-text { margin:0; font-size:clamp(22px, 4vw, 30px); font-weight:800; color:#244f46; word-break:break-word; }
+
+    .share-row { margin-top:14px; display:none; gap:8px; }
+    .share-row.show { display:flex; }
+    #share-url { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); color:var(--muted); font-size:13px; }
+    .share-row .btn { width:auto; margin-top:0; padding:10px 16px; font-size:14px; white-space:nowrap; }
+
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .share-row { flex-direction:column; } .share-row .btn { width:100%; } }
+    a:focus-visible, button:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html" aria-current="page">All Tools</a><a href="https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html">Business Laptops</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / 選擇困難救星</p>
+    <h1>隨機決定器</h1>
+    <p class="lead">晚餐吃什麼、週末去哪玩、誰先發言——把選項貼進去，交給隨機來決定，不用再猶豫。</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;">決定工具</h2>
+    <label for="options-input">選項清單（每行一項）</label>
+    <span class="hint">至少輸入 2 個選項，系統會從中隨機抽出一個。</span>
+    <textarea id="options-input" placeholder="例如：&#10;義大利麵&#10;火鍋&#10;日式拉麵&#10;漢堡排"></textarea>
+
+    <button class="btn" id="decide-btn" onclick="makeDecision()">開始抽籤 / 幫我決定！</button>
+
+    <div id="result-container" role="status" aria-live="polite">
+      <span class="result-label">最終決定結果</span>
+      <p id="result-text"></p>
+    </div>
+
+    <div class="share-row" id="share-row">
+      <input type="text" id="share-url" readonly aria-label="分享連結">
+      <button class="btn btn-secondary" onclick="copyShareLink()">複製連結</button>
+    </div>
+  </section>
+
+  <section class="section block">
+    <h2>怎麼使用</h2>
+    <ol class="steps">
+      <li><strong>列出選項。</strong>一行寫一個，兩個以上就能開始，不限字數或項目數量。</li>
+      <li><strong>按下「開始抽籤」。</strong>系統會從清單中隨機挑出一項，並清楚顯示在畫面上。</li>
+      <li><strong>需要的話，複製分享連結。</strong>連結會把你目前的選項清單編碼在網址裡，傳給朋友打開就會看到同一份清單，各自抽籤。</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="notice">你輸入的選項只會保留在這個網頁裡，不會上傳到伺服器或被記錄——分享連結也只是把清單編碼進網址本身，關閉分頁後就不會留下任何紀錄。</p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+  window.onload = function () {
+    var params = new URLSearchParams(window.location.search);
+    var encodedData = params.get('q');
+    if (encodedData) {
+      try {
+        var decodedOptions = decodeURIComponent(atob(encodedData));
+        document.getElementById('options-input').value = decodedOptions;
+      } catch (e) {
+        console.error('無法解析分享清單');
+      }
+    }
+  };
+
+  function makeDecision() {
+    var rawText = document.getElementById('options-input').value.trim();
+    var options = rawText.split('\n').map(function (item) { return item.trim(); }).filter(function (item) { return item.length > 0; });
+
+    var resultContainer = document.getElementById('result-container');
+    var resultText = document.getElementById('result-text');
+    var shareRow = document.getElementById('share-row');
+
+    if (options.length < 2) {
+      resultContainer.classList.remove('show');
+      shareRow.classList.remove('show');
+      alert('請至少輸入兩個選項，讓抽籤有意義喔！');
+      return;
+    }
+
+    var randomIndex = Math.floor(Math.random() * options.length);
+    var chosen = options[randomIndex];
+
+    resultText.innerText = chosen;
+    resultContainer.classList.add('show');
+
+    var encoded = btoa(encodeURIComponent(rawText));
+    var shareUrl = window.location.origin + window.location.pathname + '?q=' + encoded;
+    document.getElementById('share-url').value = shareUrl;
+    shareRow.classList.add('show');
+  }
+
+  function copyShareLink() {
+    var shareInput = document.getElementById('share-url');
+    shareInput.select();
+    shareInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(shareInput.value).then(function () {
+      alert('已成功複製分享連結！');
+    }).catch(function () {
+      alert('複製失敗，請手動選取連結複製。');
+    });
+  }
+</script>
+</body></html>

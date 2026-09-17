@@ -1,0 +1,304 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Decision Wheel — Spin to Choose | KokoroFlow</title><meta name="description" content="Can't decide? Type in your options, spin the wheel, and let chance pick for you. Free, no sign-up — everything runs right in your browser."><link rel="canonical" href="https://www.kokoroflow.net/Tools/decision-maker.html"><link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/Tools/decision-maker.html"><link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/Tools/decision-maker-zh.html"><link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/Tools/decision-maker.html"><meta property="og:title" content="Decision Wheel — Spin to Choose"><meta property="og:description" content="Can't decide? Type in your options, spin the wheel, and let chance pick for you. Free, no sign-up — everything runs right in your browser."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/decision-maker.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Decision Wheel — Spin to Choose","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Type in your options, spin the wheel, and let chance pick for you.","url":"https://www.kokoroflow.net/Tools/decision-maker.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Decision Wheel","item":"https://www.kokoroflow.net/Tools/decision-maker.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:760px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+    .lang-switch { font-size:13px; font-weight:700; color:var(--accent) !important; border:1px solid var(--line); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:520px; margin:0 auto; }
+
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea { width:100%; min-height:120px; padding:14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); resize:vertical; outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder { color:#9aa0a6; }
+
+    /* --- Wheel --- */
+    .wheel-stage { position:relative; display:flex; flex-direction:column; align-items:center; margin:26px auto 6px; }
+    .wheel-wrap { position:relative; width:min(300px, 78vw); height:min(300px, 78vw); }
+    .wheel-pointer { position:absolute; left:50%; top:-6px; transform:translateX(-50%); width:0; height:0; border-left:14px solid transparent; border-right:14px solid transparent; border-top:24px solid var(--accent-2); z-index:3; filter:drop-shadow(0 2px 3px rgba(0,0,0,.25)); }
+    .wheel-hub-ring { position:absolute; inset:0; border-radius:50%; box-shadow:0 18px 40px rgba(32,33,36,.18), inset 0 0 0 6px var(--surface); z-index:1; pointer-events:none; }
+    #wheel-canvas { display:block; border-radius:50%; position:relative; z-index:2; }
+    #wheel-canvas.spinning { cursor:wait; }
+
+    .btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:50px; margin-top:20px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; letter-spacing:.01em; cursor:pointer; transition:background-color .15s, transform .05s, box-shadow .15s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .btn[disabled] { opacity:.55; cursor:not-allowed; box-shadow:none; }
+
+    #result-container { margin-top:8px; padding:22px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); text-align:center; display:none; position:relative; overflow:hidden; }
+    #result-container.show { display:block; animation:pop .3s cubic-bezier(.34,1.56,.64,1); }
+    @keyframes pop { from { transform:scale(.9); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .result-label { display:block; margin:0 0 6px; font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    #result-text { margin:0; font-size:clamp(22px, 4vw, 30px); font-weight:800; color:#244f46; word-break:break-word; }
+    .confetti { position:absolute; top:-10%; font-size:20px; opacity:0; pointer-events:none; animation:fall 1.1s ease-in forwards; }
+    @keyframes fall { 0% { opacity:1; transform:translateY(0) rotate(0deg); } 100% { opacity:0; transform:translateY(140px) rotate(220deg); } }
+
+    .share-row { margin-top:14px; display:none; gap:8px; }
+    .share-row.show { display:flex; }
+    #share-url { flex:1; min-width:0; padding:10px 12px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); color:var(--muted); font-size:13px; }
+    .share-row .btn { width:auto; margin-top:0; padding:10px 16px; font-size:14px; white-space:nowrap; box-shadow:none; }
+
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } .nav-links a { min-height:42px; padding-inline:10px; font-size:14px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .share-row { flex-direction:column; } .share-row .btn { width:100%; } }
+    a:focus-visible, button:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/Tools/decision-maker-zh.html" class="lang-switch">中文版</a><a href="https://www.kokoroflow.net/7tools.html" aria-current="page">All Tools</a><a href="https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html">Business Laptops</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Decision Wheel</p>
+    <h1>Spin to Decide</h1>
+    <p class="lead">What's for dinner, where to go this weekend, who goes first — type in your options and let the wheel settle it.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">Decision tool</h2>
+    <label for="options-input">Your options (one per line)</label>
+    <span class="hint">Enter at least 2 options. Each one becomes a slice of the wheel.</span>
+    <textarea id="options-input" placeholder="e.g.&#10;Pizza&#10;Sushi&#10;Tacos&#10;Burgers"></textarea>
+
+    <div class="wheel-stage">
+      <div class="wheel-wrap">
+        <div class="wheel-pointer" aria-hidden="true"></div>
+        <div class="wheel-hub-ring" aria-hidden="true"></div>
+        <canvas id="wheel-canvas" role="img" aria-label="Decision wheel"></canvas>
+      </div>
+    </div>
+
+    <button class="btn" id="spin-btn">Spin the Wheel</button>
+
+    <div id="result-container" role="status" aria-live="polite">
+      <span class="result-label">And the winner is</span>
+      <p id="result-text"></p>
+    </div>
+
+    <div class="share-row" id="share-row">
+      <input type="text" id="share-url" readonly aria-label="Share link">
+      <button class="btn btn-secondary" id="copy-btn">Copy link</button>
+    </div>
+  </section>
+
+  <section class="section block">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>List your options.</strong> One per line — two or more, no limit on length or count.</li>
+      <li><strong>Spin the wheel.</strong> Each option becomes a slice; the wheel spins and the pointer lands on your answer.</li>
+      <li><strong>Share it if you like.</strong> The copy-link button encodes your current list into the URL — anyone who opens it sees the same wheel and can spin it themselves.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="notice">Your options stay in this page — nothing is uploaded or logged. The share link just encodes your list into the URL itself, so closing the tab leaves no record anywhere.</p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  var colors = ['#2f6f62', '#b35a2a', '#c9a227', '#3d6b8a', '#a34a4a', '#5c7a52', '#8a6d3b', '#6b4c9a'];
+  var canvas = document.getElementById('wheel-canvas');
+  var ctx = canvas.getContext('2d');
+  var textarea = document.getElementById('options-input');
+  var spinBtn = document.getElementById('spin-btn');
+  var resultContainer = document.getElementById('result-container');
+  var resultText = document.getElementById('result-text');
+  var shareRow = document.getElementById('share-row');
+  var shareUrlInput = document.getElementById('share-url');
+  var copyBtn = document.getElementById('copy-btn');
+
+  var currentRotation = 0;
+  var spinning = false;
+  var dpr = window.devicePixelRatio || 1;
+
+  function getDisplaySize() {
+    var wrap = document.querySelector('.wheel-wrap');
+    return wrap.clientWidth || 300;
+  }
+
+  function parseOptions() {
+    return textarea.value.trim().split('\n').map(function (s) { return s.trim(); }).filter(function (s) { return s.length > 0; });
+  }
+
+  function setupCanvas() {
+    var size = getDisplaySize();
+    canvas.style.width = size + 'px';
+    canvas.style.height = size + 'px';
+    canvas.width = size * dpr;
+    canvas.height = size * dpr;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    return size;
+  }
+
+  function drawWheel(options) {
+    var size = setupCanvas();
+    var center = size / 2;
+    var radius = center - 6;
+    var arc = (2 * Math.PI) / options.length;
+
+    ctx.clearRect(0, 0, size, size);
+
+    options.forEach(function (label, i) {
+      var start = i * arc;
+      ctx.beginPath();
+      ctx.moveTo(center, center);
+      ctx.arc(center, center, radius, start, start + arc);
+      ctx.closePath();
+      ctx.fillStyle = colors[i % colors.length];
+      ctx.fill();
+      ctx.strokeStyle = '#fffdf8';
+      ctx.lineWidth = 3;
+      ctx.stroke();
+
+      ctx.save();
+      ctx.translate(center, center);
+      ctx.rotate(start + arc / 2);
+      ctx.textAlign = 'right';
+      ctx.textBaseline = 'middle';
+      ctx.fillStyle = '#fff';
+      var fontSize = Math.max(11, Math.min(15, 160 / options.length));
+      ctx.font = '700 ' + fontSize + 'px system-ui, sans-serif';
+      ctx.shadowColor = 'rgba(0,0,0,.35)';
+      ctx.shadowBlur = 3;
+      var text = label.length > 16 ? label.slice(0, 14) + '…' : label;
+      ctx.fillText(text, radius - 12, 1);
+      ctx.restore();
+    });
+
+    ctx.beginPath();
+    ctx.arc(center, center, Math.max(18, size * 0.09), 0, 2 * Math.PI);
+    ctx.fillStyle = '#fffdf8';
+    ctx.fill();
+    ctx.lineWidth = 3;
+    ctx.strokeStyle = '#202124';
+    ctx.stroke();
+  }
+
+  function spawnConfetti() {
+    var emojis = ['🎉', '✨', '🎊'];
+    for (var i = 0; i < 6; i++) {
+      var span = document.createElement('span');
+      span.className = 'confetti';
+      span.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+      span.style.left = (10 + Math.random() * 80) + '%';
+      span.style.animationDelay = (Math.random() * 0.3) + 's';
+      resultContainer.appendChild(span);
+      (function (el) { setTimeout(function () { el.remove(); }, 1600); })(span);
+    }
+  }
+
+  function spin() {
+    if (spinning) return;
+    var options = parseOptions();
+    if (options.length < 2) {
+      resultContainer.classList.remove('show');
+      shareRow.classList.remove('show');
+      alert('Please enter at least two options so the wheel has something to choose from.');
+      return;
+    }
+
+    drawWheel(options);
+    resultContainer.classList.remove('show');
+
+    var arcDeg = 360 / options.length;
+    var extraSpins = 6 + Math.random() * 3;
+    var stopAngle = Math.random() * 360;
+    var newRotation = currentRotation + extraSpins * 360 + stopAngle;
+
+    spinning = true;
+    spinBtn.disabled = true;
+    canvas.classList.add('spinning');
+
+    canvas.style.transition = 'transform 4.2s cubic-bezier(0.17, 0.67, 0.12, 1)';
+    canvas.style.transform = 'rotate(' + newRotation + 'deg)';
+
+    var onEnd = function () {
+      canvas.removeEventListener('transitionend', onEnd);
+      spinning = false;
+      spinBtn.disabled = false;
+      canvas.classList.remove('spinning');
+      spinBtn.textContent = 'Spin Again';
+
+      var finalAngle = newRotation % 360;
+      var winningAngle = (270 - finalAngle + 3600) % 360;
+      var index = Math.floor(winningAngle / arcDeg) % options.length;
+      var winner = options[index];
+
+      resultText.textContent = winner;
+      resultContainer.classList.add('show');
+      spawnConfetti();
+
+      var rawText = textarea.value.trim();
+      var encoded = btoa(encodeURIComponent(rawText));
+      shareUrlInput.value = window.location.origin + window.location.pathname + '?q=' + encoded;
+      shareRow.classList.add('show');
+    };
+    canvas.addEventListener('transitionend', onEnd);
+
+    currentRotation = newRotation;
+  }
+
+  copyBtn.addEventListener('click', function () {
+    shareUrlInput.select();
+    shareUrlInput.setSelectionRange(0, 99999);
+    navigator.clipboard.writeText(shareUrlInput.value).then(function () {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () { copyBtn.textContent = 'Copy link'; }, 1600);
+    }).catch(function () {
+      alert('Copy failed — please select and copy the link manually.');
+    });
+  });
+
+  spinBtn.addEventListener('click', spin);
+
+  window.addEventListener('resize', function () {
+    if (!spinning) drawWheel(parseOptions().length >= 2 ? parseOptions() : ['A', 'B', 'C', 'D']);
+  });
+
+  window.onload = function () {
+    var params = new URLSearchParams(window.location.search);
+    var encodedData = params.get('q');
+    if (encodedData) {
+      try {
+        textarea.value = decodeURIComponent(atob(encodedData));
+      } catch (e) {
+        console.error('Could not parse shared list');
+      }
+    }
+    var initial = parseOptions();
+    drawWheel(initial.length >= 2 ? initial : ['Pizza', 'Sushi', 'Tacos', 'Burgers']);
+  };
+})();
+</script>
+</body></html>
