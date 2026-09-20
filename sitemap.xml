@@ -1,8 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-  Draft sitemap.xml for kokoroflow.net, assembled from every URL that has
-  actually appeared in our conversation so far (7tools.html's own links,
-  the footer links on 7tools.html, and the two /Evaluation/ laptop guides).
+  Complete sitemap.xml for kokoroflow.net.
+  Built from the previous draft plus every page added or confirmed since:
+  the three new Evaluation guides (docking stations, ergonomic mice,
+  monitors), the updated ergonomic-peripherals-pain-point-guide.html,
+  the new Tools/ folder (decision-maker + zh version), and two pages
+  visible in the Evaluation/ folder screenshot that were missing from
+  the previous draft (index.html, editorial-policy.html).
   This has NOT been verified against your live server — please spot-check
   before publishing, especially the pages flagged in comments below.
 -->
@@ -26,6 +30,18 @@
   </url>
   <url>
     <loc>https://www.kokoroflow.net/ai-prompt-journal.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Interactive tools (new Tools/ folder) -->
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/decision-maker.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/decision-maker-zh.html</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
@@ -89,7 +105,19 @@
   <url><loc>https://www.kokoroflow.net/third-party-licenses.html</loc></url>
   <url><loc>https://www.kokoroflow.net/disclaimer.html</loc></url>
 
-  <!-- Evaluation guides -->
+  <!-- Evaluation section index and policy page -->
+  <!-- Seen in the Evaluation/ folder listing but not previously reviewed — verify title/content before relying on this entry -->
+  <url>
+    <loc>https://www.kokoroflow.net/Evaluation/index.html</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <!-- Seen in the Evaluation/ folder listing but not previously reviewed — this is distinct from /evelyn/editorial-policy.html below -->
+  <url>
+    <loc>https://www.kokoroflow.net/Evaluation/editorial-policy.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+  <!-- Evaluation guides: laptops -->
   <url>
     <loc>https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html</loc>
     <lastmod>2026-09-08</lastmod>
@@ -101,16 +129,29 @@
     <changefreq>monthly</changefreq>
   </url>
 
-  <!-- Evelyn (affiliate recommendations sub-site) -->
+  <!-- Evaluation guides: home office (new) -->
   <url>
-    <loc>https://www.kokoroflow.net/evelyn/</loc>
-    <changefreq>weekly</changefreq>
+    <loc>https://www.kokoroflow.net/Evaluation/best-usb-c-docking-stations-home-office.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.kokoroflow.net/evelyn/editorial-policy.html</loc>
+    <loc>https://www.kokoroflow.net/Evaluation/best-ergonomic-mice-home-office.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Evaluation/best-monitors-home-office.html</loc>
+    <lastmod>2026-09-20</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Evaluation/ergonomic-peripherals-pain-point-guide.html</loc>
+    <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
+  <!-- Evaluation guides: renter-friendly appliances -->
   <url>
     <loc>https://www.kokoroflow.net/Evaluation/renter-friendly-appliances-guide.html</loc>
     <lastmod>2026-09-13</lastmod>
@@ -131,9 +172,14 @@
     <lastmod>2026-09-13</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+
+  <!-- Evelyn (affiliate recommendations sub-site) -->
   <url>
-    <loc>https://www.kokoroflow.net/Evaluation/ergonomic-peripherals-pain-point-guide.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <loc>https://www.kokoroflow.net/evelyn/</loc>
+    <changefreq>weekly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/evelyn/editorial-policy.html</loc>
     <changefreq>monthly</changefreq>
   </url>
 
