@@ -1,0 +1,245 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>JSON Formatter &amp; Merger | KokoroFlow</title><meta name="description" content="Format, validate, and minify JSON, or deep-merge two JSON objects into one. Free, no sign-up, runs entirely in your browser — nothing is uploaded."><link rel="canonical" href="https://www.kokoroflow.net/Tools/json-formatter-merger.html"><meta property="og:title" content="JSON Formatter &amp; Merger"><meta property="og:description" content="Format, validate, and minify JSON, or deep-merge two JSON objects into one. Runs entirely in your browser."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/json-formatter-merger.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"JSON Formatter & Merger","applicationCategory":"DeveloperApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Format, validate, and minify JSON, or deep-merge two JSON objects into one.","url":"https://www.kokoroflow.net/Tools/json-formatter-merger.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"JSON Formatter & Merger","item":"https://www.kokoroflow.net/Tools/json-formatter-merger.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:900px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:560px; margin:0 auto; }
+
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+
+    .mode-toggle { display:flex; gap:8px; margin-bottom:20px; }
+    .mode-btn { flex:1; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+
+    label { display:block; font-size:13px; font-weight:700; margin-bottom:6px; color:var(--text); }
+    textarea { width:100%; min-height:200px; padding:12px; border:1px solid var(--line); border-radius:var(--radius); font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:13px; color:var(--text); background:var(--bg); resize:vertical; outline:none; transition:border-color .15s, box-shadow .15s; tab-size:2; }
+    textarea:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    .merge-grid { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:700px) { .merge-grid { grid-template-columns:1fr; } }
+
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:16px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 18px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:15px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+
+    .error-box { display:none; margin-top:14px; padding:14px 16px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; }
+    .output-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .output-header .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    #output { width:100%; min-height:220px; padding:14px; border-radius:var(--radius); background:#1e2124; color:#e8eaed; font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace; font-size:13px; overflow:auto; white-space:pre; border:1px solid var(--line); }
+
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / JSON Formatter &amp; Merger</p>
+    <h1>JSON Formatter &amp; Merger</h1>
+    <p class="lead">Pretty-print and validate JSON, or merge two JSON objects into one. Runs entirely in your browser — nothing is sent anywhere.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">JSON tool</h2>
+
+    <div class="mode-toggle" role="group" aria-label="Choose a mode">
+      <button type="button" class="mode-btn active" data-mode="format">Format / Validate</button>
+      <button type="button" class="mode-btn" data-mode="merge">Merge two JSON objects</button>
+    </div>
+
+    <div id="format-panel">
+      <label for="format-input">JSON input</label>
+      <textarea id="format-input" placeholder='{"name":"example","tags":["a","b"],"count":3}'></textarea>
+      <div class="btn-row">
+        <button class="btn" id="format-btn">Format &amp; Validate</button>
+        <button class="btn btn-secondary" id="minify-btn">Minify</button>
+      </div>
+    </div>
+
+    <div id="merge-panel" style="display:none;">
+      <div class="merge-grid">
+        <div>
+          <label for="merge-a">JSON A (base)</label>
+          <textarea id="merge-a" placeholder='{"name":"example","settings":{"theme":"light"}}'></textarea>
+        </div>
+        <div>
+          <label for="merge-b">JSON B (overrides A on conflict)</label>
+          <textarea id="merge-b" placeholder='{"settings":{"theme":"dark","fontSize":14}}'></textarea>
+        </div>
+      </div>
+      <div class="btn-row">
+        <button class="btn" id="merge-btn">Merge</button>
+      </div>
+    </div>
+
+    <div class="error-box" id="error-box"></div>
+
+    <div id="output-section">
+      <div class="output-header">
+        <span class="result-label">Result</span>
+        <button class="copy-btn" id="copy-btn">Copy</button>
+      </div>
+      <div id="output"></div>
+    </div>
+  </section>
+
+  <section class="section block">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Format / Validate</strong> pretty-prints your JSON with 2-space indentation and points out exactly what's wrong if it isn't valid JSON. Minify strips it back down to one line.</li>
+      <li><strong>Merge</strong> deep-merges JSON A and JSON B: for any key that exists in both, B's value wins. Nested objects are merged recursively; arrays in B fully replace the matching array in A rather than combining them.</li>
+      <li><strong>Copy the result</strong> with the button above the output, or select it manually.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="notice">Everything runs locally in your browser using standard JSON parsing — your data is never uploaded or logged anywhere.</p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  var modeButtons = document.querySelectorAll('.mode-btn');
+  var formatPanel = document.getElementById('format-panel');
+  var mergePanel = document.getElementById('merge-panel');
+  var errorBox = document.getElementById('error-box');
+  var outputSection = document.getElementById('output-section');
+  var output = document.getElementById('output');
+  var copyBtn = document.getElementById('copy-btn');
+
+  modeButtons.forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      modeButtons.forEach(function (b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      var mode = btn.dataset.mode;
+      formatPanel.style.display = mode === 'format' ? 'block' : 'none';
+      mergePanel.style.display = mode === 'merge' ? 'block' : 'none';
+      errorBox.classList.remove('show');
+      outputSection.classList.remove('show');
+    });
+  });
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+    outputSection.classList.remove('show');
+  }
+
+  function showOutput(text) {
+    errorBox.classList.remove('show');
+    output.textContent = text;
+    outputSection.classList.add('show');
+  }
+
+  function isPlainObject(v) {
+    return v !== null && typeof v === 'object' && !Array.isArray(v);
+  }
+
+  function deepMerge(a, b) {
+    if (!isPlainObject(a) || !isPlainObject(b)) return b;
+    var result = {};
+    Object.keys(a).forEach(function (k) { result[k] = a[k]; });
+    Object.keys(b).forEach(function (k) {
+      if (isPlainObject(a[k]) && isPlainObject(b[k])) {
+        result[k] = deepMerge(a[k], b[k]);
+      } else {
+        result[k] = b[k];
+      }
+    });
+    return result;
+  }
+
+  document.getElementById('format-btn').addEventListener('click', function () {
+    var raw = document.getElementById('format-input').value.trim();
+    if (!raw) { showError('Paste some JSON first.'); return; }
+    try {
+      var parsed = JSON.parse(raw);
+      showOutput(JSON.stringify(parsed, null, 2));
+    } catch (e) {
+      showError('Invalid JSON: ' + e.message);
+    }
+  });
+
+  document.getElementById('minify-btn').addEventListener('click', function () {
+    var raw = document.getElementById('format-input').value.trim();
+    if (!raw) { showError('Paste some JSON first.'); return; }
+    try {
+      var parsed = JSON.parse(raw);
+      showOutput(JSON.stringify(parsed));
+    } catch (e) {
+      showError('Invalid JSON: ' + e.message);
+    }
+  });
+
+  document.getElementById('merge-btn').addEventListener('click', function () {
+    var rawA = document.getElementById('merge-a').value.trim();
+    var rawB = document.getElementById('merge-b').value.trim();
+    if (!rawA || !rawB) { showError('Paste JSON into both boxes before merging.'); return; }
+    var a, b;
+    try {
+      a = JSON.parse(rawA);
+    } catch (e) {
+      showError('JSON A is invalid: ' + e.message);
+      return;
+    }
+    try {
+      b = JSON.parse(rawB);
+    } catch (e) {
+      showError('JSON B is invalid: ' + e.message);
+      return;
+    }
+    if (!isPlainObject(a) || !isPlainObject(b)) {
+      showError('Both A and B need to be JSON objects (not arrays or plain values) to merge.');
+      return;
+    }
+    showOutput(JSON.stringify(deepMerge(a, b), null, 2));
+  });
+
+  copyBtn.addEventListener('click', function () {
+    navigator.clipboard.writeText(output.textContent).then(function () {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1600);
+    }).catch(function () {
+      alert('Copy failed — please select and copy the text manually.');
+    });
+  });
+})();
+</script>
+</body></html>

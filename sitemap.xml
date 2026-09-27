@@ -44,6 +44,26 @@
     <lastmod>2026-09-20</lastmod>
     <changefreq>monthly</changefreq>
   </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/group-randomizer.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/fantasy-football-points-calculator.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/school-grade-age-calculator.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/Tools/json-formatter-merger.html</loc>
+    <lastmod>2026-09-27</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 
   <!-- Full calculators (own dedicated pages) -->
   <url><loc>https://www.kokoroflow.net/salary-calculator.html</loc></url>
@@ -60,8 +80,6 @@
   <url><loc>https://www.kokoroflow.net/sales-tax-calculator.html</loc></url>
   <url><loc>https://www.kokoroflow.net/password-generator.html</loc></url>
   <url><loc>https://www.kokoroflow.net/time-zone-converter.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/percentage-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/hex-rgb-color-converter.html</loc></url>
   <url>
     <loc>https://www.kokoroflow.net/rent-vs-buy-calculator.html</loc>
     <lastmod>2026-09-13</lastmod>
