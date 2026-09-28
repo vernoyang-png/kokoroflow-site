@@ -1,0 +1,455 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Fantasy Sports Points Calculator | KokoroFlow</title><meta name="description" content="Score a player stat line for fantasy football or fantasy baseball with editable scoring rules, PPR presets, kickers, defenses, hitters, and pitchers. Free, runs in your browser."><link rel="canonical" href="https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html"><meta property="og:title" content="Fantasy Sports Points Calculator"><meta property="og:description" content="Score a player stat line for fantasy football or fantasy baseball with editable scoring rules, PPR presets, kickers, defenses, hitters, and pitchers. Free, runs in your browser."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Fantasy Sports Points Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Score a player stat line for fantasy football or fantasy baseball with editable scoring rules, PPR presets, kickers, defenses, hitters, and pitchers. Free, runs in your browser.","url":"https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Fantasy Sports Points Calculator","item":"https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:860px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:580px; margin:0 auto; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea, input[type="text"], input[type="password"], select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea { min-height:170px; resize:vertical; }
+    input[type="text"], input[type="password"], select { min-height:48px; }
+    textarea:focus, input:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder, input::placeholder { color:#9aa0a6; }
+    .field { margin-bottom:16px; }
+    .opts { display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0; }
+    label.opt { display:inline-flex; align-items:center; gap:8px; margin:0; font-weight:600; font-size:14px; cursor:pointer; }
+    label.opt input { width:18px; height:18px; accent-color:var(--accent); }
+    .mode-toggle { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+    .mode-btn { flex:1; min-width:150px; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .error-box { display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.98); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .output-header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .mini-btns { display:flex; gap:6px; flex-wrap:wrap; }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea.out { min-height:200px; }
+    .out-box { padding:16px; min-height:90px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); font-size:22px; line-height:1.5; white-space:pre-wrap; word-break:break-word; color:#244f46; }
+    .out-box.empty { color:var(--muted); font-size:15px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .chip { padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13.5px; font-weight:600; border:1px solid var(--line); }
+    .stat-line { font-size:14px; color:var(--muted); margin:6px 0 0; }
+    .stat-line strong { color:var(--text); }
+    .vid-title { font-weight:800; font-size:16px; margin:0 0 4px; }
+    details.how { margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; background:var(--bg); }
+    details.how summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--accent); }
+    details.how ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+    .notice.caution { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+    [hidden] { display:none !important; }
+    .mode-toggle.sub { margin-top:-4px; }
+    .mode-toggle.sub .mode-btn { min-width:110px; min-height:40px; font-size:13.5px; }
+    h3.group-title { font-size:14px; margin:18px 0 8px; color:var(--accent); letter-spacing:.03em; text-transform:uppercase; }
+    .stat-head, .stat-row { display:grid; grid-template-columns:1fr 96px 96px; gap:8px 12px; align-items:center; }
+    .stat-head span { font-size:11px; font-weight:700; color:var(--muted); text-align:center; text-transform:uppercase; letter-spacing:.04em; }
+    .stat-head span:first-child { text-align:left; }
+    .stat-row { margin-bottom:8px; }
+    .stat-row .stat-label { font-size:14px; }
+    .stat-row input[type="number"] { width:100%; min-height:40px; padding:8px 10px; text-align:center; font-size:14px; border:1px solid var(--line); border-radius:var(--radius); background:var(--bg); font:inherit; }
+    .stat-row input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); outline:none; }
+    .tier-table { margin-top:6px; }
+    .preset-row { display:flex; flex-wrap:wrap; gap:8px; margin:6px 0 4px; }
+    .preset-btn { flex:1; min-width:110px; min-height:38px; padding:6px 12px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:13.5px; font-weight:700; cursor:pointer; }
+    .preset-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    #result-container { margin-top:22px; padding:22px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); text-align:center; display:none; }
+    #result-container.show { display:block; animation:pop .25s ease-out; }
+    #result-total { margin:0; font-size:clamp(28px, 5vw, 38px); font-weight:800; color:#244f46; }
+    #result-breakdown { margin-top:14px; text-align:left; font-size:13.5px; color:var(--muted); }
+    #result-breakdown div { display:flex; justify-content:space-between; gap:12px; padding:4px 0; border-bottom:1px solid var(--line); }
+    #result-breakdown div:last-child { border-bottom:none; }
+    .prose h2 { margin:0 0 10px; font-size:24px; line-height:1.25; }
+    .prose h3 { margin:20px 0 6px; font-size:16px; }
+    .prose p, .prose li { color:var(--muted); font-size:14.5px; }
+    .prose ul { padding-left:20px; margin:8px 0 0; }
+    .prose li { margin-bottom:6px; }
+    .faq details { border-top:1px solid var(--line); padding:12px 0; }
+    .faq details:last-child { border-bottom:1px solid var(--line); }
+    .faq summary { cursor:pointer; font-weight:700; font-size:15px; }
+    .faq details p { margin:8px 0 0; }
+    @media (max-width:640px) { .stat-head, .stat-row { grid-template-columns:1fr 74px 74px; gap:6px 8px; } }
+
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Fantasy Sports</p>
+    <h1>Fantasy Sports Points Calculator</h1>
+    <p class="lead">Score a player's stat line for fantasy football or fantasy baseball. Every scoring value is editable, so the result matches your league's rules exactly.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">Fantasy points calculator</h2>
+
+    <div class="mode-toggle" id="sport-toggle" role="group" aria-label="Choose a sport">
+      <button type="button" class="mode-btn active" data-sport="football">Football</button>
+      <button type="button" class="mode-btn" data-sport="baseball">Baseball</button>
+    </div>
+    <div class="mode-toggle sub" id="group-toggle" role="group" aria-label="Choose a position group"></div>
+
+    <div id="panels"></div>
+
+    <div class="btn-row">
+      <button class="btn" id="calc-btn">Calculate Points</button>
+      <button class="btn btn-secondary" id="reset-btn">Reset this form</button>
+    </div>
+
+    <div id="result-container" role="status" aria-live="polite">
+      <span class="result-label">Total fantasy points</span>
+      <p id="result-total">0.00</p>
+      <div id="result-breakdown"></div>
+    </div>
+  </section>
+
+  <section class="section block prose">
+    <h2>How fantasy points are scored</h2>
+    <h3>Football</h3>
+    <p>Most points leagues start from a familiar base: 1 point per 25 passing yards, 4 per passing touchdown, −2 per interception, 1 point per 10 rushing or receiving yards, and 6 per rushing or receiving touchdown. The biggest difference between leagues is points per reception: none in standard scoring, 0.5 in half-PPR, and 1 in full PPR. Kickers and team defenses have their own scoring, which varies more from one platform to another.</p>
+    <h3>Baseball</h3>
+    <p>This calculator is for <strong>points</strong> leagues. The starting values follow ESPN's standard head-to-head points setup as ESPN has published it: hitters earn a point for each total base, run, RBI, walk, and stolen base and lose a point per strikeout; pitchers earn 3 points per inning (one per out) and a point per strikeout, 2 for a win or hold, and 5 for a save, and lose 2 per earned run, 1 per hit or walk allowed, and 2 per loss. Roto and category leagues don't use points at all, so they don't apply here.</p>
+    <p>Innings pitched use baseball notation: 6.1 means 6⅓ innings and 6.2 means 6⅔.</p>
+    <h3>Make it match your league</h3>
+    <ul>
+      <li><strong>Edit any "Pts each" value.</strong> Commissioners change scoring all the time, and the defaults here are only starting points.</li>
+      <li><strong>Check the platform's scoring page.</strong> ESPN, Yahoo, and Sleeper differ, especially for kickers, defenses, and pitchers.</li>
+      <li><strong>Bonuses aren't included.</strong> Extras like 100-yard-game bonuses can be added by hand to the total.</li>
+    </ul>
+  </section>
+
+  <section class="section block prose faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Does this work for fantasy hockey or basketball?</summary>
+      <p>Not yet. This calculator covers football and baseball only.</p>
+    </details>
+    <details>
+      <summary>Why doesn't my total match my league's app?</summary>
+      <p>Most often it's a scoring difference — points per reception, passing touchdowns worth 6 instead of 4, or bonuses. Compare each "Pts each" value against your league settings page.</p>
+    </details>
+    <details>
+      <summary>How do I enter a fractional inning?</summary>
+      <p>Use the notation MLB box scores use: .1 is one out and .2 is two outs, so 6.1 innings is 6⅓ and 6.2 is 6⅔.</p>
+    </details>
+    <details>
+      <summary>Are the team defense points-allowed tiers standard?</summary>
+      <p>They're a common starting point, but platforms use different tables. Edit the tier values to match yours.</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="notice">All calculations happen in your browser — no stats are uploaded or stored.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  // Each row: id, label, default points, step, section heading.
+  var CONFIG = {
+    football: {
+      offense: { label: 'Offense', rows: [
+        { id: 'passYds', label: 'Passing yards', pts: 0.04, step: 0.01, sec: 'Passing' },
+        { id: 'passTD', label: 'Passing TDs', pts: 4, sec: 'Passing' },
+        { id: 'passInt', label: 'Interceptions thrown', pts: -2, sec: 'Passing' },
+        { id: 'rushYds', label: 'Rushing yards', pts: 0.1, step: 0.01, sec: 'Rushing' },
+        { id: 'rushTD', label: 'Rushing TDs', pts: 6, sec: 'Rushing' },
+        { id: 'rec', label: 'Receptions', pts: 1, sec: 'Receiving', ppr: true },
+        { id: 'recYds', label: 'Receiving yards', pts: 0.1, step: 0.01, sec: 'Receiving' },
+        { id: 'recTD', label: 'Receiving TDs', pts: 6, sec: 'Receiving' },
+        { id: 'fumLost', label: 'Fumbles lost', pts: -2, sec: 'Other' },
+        { id: 'twoPt', label: '2-point conversions', pts: 2, sec: 'Other' },
+        { id: 'retTD', label: 'Return TDs', pts: 6, sec: 'Other' }
+      ], ppr: true },
+      kicker: { label: 'Kicker', rows: [
+        { id: 'fg39', label: 'Field goals made, 0–39 yds', pts: 3, sec: 'Kicking' },
+        { id: 'fg49', label: 'Field goals made, 40–49 yds', pts: 4, sec: 'Kicking' },
+        { id: 'fg50', label: 'Field goals made, 50+ yds', pts: 5, sec: 'Kicking' },
+        { id: 'xp', label: 'Extra points made', pts: 1, sec: 'Kicking' },
+        { id: 'fgMiss', label: 'Field goals missed', pts: -1, sec: 'Kicking' },
+        { id: 'xpMiss', label: 'Extra points missed', pts: -1, sec: 'Kicking' }
+      ] },
+      defense: { label: 'Team defense', rows: [
+        { id: 'sack', label: 'Sacks', pts: 1, sec: 'Defense' },
+        { id: 'defInt', label: 'Interceptions', pts: 2, sec: 'Defense' },
+        { id: 'fumRec', label: 'Fumble recoveries', pts: 2, sec: 'Defense' },
+        { id: 'safety', label: 'Safeties', pts: 2, sec: 'Defense' },
+        { id: 'defTD', label: 'Defensive / special teams TDs', pts: 6, sec: 'Defense' },
+        { id: 'blocked', label: 'Blocked kicks', pts: 2, sec: 'Defense' }
+      ], tiers: [
+        { label: '0 points', min: 0, max: 0, pts: 5 },
+        { label: '1–6', min: 1, max: 6, pts: 4 },
+        { label: '7–13', min: 7, max: 13, pts: 3 },
+        { label: '14–17', min: 14, max: 17, pts: 1 },
+        { label: '18–21', min: 18, max: 21, pts: 1 },
+        { label: '22–27', min: 22, max: 27, pts: 0 },
+        { label: '28–34', min: 28, max: 34, pts: -1 },
+        { label: '35–45', min: 35, max: 45, pts: -3 },
+        { label: '46+', min: 46, max: Infinity, pts: -5 }
+      ] }
+    },
+    baseball: {
+      batter: { label: 'Hitter', rows: [
+        { id: 'b1', label: 'Singles', pts: 1, sec: 'Hitting' },
+        { id: 'b2', label: 'Doubles', pts: 2, sec: 'Hitting' },
+        { id: 'b3', label: 'Triples', pts: 3, sec: 'Hitting' },
+        { id: 'hr', label: 'Home runs', pts: 4, sec: 'Hitting' },
+        { id: 'run', label: 'Runs scored', pts: 1, sec: 'Other' },
+        { id: 'rbi', label: 'RBI', pts: 1, sec: 'Other' },
+        { id: 'bb', label: 'Walks', pts: 1, sec: 'Other' },
+        { id: 'sb', label: 'Stolen bases', pts: 1, sec: 'Other' },
+        { id: 'cs', label: 'Caught stealing', pts: 0, sec: 'Other' },
+        { id: 'so', label: 'Strikeouts', pts: -1, sec: 'Other' }
+      ] },
+      pitcher: { label: 'Pitcher', rows: [
+        { id: 'ip', label: 'Innings pitched (6.1 = 6⅓)', pts: 3, step: 0.1, sec: 'Pitching', ip: true },
+        { id: 'k', label: 'Strikeouts', pts: 1, sec: 'Pitching' },
+        { id: 'h', label: 'Hits allowed', pts: -1, sec: 'Pitching' },
+        { id: 'pbb', label: 'Walks allowed', pts: -1, sec: 'Pitching' },
+        { id: 'er', label: 'Earned runs', pts: -2, sec: 'Pitching' },
+        { id: 'w', label: 'Wins', pts: 2, sec: 'Decisions' },
+        { id: 'l', label: 'Losses', pts: -2, sec: 'Decisions' },
+        { id: 'sv', label: 'Saves', pts: 5, sec: 'Decisions' },
+        { id: 'hd', label: 'Holds', pts: 2, sec: 'Decisions' },
+        { id: 'qs', label: 'Quality starts', pts: 0, sec: 'Decisions' }
+      ] }
+    }
+  };
+
+  var sportToggle = document.getElementById('sport-toggle');
+  var groupToggle = document.getElementById('group-toggle');
+  var panelsEl = document.getElementById('panels');
+  var resultBox = document.getElementById('result-container');
+  var resultTotal = document.getElementById('result-total');
+  var resultBreakdown = document.getElementById('result-breakdown');
+  var activeSport = 'football';
+  var activeGroup = 'offense';
+
+  function key(sport, group) { return sport + '-' + group; }
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  function buildPanel(sport, group, def) {
+    var div = document.createElement('div');
+    div.className = 'panel';
+    div.id = 'panel-' + key(sport, group);
+    div.hidden = true;
+    var html = '';
+    if (def.ppr) {
+      html += '<div class="preset-row" role="group" aria-label="Points per reception">' +
+        '<button type="button" class="preset-btn" data-ppr="0">Standard (0 PPR)</button>' +
+        '<button type="button" class="preset-btn" data-ppr="0.5">Half-PPR</button>' +
+        '<button type="button" class="preset-btn active" data-ppr="1">Full PPR</button></div>';
+    }
+    var lastSec = null;
+    def.rows.forEach(function (r) {
+      if (r.sec !== lastSec) {
+        html += '<h3 class="group-title">' + esc(r.sec) + '</h3><div class="stat-head"><span></span><span>Stat</span><span>' + (r.ip ? 'Pts / inning' : 'Pts each') + '</span></div>';
+        lastSec = r.sec;
+      }
+      html += '<div class="stat-row"><label class="stat-label" for="s-' + key(sport, group) + '-' + r.id + '" style="margin:0;font-weight:500;">' + esc(r.label) + '</label>' +
+        '<input type="number" inputmode="decimal" min="0" step="' + (r.step || 1) + '" value="0" id="s-' + key(sport, group) + '-' + r.id + '">' +
+        '<input type="number" inputmode="decimal" step="0.01" value="' + r.pts + '" id="p-' + key(sport, group) + '-' + r.id + '" aria-label="Points for ' + esc(r.label) + '"></div>';
+    });
+    if (def.tiers) {
+      html += '<h3 class="group-title">Points allowed</h3>' +
+        '<div class="stat-row"><label class="stat-label" for="s-' + key(sport, group) + '-pa" style="margin:0;font-weight:500;">Points allowed by the defense</label>' +
+        '<input type="number" inputmode="numeric" min="0" step="1" value="" placeholder="—" id="s-' + key(sport, group) + '-pa"><span></span></div>' +
+        '<div class="tier-table"><div class="stat-head"><span>Tier (points allowed)</span><span></span><span>Pts</span></div>';
+      def.tiers.forEach(function (t, i) {
+        html += '<div class="stat-row"><span class="stat-label">' + esc(t.label) + '</span><span></span>' +
+          '<input type="number" inputmode="decimal" step="0.5" value="' + t.pts + '" id="t-' + key(sport, group) + '-' + i + '" aria-label="Points for ' + esc(t.label) + ' points allowed"></div>';
+      });
+      html += '</div>';
+    }
+    div.innerHTML = html;
+    return div;
+  }
+
+  Object.keys(CONFIG).forEach(function (sport) {
+    Object.keys(CONFIG[sport]).forEach(function (group) {
+      panelsEl.appendChild(buildPanel(sport, group, CONFIG[sport][group]));
+    });
+  });
+
+  function showGroup(group) {
+    activeGroup = group;
+    Array.prototype.forEach.call(groupToggle.querySelectorAll('.mode-btn'), function (b) {
+      b.classList.toggle('active', b.dataset.group === group);
+    });
+    Array.prototype.forEach.call(panelsEl.querySelectorAll('.panel'), function (p) {
+      p.hidden = p.id !== 'panel-' + key(activeSport, group);
+    });
+    resultBox.classList.remove('show');
+  }
+
+  function showSport(sport) {
+    activeSport = sport;
+    Array.prototype.forEach.call(sportToggle.querySelectorAll('.mode-btn'), function (b) {
+      b.classList.toggle('active', b.dataset.sport === sport);
+    });
+    groupToggle.innerHTML = '';
+    var groups = Object.keys(CONFIG[sport]);
+    groups.forEach(function (g) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'mode-btn';
+      b.dataset.group = g;
+      b.textContent = CONFIG[sport][g].label;
+      b.addEventListener('click', function () { showGroup(g); });
+      groupToggle.appendChild(b);
+    });
+    showGroup(groups[0]);
+  }
+
+  Array.prototype.forEach.call(sportToggle.querySelectorAll('.mode-btn'), function (b) {
+    b.addEventListener('click', function () { showSport(b.dataset.sport); });
+  });
+
+  // PPR presets
+  panelsEl.addEventListener('click', function (e) {
+    var btn = e.target.closest ? e.target.closest('.preset-btn') : null;
+    if (!btn) return;
+    var panel = btn.closest('.panel');
+    Array.prototype.forEach.call(panel.querySelectorAll('.preset-btn'), function (b) { b.classList.remove('active'); });
+    btn.classList.add('active');
+    document.getElementById('p-football-offense-rec').value = btn.dataset.ppr;
+  });
+
+  function num(id) {
+    var el = document.getElementById(id);
+    if (!el) return 0;
+    var v = parseFloat(el.value);
+    return isNaN(v) ? 0 : v;
+  }
+
+  // 6.1 -> 19 outs? No: 6.1 = 6 innings + 1 out = 19 outs.
+  function ipToOuts(ip) {
+    var whole = Math.floor(ip + 1e-9);
+    var frac = Math.round((ip - whole) * 10);
+    if (frac > 2) frac = 2;
+    return whole * 3 + frac;
+  }
+
+  function fmt(n) { return (n >= 0 ? '+' : '−') + Math.abs(n).toFixed(2); }
+
+  function calculate() {
+    var def = CONFIG[activeSport][activeGroup];
+    var k = key(activeSport, activeGroup);
+    var total = 0;
+    var lines = [];
+
+    def.rows.forEach(function (r) {
+      var stat = num('s-' + k + '-' + r.id);
+      var pts = num('p-' + k + '-' + r.id);
+      if (stat === 0) return;
+      var value, detail;
+      if (r.ip) {
+        var outs = ipToOuts(stat);
+        var innings = outs / 3;
+        value = innings * pts;
+        detail = r.label.split(' (')[0] + ' (' + stat + ' IP = ' + outs + ' outs × ' + pts + '/inning ÷ 3)';
+      } else {
+        value = stat * pts;
+        detail = r.label + ' (' + stat + ' × ' + pts + ')';
+      }
+      total += value;
+      lines.push([detail, value]);
+    });
+
+    if (def.tiers) {
+      var paEl = document.getElementById('s-' + k + '-pa');
+      if (paEl && paEl.value !== '') {
+        var pa = Math.max(0, Math.floor(parseFloat(paEl.value) || 0));
+        for (var i = 0; i < def.tiers.length; i++) {
+          if (pa >= def.tiers[i].min && pa <= def.tiers[i].max) {
+            var tp = num('t-' + k + '-' + i);
+            total += tp;
+            lines.push(['Points allowed (' + pa + ', tier ' + def.tiers[i].label + ')', tp]);
+            break;
+          }
+        }
+      }
+    }
+
+    resultTotal.textContent = total.toFixed(2) + ' pts';
+    resultBreakdown.innerHTML = '';
+    if (!lines.length) {
+      var empty = document.createElement('div');
+      empty.innerHTML = '<span>No stats entered yet</span><span>0.00</span>';
+      resultBreakdown.appendChild(empty);
+    }
+    lines.forEach(function (l) {
+      var row = document.createElement('div');
+      var a = document.createElement('span'); a.textContent = l[0];
+      var b = document.createElement('span'); b.textContent = fmt(l[1]);
+      row.appendChild(a); row.appendChild(b);
+      resultBreakdown.appendChild(row);
+    });
+    resultBox.classList.add('show');
+  }
+
+  document.getElementById('calc-btn').addEventListener('click', calculate);
+
+  document.getElementById('reset-btn').addEventListener('click', function () {
+    var def = CONFIG[activeSport][activeGroup];
+    var k = key(activeSport, activeGroup);
+    def.rows.forEach(function (r) {
+      document.getElementById('s-' + k + '-' + r.id).value = 0;
+      document.getElementById('p-' + k + '-' + r.id).value = r.pts;
+    });
+    if (def.tiers) {
+      document.getElementById('s-' + k + '-pa').value = '';
+      def.tiers.forEach(function (t, i) { document.getElementById('t-' + k + '-' + i).value = t.pts; });
+    }
+    if (def.ppr) {
+      var panel = document.getElementById('panel-' + k);
+      Array.prototype.forEach.call(panel.querySelectorAll('.preset-btn'), function (b) { b.classList.toggle('active', b.dataset.ppr === '1'); });
+    }
+    resultBox.classList.remove('show');
+  });
+
+  showSport('football');
+})();
+
+</script>
+</body></html>

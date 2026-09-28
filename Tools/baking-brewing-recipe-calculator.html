@@ -1,0 +1,468 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Baking & Brewing Recipe Calculator | KokoroFlow</title><meta name="description" content="Baker's percentages and dough hydration, recipe scaling, and homebrew ABV in one free calculator. Runs in your browser with no sign-up."><link rel="canonical" href="https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html"><meta property="og:title" content="Baking & Brewing Recipe Calculator"><meta property="og:description" content="Baker's percentages and dough hydration, recipe scaling, and homebrew ABV in one free calculator. Runs in your browser with no sign-up."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Baking & Brewing Recipe Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Baker's percentages and dough hydration, recipe scaling, and homebrew ABV in one free calculator. Runs in your browser with no sign-up.","url":"https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Baking & Brewing Recipe Calculator","item":"https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:860px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:580px; margin:0 auto; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea, input[type="text"], input[type="password"], select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea { min-height:170px; resize:vertical; }
+    input[type="text"], input[type="password"], select { min-height:48px; }
+    textarea:focus, input:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder, input::placeholder { color:#9aa0a6; }
+    .field { margin-bottom:16px; }
+    .opts { display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0; }
+    label.opt { display:inline-flex; align-items:center; gap:8px; margin:0; font-weight:600; font-size:14px; cursor:pointer; }
+    label.opt input { width:18px; height:18px; accent-color:var(--accent); }
+    .mode-toggle { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+    .mode-btn { flex:1; min-width:150px; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .error-box { display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.98); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .output-header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .mini-btns { display:flex; gap:6px; flex-wrap:wrap; }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea.out { min-height:200px; }
+    .out-box { padding:16px; min-height:90px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); font-size:22px; line-height:1.5; white-space:pre-wrap; word-break:break-word; color:#244f46; }
+    .out-box.empty { color:var(--muted); font-size:15px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .chip { padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13.5px; font-weight:600; border:1px solid var(--line); }
+    .stat-line { font-size:14px; color:var(--muted); margin:6px 0 0; }
+    .stat-line strong { color:var(--text); }
+    .vid-title { font-weight:800; font-size:16px; margin:0 0 4px; }
+    details.how { margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; background:var(--bg); }
+    details.how summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--accent); }
+    details.how ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+    .notice.caution { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+    [hidden] { display:none !important; }
+    table.grid { width:100%; border-collapse:collapse; font-size:14px; }
+    table.grid th { font-size:11px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); text-align:left; padding:0 6px 6px; }
+    table.grid td { padding:4px 6px; vertical-align:middle; }
+    table.grid input[type="text"], table.grid input[type="number"], table.grid select { width:100%; min-height:40px; padding:6px 10px; font-size:14px; }
+    table.grid td.num, table.grid th.num { text-align:right; }
+    table.grid .rm { min-height:34px; min-width:34px; padding:0 8px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); cursor:pointer; font:inherit; font-weight:700; color:var(--muted); }
+    .table-wrap { overflow-x:auto; }
+    .res-table { width:100%; border-collapse:collapse; margin-top:12px; font-size:14px; }
+    .res-table th, .res-table td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); }
+    .res-table th { font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .res-table td.num, .res-table th.num { text-align:right; font-variant-numeric:tabular-nums; }
+    .kpis { display:grid; grid-template-columns:repeat(auto-fit, minmax(150px, 1fr)); gap:10px; margin-top:14px; }
+    .kpi { padding:12px 14px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); }
+    .kpi b { display:block; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin-bottom:2px; }
+    .kpi span { font-size:20px; font-weight:800; color:#244f46; }
+    .result-panel { margin-top:20px; padding:20px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); display:none; }
+    .result-panel.show { display:block; animation:pop .25s ease-out; }
+    .row { display:flex; flex-wrap:wrap; gap:14px; }
+    .row .field { flex:1; min-width:150px; }
+    input[type="number"] { width:100%; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; }
+    input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    .abv-big { text-align:center; margin:0; font-size:clamp(30px, 6vw, 44px); font-weight:800; color:#244f46; }
+    .abv-sub { text-align:center; margin:4px 0 0; color:var(--muted); font-size:14px; }
+    .prose h2 { margin:0 0 10px; font-size:24px; line-height:1.25; }
+    .prose h3 { margin:20px 0 6px; font-size:16px; }
+    .prose p, .prose li { color:var(--muted); font-size:14.5px; }
+    .prose ul { padding-left:20px; margin:8px 0 0; }
+    .faq details { border-top:1px solid var(--line); padding:12px 0; }
+    .faq details:last-child { border-bottom:1px solid var(--line); }
+    .faq summary { cursor:pointer; font-weight:700; font-size:15px; }
+    .faq details p { margin:8px 0 0; }
+
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Baking &amp; Brewing</p>
+    <h1>Baking &amp; Brewing Recipe Calculator</h1>
+    <p class="lead">Work out baker's percentages and dough hydration, scale any recipe up or down, and calculate the alcohol content of homebrewed beer, cider, wine, or mead — all in one place.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">Recipe calculators</h2>
+
+    <div class="mode-toggle" role="group" aria-label="Choose a calculator">
+      <button type="button" class="mode-btn active" data-tab="baker">Baker's percentages</button>
+      <button type="button" class="mode-btn" data-tab="scaler">Recipe scaler</button>
+      <button type="button" class="mode-btn" data-tab="abv">Homebrew ABV</button>
+    </div>
+
+    <!-- BAKER'S PERCENTAGES -->
+    <div id="tab-baker">
+      <p class="hint" style="margin-top:0;">Enter each ingredient's weight in grams and choose its type. Baker's percentages express every ingredient as a percentage of the total flour.</p>
+      <div class="table-wrap">
+        <table class="grid" id="baker-table">
+          <thead><tr><th>Ingredient</th><th class="num">Weight (g)</th><th>Type</th><th class="num" title="Only used for sourdough starter">Starter hydration %</th><th></th></tr></thead>
+          <tbody id="baker-body"></tbody>
+        </table>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="baker-add">+ Add ingredient</button>
+        <button class="btn btn-secondary" id="baker-example">Load example</button>
+      </div>
+      <div class="field" style="margin-top:16px;">
+        <label for="baker-target">Scale to a target total dough weight (optional, g)</label>
+        <input type="number" id="baker-target" min="0" step="1" placeholder="e.g. 900">
+      </div>
+      <div class="error-box" id="baker-error" role="alert"></div>
+      <div class="btn-row"><button class="btn" id="baker-calc">Calculate</button></div>
+      <div class="result-panel" id="baker-result" role="status" aria-live="polite"></div>
+    </div>
+
+    <!-- RECIPE SCALER -->
+    <div id="tab-scaler" hidden>
+      <div class="row">
+        <div class="field"><label for="scale-from">Original yield / servings</label><input type="number" id="scale-from" min="0" step="any" value="4"></div>
+        <div class="field"><label for="scale-to">New yield / servings</label><input type="number" id="scale-to" min="0" step="any" value="6"></div>
+      </div>
+      <div class="table-wrap" style="margin-top:14px;">
+        <table class="grid" id="scale-table">
+          <thead><tr><th>Ingredient</th><th class="num">Amount</th><th>Unit</th><th></th></tr></thead>
+          <tbody id="scale-body"></tbody>
+        </table>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn-secondary" id="scale-add">+ Add ingredient</button>
+        <button class="btn btn-secondary" id="scale-example">Load example</button>
+      </div>
+      <div class="error-box" id="scale-error" role="alert"></div>
+      <div class="btn-row"><button class="btn" id="scale-calc">Scale Recipe</button></div>
+      <div class="result-panel" id="scale-result" role="status" aria-live="polite"></div>
+    </div>
+
+    <!-- HOMEBREW ABV -->
+    <div id="tab-abv" hidden>
+      <div class="row">
+        <div class="field"><label for="og-input">Original gravity (OG)</label><input type="number" id="og-input" step="0.001" placeholder="e.g. 1.050"></div>
+        <div class="field"><label for="fg-input">Final gravity (FG)</label><input type="number" id="fg-input" step="0.001" placeholder="e.g. 1.010"></div>
+      </div>
+      <span class="hint" style="margin-top:8px;">Use specific gravity readings from your hydrometer or refractometer. You can also enter gravity points, like 1050.</span>
+      <div class="error-box" id="abv-error" role="alert"></div>
+      <div class="btn-row"><button class="btn" id="abv-calc">Calculate ABV</button></div>
+      <div class="result-panel" id="abv-result" role="status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  <section class="section block prose">
+    <h2>How these calculators work</h2>
+    <h3>Baker's percentages</h3>
+    <p>Bakers describe a formula by comparing each ingredient to the weight of the flour, which is always 100%. A dough with 500 g flour and 350 g water is 70% hydration. Sourdough starter contains both flour and water: enter its weight and hydration, and the calculator splits it into flour and water so the totals come out right.</p>
+    <h3>Recipe scaling</h3>
+    <p>The scaler multiplies every amount by the ratio of the new yield to the original. Ingredient weights scale reliably; things like salt, spices, leavening, baking time, and pan size don't always scale in a straight line, so treat large jumps with care.</p>
+    <h3>Homebrew ABV</h3>
+    <p>Alcohol by volume is estimated from how much the gravity dropped during fermentation. The standard formula is (OG − FG) × 131.25. A second formula, often used for stronger brews, corrects for the way the estimate drifts at high gravity. At normal gravities the two agree closely; above about 1.075 they diverge and the second is generally considered more accurate. Apparent attenuation shows how much of the sugar was fermented.</p>
+  </section>
+
+  <section class="section block prose faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What counts as "flour" in baker's percentages?</summary>
+      <p>All the flours in the formula — bread flour, whole wheat, rye — added together. Choose the "Flour" type for each one. Add starter separately so its own flour and water are counted.</p>
+    </details>
+    <details>
+      <summary>What hydration should my dough have?</summary>
+      <p>It depends on the bread. Sandwich loaves are often in the 60s, many artisan loaves in the 70s, and very open, wet doughs higher. Use the calculator to compare formulas rather than as a target.</p>
+    </details>
+    <details>
+      <summary>Why is baking measured by weight?</summary>
+      <p>Weight is far more consistent than volume, because a cup of flour can vary by 20% or more depending on how it's packed. That's why this calculator works in grams.</p>
+    </details>
+    <details>
+      <summary>Does the ABV calculator work for wine, cider, and mead?</summary>
+      <p>Yes — it only needs the starting and finishing gravity, so it works for any fermented drink measured with a hydrometer. Very sweet or very high-alcohol drinks are the least precise.</p>
+    </details>
+    <details>
+      <summary>How accurate is the ABV estimate?</summary>
+      <p>It's an estimate. Errors in your gravity readings, temperature, and unfermented sugars all affect the result, so expect it to be close rather than exact.</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="notice">Everything is calculated in your browser — no recipes or measurements are uploaded or stored. This tool is for homebrewing and home baking only; check your local laws before brewing or distilling.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  // ---------- tabs ----------
+  var tabs = { baker: document.getElementById('tab-baker'), scaler: document.getElementById('tab-scaler'), abv: document.getElementById('tab-abv') };
+  Array.prototype.forEach.call(document.querySelectorAll('.mode-btn'), function (btn) {
+    btn.addEventListener('click', function () {
+      Array.prototype.forEach.call(document.querySelectorAll('.mode-btn'), function (b) { b.classList.toggle('active', b === btn); });
+      Object.keys(tabs).forEach(function (k) { tabs[k].hidden = k !== btn.dataset.tab; });
+    });
+  });
+
+  function el(tag, props, children) {
+    var e = document.createElement(tag);
+    if (props) Object.keys(props).forEach(function (k) {
+      if (k === 'text') e.textContent = props[k];
+      else if (k === 'class') e.className = props[k];
+      else e.setAttribute(k, props[k]);
+    });
+    (children || []).forEach(function (c) { e.appendChild(c); });
+    return e;
+  }
+  function cell(text, cls) { return el('td', cls ? { 'class': cls, text: text } : { text: text }); }
+  function showErr(id, msg) { var b = document.getElementById(id); b.textContent = msg; b.classList.add('show'); }
+  function clearErr(id) { document.getElementById(id).classList.remove('show'); }
+  function round(n, d) { var p = Math.pow(10, d); return Math.round(n * p) / p; }
+
+  // ---------- BAKER'S PERCENTAGES ----------
+  var bakerBody = document.getElementById('baker-body');
+
+  function addBakerRow(name, weight, type, hyd) {
+    var tr = el('tr');
+    var nameIn = el('input', { type: 'text', 'aria-label': 'Ingredient name', placeholder: 'Ingredient' }); nameIn.value = name || '';
+    var wIn = el('input', { type: 'number', min: '0', step: 'any', 'aria-label': 'Weight in grams', inputmode: 'decimal' }); wIn.value = weight === undefined ? '' : weight;
+    var typeSel = el('select', { 'aria-label': 'Ingredient type' });
+    [['flour', 'Flour'], ['liquid', 'Liquid'], ['starter', 'Sourdough starter'], ['other', 'Other']].forEach(function (o) {
+      typeSel.appendChild(el('option', { value: o[0], text: o[1] }));
+    });
+    typeSel.value = type || 'other';
+    var hIn = el('input', { type: 'number', min: '0', step: 'any', 'aria-label': 'Starter hydration percent' }); hIn.value = hyd === undefined ? 100 : hyd;
+    hIn.disabled = typeSel.value !== 'starter';
+    typeSel.addEventListener('change', function () { hIn.disabled = typeSel.value !== 'starter'; });
+    var rm = el('button', { type: 'button', 'class': 'rm', 'aria-label': 'Remove ingredient', text: '×' });
+    rm.addEventListener('click', function () { tr.parentNode.removeChild(tr); });
+    [nameIn, wIn, typeSel, hIn, rm].forEach(function (c, i) {
+      var td = el('td', i === 1 || i === 3 ? { 'class': 'num' } : null);
+      td.appendChild(c); tr.appendChild(td);
+    });
+    bakerBody.appendChild(tr);
+  }
+
+  function loadBakerExample() {
+    bakerBody.innerHTML = '';
+    addBakerRow('Bread flour', 500, 'flour');
+    addBakerRow('Water', 350, 'liquid');
+    addBakerRow('Salt', 10, 'other');
+    addBakerRow('Instant yeast', 3, 'other');
+  }
+  loadBakerExample();
+  document.getElementById('baker-add').addEventListener('click', function () { addBakerRow('', undefined, 'other'); });
+  document.getElementById('baker-example').addEventListener('click', function () { loadBakerExample(); document.getElementById('baker-result').classList.remove('show'); });
+
+  document.getElementById('baker-calc').addEventListener('click', function () {
+    clearErr('baker-error');
+    var out = document.getElementById('baker-result');
+    out.classList.remove('show');
+    var rows = [];
+    Array.prototype.forEach.call(bakerBody.querySelectorAll('tr'), function (tr, i) {
+      var ins = tr.querySelectorAll('input, select');
+      var w = parseFloat(ins[1].value);
+      if (isNaN(w) || w <= 0) return;
+      rows.push({ name: ins[0].value.trim() || ('Ingredient ' + (i + 1)), w: w, type: ins[2].value, h: parseFloat(ins[3].value) });
+    });
+    if (!rows.length) { showErr('baker-error', 'Add at least one ingredient with a weight.'); return; }
+
+    var flour = 0, liquid = 0, starterFlour = 0, total = 0, salt = 0, hasStarter = false;
+    rows.forEach(function (r) {
+      total += r.w;
+      if (r.type === 'flour') flour += r.w;
+      else if (r.type === 'liquid') liquid += r.w;
+      else if (r.type === 'starter') {
+        var h = isNaN(r.h) || r.h < 0 ? 100 : r.h;
+        var sf = r.w / (1 + h / 100);
+        flour += sf; starterFlour += sf; liquid += r.w - sf; hasStarter = true;
+      }
+      if (/salt/i.test(r.name)) salt += r.w;
+    });
+    if (flour <= 0) { showErr('baker-error', 'Mark at least one ingredient as Flour (or add a sourdough starter) so percentages have something to compare against.'); return; }
+
+    var target = parseFloat(document.getElementById('baker-target').value);
+    var factor = target > 0 ? target / total : null;
+
+    out.innerHTML = '';
+    var kpis = el('div', { 'class': 'kpis' });
+    function kpi(label, value) { kpis.appendChild(el('div', { 'class': 'kpi' }, [el('b', { text: label }), el('span', { text: value })])); }
+    kpi('Total flour', round(flour, 1) + ' g');
+    kpi('Hydration', round(liquid / flour * 100, 1) + '%');
+    kpi('Total dough', round(total, 1) + ' g');
+    if (salt > 0) kpi('Salt', round(salt / flour * 100, 1) + '%');
+    if (hasStarter) kpi('Prefermented flour', round(starterFlour / flour * 100, 1) + '%');
+    out.appendChild(kpis);
+
+    var table = el('table', { 'class': 'res-table' });
+    var hr = el('tr');
+    ['Ingredient', 'Weight (g)', "Baker's %"].concat(factor ? ['Scaled (g)'] : []).forEach(function (h, i) { hr.appendChild(el('th', i ? { 'class': 'num', text: h } : { text: h })); });
+    table.appendChild(el('thead', null, [hr]));
+    var tb = el('tbody');
+    rows.forEach(function (r) {
+      var tr = el('tr');
+      tr.appendChild(cell(r.name));
+      tr.appendChild(cell(String(round(r.w, 1)), 'num'));
+      tr.appendChild(cell(round(r.w / flour * 100, 1) + '%', 'num'));
+      if (factor) tr.appendChild(cell(String(round(r.w * factor, 1)), 'num'));
+      tb.appendChild(tr);
+    });
+    table.appendChild(tb);
+    out.appendChild(el('div', { 'class': 'table-wrap' }, [table]));
+    if (hasStarter) out.appendChild(el('p', { 'class': 'hint', style: 'margin:10px 0 0;', text: 'Total flour and hydration include the flour and water inside your starter.' }));
+    out.classList.add('show');
+  });
+
+  // ---------- RECIPE SCALER ----------
+  var scaleBody = document.getElementById('scale-body');
+  function addScaleRow(name, amount, unit) {
+    var tr = el('tr');
+    var nameIn = el('input', { type: 'text', 'aria-label': 'Ingredient', placeholder: 'Ingredient' }); nameIn.value = name || '';
+    var amtIn = el('input', { type: 'number', min: '0', step: 'any', 'aria-label': 'Amount', inputmode: 'decimal' }); amtIn.value = amount === undefined ? '' : amount;
+    var unitIn = el('input', { type: 'text', 'aria-label': 'Unit', placeholder: 'cups, g, tbsp…' }); unitIn.value = unit || '';
+    var rm = el('button', { type: 'button', 'class': 'rm', 'aria-label': 'Remove ingredient', text: '×' });
+    rm.addEventListener('click', function () { tr.parentNode.removeChild(tr); });
+    [nameIn, amtIn, unitIn, rm].forEach(function (c, i) {
+      var td = el('td', i === 1 ? { 'class': 'num' } : null); td.appendChild(c); tr.appendChild(td);
+    });
+    scaleBody.appendChild(tr);
+  }
+  function loadScaleExample() {
+    scaleBody.innerHTML = '';
+    addScaleRow('All-purpose flour', 2, 'cups');
+    addScaleRow('Sugar', 3, 'tbsp');
+    addScaleRow('Milk', 1.25, 'cups');
+    addScaleRow('Eggs', 2, 'large');
+    addScaleRow('Butter', 60, 'g');
+  }
+  loadScaleExample();
+  document.getElementById('scale-add').addEventListener('click', function () { addScaleRow('', undefined, ''); });
+  document.getElementById('scale-example').addEventListener('click', function () {
+    loadScaleExample();
+    document.getElementById('scale-from').value = 4; document.getElementById('scale-to').value = 6;
+    document.getElementById('scale-result').classList.remove('show');
+  });
+
+  var FRACS = [[0, ''], [1 / 8, '1/8'], [1 / 4, '1/4'], [1 / 3, '1/3'], [3 / 8, '3/8'], [1 / 2, '1/2'], [5 / 8, '5/8'], [2 / 3, '2/3'], [3 / 4, '3/4'], [7 / 8, '7/8'], [1, '']];
+  function toFraction(x) {
+    var whole = Math.floor(x), frac = x - whole, best = null;
+    FRACS.forEach(function (f) { var d = Math.abs(frac - f[0]); if (d <= 0.02 && (best === null || d < best.d)) best = { d: d, f: f, }; });
+    if (!best) return null;
+    if (best.f[0] === 1) { whole += 1; return String(whole); }
+    if (best.f[0] === 0) return String(whole);
+    return (whole ? whole + ' ' : '') + best.f[1];
+  }
+  var METRIC = { g: 1, kg: 1, ml: 1, l: 1, grams: 1, gram: 1, milliliters: 1, liters: 1 };
+  function formatAmount(x, unit) {
+    var dec = String(round(x, 2));
+    var u = unit.trim().toLowerCase();
+    if (METRIC[u]) return dec;
+    var fr = toFraction(x);
+    return fr && fr !== dec ? dec + ' (' + fr + ')' : dec;
+  }
+
+  document.getElementById('scale-calc').addEventListener('click', function () {
+    clearErr('scale-error');
+    var out = document.getElementById('scale-result');
+    out.classList.remove('show');
+    var from = parseFloat(document.getElementById('scale-from').value);
+    var to = parseFloat(document.getElementById('scale-to').value);
+    if (!(from > 0) || !(to > 0)) { showErr('scale-error', 'Enter an original and a new yield greater than zero.'); return; }
+    var factor = to / from;
+    var rows = [];
+    Array.prototype.forEach.call(scaleBody.querySelectorAll('tr'), function (tr, i) {
+      var ins = tr.querySelectorAll('input');
+      var amt = parseFloat(ins[1].value);
+      if (isNaN(amt)) return;
+      rows.push({ name: ins[0].value.trim() || ('Ingredient ' + (i + 1)), amt: amt, unit: ins[2].value.trim() });
+    });
+    if (!rows.length) { showErr('scale-error', 'Add at least one ingredient with an amount.'); return; }
+
+    out.innerHTML = '';
+    out.appendChild(el('p', { 'class': 'abv-sub', style: 'margin:0 0 6px;', text: 'Scale factor: ×' + round(factor, 3) }));
+    var table = el('table', { 'class': 'res-table' });
+    var hr = el('tr');
+    ['Ingredient', 'Original', 'Scaled'].forEach(function (h, i) { hr.appendChild(el('th', i ? { 'class': 'num', text: h } : { text: h })); });
+    table.appendChild(el('thead', null, [hr]));
+    var tb = el('tbody');
+    rows.forEach(function (r) {
+      var tr = el('tr');
+      tr.appendChild(cell(r.name));
+      tr.appendChild(cell(String(round(r.amt, 3)) + (r.unit ? ' ' + r.unit : ''), 'num'));
+      tr.appendChild(cell(formatAmount(r.amt * factor, r.unit) + (r.unit ? ' ' + r.unit : ''), 'num'));
+      tb.appendChild(tr);
+    });
+    table.appendChild(tb);
+    out.appendChild(el('div', { 'class': 'table-wrap' }, [table]));
+    if (factor > 2 || factor < 0.5) out.appendChild(el('p', { 'class': 'hint', style: 'margin:10px 0 0;', text: 'Large changes: salt, spices, leavening, pan size, and cooking time may need adjusting by hand rather than scaling directly.' }));
+    out.classList.add('show');
+  });
+
+  // ---------- HOMEBREW ABV ----------
+  function readGravity(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    if (isNaN(v)) return NaN;
+    return v > 2 ? v / 1000 : v;
+  }
+  document.getElementById('abv-calc').addEventListener('click', function () {
+    clearErr('abv-error');
+    var out = document.getElementById('abv-result');
+    out.classList.remove('show');
+    var og = readGravity('og-input'), fg = readGravity('fg-input');
+    if (isNaN(og) || isNaN(fg)) { showErr('abv-error', 'Enter both an original and a final gravity.'); return; }
+    if (og < 1.0 || og > 1.2) { showErr('abv-error', 'Original gravity should be between 1.000 and 1.200 (or 1000–1200 in points).'); return; }
+    if (fg < 0.98 || fg > 1.2) { showErr('abv-error', 'Final gravity should be between 0.980 and 1.200.'); return; }
+    if (fg > og) { showErr('abv-error', 'Final gravity should be lower than (or equal to) original gravity.'); return; }
+
+    var simple = (og - fg) * 131.25;
+    var alt = (76.08 * (og - fg) / (1.775 - og)) * (fg / 0.794);
+    var atten = og > 1 ? (og - fg) / (og - 1) * 100 : NaN;
+    var high = og > 1.075;
+    var primary = high ? alt : simple;
+
+    out.innerHTML = '';
+    out.appendChild(el('p', { 'class': 'abv-big', text: round(primary, 2).toFixed(2) + '% ABV' }));
+    out.appendChild(el('p', { 'class': 'abv-sub', text: high ? 'Using the high-gravity formula (OG above 1.075)' : 'Using the standard formula' }));
+    var kpis = el('div', { 'class': 'kpis' });
+    function kpi(label, value) { kpis.appendChild(el('div', { 'class': 'kpi' }, [el('b', { text: label }), el('span', { text: value })])); }
+    kpi('Standard formula', round(simple, 2).toFixed(2) + '%');
+    kpi('High-gravity formula', round(alt, 2).toFixed(2) + '%');
+    if (!isNaN(atten)) kpi('Apparent attenuation', round(atten, 1).toFixed(1) + '%');
+    out.appendChild(kpis);
+    out.classList.add('show');
+  });
+})();
+
+</script>
+</body></html>

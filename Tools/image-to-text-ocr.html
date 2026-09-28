@@ -1,0 +1,234 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Image to Text (OCR) Tool | KokoroFlow</title><meta name="description" content="Extract text from an image or screenshot directly in your browser. Supports English and Chinese. Free, no sign-up, and nothing is uploaded to a server."><link rel="canonical" href="https://www.kokoroflow.net/Tools/image-to-text-ocr.html"><meta property="og:title" content="Image to Text (OCR) Tool"><meta property="og:description" content="Extract text from an image or screenshot directly in your browser. Nothing is uploaded to a server."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/image-to-text-ocr.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Image to Text (OCR) Tool","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Extract text from an image directly in the browser using OCR.","url":"https://www.kokoroflow.net/Tools/image-to-text-ocr.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Image to Text (OCR) Tool","item":"https://www.kokoroflow.net/Tools/image-to-text-ocr.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:760px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover, .nav-links a[aria-current="page"] { color:var(--text); background:var(--surface); }
+
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:560px; margin:0 auto; }
+
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    select { width:100%; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; margin-bottom:16px; }
+    select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+
+    .drop-zone { border:2px dashed var(--line); border-radius:var(--radius); padding:36px 20px; text-align:center; cursor:pointer; background:var(--bg); transition:border-color .15s, background .15s; }
+    .drop-zone.dragover { border-color:var(--accent); background:var(--accent-soft); }
+    .drop-zone p { margin:0; color:var(--muted); font-size:14.5px; }
+    .drop-zone input { display:none; }
+    #preview-img { max-width:100%; max-height:260px; margin-top:16px; border-radius:var(--radius); display:none; border:1px solid var(--line); }
+
+    .btn { display:inline-flex; align-items:center; justify-content:center; width:100%; min-height:48px; margin-top:16px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; margin-top:8px; }
+    .btn-secondary:hover { background:#e3dbcc; }
+
+    .progress-wrap { display:none; margin-top:16px; }
+    .progress-wrap.show { display:block; }
+    .progress-label { font-size:13px; color:var(--muted); margin-bottom:6px; }
+    .progress-bar { width:100%; height:8px; border-radius:999px; background:var(--surface-2); overflow:hidden; }
+    .progress-fill { height:100%; width:0%; background:var(--accent); transition:width .2s; }
+
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; }
+    .output-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea#output { width:100%; min-height:200px; padding:14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:14.5px; color:var(--text); background:var(--bg); resize:vertical; }
+
+    .error { display:none; margin-top:12px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error.show { display:block; }
+
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } }
+    a:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Image to Text</p>
+    <h1>Image to Text (OCR)</h1>
+    <p class="lead">Upload a photo, screenshot, or scanned document and get the text back — all processed on your device, nothing uploaded anywhere.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">OCR tool</h2>
+
+    <label for="lang-select">Text language</label>
+    <select id="lang-select">
+      <option value="eng">English</option>
+      <option value="chi_sim">Chinese (Simplified)</option>
+      <option value="chi_tra">Chinese (Traditional)</option>
+      <option value="eng+chi_tra">English + Chinese (Traditional)</option>
+    </select>
+
+    <div class="drop-zone" id="drop-zone">
+      <p id="drop-label">Click to choose an image, or drag one here</p>
+      <img id="preview-img" alt="Selected image preview">
+      <input type="file" id="file-input" accept="image/*">
+    </div>
+
+    <button class="btn" id="extract-btn" disabled>Extract Text</button>
+
+    <div class="progress-wrap" id="progress-wrap">
+      <div class="progress-label" id="progress-label">Loading…</div>
+      <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+    </div>
+
+    <div class="error" id="error-box"></div>
+
+    <div id="output-section">
+      <div class="output-header">
+        <span class="result-label">Extracted text</span>
+        <button class="copy-btn" id="copy-btn">Copy</button>
+      </div>
+      <textarea id="output" readonly></textarea>
+    </div>
+  </section>
+
+  <section class="section block">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Choose the language.</strong> Picking the right language noticeably improves accuracy — OCR models are trained per-language.</li>
+      <li><strong>Upload an image.</strong> Clear, well-lit, reasonably high-resolution images work best. Very small or blurry text is harder to read accurately.</li>
+      <li><strong>Extract, then copy.</strong> The text appears in the box above once processing finishes — review it, since OCR isn't perfect, especially on handwriting or unusual fonts.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="notice">Your image is processed entirely in your browser using an open-source OCR engine (Tesseract.js) — it is never uploaded to KokoroFlow or any other server. The first extraction on a given language may take a little longer while the recognition model downloads.</p>
+  </section>
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script src="https://cdn.jsdelivr.net/npm/tesseract.js@5/dist/tesseract.min.js"></script>
+<script>
+(function () {
+  var dropZone = document.getElementById('drop-zone');
+  var fileInput = document.getElementById('file-input');
+  var previewImg = document.getElementById('preview-img');
+  var dropLabel = document.getElementById('drop-label');
+  var extractBtn = document.getElementById('extract-btn');
+  var langSelect = document.getElementById('lang-select');
+  var progressWrap = document.getElementById('progress-wrap');
+  var progressLabel = document.getElementById('progress-label');
+  var progressFill = document.getElementById('progress-fill');
+  var errorBox = document.getElementById('error-box');
+  var outputSection = document.getElementById('output-section');
+  var output = document.getElementById('output');
+  var copyBtn = document.getElementById('copy-btn');
+  var selectedFile = null;
+
+  dropZone.addEventListener('click', function () { fileInput.click(); });
+
+  dropZone.addEventListener('dragover', function (e) {
+    e.preventDefault();
+    dropZone.classList.add('dragover');
+  });
+  dropZone.addEventListener('dragleave', function () {
+    dropZone.classList.remove('dragover');
+  });
+  dropZone.addEventListener('drop', function (e) {
+    e.preventDefault();
+    dropZone.classList.remove('dragover');
+    if (e.dataTransfer.files && e.dataTransfer.files[0]) {
+      handleFile(e.dataTransfer.files[0]);
+    }
+  });
+
+  fileInput.addEventListener('change', function () {
+    if (fileInput.files && fileInput.files[0]) handleFile(fileInput.files[0]);
+  });
+
+  function handleFile(file) {
+    if (!file.type.startsWith('image/')) {
+      showError('Please choose an image file.');
+      return;
+    }
+    selectedFile = file;
+    errorBox.classList.remove('show');
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      previewImg.src = e.target.result;
+      previewImg.style.display = 'block';
+      dropLabel.textContent = file.name;
+    };
+    reader.readAsDataURL(file);
+    extractBtn.disabled = false;
+  }
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+  }
+
+  extractBtn.addEventListener('click', function () {
+    if (!selectedFile) return;
+    errorBox.classList.remove('show');
+    outputSection.classList.remove('show');
+    extractBtn.disabled = true;
+    progressWrap.classList.add('show');
+    progressFill.style.width = '0%';
+    progressLabel.textContent = 'Starting…';
+
+    Tesseract.recognize(selectedFile, langSelect.value, {
+      logger: function (m) {
+        if (m.status && typeof m.progress === 'number') {
+          progressLabel.textContent = m.status.charAt(0).toUpperCase() + m.status.slice(1) + '…';
+          progressFill.style.width = Math.round(m.progress * 100) + '%';
+        }
+      }
+    }).then(function (result) {
+      output.value = result.data.text.trim();
+      outputSection.classList.add('show');
+      progressWrap.classList.remove('show');
+      extractBtn.disabled = false;
+    }).catch(function (err) {
+      showError('OCR failed: ' + (err && err.message ? err.message : 'unknown error') + '. Try a clearer image or a different language.');
+      progressWrap.classList.remove('show');
+      extractBtn.disabled = false;
+    });
+  });
+
+  copyBtn.addEventListener('click', function () {
+    if (!output.value) return;
+    navigator.clipboard.writeText(output.value).then(function () {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1600);
+    }).catch(function () {
+      alert('Copy failed — please select and copy the text manually.');
+    });
+  });
+})();
+</script>
+</body></html>

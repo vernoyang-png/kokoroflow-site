@@ -1,0 +1,418 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Carbon Footprint Calculator | KokoroFlow</title><meta name="description" content="Estimate the CO2 from your home energy, driving, and flying using U.S. EPA emission factors, and see which part of your footprint is biggest. Free and private."><link rel="canonical" href="https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html"><meta property="og:title" content="Carbon Footprint Calculator"><meta property="og:description" content="Estimate the CO2 from your home energy, driving, and flying using U.S. EPA emission factors, and see which part of your footprint is biggest. Free and private."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Carbon Footprint Calculator","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Estimate the CO2 from your home energy, driving, and flying using U.S. EPA emission factors, and see which part of your footprint is biggest. Free and private.","url":"https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Carbon Footprint Calculator","item":"https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:820px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:580px; margin:0 auto; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea, input[type="text"], input[type="password"], select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea { min-height:170px; resize:vertical; }
+    input[type="text"], input[type="password"], select { min-height:48px; }
+    textarea:focus, input:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder, input::placeholder { color:#9aa0a6; }
+    .field { margin-bottom:16px; }
+    .opts { display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0; }
+    label.opt { display:inline-flex; align-items:center; gap:8px; margin:0; font-weight:600; font-size:14px; cursor:pointer; }
+    label.opt input { width:18px; height:18px; accent-color:var(--accent); }
+    .mode-toggle { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+    .mode-btn { flex:1; min-width:150px; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .error-box { display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.98); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .output-header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .mini-btns { display:flex; gap:6px; flex-wrap:wrap; }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea.out { min-height:200px; }
+    .out-box { padding:16px; min-height:90px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); font-size:22px; line-height:1.5; white-space:pre-wrap; word-break:break-word; color:#244f46; }
+    .out-box.empty { color:var(--muted); font-size:15px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .chip { padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13.5px; font-weight:600; border:1px solid var(--line); }
+    .stat-line { font-size:14px; color:var(--muted); margin:6px 0 0; }
+    .stat-line strong { color:var(--text); }
+    .vid-title { font-weight:800; font-size:16px; margin:0 0 4px; }
+    details.how { margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; background:var(--bg); }
+    details.how summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--accent); }
+    details.how ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+    .notice.caution { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+    [hidden] { display:none !important; }
+    h3.group-title { font-size:14px; margin:22px 0 10px; color:var(--accent); letter-spacing:.03em; text-transform:uppercase; }
+    .row { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:6px; }
+    .row .field { flex:1; min-width:170px; margin-bottom:10px; }
+    input[type="number"] { width:100%; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; }
+    input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    #result-container { margin-top:22px; padding:22px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); display:none; }
+    #result-container.show { display:block; animation:pop .25s ease-out; }
+    .big { margin:0; text-align:center; font-size:clamp(30px, 6vw, 44px); font-weight:800; color:#244f46; }
+    .big small { font-size:.45em; font-weight:700; color:var(--muted); }
+    .sub { margin:4px 0 0; text-align:center; color:var(--muted); font-size:14px; }
+    .bars { margin-top:18px; }
+    .bar-row { display:grid; grid-template-columns:130px 1fr 96px; gap:10px; align-items:center; margin-bottom:8px; font-size:14px; }
+    .bar-track { height:12px; border-radius:999px; background:rgba(32,33,36,.08); overflow:hidden; }
+    .bar-fill { height:100%; border-radius:999px; background:var(--accent); }
+    .bar-row .amt { text-align:right; font-variant-numeric:tabular-nums; font-weight:700; }
+    .facts { margin:18px 0 0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
+    .fact { padding:12px 14px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); }
+    .fact b { display:block; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin-bottom:2px; }
+    .fact span { font-size:15px; font-weight:700; }
+    .tips { margin:18px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .tips li { margin-bottom:6px; }
+    .res-table { width:100%; border-collapse:collapse; margin-top:8px; font-size:14px; }
+    .res-table th, .res-table td { text-align:left; padding:7px 10px; border-bottom:1px solid var(--line); }
+    .res-table th { font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    .res-table td.num, .res-table th.num { text-align:right; font-variant-numeric:tabular-nums; }
+    details.how { margin-top:14px; }
+    .prose h2 { margin:0 0 10px; font-size:24px; line-height:1.25; }
+    .prose h3 { margin:20px 0 6px; font-size:16px; }
+    .prose p, .prose li { color:var(--muted); font-size:14.5px; }
+    .prose ul { padding-left:20px; margin:8px 0 0; }
+    .prose li { margin-bottom:6px; }
+    .faq details { border-top:1px solid var(--line); padding:12px 0; }
+    .faq details:last-child { border-bottom:1px solid var(--line); }
+    .faq summary { cursor:pointer; font-weight:700; font-size:15px; }
+    .faq details p { margin:8px 0 0; }
+    @media (max-width:640px) { .bar-row { grid-template-columns:96px 1fr 78px; } .facts { grid-template-columns:1fr; } }
+
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Carbon Footprint Calculator</p>
+    <h1>Carbon Footprint Calculator</h1>
+    <p class="lead">Estimate the carbon dioxide from your home energy, driving, and flying using U.S. EPA emission factors — and see which part of your footprint is the biggest.</p>
+  </div>
+
+  <section class="section">
+    <p class="notice caution"><strong>What this covers — and what it doesn't.</strong> This estimates the emissions from energy you use directly: electricity, heating fuel, your car, and flights. It leaves out food, shopping, services, and the emissions from producing and delivering fuel, so a full personal footprint is higher. Treat the result as a useful estimate, not an audit.</p>
+  </section>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">Carbon footprint calculator</h2>
+
+    <h3 class="group-title" style="margin-top:0;">Your home</h3>
+    <div class="row">
+      <div class="field">
+        <label for="hh-size">People in your household</label>
+        <input type="number" id="hh-size" min="1" step="1" value="1">
+        <span class="hint">Home energy is split evenly between everyone in the household.</span>
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="elec-kwh">Electricity (kWh per month)</label>
+        <input type="number" id="elec-kwh" min="0" step="any" placeholder="e.g. 900">
+        <span class="hint">Find it on your electric bill.</span>
+      </div>
+      <div class="field">
+        <label for="grid-preset">Your electricity grid</label>
+        <select id="grid-preset">
+          <option value="0.35">Roughly the U.S. average (0.35)</option>
+          <option value="0.20">Cleaner grid, e.g. California (0.20)</option>
+          <option value="0.64">Coal-heavy grid, e.g. parts of the Upper Midwest (0.64)</option>
+          <option value="custom">Custom…</option>
+        </select>
+        <span class="hint">kg CO₂e per kWh. Grids vary widely — see the sources below.</span>
+      </div>
+      <div class="field" id="grid-custom-field" hidden>
+        <label for="grid-custom">Custom factor (kg CO₂e per kWh)</label>
+        <input type="number" id="grid-custom" min="0" step="0.01" value="0.35">
+      </div>
+    </div>
+    <div class="row">
+      <div class="field">
+        <label for="gas-amt">Natural gas (per month)</label>
+        <input type="number" id="gas-amt" min="0" step="any" placeholder="e.g. 40">
+      </div>
+      <div class="field">
+        <label for="gas-unit">Gas unit on your bill</label>
+        <select id="gas-unit">
+          <option value="5.306">Therms</option>
+          <option value="5.444">CCF (100 cubic feet)</option>
+          <option value="54.44">MCF (1,000 cubic feet)</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="oil-gal">Heating oil (gallons per year)</label>
+        <input type="number" id="oil-gal" min="0" step="any" placeholder="0">
+      </div>
+    </div>
+
+    <h3 class="group-title">Your driving</h3>
+    <div class="row">
+      <div class="field">
+        <label for="car-type">Vehicle type</label>
+        <select id="car-type">
+          <option value="gas">Gasoline</option>
+          <option value="diesel">Diesel</option>
+          <option value="ev">Electric</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="car-miles">Miles driven per year</label>
+        <input type="number" id="car-miles" min="0" step="any" placeholder="e.g. 11500">
+      </div>
+      <div class="field" id="mpg-field">
+        <label for="car-mpg">Fuel economy (mpg)</label>
+        <input type="number" id="car-mpg" min="1" step="any" value="25">
+      </div>
+      <div class="field" id="ev-field" hidden>
+        <label for="ev-kwh">Electricity use (kWh per 100 miles)</label>
+        <input type="number" id="ev-kwh" min="1" step="any" value="30">
+        <span class="hint">Emissions use the grid factor above.</span>
+      </div>
+    </div>
+
+    <h3 class="group-title">Your flying</h3>
+    <div class="row">
+      <div class="field">
+        <label for="fly-short">Short flights (miles per year)</label>
+        <input type="number" id="fly-short" min="0" step="any" placeholder="0">
+        <span class="hint">Under 300 miles each way</span>
+      </div>
+      <div class="field">
+        <label for="fly-med">Medium flights (miles per year)</label>
+        <input type="number" id="fly-med" min="0" step="any" placeholder="0">
+        <span class="hint">300–2,300 miles each way</span>
+      </div>
+      <div class="field">
+        <label for="fly-long">Long flights (miles per year)</label>
+        <input type="number" id="fly-long" min="0" step="any" placeholder="0">
+        <span class="hint">2,300+ miles each way</span>
+      </div>
+    </div>
+    <details class="how">
+      <summary>How many miles is my flight?</summary>
+      <ol>
+        <li>Count each direction — a round trip is two flights.</li>
+        <li>Examples: New York–Boston is about 190 miles (short), New York–Chicago about 740 (medium), and New York–Los Angeles about 2,450 (long).</li>
+        <li>Add up the miles for all flights you take in a year within each group.</li>
+      </ol>
+    </details>
+
+    <div class="error-box" id="input-error" role="alert"></div>
+    <button class="btn" id="calc-btn" style="width:100%;margin-top:18px;">Calculate My Footprint</button>
+
+    <div id="result-container" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="section block prose">
+    <h2>How the estimate is calculated</h2>
+    <p>Each activity is multiplied by an emission factor — the amount of carbon dioxide (or CO₂ equivalent) released per unit. The factors below come from the U.S. EPA. All results are approximate.</p>
+    <table class="res-table">
+      <thead><tr><th>Activity</th><th class="num">Factor used</th></tr></thead>
+      <tbody>
+        <tr><td>Gasoline</td><td class="num">8.887 kg CO₂ per gallon</td></tr>
+        <tr><td>Diesel</td><td class="num">10.18 kg CO₂ per gallon</td></tr>
+        <tr><td>Natural gas</td><td class="num">5.31 kg per therm · 5.44 per CCF · 54.4 per MCF</td></tr>
+        <tr><td>Heating oil (distillate No. 2)</td><td class="num">10.21 kg CO₂ per gallon</td></tr>
+        <tr><td>Electricity</td><td class="num">≈0.35 kg CO₂e per kWh (U.S. average, editable)</td></tr>
+        <tr><td>Short flight (&lt;300 mi)</td><td class="num">≈0.209 kg CO₂e per passenger-mile</td></tr>
+        <tr><td>Medium flight (300–2,300 mi)</td><td class="num">≈0.130 kg CO₂e per passenger-mile</td></tr>
+        <tr><td>Long flight (2,300+ mi)</td><td class="num">≈0.162 kg CO₂e per passenger-mile</td></tr>
+      </tbody>
+    </table>
+    <h3>Notes on accuracy</h3>
+    <ul>
+      <li><strong>Electricity varies the most.</strong> Depending on your local grid, the factor can range from roughly 0.2 to more than 0.6 kg per kWh. Choose the closest option above, or enter your utility's own figure.</li>
+      <li><strong>Flight factors are averages</strong> across aircraft and seating. The EPA figures used here don't clearly include the extra warming effect of contrails at altitude, so real climate impact may be higher.</li>
+      <li><strong>Gasoline and diesel factors count CO₂ only</strong> — the small methane and nitrous oxide emissions from tailpipes are left out.</li>
+    </ul>
+    <h3>Sources</h3>
+    <ul>
+      <li><a href="https://www.epa.gov/greenvehicles/greenhouse-gas-emissions-typical-passenger-vehicle" target="_blank" rel="noopener">U.S. EPA — Greenhouse gas emissions from a typical passenger vehicle</a></li>
+      <li><a href="https://www.epa.gov/climateleadership/ghg-emission-factors-hub" target="_blank" rel="noopener">U.S. EPA — GHG Emission Factors Hub</a></li>
+      <li><a href="https://www.epa.gov/egrid" target="_blank" rel="noopener">U.S. EPA — eGRID (regional electricity emission rates)</a></li>
+    </ul>
+  </section>
+
+  <section class="section block prose faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>Why does the result leave out food and shopping?</summary>
+      <p>Those emissions can't be measured from a bill or an odometer, and estimates for them vary widely by source. Keeping to energy and travel means every number here traces to a published emission factor.</p>
+    </details>
+    <details>
+      <summary>Is CO₂ the same as CO₂e?</summary>
+      <p>CO₂e ("carbon dioxide equivalent") bundles other greenhouse gases like methane into a single number using their warming strength. Fuel factors here are mostly CO₂; the electricity and flight factors are CO₂e.</p>
+    </details>
+    <details>
+      <summary>How can I find my grid's emission factor?</summary>
+      <p>The EPA's eGRID publishes emission rates by region. Some utilities also list their own rate on their website or bill.</p>
+    </details>
+    <details>
+      <summary>What's the fastest way to lower my number?</summary>
+      <p>Look at your biggest category first. For many households that's driving or home heating; for frequent flyers it's often flights. The results below show your largest source and what a 10% cut would save.</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="notice">Your inputs stay in your browser — nothing is uploaded or stored.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  // Emission factors (kg CO2 or CO2e per unit). See the "How the estimate is calculated" table.
+  var F = {
+    gasGal: 8.887, dieselGal: 10.18, oilGal: 10.21,
+    flyShort: 0.209, flyMed: 0.130, flyLong: 0.162,
+    vehicleYearTons: 4.6
+  };
+
+  var gridPreset = document.getElementById('grid-preset');
+  var gridCustomField = document.getElementById('grid-custom-field');
+  var carType = document.getElementById('car-type');
+  var errorBox = document.getElementById('input-error');
+  var resultBox = document.getElementById('result-container');
+
+  gridPreset.addEventListener('change', function () { gridCustomField.hidden = gridPreset.value !== 'custom'; });
+  carType.addEventListener('change', function () {
+    document.getElementById('mpg-field').hidden = carType.value === 'ev';
+    document.getElementById('ev-field').hidden = carType.value !== 'ev';
+  });
+
+  function n(id) {
+    var v = parseFloat(document.getElementById(id).value);
+    return isNaN(v) || v < 0 ? 0 : v;
+  }
+  function round(x, d) { var p = Math.pow(10, d); return Math.round(x * p) / p; }
+  function fmtKg(x) { return Math.round(x).toLocaleString('en-US') + ' kg'; }
+
+  function el(tag, props, kids) {
+    var e = document.createElement(tag);
+    if (props) Object.keys(props).forEach(function (k) {
+      if (k === 'text') e.textContent = props[k];
+      else if (k === 'class') e.className = props[k];
+      else e.setAttribute(k, props[k]);
+    });
+    (kids || []).forEach(function (c) { e.appendChild(c); });
+    return e;
+  }
+
+  function compute() {
+    var hh = Math.max(1, Math.floor(n('hh-size')) || 1);
+    var grid = gridPreset.value === 'custom' ? n('grid-custom') : parseFloat(gridPreset.value);
+
+    var elec = n('elec-kwh') * 12 * grid;
+    var gas = n('gas-amt') * 12 * parseFloat(document.getElementById('gas-unit').value);
+    var oil = n('oil-gal') * F.oilGal;
+
+    var miles = n('car-miles');
+    var drive;
+    if (carType.value === 'ev') drive = miles / 100 * n('ev-kwh') * grid;
+    else {
+      var mpg = n('car-mpg');
+      drive = mpg > 0 ? miles / mpg * (carType.value === 'diesel' ? F.dieselGal : F.gasGal) : 0;
+    }
+    var fly = n('fly-short') * F.flyShort + n('fly-med') * F.flyMed + n('fly-long') * F.flyLong;
+
+    var cats = [
+      { key: 'elec', label: 'Electricity', kg: elec / hh },
+      { key: 'gas', label: 'Natural gas', kg: gas / hh },
+      { key: 'oil', label: 'Heating oil', kg: oil / hh },
+      { key: 'drive', label: 'Driving', kg: drive },
+      { key: 'fly', label: 'Flying', kg: fly }
+    ];
+    var total = cats.reduce(function (s, c) { return s + c.kg; }, 0);
+    return { hh: hh, grid: grid, cats: cats, total: total };
+  }
+
+  function tipFor(cat) {
+    var save = fmtKg(cat.kg * 0.1);
+    switch (cat.key) {
+      case 'drive': return 'Driving is your largest source. Combining trips, keeping tires properly inflated, and easing off the accelerator all reduce fuel use — cutting your miles by 10% would save about ' + save + ' a year.';
+      case 'elec': return 'Electricity is your largest source. Ask your utility about cleaner-power options, and note that using 10% less would save about ' + save + ' a year (your share of the household total).';
+      case 'gas': return 'Natural gas is your largest source. Sealing air leaks, adding insulation, and adjusting the thermostat all reduce heating fuel — using 10% less would save about ' + save + ' a year (your share).';
+      case 'oil': return 'Heating oil is your largest source. Weatherizing and servicing your system reduce use — burning 10% less would save about ' + save + ' a year (your share).';
+      default: return 'Flying is your largest source. Flights add up quickly — skipping one 1,000-mile round trip (2,000 miles) would save about ' + fmtKg(2000 * F.flyMed) + ' at the medium-flight factor.';
+    }
+  }
+
+  document.getElementById('calc-btn').addEventListener('click', function () {
+    errorBox.classList.remove('show');
+    resultBox.classList.remove('show');
+    var r = compute();
+    if (r.total <= 0) {
+      errorBox.textContent = 'Enter at least one activity — electricity, gas, driving, or flying — to estimate your footprint.';
+      errorBox.classList.add('show');
+      return;
+    }
+
+    var tons = r.total / 1000;
+    resultBox.innerHTML = '';
+    var big = el('p', { 'class': 'big' });
+    big.appendChild(document.createTextNode(round(tons, 1).toFixed(1) + ' '));
+    big.appendChild(el('small', { text: 'metric tons CO₂e per year' }));
+    resultBox.appendChild(big);
+    resultBox.appendChild(el('p', { 'class': 'sub', text: '≈ ' + fmtKg(r.total) + ' per person, from home energy, driving, and flying' }));
+
+    var bars = el('div', { 'class': 'bars' });
+    r.cats.filter(function (c) { return c.kg > 0; }).sort(function (a, b) { return b.kg - a.kg; }).forEach(function (c) {
+      var pct = c.kg / r.total * 100;
+      var fill = el('div', { 'class': 'bar-fill', style: 'width:' + pct.toFixed(1) + '%' });
+      bars.appendChild(el('div', { 'class': 'bar-row' }, [
+        el('span', { text: c.label + ' (' + Math.round(pct) + '%)' }),
+        el('div', { 'class': 'bar-track' }, [fill]),
+        el('span', { 'class': 'amt', text: fmtKg(c.kg) })
+      ]));
+    });
+    resultBox.appendChild(bars);
+
+    var facts = el('div', { 'class': 'facts' });
+    facts.appendChild(el('div', { 'class': 'fact' }, [el('b', { text: 'Equivalent gasoline' }), el('span', { text: Math.round(r.total / F.gasGal).toLocaleString('en-US') + ' gallons burned' })]));
+    facts.appendChild(el('div', { 'class': 'fact' }, [el('b', { text: 'Compared with a typical car' }), el('span', { text: round(tons / F.vehicleYearTons, 2) + '× a typical U.S. passenger vehicle\'s yearly CO₂ (EPA: 4.6 t)' })]));
+    resultBox.appendChild(facts);
+
+    var biggest = r.cats.slice().sort(function (a, b) { return b.kg - a.kg; })[0];
+    resultBox.appendChild(el('ul', { 'class': 'tips' }, [el('li', { text: tipFor(biggest) })]));
+    if (r.hh > 1) resultBox.appendChild(el('p', { 'class': 'hint', style: 'margin:10px 0 0;', text: 'Home energy is divided among ' + r.hh + ' people; driving and flying are counted for you alone.' }));
+
+    resultBox.classList.add('show');
+  });
+})();
+
+</script>
+</body></html>

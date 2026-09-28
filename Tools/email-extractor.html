@@ -1,0 +1,273 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Email Extractor | KokoroFlow</title><meta name="description" content="Extract email addresses from any block of text. Remove duplicates, sort, and copy or download the list. Free, no sign-up, runs in your browser."><link rel="canonical" href="https://www.kokoroflow.net/Tools/email-extractor.html"><meta property="og:title" content="Email Extractor"><meta property="og:description" content="Extract email addresses from any block of text. Remove duplicates, sort, and copy or download the list. Free, no sign-up, runs in your browser."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/email-extractor.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Email Extractor","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Extract email addresses from any block of text. Remove duplicates, sort, and copy or download the list. Free, no sign-up, runs in your browser.","url":"https://www.kokoroflow.net/Tools/email-extractor.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Email Extractor","item":"https://www.kokoroflow.net/Tools/email-extractor.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:820px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:580px; margin:0 auto; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea, input[type="text"], input[type="password"], select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea { min-height:170px; resize:vertical; }
+    input[type="text"], input[type="password"], select { min-height:48px; }
+    textarea:focus, input:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder, input::placeholder { color:#9aa0a6; }
+    .field { margin-bottom:16px; }
+    .opts { display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0; }
+    label.opt { display:inline-flex; align-items:center; gap:8px; margin:0; font-weight:600; font-size:14px; cursor:pointer; }
+    label.opt input { width:18px; height:18px; accent-color:var(--accent); }
+    .mode-toggle { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+    .mode-btn { flex:1; min-width:150px; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .error-box { display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.98); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .output-header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .mini-btns { display:flex; gap:6px; flex-wrap:wrap; }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea.out { min-height:200px; }
+    .out-box { padding:16px; min-height:90px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); font-size:22px; line-height:1.5; white-space:pre-wrap; word-break:break-word; color:#244f46; }
+    .out-box.empty { color:var(--muted); font-size:15px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .chip { padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13.5px; font-weight:600; border:1px solid var(--line); }
+    .stat-line { font-size:14px; color:var(--muted); margin:6px 0 0; }
+    .stat-line strong { color:var(--text); }
+    .vid-title { font-weight:800; font-size:16px; margin:0 0 4px; }
+    details.how { margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; background:var(--bg); }
+    details.how summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--accent); }
+    details.how ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+    .notice.caution { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Email Extractor</p>
+    <h1>Extract Emails from Text</h1>
+    <p class="lead">Paste any block of text — a document, a web page, a spreadsheet column — and pull out every email address in one click. Duplicates removed, ready to copy or download.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">Email extractor</h2>
+
+    <label for="input-text">Paste your text</label>
+    <textarea id="input-text" placeholder="e.g. Contact sales@example.com or support@example.com. Old address: Jane.Doe@Example.org"></textarea>
+
+    <div class="opts">
+      <label class="opt"><input type="checkbox" id="opt-dedupe" checked> Remove duplicates</label>
+      <label class="opt"><input type="checkbox" id="opt-lower" checked> Convert to lowercase</label>
+      <label class="opt"><input type="checkbox" id="opt-sort" checked> Sort A–Z</label>
+    </div>
+
+    <div class="field">
+      <label for="sep-select">Output format</label>
+      <select id="sep-select">
+        <option value="newline">One per line</option>
+        <option value="comma">Comma-separated</option>
+        <option value="semicolon">Semicolon-separated (for email clients)</option>
+      </select>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn" id="extract-btn">Extract Emails</button>
+      <button class="btn btn-secondary" id="clear-btn">Clear</button>
+    </div>
+
+    <div class="error-box" id="error-box"></div>
+
+    <div id="output-section">
+      <div class="output-header">
+        <span class="result-label" id="result-label">Results</span>
+        <div class="mini-btns">
+          <button class="copy-btn" id="copy-btn">Copy</button>
+          <button class="copy-btn" id="txt-btn">Download .txt</button>
+          <button class="copy-btn" id="csv-btn">Download .csv</button>
+        </div>
+      </div>
+      <textarea class="out" id="output" readonly></textarea>
+    </div>
+  </section>
+
+  <section class="section block">
+    <h2>How it works</h2>
+    <ol class="steps">
+      <li><strong>Paste any text.</strong> It can be messy — the extractor scans the whole thing and picks out anything shaped like an email address.</li>
+      <li><strong>Choose your options.</strong> Remove duplicates, normalize to lowercase, and sort, then pick the output format that fits where you're pasting it.</li>
+      <li><strong>Copy or download.</strong> Use the copy button, or save the list as a plain text or CSV file.</li>
+    </ol>
+  </section>
+
+  <section class="section">
+    <p class="notice">Everything runs in your browser — the text you paste is never uploaded or stored. Only use extracted addresses in ways that respect privacy and anti-spam laws, such as CAN-SPAM in the US: a list of addresses is not the same as permission to email them.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  var inputText = document.getElementById('input-text');
+  var errorBox = document.getElementById('error-box');
+  var outputSection = document.getElementById('output-section');
+  var output = document.getElementById('output');
+  var resultLabel = document.getElementById('result-label');
+  var copyBtn = document.getElementById('copy-btn');
+  var lastResults = [];
+
+  var EMAIL_RE = /[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}/g;
+  var FILE_TLDS = { png: 1, jpg: 1, jpeg: 1, gif: 1, webp: 1, svg: 1, css: 1, js: 1 };
+
+  function extractEmails(text) {
+    var matches = text.match(EMAIL_RE) || [];
+    var cleaned = [];
+    matches.forEach(function (m) {
+      var e = m.replace(/^[._%+\-]+/, '').replace(/[.\-]+$/, '');
+      var at = e.indexOf('@');
+      if (at < 1) return;
+      var domain = e.slice(at + 1);
+      var tld = domain.split('.').pop().toLowerCase();
+      if (FILE_TLDS[tld]) return;
+      if (/\.\./.test(e)) return;
+      if (/^[.\-]|[.\-]$/.test(domain)) return;
+      cleaned.push(e);
+    });
+    return cleaned;
+  }
+
+  function separatorFor(kind) {
+    if (kind === 'comma') return ', ';
+    if (kind === 'semicolon') return '; ';
+    return '\n';
+  }
+
+  function download(filename, text, mime) {
+    var blob = new Blob([text], { type: mime });
+    var a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(a.href); }, 1000);
+  }
+
+  document.getElementById('extract-btn').addEventListener('click', function () {
+    errorBox.classList.remove('show');
+    var text = inputText.value;
+    if (!text.trim()) {
+      errorBox.textContent = 'Paste some text first.';
+      errorBox.classList.add('show');
+      outputSection.classList.remove('show');
+      return;
+    }
+
+    var found = extractEmails(text);
+    var total = found.length;
+    var list = found.slice();
+
+    if (document.getElementById('opt-lower').checked) {
+      list = list.map(function (e) { return e.toLowerCase(); });
+    }
+    if (document.getElementById('opt-dedupe').checked) {
+      var seen = {};
+      list = list.filter(function (e) {
+        var key = document.getElementById('opt-lower').checked ? e : e.toLowerCase();
+        if (seen[key]) return false;
+        seen[key] = true;
+        return true;
+      });
+    }
+    if (document.getElementById('opt-sort').checked) {
+      list.sort(function (a, b) { return a.toLowerCase() < b.toLowerCase() ? -1 : a.toLowerCase() > b.toLowerCase() ? 1 : 0; });
+    }
+
+    if (total === 0) {
+      errorBox.textContent = 'No email addresses were found in that text.';
+      errorBox.classList.add('show');
+      outputSection.classList.remove('show');
+      return;
+    }
+
+    lastResults = list;
+    output.value = list.join(separatorFor(document.getElementById('sep-select').value));
+    resultLabel.textContent = 'Found ' + total + ' address' + (total === 1 ? '' : 'es') + (list.length !== total ? ' — ' + list.length + ' after cleanup' : '');
+    outputSection.classList.add('show');
+  });
+
+  document.getElementById('sep-select').addEventListener('change', function () {
+    if (lastResults.length) {
+      output.value = lastResults.join(separatorFor(this.value));
+    }
+  });
+
+  document.getElementById('clear-btn').addEventListener('click', function () {
+    inputText.value = '';
+    output.value = '';
+    lastResults = [];
+    errorBox.classList.remove('show');
+    outputSection.classList.remove('show');
+  });
+
+  copyBtn.addEventListener('click', function () {
+    if (!output.value) return;
+    navigator.clipboard.writeText(output.value).then(function () {
+      copyBtn.textContent = 'Copied!';
+      setTimeout(function () { copyBtn.textContent = 'Copy'; }, 1600);
+    }).catch(function () {
+      alert('Copy failed — please select and copy the text manually.');
+    });
+  });
+
+  document.getElementById('txt-btn').addEventListener('click', function () {
+    if (!lastResults.length) return;
+    download('emails.txt', lastResults.join('\n'), 'text/plain');
+  });
+
+  document.getElementById('csv-btn').addEventListener('click', function () {
+    if (!lastResults.length) return;
+    var csv = 'email\n' + lastResults.map(function (e) { return '"' + e.replace(/"/g, '""') + '"'; }).join('\n');
+    download('emails.csv', csv, 'text/csv');
+  });
+})();
+
+</script>
+</body></html>

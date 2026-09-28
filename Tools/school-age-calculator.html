@@ -1,0 +1,388 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>School Age Calculator | KokoroFlow</title><meta name="description" content="Find a child's typical grade, kindergarten start year, and graduation year from a birthdate and age cutoff date, or work backward from a grade to the birthdates it covers."><link rel="canonical" href="https://www.kokoroflow.net/Tools/school-age-calculator.html"><meta property="og:title" content="School Age Calculator"><meta property="og:description" content="Find a child's typical grade, kindergarten start year, and graduation year from a birthdate and age cutoff date, or work backward from a grade to the birthdates it covers."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/school-age-calculator.html"><meta name="theme-color" content="#f7f4ee"><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"School Age Calculator","applicationCategory":"EducationApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Find a child's typical grade, kindergarten start year, and graduation year from a birthdate and age cutoff date, or work backward from a grade to the birthdates it covers.","url":"https://www.kokoroflow.net/Tools/school-age-calculator.html"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"School Age Calculator","item":"https://www.kokoroflow.net/Tools/school-age-calculator.html"}]}]}</script><style>
+    :root { --bg:#f7f4ee; --surface:#fffdf8; --surface-2:#eee7dc; --text:#202124; --muted:#5f6368; --line:#ded7cc; --accent:#2f6f62; --accent-2:#b35a2a; --accent-soft:#e6f1ed; --shadow:0 16px 50px rgba(32,33,36,.08); --radius:8px; --wrap:820px; }
+    * { box-sizing:border-box; }
+    body { margin:0; font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; color:var(--text); background:var(--bg); line-height:1.7; text-size-adjust:100%; }
+    a { color:inherit; }
+    .skip-link { position:absolute; left:16px; top:-48px; z-index:20; background:var(--text); color:#fff; padding:10px 14px; border-radius:6px; transition:top .2s; }
+    .skip-link:focus { top:16px; }
+    .site-header { position:sticky; top:0; z-index:10; border-bottom:1px solid rgba(222,215,204,.9); background:rgba(247,244,238,.94); backdrop-filter:blur(14px); }
+    .nav { max-width:1120px; margin:0 auto; padding:14px 24px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:inline-flex; align-items:center; gap:10px; text-decoration:none; font-weight:800; white-space:nowrap; color:var(--text); }
+    .nav-links { display:flex; align-items:center; gap:6px; flex-wrap:wrap; justify-content:flex-end; }
+    .nav-links a { min-height:40px; display:inline-flex; align-items:center; padding:8px 12px; border-radius:999px; color:var(--muted); text-decoration:none; font-size:15px; font-weight:500; }
+    .nav-links a:hover { color:var(--text); background:var(--surface); }
+    main { max-width:var(--wrap); margin:0 auto; padding:0 24px 72px; }
+    .page-hero { margin:52px auto 30px; text-align:center; }
+    .eyebrow { margin:0 0 14px; color:var(--accent); font-size:13px; font-weight:800; letter-spacing:.12em; text-transform:uppercase; }
+    h1, h2, h3, p { margin-top:0; }
+    h1 { margin-bottom:14px; font-size:clamp(28px, 5vw, 42px); line-height:1.2; }
+    .lead { color:var(--muted); font-size:clamp(15px, 2vw, 17px); max-width:580px; margin:0 auto; }
+    .block { padding:28px; border:1px solid var(--line); border-radius:var(--radius); background:var(--surface); box-shadow:var(--shadow); }
+    section.section { margin-top:20px; }
+    label { display:block; font-size:14px; font-weight:700; margin-bottom:8px; color:var(--text); }
+    .hint { display:block; font-size:12.5px; font-weight:500; color:var(--muted); margin:-4px 0 10px; }
+    textarea, input[type="text"], input[type="password"], select { width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; transition:border-color .15s, box-shadow .15s; }
+    textarea { min-height:170px; resize:vertical; }
+    input[type="text"], input[type="password"], select { min-height:48px; }
+    textarea:focus, input:focus, select:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    textarea::placeholder, input::placeholder { color:#9aa0a6; }
+    .field { margin-bottom:16px; }
+    .opts { display:flex; flex-wrap:wrap; gap:8px 20px; margin:14px 0; }
+    label.opt { display:inline-flex; align-items:center; gap:8px; margin:0; font-weight:600; font-size:14px; cursor:pointer; }
+    label.opt input { width:18px; height:18px; accent-color:var(--accent); }
+    .mode-toggle { display:flex; gap:8px; margin-bottom:18px; flex-wrap:wrap; }
+    .mode-btn { flex:1; min-width:150px; min-height:44px; padding:10px 14px; border-radius:999px; border:1px solid var(--line); background:var(--bg); color:var(--muted); font:inherit; font-size:14px; font-weight:700; cursor:pointer; }
+    .mode-btn.active { background:var(--text); border-color:var(--text); color:#fff; }
+    .btn-row { display:flex; flex-wrap:wrap; gap:10px; margin-top:10px; }
+    .btn { display:inline-flex; align-items:center; justify-content:center; flex:1; min-width:140px; min-height:48px; padding:12px 20px; border:none; border-radius:999px; background:var(--accent-2); color:#fff; font:inherit; font-size:16px; font-weight:800; cursor:pointer; transition:background-color .15s, transform .05s; box-shadow:0 10px 24px rgba(179,90,42,.28); }
+    .btn:hover { background:#9c4c21; }
+    .btn:active { transform:scale(.98); }
+    .btn[disabled] { opacity:.5; cursor:not-allowed; }
+    .btn-secondary { background:var(--surface-2); color:var(--text); box-shadow:none; }
+    .btn-secondary:hover { background:#e3dbcc; }
+    .error-box { display:none; margin-top:14px; padding:12px 14px; border-radius:var(--radius); background:#fbeee6; border:1px solid #e9c7ad; color:#7a3a12; font-size:13.5px; }
+    .error-box.show { display:block; }
+    #output-section { margin-top:22px; display:none; }
+    #output-section.show { display:block; animation:pop .25s ease-out; }
+    @keyframes pop { from { transform:scale(.98); opacity:0; } to { transform:scale(1); opacity:1; } }
+    .output-header { display:flex; justify-content:space-between; align-items:center; gap:10px; flex-wrap:wrap; margin-bottom:8px; }
+    .result-label { font-size:13px; font-weight:700; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); }
+    .mini-btns { display:flex; gap:6px; flex-wrap:wrap; }
+    .copy-btn { min-height:36px; padding:6px 14px; border-radius:999px; border:1px solid var(--line); background:var(--surface-2); color:var(--text); font:inherit; font-size:13px; font-weight:700; cursor:pointer; }
+    .copy-btn:hover { background:var(--bg); }
+    textarea.out { min-height:200px; }
+    .out-box { padding:16px; min-height:90px; border:1px solid var(--line); border-radius:var(--radius); background:var(--accent-soft); font-size:22px; line-height:1.5; white-space:pre-wrap; word-break:break-word; color:#244f46; }
+    .out-box.empty { color:var(--muted); font-size:15px; }
+    .chips { display:flex; flex-wrap:wrap; gap:8px; margin:12px 0 4px; }
+    .chip { padding:6px 12px; border-radius:999px; background:var(--accent-soft); color:#244f46; font-size:13.5px; font-weight:600; border:1px solid var(--line); }
+    .stat-line { font-size:14px; color:var(--muted); margin:6px 0 0; }
+    .stat-line strong { color:var(--text); }
+    .vid-title { font-weight:800; font-size:16px; margin:0 0 4px; }
+    details.how { margin-top:14px; border:1px solid var(--line); border-radius:var(--radius); padding:12px 16px; background:var(--bg); }
+    details.how summary { cursor:pointer; font-weight:700; font-size:14px; color:var(--accent); }
+    details.how ol { margin:10px 0 0; padding-left:20px; color:var(--muted); font-size:14px; }
+    .steps { margin:0; padding:0; list-style:none; counter-reset:step; }
+    .steps li { counter-increment:step; position:relative; padding:0 0 0 40px; margin-bottom:16px; color:var(--muted); font-size:14.5px; }
+    .steps li::before { content:counter(step); position:absolute; left:0; top:-2px; width:26px; height:26px; border-radius:50%; background:var(--accent); color:#fff; font-size:13px; font-weight:800; display:flex; align-items:center; justify-content:center; }
+    .steps strong { color:var(--text); }
+    .notice { padding:14px 16px; border-radius:var(--radius); background:var(--surface-2); color:var(--muted); font-size:13.5px; border:1px solid var(--line); }
+    .notice.caution { background:#fbeee6; border-color:#e9c7ad; color:#7a3a12; }
+    .site-footer { border-top:1px solid var(--line); background:var(--surface); margin-top:40px; }
+    .footer-inner { max-width:1120px; margin:0 auto; padding:34px 24px; display:flex; justify-content:space-between; gap:20px; flex-wrap:wrap; color:var(--muted); font-size:14px; }
+    .footer-links a { text-decoration:none; font-weight:600; color:var(--accent); }
+    .footer-links a:hover { text-decoration:underline; }
+    @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } .btn-row { flex-direction:column; } }
+    a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
+    [hidden] { display:none !important; }
+    .row { display:flex; flex-wrap:wrap; gap:14px; margin-bottom:6px; }
+    .row .field { flex:1; min-width:180px; margin-bottom:10px; }
+    input[type="date"], input[type="number"] { width:100%; min-height:48px; padding:10px 14px; border:1px solid var(--line); border-radius:var(--radius); font:inherit; font-size:15px; color:var(--text); background:var(--bg); outline:none; }
+    input[type="date"]:focus, input[type="number"]:focus { border-color:var(--accent); box-shadow:0 0 0 3px var(--accent-soft); }
+    #result-container { margin-top:22px; padding:22px; border-radius:var(--radius); background:var(--accent-soft); border:1px solid var(--line); display:none; }
+    #result-container.show { display:block; animation:pop .25s ease-out; }
+    .res-main { margin:0; font-size:clamp(24px, 4.5vw, 34px); font-weight:800; color:#244f46; text-align:center; }
+    .res-sub { margin:6px 0 0; text-align:center; color:var(--muted); font-size:14px; }
+    .facts { margin:18px 0 0; display:grid; grid-template-columns:repeat(2, minmax(0,1fr)); gap:10px; }
+    .fact { padding:12px 14px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); }
+    .fact b { display:block; font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--accent); margin-bottom:2px; }
+    .fact span { font-size:15px; font-weight:700; }
+    table.timeline { width:100%; border-collapse:collapse; margin-top:16px; font-size:14px; }
+    table.timeline th, table.timeline td { text-align:left; padding:6px 10px; border-bottom:1px solid var(--line); }
+    table.timeline th { font-size:12px; letter-spacing:.05em; text-transform:uppercase; color:var(--muted); }
+    table.timeline tr.now td { background:rgba(47,111,98,.12); font-weight:700; }
+    .prose h2 { margin:0 0 10px; font-size:24px; line-height:1.25; }
+    .prose h3 { margin:20px 0 6px; font-size:16px; }
+    .prose p, .prose li { color:var(--muted); font-size:14.5px; }
+    .faq details { border-top:1px solid var(--line); padding:12px 0; }
+    .faq details:last-child { border-bottom:1px solid var(--line); }
+    .faq summary { cursor:pointer; font-weight:700; font-size:15px; }
+    .faq details p { margin:8px 0 0; }
+    @media (max-width:640px) { .facts { grid-template-columns:1fr; } }
+
+  </style></head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / School Age Calculator</p>
+    <h1>School Age Calculator</h1>
+    <p class="lead">Find out what grade a child is typically in, which year they can start kindergarten, and when they'll graduate — or work backward from a grade to the birthdates it covers.</p>
+  </div>
+
+  <section class="section block" aria-labelledby="tool-heading">
+    <h2 id="tool-heading" style="position:absolute;width:1px;height:1px;overflow:hidden;">School age calculator</h2>
+
+    <div class="mode-toggle" role="group" aria-label="Choose a mode">
+      <button type="button" class="mode-btn active" data-mode="child">From a birthdate</button>
+      <button type="button" class="mode-btn" data-mode="grade">From a grade</button>
+    </div>
+
+    <div class="row" id="child-fields">
+      <div class="field">
+        <label for="dob-input">Child's date of birth</label>
+        <input type="date" id="dob-input">
+      </div>
+    </div>
+
+    <div class="row" id="grade-fields" hidden>
+      <div class="field">
+        <label for="grade-select">Grade</label>
+        <select id="grade-select"></select>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="field">
+        <label for="cutoff-select">Age cutoff date</label>
+        <select id="cutoff-select">
+          <option value="9-1">September 1 (most common)</option>
+          <option value="8-31">August 31</option>
+          <option value="9-30">September 30</option>
+          <option value="10-1">October 1</option>
+          <option value="12-1">December 1</option>
+          <option value="12-31">December 31</option>
+          <option value="1-1">January 1</option>
+          <option value="custom">Custom date…</option>
+        </select>
+        <span class="hint">Check your district's rule — cutoffs vary by state and district.</span>
+      </div>
+      <div class="field" id="custom-fields" hidden>
+        <label for="custom-month">Custom cutoff</label>
+        <div style="display:flex;gap:8px;">
+          <select id="custom-month" aria-label="Month"></select>
+          <input type="number" id="custom-day" min="1" max="31" value="1" aria-label="Day">
+        </div>
+      </div>
+      <div class="field">
+        <label for="year-select">School year starting</label>
+        <select id="year-select"></select>
+        <span class="hint">The fall a school year begins.</span>
+      </div>
+    </div>
+
+    <div class="error-box" id="input-error" role="alert"></div>
+
+    <button class="btn" id="calc-btn" style="width:100%;margin-top:14px;">Calculate</button>
+
+    <div id="result-container" role="status" aria-live="polite"></div>
+  </section>
+
+  <section class="section">
+    <p class="notice caution">This is a general estimate based on typical U.S. age cutoffs — not an official placement. Districts and schools make their own enrollment decisions (early entry, waivers, and holding a child back all exist), so confirm with your school for anything that matters, like enrollment deadlines.</p>
+  </section>
+
+  <section class="section block prose">
+    <h2>How school-entry age works</h2>
+    <p>In most U.S. districts a child starts kindergarten in the fall they turn 5 — meaning they must be 5 on or before a set <strong>cutoff date</strong>, commonly September 1. A child who turns 5 the day after the cutoff generally waits a full year, which is why kids in the same grade can be almost a year apart in age.</p>
+    <p>This calculator counts a child's age on the cutoff date and maps it to the usual grade: age 5 at the cutoff is kindergarten, age 6 is first grade, and so on up to age 17 in twelfth grade. It also shows how many days the fifth birthday falls before or after the cutoff, so you can see whether a child would be among the oldest or youngest in the class.</p>
+    <h3>Going backward from a grade</h3>
+    <p>The "From a grade" mode answers questions like "which birthdates are in the kindergarten class starting in 2027?" It lists the range of dates of birth that reach the right age on the cutoff.</p>
+  </section>
+
+  <section class="section block prose faq">
+    <h2>Frequently asked questions</h2>
+    <details>
+      <summary>What is a school age cutoff date?</summary>
+      <p>It's the date by which a child must reach a minimum age to enroll in a given grade. Many districts use September 1, but some use other dates such as August 31, September 30, or December 1.</p>
+    </details>
+    <details>
+      <summary>What if my child's birthday is right after the cutoff?</summary>
+      <p>They'll typically start a year later and be among the oldest in their class. Some districts allow early-entry testing or waivers — ask your school.</p>
+    </details>
+    <details>
+      <summary>Can a child be in a different grade than this predicts?</summary>
+      <p>Yes. Families sometimes delay kindergarten ("redshirting"), schools sometimes accelerate or hold students back, and districts can have their own rules.</p>
+    </details>
+    <details>
+      <summary>Does this work outside the U.S.?</summary>
+      <p>The age-to-grade pattern here is the common U.S. one. Other countries use different school-year calendars, cutoff dates, and grade names.</p>
+    </details>
+  </section>
+
+  <section class="section">
+    <p class="notice">Nothing you enter is uploaded or stored — calculations happen in your browser.</p>
+  </section>
+
+</main>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Independent buying guides &amp; free tools</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a></div></div></footer>
+
+<script>
+(function () {
+  var GRADES = [
+    { age: 4, name: 'Pre-K' }, { age: 5, name: 'Kindergarten' }, { age: 6, name: '1st grade' },
+    { age: 7, name: '2nd grade' }, { age: 8, name: '3rd grade' }, { age: 9, name: '4th grade' },
+    { age: 10, name: '5th grade' }, { age: 11, name: '6th grade' }, { age: 12, name: '7th grade' },
+    { age: 13, name: '8th grade' }, { age: 14, name: '9th grade (freshman)' }, { age: 15, name: '10th grade (sophomore)' },
+    { age: 16, name: '11th grade (junior)' }, { age: 17, name: '12th grade (senior)' }
+  ];
+  var MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+  var DAY_MS = 86400000;
+
+  var mode = 'child';
+  var dobInput = document.getElementById('dob-input');
+  var gradeSelect = document.getElementById('grade-select');
+  var cutoffSelect = document.getElementById('cutoff-select');
+  var customFields = document.getElementById('custom-fields');
+  var customMonth = document.getElementById('custom-month');
+  var customDay = document.getElementById('custom-day');
+  var yearSelect = document.getElementById('year-select');
+  var errorBox = document.getElementById('input-error');
+  var resultBox = document.getElementById('result-container');
+
+  // ---- populate selects ----
+  GRADES.forEach(function (g, i) {
+    var o = document.createElement('option');
+    o.value = i; o.textContent = g.name;
+    if (g.age === 5) o.selected = true;
+    gradeSelect.appendChild(o);
+  });
+  MONTHS.forEach(function (m, i) {
+    var o = document.createElement('option');
+    o.value = i + 1; o.textContent = m;
+    if (i === 8) o.selected = true;
+    customMonth.appendChild(o);
+  });
+  var now = new Date();
+  var firstYear = now.getMonth() >= 6 ? now.getFullYear() : now.getFullYear() - 1;
+  for (var y = firstYear - 1; y <= firstYear + 14; y++) {
+    var oy = document.createElement('option');
+    oy.value = y; oy.textContent = y + '–' + (y + 1);
+    if (y === firstYear + 1) oy.selected = true;
+    yearSelect.appendChild(oy);
+  }
+
+  // ---- UI wiring ----
+  Array.prototype.forEach.call(document.querySelectorAll('.mode-btn'), function (btn) {
+    btn.addEventListener('click', function () {
+      mode = btn.dataset.mode;
+      Array.prototype.forEach.call(document.querySelectorAll('.mode-btn'), function (b) { b.classList.toggle('active', b === btn); });
+      document.getElementById('child-fields').hidden = mode !== 'child';
+      document.getElementById('grade-fields').hidden = mode !== 'grade';
+      errorBox.classList.remove('show');
+      resultBox.classList.remove('show');
+    });
+  });
+  cutoffSelect.addEventListener('change', function () { customFields.hidden = cutoffSelect.value !== 'custom'; });
+
+  // ---- date helpers (all local dates, no time zones involved) ----
+  function getCutoff() {
+    if (cutoffSelect.value === 'custom') {
+      return { month: parseInt(customMonth.value, 10), day: Math.min(31, Math.max(1, parseInt(customDay.value, 10) || 1)) };
+    }
+    var p = cutoffSelect.value.split('-');
+    return { month: parseInt(p[0], 10), day: parseInt(p[1], 10) };
+  }
+  function cutoffDate(year, c) { return new Date(year, c.month - 1, c.day); }
+  function parseDob(v) {
+    var m = /^(\d{4})-(\d{2})-(\d{2})$/.exec(v);
+    return m ? new Date(parseInt(m[1], 10), parseInt(m[2], 10) - 1, parseInt(m[3], 10)) : null;
+  }
+  function ageOn(dob, on) {
+    var years = on.getFullYear() - dob.getFullYear();
+    var months = on.getMonth() - dob.getMonth();
+    if (on.getDate() < dob.getDate()) months--;
+    if (months < 0) { years--; months += 12; }
+    return { years: years, months: months };
+  }
+  function fmtDate(d) { return MONTHS[d.getMonth()] + ' ' + d.getDate() + ', ' + d.getFullYear(); }
+  function daysBetween(a, b) { return Math.round((b.getTime() - a.getTime()) / DAY_MS); }
+  function plural(n, w) { return n + ' ' + w + (Math.abs(n) === 1 ? '' : 's'); }
+  function gradeForAge(age) {
+    for (var i = GRADES.length - 1; i >= 0; i--) if (age >= GRADES[i].age) return GRADES[i];
+    return null;
+  }
+
+  // First school year (fall) in which the child has turned `minAge` by the cutoff.
+  function firstYearAtAge(dob, minAge, c) {
+    var bday = new Date(dob.getFullYear() + minAge, dob.getMonth(), dob.getDate());
+    var y = bday.getFullYear() - 1;
+    while (cutoffDate(y, c) < bday) y++;
+    return { year: y, birthday: bday };
+  }
+
+  function esc(s) { var d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+  function showError(msg) {
+    errorBox.textContent = msg;
+    errorBox.classList.add('show');
+    resultBox.classList.remove('show');
+  }
+
+  function calcChild() {
+    var dob = parseDob(dobInput.value);
+    if (!dob) { showError('Please enter a date of birth.'); return; }
+    if (dob > new Date()) { showError('That date of birth is in the future.'); return; }
+    var c = getCutoff();
+    var year = parseInt(yearSelect.value, 10);
+    var cd = cutoffDate(year, c);
+    var age = ageOn(dob, cd);
+    var grade = age.years < 0 ? null : gradeForAge(age.years);
+
+    var k = firstYearAtAge(dob, 5, c);
+    var kCut = cutoffDate(k.year, c);
+    var diff = daysBetween(k.birthday, kCut); // >= 0 : birthday on/before cutoff
+    var marginText;
+    if (diff === 0) marginText = 'turns 5 on the cutoff date itself';
+    else marginText = 'turns 5 ' + plural(diff, 'day') + ' before the cutoff';
+    var prevCut = cutoffDate(k.year - 1, c);
+    var missBy = daysBetween(prevCut, k.birthday); // days after previous year's cutoff
+    var missText = missBy > 0 ? ' (they miss the ' + (k.year - 1) + ' cutoff by ' + plural(missBy, 'day') + ')' : '';
+
+    var main, sub;
+    if (!grade) {
+      main = 'Not yet school age';
+      sub = 'Age ' + plural(age.years, 'year') + ' on ' + fmtDate(cd) + ' — below the typical Pre-K age of 4.';
+    } else if (age.years > 17) {
+      main = 'Past 12th grade';
+      sub = 'Age ' + age.years + ' on ' + fmtDate(cd) + ' — older than the typical high school range.';
+    } else {
+      main = grade.name;
+      sub = 'Typical grade for the ' + year + '–' + (year + 1) + ' school year';
+    }
+
+    var html = '<p class="res-main">' + esc(main) + '</p><p class="res-sub">' + esc(sub) + '</p>';
+    html += '<div class="facts">' +
+      '<div class="fact"><b>Age on cutoff (' + esc(fmtDate(cd)) + ')</b><span>' + esc(plural(age.years, 'year') + ', ' + plural(age.months, 'month')) + '</span></div>' +
+      '<div class="fact"><b>Kindergarten starts</b><span>Fall ' + k.year + '</span></div>' +
+      '<div class="fact"><b>Fifth birthday</b><span>' + esc(fmtDate(k.birthday)) + '</span></div>' +
+      '<div class="fact"><b>Relative to the cutoff</b><span>' + esc(marginText) + esc(missText) + '</span></div>' +
+      '<div class="fact"><b>Expected graduation</b><span>Class of ' + (k.year + 13) + '</span></div>' +
+      '</div>';
+
+    html += '<table class="timeline"><thead><tr><th>School year</th><th>Grade</th></tr></thead><tbody>';
+    for (var i = 1; i < GRADES.length; i++) {
+      var sy = k.year + (GRADES[i].age - 5);
+      html += '<tr' + (sy === year ? ' class="now"' : '') + '><td>' + sy + '–' + (sy + 1) + '</td><td>' + esc(GRADES[i].name) + '</td></tr>';
+    }
+    html += '</tbody></table>';
+    resultBox.innerHTML = html;
+    errorBox.classList.remove('show');
+    resultBox.classList.add('show');
+  }
+
+  function calcGrade() {
+    var g = GRADES[parseInt(gradeSelect.value, 10)];
+    var c = getCutoff();
+    var year = parseInt(yearSelect.value, 10);
+    var lower = new Date(year - g.age - 1, c.month - 1, c.day + 1);   // day after cutoff, (age+1) years earlier
+    var upper = new Date(year - g.age, c.month - 1, c.day);
+    var html = '<p class="res-main">' + esc(fmtDate(lower)) + ' – ' + esc(fmtDate(upper)) + '</p>' +
+      '<p class="res-sub">Birthdates for ' + esc(g.name) + ' in the ' + year + '–' + (year + 1) + ' school year, with a ' + esc(MONTHS[c.month - 1] + ' ' + c.day) + ' cutoff.</p>' +
+      '<div class="facts">' +
+      '<div class="fact"><b>Age on the cutoff</b><span>' + g.age + ' years old</span></div>' +
+      '<div class="fact"><b>Graduating class</b><span>Class of ' + (year + 12 - (g.age - 5) + 1) + '</span></div>' +
+      '</div>';
+    resultBox.innerHTML = html;
+    errorBox.classList.remove('show');
+    resultBox.classList.add('show');
+  }
+
+  document.getElementById('calc-btn').addEventListener('click', function () {
+    if (mode === 'child') calcChild(); else calcGrade();
+  });
+})();
+
+</script>
+</body></html>
