@@ -1,0 +1,79 @@
+# KokoroFlow
+
+> KokoroFlow (kokoroflow.net) offers free, private, browser-only tools and calculators. Every tool runs in the visitor's browser: no upload, no account, no sign-up. KokoroFlow 提供免費、免上傳、免帳號、在瀏覽器運算的私人線上工具。
+
+File tools (PDF, images, bookmarks, folders) process files locally on the device; nothing is sent to a server. The only tool that makes a network request is the Currency Converter, which fetches a public reference exchange rate (currency codes only). Calculators give planning estimates, not financial, tax, legal or medical advice.
+
+## English tools
+
+- [Batch File Renamer](https://www.kokoroflow.net/batch-file-renamer.html): Free batch file renamer: add prefixes, suffixes, sequential numbers or find-and-replace, preview every name, download a ZIP. No upload, no account – private, in your browser.
+- [BMI Calculator (Feet, Inches & Pounds)](https://www.kokoroflow.net/bmi-calculator.html): Free BMI calculator in US units – feet, inches and pounds – with adult category ranges. No upload, no account; private math that runs in your browser.
+- [Bookmark Cleaner & Organizer](https://www.kokoroflow.net/bookmark-organizer.html): Free bookmark cleaner: import your browser bookmarks HTML, remove duplicate links, sort and export a clean file. No upload, no account – private, in your browser.
+- [Business Days Calculator](https://www.kokoroflow.net/business-days-calculator.html): Free business days calculator: count workdays between dates or add workdays to a date, excluding weekends and your own holidays. No upload, no account, private, in-browser.
+- [Calorie & TDEE Calculator](https://www.kokoroflow.net/calorie-calculator.html): Free calorie and TDEE calculator: estimate BMR and maintenance calories across 5 activity levels. No upload, no account – private, runs in your browser.
+- [Compound Interest Calculator](https://www.kokoroflow.net/compound-interest-calculator.html): Free compound interest calculator with monthly contributions and 5 compounding frequencies. No upload, no account; private projections computed in your browser.
+- [Currency Converter](https://www.kokoroflow.net/currency-converter.html): Free currency converter for USD, EUR, GBP, CAD, AUD, JPY, TWD, SGD and HKD. No upload, no account; private, browser-based – only currency codes are sent to fetch a public rate.
+- [Duplicate & Similar Image Finder](https://www.kokoroflow.net/duplicate-image-finder.html): Free duplicate photo finder: detect exact and visually similar images with perceptual hashing. No upload, no account – private, everything runs in your browser.
+- [EXIF Metadata Remover](https://www.kokoroflow.net/exif-metadata-remover.html): Free EXIF remover: strip GPS location, camera and editing metadata from JPG, PNG and WebP by making a clean copy. No upload, no account, private, in your browser.
+- [Folder Comparison Tool](https://www.kokoroflow.net/folder-diff-checker.html): Free folder comparison: see which files are only in A, only in B, or differ in size. Report only – no upload, no account, nothing copied or synced; private, in your browser.
+- [Freelance Rate Calculator](https://www.kokoroflow.net/freelance-rate-calculator.html): Free freelance rate calculator: turn income goal, expenses, tax reserve and billable hours into a minimum hourly rate and project price. No upload, no account, private, in-browser.
+- [Fuel Economy Converter (MPG ↔ L/100km)](https://www.kokoroflow.net/fuel-economy-converter.html): Free fuel economy converter: calculate trip MPG, convert MPG, L/100km and km/L, or compare two cars' annual fuel cost. No upload, no account – private, in your browser.
+- [Image Compressor](https://www.kokoroflow.net/image-compressor.html): Free image compressor for JPG, PNG and WebP: set quality and max size, then download smaller copies. No upload, no account, no watermark – private, in your browser.
+- [JPG, PNG & WebP Image Converter](https://www.kokoroflow.net/image-converter.html): Free image converter between JPG, PNG and WebP with batch support and quality control. No upload, no account, no watermark – private, runs in your browser.
+- [Image DPI & Print Size Calculator](https://www.kokoroflow.net/image-dpi-print-calculator.html): Free DPI calculator: get print size from pixels and DPI, or the pixels a print needs. No upload, no account – private; image dimensions are read in your browser.
+- [2026 Income Tax Calculator by State](https://www.kokoroflow.net/income-tax-calculator.html): Free 2026 US income tax calculator: federal brackets, FICA, state tax for 50 states + DC, and take-home pay. No upload, no account – private, runs in your browser.
+- [Mortgage Calculator](https://www.kokoroflow.net/mortgage-calculator.html): Free mortgage calculator: monthly principal and interest from home price, down payment, APR and term, plus extra-payment savings. No upload, no account, private, in-browser.
+- [Partial-Month Utilities Split Calculator](https://www.kokoroflow.net/partial-month-utilities-split-calculator.html): Free utility bill splitter for move-ins and move-outs: share a bill by days lived, with fixed service fees split separately. No upload, no account, private, in your browser.
+- [Password Generator](https://www.kokoroflow.net/password-generator.html): Free password generator using crypto.getRandomValues: 8–128 characters, 4 character sets, similar-character exclusion. No upload, no account – private, in your browser.
+- [PDF Merger](https://www.kokoroflow.net/pdf-merge.html): Free PDF merger: combine multiple PDFs in any order and download one file. No upload, no account – private, runs in your browser with pdf-lib.
+- [PDF Splitter & Page Reorder Tool](https://www.kokoroflow.net/pdf-split-reorder.html): Free PDF splitter: extract, remove, duplicate or reorder pages with ranges like 1-3, 7, 5. No upload, no account – private, runs in your browser with pdf-lib.
+- [Printer Cost per Page Calculator](https://www.kokoroflow.net/printer-cost-per-page-calculator.html): Free printer cost-per-page and break-even calculator: ink, paper and printer price, two-printer comparison, home vs print shop. No upload, no account, private, in-browser.
+- [QR Code Generator](https://www.kokoroflow.net/qr-code-generator.html): Free QR code generator for URLs, Wi-Fi, LINE, WhatsApp, Telegram, social profiles and vCard contacts; 216×216 px PNG. No upload, no account – private, in your browser.
+- [Real-Use Unit Cost Calculator](https://www.kokoroflow.net/real-use-unit-cost-calculator.html): Free unit cost calculator that counts waste: compare two sizes by cost per unit you actually use. No upload, no account – private, runs in your browser.
+- [Rent vs. Buy Calculator](https://www.kokoroflow.net/rent-vs-buy-calculator.html): Free rent vs buy calculator: compare total cost of renting and buying with taxes, maintenance, closing costs and down-payment opportunity cost. No upload, no account, private, in-browser.
+- [Retirement Savings Calculator](https://www.kokoroflow.net/retirement-calculator.html): Free retirement calculator: project savings growth, monthly income via the 4% rule, and progress to your target. No upload, no account – private, runs in your browser.
+- [Return or Keep Calculator](https://www.kokoroflow.net/return-or-keep-calculator.html): Free return-or-keep calculator: net refund after shipping, restocking fee and your time vs reselling or keeping. No upload, no account – private, in your browser.
+- [Salary & Take-Home Pay Calculator by State](https://www.kokoroflow.net/salary-calculator.html): Free 2026 salary calculator: convert hourly to yearly pay and estimate take-home after federal, FICA and state tax for 50 states + DC. No upload, no account, private, in-browser.
+- [Hourly to Salary Converter](https://www.kokoroflow.net/salary-converter.html): Free hourly to salary converter: weekly, monthly and annual gross pay from your hourly rate, hours and paid weeks; USD, GBP, EUR, CAD. No upload, no account, private, in-browser.
+- [Sales Tax Calculator](https://www.kokoroflow.net/sales-tax-calculator.html): Free sales tax calculator: enter price and rate to get the tax and checkout total. No upload, no account – private math that runs in your browser.
+- [Texas Paycheck Calculator](https://www.kokoroflow.net/texas-paycheck-calculator.html): Free 2026 Texas paycheck calculator: take-home pay after federal withholding and FICA (Texas has no state income tax). No upload, no account – private, in your browser.
+- [Time Zone Converter](https://www.kokoroflow.net/time-zone-converter.html): Free time zone converter: convert one time into several zones at once – US zones, UTC, London, Tokyo, Taipei and more. No upload, no account – private, in your browser.
+- [Tip Calculator](https://www.kokoroflow.net/tip-calculator.html): Free tip calculator: tip, total and per-person split for restaurants and delivery. No upload, no account – private, runs in your browser.
+- [Trip Budget Calculator](https://www.kokoroflow.net/trip-budget-calculator.html): Free trip budget calculator: lodging, transport, food, activities and a safety buffer for solo or group travel. No upload, no account – private, in your browser.
+- [Baking & Brewing Recipe Calculator](https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html): Free baker's percentage, dough hydration, recipe scaling and homebrew ABV calculator. No upload, no account – private, runs in your browser.
+- [Carbon Footprint Calculator](https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html): Free carbon footprint calculator using U.S. EPA emission factors for home energy, driving and flights. No upload, no account – private, runs in your browser.
+- [Decision Wheel – Spin to Decide](https://www.kokoroflow.net/Tools/decision-maker.html): Free decision wheel: type your options, spin, and share the list by link. No upload, no account – private, runs in your browser.
+- [Email Extractor](https://www.kokoroflow.net/Tools/email-extractor.html): Free email extractor: pull every email address from text, dedupe, lowercase, sort, copy or download TXT/CSV. No upload, no account – private, in your browser.
+- [Fantasy Sports Points Calculator](https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html): Free fantasy football and baseball points calculator with editable scoring and PPR presets. No upload, no account – private, runs in your browser.
+- [Image to Text OCR](https://www.kokoroflow.net/Tools/image-to-text-ocr.html): Free OCR: extract English and Chinese text from images and screenshots with Tesseract.js. No upload, no account – private; your image is processed in your browser.
+- [JSON Formatter & Merger](https://www.kokoroflow.net/Tools/json-formatter-merger.html): Free JSON formatter, validator and minifier with deep merge of two objects. No upload, no account – private, runs entirely in your browser.
+- [School Age Calculator](https://www.kokoroflow.net/Tools/school-age-calculator.html): Free school age calculator: a child's grade, kindergarten start and graduation year from birthdate and cutoff, or birthdates for a grade. No upload, no account, private, in-browser.
+- [Upside Down Text Generator](https://www.kokoroflow.net/Tools/upside-down-text-generator.html): Free upside down text generator: flip text with Unicode and copy it, or flip it back. No upload, no account – private, runs in your browser.
+
+## 中文工具（繁體中文）
+
+- [今天吃什麼選餐幫手](https://www.kokoroflow.net/jasiami.html): 免費「今天吃什麼」選餐幫手：早餐、午餐、晚餐依中式、西式、飯類、麵類、湯品分類隨機抽選，可加自訂餐點。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [加班費計算器](https://www.kokoroflow.net/overtime-pay-calculator.html): 免費加班費計算器：依勞基法平日、休息日、國定假日倍率試算加班費。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [排卵日計算器](https://www.kokoroflow.net/ovulation-calculator.html): 免費排卵日計算器：輸入最後一次月經日期與週期天數，估算排卵日與易受孕期。免上傳、免帳號、免下載 App，私人資料只在瀏覽器運算。
+- [QR Code 產生器](https://www.kokoroflow.net/qr-code-generator-zh.html): 免費 QR Code 產生器：網址、文字、Wi-Fi、LINE、WhatsApp、Telegram 加好友、社群連結、電子名片，輸出 216×216px PNG。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [定存利息試算器](https://www.kokoroflow.net/taiwan-deposit-calculator.html): 免費定存利息試算器：支援整存整付與零存整付，輸入本金、年利率、期間即可估算到期本息。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [台灣房貸試算器](https://www.kokoroflow.net/taiwan-mortgage-calculator.html): 免費台灣房貸試算器：支援寬限期兩段式還款，適合新青安等貸款評估每月還款。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [台灣實領薪水計算器](https://www.kokoroflow.net/taiwan-salary-calculator.html): 免費台灣實領薪水計算器：輸入月薪估算扣除勞保、健保、所得稅代扣後的實領金額。免上傳、免帳號，私人資料只在瀏覽器運算。
+- [隨機決定器](https://www.kokoroflow.net/Tools/decision-maker-zh.html): 免費隨機決定器：貼上選項一鍵抽籤，還能產生分享連結讓朋友一起決定。免上傳、免帳號，私人資料只在瀏覽器運算。
+
+## Optional
+
+- [All tools](https://www.kokoroflow.net/7tools.html): Directory of every KokoroFlow tool
+- [中文工具箱](https://www.kokoroflow.net/free-tools-zh.html): KokoroFlow 中文免費工具總覽
+- [Guides](https://www.kokoroflow.net/guides.html): Practical guides that accompany the calculators
+- [How to Set a Freelance Rate](https://www.kokoroflow.net/guide-freelance-rate.html)
+- [How to Compare MPG and L/100km](https://www.kokoroflow.net/guide-fuel-economy.html)
+- [Hourly Pay vs Annual Salary: A Practical Guide](https://www.kokoroflow.net/guide-hourly-salary.html)
+- [Mortgage Payment Estimates: What They Mean](https://www.kokoroflow.net/guide-mortgage-basics.html)
+- [Better Password Habits: A Practical Guide](https://www.kokoroflow.net/guide-passwords.html)
+- [Sales Tax vs VAT: A Practical Guide](https://www.kokoroflow.net/guide-sales-tax-vat.html)
+- [How to Build a Realistic Savings Goal](https://www.kokoroflow.net/guide-savings-goal.html)
+- [How to Plan Meetings Across Time Zones](https://www.kokoroflow.net/guide-time-zones.html)
+- [How to Calculate and Split a Tip](https://www.kokoroflow.net/guide-tipping.html)
+- [How to Build a Realistic Trip Budget](https://www.kokoroflow.net/guide-trip-budget.html)
+- [Privacy Policy](https://www.kokoroflow.net/privacy.html)

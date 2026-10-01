@@ -36,12 +36,12 @@
   <!-- Interactive tools (new Tools/ folder) -->
   <url>
     <loc>https://www.kokoroflow.net/Tools/decision-maker.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/decision-maker-zh.html</loc>
-    <lastmod>2026-09-20</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
@@ -51,90 +51,121 @@
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/school-age-calculator.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/json-formatter-merger.html</loc>
-    <lastmod>2026-09-27</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/image-to-text-ocr.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/email-extractor.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/upside-down-text-generator.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html</loc>
-    <lastmod>2026-09-28</lastmod>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
   <!-- Full calculators (own dedicated pages) -->
-  <url><loc>https://www.kokoroflow.net/salary-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/income-tax-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/mortgage-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/compound-interest-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/retirement-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/freelance-rate-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/currency-converter.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/trip-budget-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/bmi-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/calorie-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/tip-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/sales-tax-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/password-generator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/time-zone-converter.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/salary-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/income-tax-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/mortgage-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/compound-interest-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/retirement-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/freelance-rate-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/currency-converter.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/trip-budget-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/bmi-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/calorie-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/tip-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/sales-tax-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/password-generator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/time-zone-converter.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
   <url>
     <loc>https://www.kokoroflow.net/rent-vs-buy-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/texas-paycheck-calculator.html</loc>
-    <lastmod>2026-09-13</lastmod>
+    <lastmod>2026-10-01</lastmod>
   </url>
   <url>
     <loc>https://www.kokoroflow.net/printable-worksheets.html</loc>
     <lastmod>2026-09-13</lastmod>
   </url>
   <!-- Privacy-first file & photo tools -->
-  <url><loc>https://www.kokoroflow.net/image-compressor.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/image-converter.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/image-dpi-print-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/pdf-merge.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/pdf-split-reorder.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/exif-metadata-remover.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/business-days-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/duplicate-image-finder.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/batch-file-renamer.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/folder-diff-checker.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/bookmark-organizer.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/qr-code-generator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/fuel-economy-converter.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/return-or-keep-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/printer-cost-per-page-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/real-use-unit-cost-calculator.html</loc></url>
-  <url><loc>https://www.kokoroflow.net/partial-month-utilities-split-calculator.html</loc></url>
+  <url><loc>https://www.kokoroflow.net/image-compressor.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/image-converter.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/image-dpi-print-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/pdf-merge.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/pdf-split-reorder.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/exif-metadata-remover.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/business-days-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/duplicate-image-finder.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/batch-file-renamer.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/folder-diff-checker.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/bookmark-organizer.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/qr-code-generator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/fuel-economy-converter.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/return-or-keep-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/printer-cost-per-page-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/real-use-unit-cost-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
+  <url><loc>https://www.kokoroflow.net/partial-month-utilities-split-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod></url>
 
   <!-- Site / policy pages (from 7tools.html footer) -->
   <url><loc>https://www.kokoroflow.net/about.html</loc></url>
@@ -223,6 +254,49 @@
   </url>
   <url>
     <loc>https://www.kokoroflow.net/evelyn/editorial-policy.html</loc>
+    <changefreq>monthly</changefreq>
+  </url>
+
+
+  <!-- Added 2026-10-01: Chinese tools + salary converter that were missing -->
+  <url>
+    <loc>https://www.kokoroflow.net/salary-converter.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/jasiami.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/overtime-pay-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/ovulation-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/qr-code-generator-zh.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/taiwan-deposit-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/taiwan-mortgage-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/taiwan-salary-calculator.html</loc>
+    <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 
