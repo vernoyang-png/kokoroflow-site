@@ -69,7 +69,7 @@
 
     @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { width:100%; justify-content:flex-start; gap:4px; } main { padding:0 16px 46px; } .page-hero { margin-top:36px; } .block { padding:20px; } .footer-inner { padding:28px 16px; } }
     a:focus-visible, button:focus-visible, select:focus-visible, textarea:focus-visible { outline:3px solid var(--accent-2); outline-offset:2px; }
-  </style><style id="ai-facts-style">.ai-facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;max-width:1100px;margin:12px auto 20px;padding:0 20px;box-sizing:border-box}.ai-facts li{font-size:.86rem;line-height:1.4;padding:6px 12px;border:1px solid rgba(0,0,0,.12);border-radius:999px;background:rgba(255,255,255,.7)}</style></head><body>
+  </style><style id="ai-facts-style">.ai-facts{list-style:none;display:flex;flex-wrap:wrap;gap:8px;max-width:1100px;margin:12px auto 20px;padding:0 20px;box-sizing:border-box}.ai-facts li{font-size:.86rem;line-height:1.4;padding:6px 12px;border:1px solid rgba(0,0,0,.12);border-radius:999px;background:rgba(255,255,255,.7)}</style><style id="geo-faq-style">.geo-faq details{border-top:1px solid var(--line,#ddd);padding:12px 0}.geo-faq details:first-of-type{border-top:0}.geo-faq summary{cursor:pointer;font-weight:700}.geo-faq details p{margin:8px 0 0;color:var(--muted,#555)}</style></head><body>
 <a class="skip-link" href="#main">Skip to main content</a>
 <header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a></div></nav></header>
 
@@ -123,6 +123,13 @@
       <li><strong>Extract, then copy.</strong> The text appears in the box above once processing finishes — review it, since OCR isn't perfect, especially on handwriting or unusual fonts.</li>
     </ol>
   </section>
+  <section class="section block geo-faq">
+    <h2>Frequently asked questions</h2>
+      <details><summary>Is my image uploaded?</summary><p>No. The image is processed on your device; only the OCR engine and language data are downloaded.</p></details>
+      <details><summary>Which languages are supported?</summary><p>English, Simplified Chinese, Traditional Chinese, and English plus Traditional Chinese.</p></details>
+      <details><summary>How do I get better accuracy?</summary><p>Pick the correct language and use a clear, well-lit, reasonably high-resolution image.</p></details>
+  </section>
+
 
   <section class="section">
     <p class="notice">Your image is processed entirely in your browser using an open-source OCR engine (Tesseract.js) — it is never uploaded to KokoroFlow or any other server. The first extraction on a given language may take a little longer while the recognition model downloads.</p>
