@@ -45,11 +45,6 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.kokoroflow.net/Tools/group-randomizer.html</loc>
-    <lastmod>2026-09-27</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
@@ -186,10 +181,6 @@
     <changefreq>weekly</changefreq>
   </url>
   <!-- Seen in the Evaluation/ folder listing but not previously reviewed — this is distinct from /evelyn/editorial-policy.html below -->
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/editorial-policy.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
 
   <!-- Evaluation guides: laptops -->
   <url>
@@ -248,14 +239,6 @@
   </url>
 
   <!-- Evelyn (affiliate recommendations sub-site) -->
-  <url>
-    <loc>https://www.kokoroflow.net/evelyn/</loc>
-    <changefreq>weekly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/evelyn/editorial-policy.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
 
 
   <!-- Added 2026-10-01: Chinese tools + salary converter that were missing -->
@@ -305,4 +288,60 @@
     <changefreq>weekly</changefreq>
   </url>
 
+  <!-- Guides (added 2026-10) -->
+  <url>
+    <loc>https://www.kokoroflow.net/guides.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-freelance-rate.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-fuel-economy.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-hourly-salary.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-mortgage-basics.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-passwords.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-sales-tax-vat.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-savings-goal.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-time-zones.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-tipping.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
+  <url>
+    <loc>https://www.kokoroflow.net/guide-trip-budget.html</loc>
+    <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>
 </urlset>
