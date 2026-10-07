@@ -284,7 +284,7 @@
   </url>
   <url>
     <loc>https://www.kokoroflow.net/index-zh.html</loc>
-    <lastmod>2026-10-01</lastmod>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>weekly</changefreq>
   </url>
 
@@ -342,6 +342,10 @@
   <url>
     <loc>https://www.kokoroflow.net/guide-trip-budget.html</loc>
     <lastmod>2026-10-03</lastmod>
+    <changefreq>monthly</changefreq>
+  </url>  <url>
+    <loc>https://www.kokoroflow.net/sudoku-generator.html</loc>
+    <lastmod>2026-10-07</lastmod>
     <changefreq>monthly</changefreq>
   </url>
 </urlset>

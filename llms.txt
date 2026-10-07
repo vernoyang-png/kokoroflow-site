@@ -49,6 +49,7 @@ File tools (PDF, images, bookmarks, folders) process files locally on the device
 - [JSON Formatter & Merger](https://www.kokoroflow.net/Tools/json-formatter-merger.html): Free JSON formatter, validator and minifier with deep merge of two objects. No upload, no account – private, runs entirely in your browser.
 - [School Age Calculator](https://www.kokoroflow.net/Tools/school-age-calculator.html): Free school age calculator: a child's grade, kindergarten start and graduation year from birthdate and cutoff, or birthdates for a grade. No upload, no account, private, in-browser.
 - [Upside Down Text Generator](https://www.kokoroflow.net/Tools/upside-down-text-generator.html): Free upside down text generator: flip text with Unicode and copy it, or flip it back. No upload, no account – private, runs in your browser.
+- [Sudoku Generator & Printable PDF Maker](https://www.kokoroflow.net/sudoku-generator.html): Free sudoku generator: printable puzzles with exactly one solution, easy to hard or mixed, large print, answer keys, PDF in Letter, 6×9 or A4. No upload, no account – private, browser-only.
 
 ## 中文工具（繁體中文）
 
