@@ -28,32 +28,8 @@
     <loc>https://www.kokoroflow.net/free-tools-zh.html</loc>
     <changefreq>weekly</changefreq>
   </url>
-  <url>
-    <loc>https://www.kokoroflow.net/ai-prompt-journal.html</loc>
-    <changefreq>monthly</changefreq>
-  </url>
 
   <!-- Interactive tools (new Tools/ folder) -->
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/decision-maker.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/decision-maker-zh.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/fantasy-sports-points-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/school-age-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/json-formatter-merger.html</loc>
     <lastmod>2026-10-01</lastmod>
@@ -61,26 +37,6 @@
   </url>
   <url>
     <loc>https://www.kokoroflow.net/Tools/image-to-text-ocr.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/email-extractor.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/upside-down-text-generator.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/baking-brewing-recipe-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Tools/carbon-footprint-calculator.html</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
@@ -101,10 +57,6 @@
   <url><loc>https://www.kokoroflow.net/currency-converter.html</loc>
     <lastmod>2026-10-01</lastmod></url>
   <url><loc>https://www.kokoroflow.net/trip-budget-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://www.kokoroflow.net/bmi-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod></url>
-  <url><loc>https://www.kokoroflow.net/calorie-calculator.html</loc>
     <lastmod>2026-10-01</lastmod></url>
   <url><loc>https://www.kokoroflow.net/tip-calculator.html</loc>
     <lastmod>2026-10-01</lastmod></url>
@@ -176,67 +128,13 @@
 
   <!-- Evaluation section index and policy page -->
   <!-- Seen in the Evaluation/ folder listing but not previously reviewed — verify title/content before relying on this entry -->
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/index.html</loc>
-    <changefreq>weekly</changefreq>
-  </url>
   <!-- Seen in the Evaluation/ folder listing but not previously reviewed — this is distinct from /evelyn/editorial-policy.html below -->
 
   <!-- Evaluation guides: laptops -->
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html</loc>
-    <lastmod>2026-09-08</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/student-laptops-top-6.html</loc>
-    <lastmod>2026-09-11</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
 
   <!-- Evaluation guides: home office (new) -->
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/best-usb-c-docking-stations-home-office.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/best-ergonomic-mice-home-office.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/best-monitors-home-office.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/ergonomic-peripherals-pain-point-guide.html</loc>
-    <lastmod>2026-09-20</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
 
   <!-- Evaluation guides: renter-friendly appliances -->
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/renter-friendly-appliances-guide.html</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/portable-dishwasher-no-install-top-8.html</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/portable-washer-dryer-combo-no-install-top-8.html</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/Evaluation/portable-air-conditioner-no-window-top-8.html</loc>
-    <lastmod>2026-09-13</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
 
   <!-- Evelyn (affiliate recommendations sub-site) -->
 
@@ -248,17 +146,7 @@
     <changefreq>monthly</changefreq>
   </url>
   <url>
-    <loc>https://www.kokoroflow.net/jasiami.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
     <loc>https://www.kokoroflow.net/overtime-pay-calculator.html</loc>
-    <lastmod>2026-10-01</lastmod>
-    <changefreq>monthly</changefreq>
-  </url>
-  <url>
-    <loc>https://www.kokoroflow.net/ovulation-calculator.html</loc>
     <lastmod>2026-10-01</lastmod>
     <changefreq>monthly</changefreq>
   </url>
