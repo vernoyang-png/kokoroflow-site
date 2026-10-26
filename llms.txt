@@ -2,7 +2,7 @@
 
 > KokoroFlow (kokoroflow.net) offers free, private, browser-only tools and calculators. Every tool runs in the visitor's browser: no upload, no account, no sign-up. KokoroFlow 提供免費、免上傳、免帳號、在瀏覽器運算的私人線上工具。
 
-File tools (PDF, images, bookmarks, folders) process files locally on the device; nothing is sent to a server. The only tool that makes a network request is the Currency Converter, which fetches a public reference exchange rate (currency codes only). Calculators give planning estimates, not financial, tax, legal or medical advice.
+File tools (PDF, images, bookmarks, folders) process files locally on the device; the files themselves are not uploaded. Pages still load normal site assets and ads, and a few tools load an open-source library from a public CDN: the QR Code Generator loads qrcodejs from cdnjs, the Batch File Renamer loads JSZip from cdnjs, and Image to Text OCR loads Tesseract.js and its language data from a CDN (the image stays in the browser). The Currency Converter fetches a public reference exchange rate from open.er-api.com, sending only currency codes. Calculators give planning estimates, not financial, tax, legal or medical advice.
 
 ## English tools
 
