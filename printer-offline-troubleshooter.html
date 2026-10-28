@@ -1,0 +1,397 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Printer Offline Troubleshooter – Fix Wi-Fi &amp; USB Printers</title><meta name="description" content="Printer says offline? Answer four quick questions and get an ordered fix checklist for Windows, Mac, iPhone and Chromebook. Free, no account needed."><link rel="canonical" href="https://www.kokoroflow.net/Tools/printer-offline-troubleshooter.html"><meta property="og:title" content="Printer Offline Troubleshooter – Step-by-Step Fix for Wi-Fi &amp; USB Printers | KokoroFlow"><meta property="og:description" content="Answer four quick questions and get an ordered checklist to bring an offline printer back. Windows, Mac, iPhone and Chromebook."><meta property="og:type" content="website"><meta property="og:url" content="https://www.kokoroflow.net/Tools/printer-offline-troubleshooter.html"><meta name="theme-color" content="#f7f4ee"><link rel="icon" type="image/jpeg" href="../kokoroflow-logo.jpg">
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"WebApplication","name":"Printer Offline Troubleshooter","applicationCategory":"UtilitiesApplication","operatingSystem":"Any (Web browser)","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Interactive checklist that orders printer-offline fixes by brand, connection type, device and when the problem started.","url":"https://www.kokoroflow.net/Tools/printer-offline-troubleshooter.html","inLanguage":"en","isAccessibleForFree":true,"browserRequirements":"Requires JavaScript","publisher":{"@type":"Organization","@id":"https://www.kokoroflow.net/#organization","name":"KokoroFlow","url":"https://www.kokoroflow.net/"},"dateModified":"2026-10-20"},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.kokoroflow.net/"},{"@type":"ListItem","position":2,"name":"All Tools","item":"https://www.kokoroflow.net/7tools.html"},{"@type":"ListItem","position":3,"name":"Printer Offline Troubleshooter","item":"https://www.kokoroflow.net/Tools/printer-offline-troubleshooter.html"}]},{"@type":"FAQPage","inLanguage":"en","mainEntity":[{"@type":"Question","name":"Why does my printer say offline when it is turned on?","acceptedAnswer":{"@type":"Answer","text":"Offline means your computer or phone cannot reach the printer, not that the printer is off. The most common causes are the printer dropping off Wi-Fi, the printer getting a new IP address after a router restart, being on a different network (such as a guest network), a stuck print queue, or an error on the printer itself such as a paper jam."}},{"@type":"Question","name":"Do I need the HP Smart app or an HP account to print?","acceptedAnswer":{"@type":"Answer","text":"For most HP printers, no. Windows can add the printer from Settings, and Mac, iPhone and iPad can print with AirPrint on supported models. The exception is HP+ printers: HP states that HP+ requires an HP account, an internet connection and Original HP Ink for the life of the printer."}},{"@type":"Question","name":"Why did my printer go offline after I got a new router?","acceptedAnswer":{"@type":"Answer","text":"The printer still remembers the old network name and password, so it needs to be connected to the new network. Some printers also only support 2.4 GHz Wi-Fi, which can cause problems with routers that combine 2.4 GHz and 5 GHz under one network name."}},{"@type":"Question","name":"How do I stop my printer from going offline again?","acceptedAnswer":{"@type":"Answer","text":"Reserve the printer's IP address in your router (DHCP reservation), keep it on your main network rather than a guest network, place it where the Wi-Fi signal is strong, and install firmware and driver updates from the manufacturer's official website."}},{"@type":"Question","name":"Should I call a printer support phone number I found online?","acceptedAnswer":{"@type":"Answer","text":"Only use contact details found on the manufacturer's own website. Fake support numbers are common in printer search results and pop-ups, and real manufacturers will not ask for remote access to your computer through an unsolicited call."}}]}]}</script>
+<style>
+:root{--bg:#f7f4ee;--surface:#fffdf8;--surface-2:#eee7dc;--text:#202124;--muted:#5f6368;--line:#ded7cc;--accent:#2f6f62;--accent-2:#b35a2a;--accent-soft:#e6f1ed;--warn-bg:#fbeee6;--warn-line:#e9c7ad;--warn-text:#7a3a12;--shadow:0 16px 50px rgba(32,33,36,.08);--radius:10px;--wrap:820px}
+*{box-sizing:border-box}
+body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;color:var(--text);background:var(--bg);line-height:1.7;text-size-adjust:100%}
+a{color:inherit}
+.skip-link{position:absolute;left:16px;top:-48px;z-index:20;background:var(--text);color:#fff;padding:10px 14px;border-radius:6px;transition:top .2s}
+.skip-link:focus{top:16px}
+.site-header{position:sticky;top:0;z-index:10;border-bottom:1px solid rgba(222,215,204,.9);background:rgba(247,244,238,.94);backdrop-filter:blur(14px)}
+.nav{max-width:1120px;margin:0 auto;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{display:inline-flex;align-items:center;gap:10px;text-decoration:none;font-weight:800;white-space:nowrap;color:var(--text)}
+.nav-links{display:flex;align-items:center;gap:6px;flex-wrap:wrap;justify-content:flex-end}
+.nav-links a{min-height:40px;display:inline-flex;align-items:center;padding:8px 12px;border-radius:999px;color:var(--muted);text-decoration:none;font-size:15px;font-weight:500}
+.nav-links a:hover{color:var(--text);background:var(--surface)}
+main{max-width:var(--wrap);margin:0 auto;padding:0 24px 72px}
+.page-hero{margin:48px auto 24px;text-align:center}
+.eyebrow{margin:0 0 12px;color:var(--accent);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+h1,h2,h3,p{margin-top:0}
+h1{margin-bottom:14px;font-size:clamp(28px,5vw,42px);line-height:1.2}
+h2{font-size:clamp(22px,3vw,28px);line-height:1.3;margin-bottom:12px}
+h3{font-size:18px;line-height:1.4;margin:22px 0 8px}
+.lead{color:var(--muted);font-size:clamp(15px,2vw,17px);max-width:620px;margin:0 auto}
+.facts{list-style:none;display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin:18px 0 0;padding:0}
+.facts li{font-size:13.5px;padding:5px 12px;border:1px solid var(--line);border-radius:999px;background:var(--surface)}
+.block{padding:26px;border:1px solid var(--line);border-radius:var(--radius);background:var(--surface);box-shadow:var(--shadow);margin-top:20px}
+fieldset{border:0;margin:0 0 18px;padding:0}
+legend{font-weight:800;font-size:15.5px;margin-bottom:10px;padding:0}
+.qnum{display:inline-grid;place-items:center;width:24px;height:24px;border-radius:50%;background:var(--accent);color:#fff;font-size:13px;margin-right:8px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{position:relative;cursor:pointer}
+.chips input{position:absolute;opacity:0;width:1px;height:1px}
+.chips span{display:inline-flex;align-items:center;min-height:44px;padding:8px 16px;border:1px solid var(--line);border-radius:999px;background:var(--bg);font-size:15px;font-weight:600;transition:background .15s,border-color .15s}
+.chips input:checked+span{background:var(--accent);border-color:var(--accent);color:#fff}
+.chips input:focus-visible+span{outline:3px solid var(--accent-2);outline-offset:2px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:48px;padding:12px 22px;border:none;border-radius:999px;background:var(--accent-2);color:#fff;font:inherit;font-size:16px;font-weight:800;cursor:pointer;box-shadow:0 10px 24px rgba(179,90,42,.25)}
+.btn:hover{background:#9c4c21}
+.btn[disabled]{opacity:.45;cursor:not-allowed;box-shadow:none}
+.btn-ghost{background:var(--surface-2);color:var(--text);box-shadow:none;font-weight:700;font-size:15px;min-height:42px;padding:8px 16px}
+.btn-ghost:hover{background:#e3dbcc}
+.btn-ok{background:var(--accent);box-shadow:none;font-size:14px;min-height:38px;padding:6px 14px}
+.btn-ok:hover{background:#24584e}
+.row{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+.hint{color:var(--muted);font-size:14px;margin:8px 0 0}
+#plan[hidden],#outcome[hidden]{display:none}
+.summary{padding:12px 14px;border-radius:var(--radius);background:var(--accent-soft);font-size:14.5px;margin-bottom:16px}
+.note{padding:12px 14px;border-radius:var(--radius);background:var(--warn-bg);border:1px solid var(--warn-line);color:var(--warn-text);font-size:14.5px;margin-bottom:16px}
+.progress{font-size:14px;color:var(--muted);margin:0 0 10px}
+.bar{height:8px;border-radius:999px;background:var(--surface-2);overflow:hidden;margin-bottom:18px}
+.bar i{display:block;height:100%;width:0;background:var(--accent);transition:width .2s}
+ol.checklist{list-style:none;margin:0;padding:0;counter-reset:s}
+.step{counter-increment:s;border:1px solid var(--line);border-radius:var(--radius);padding:16px 16px 14px 56px;margin-bottom:12px;position:relative;background:var(--surface)}
+.step::before{content:counter(s);position:absolute;left:16px;top:16px;width:28px;height:28px;border-radius:50%;background:var(--surface-2);display:grid;place-items:center;font-weight:800;font-size:14px}
+.step.done{background:#f3f8f6;border-color:#cfe2db}
+.step.done::before{content:"✓";background:var(--accent);color:#fff}
+.step h3{margin:2px 0 6px;font-size:16.5px}
+.step p,.step li{font-size:15px;color:#3c4043;margin:0 0 8px}
+.step ul{padding-left:20px;margin:0 0 8px}
+.step .tag{display:inline-block;font-size:11.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--accent);margin-bottom:2px}
+.step .actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+.step label.tried{display:inline-flex;align-items:center;gap:8px;font-size:14px;font-weight:700;cursor:pointer;min-height:38px}
+.step label.tried input{width:18px;height:18px;accent-color:var(--accent)}
+.src{font-size:13px;color:var(--muted)}
+.src a{color:var(--accent)}
+.outcome-card{border:1px solid var(--line);border-radius:var(--radius);padding:18px;margin-top:14px;background:var(--surface)}
+.outcome-card.good{border-color:#cfe2db;background:#f3f8f6}
+.outcome-card ul{padding-left:20px}
+.aff{border:1px dashed var(--line);border-radius:var(--radius);padding:14px;margin-top:12px;background:var(--bg)}
+.aff p.disc{font-size:13px;color:var(--muted);margin:0 0 8px}
+.aff ul{margin:0;padding-left:20px}
+textarea{width:100%;min-height:150px;padding:12px;border:1px solid var(--line);border-radius:var(--radius);font:inherit;font-size:14px;background:var(--bg);color:var(--text);resize:vertical}
+.content h2{margin-top:34px}
+.content p,.content li{font-size:16px}
+.content ul,.content ol{padding-left:22px}
+.geo-faq details{border-top:1px solid var(--line);padding:12px 0}
+.geo-faq summary{cursor:pointer;font-weight:700}
+.geo-faq p{margin:8px 0 0}
+.disclosure-top{font-size:13px;color:var(--muted);text-align:center;margin:10px 0 0}
+.toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%);background:var(--text);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;opacity:0;transition:opacity .2s;pointer-events:none}
+.toast.show{opacity:1}
+.site-footer{border-top:1px solid var(--line);background:var(--surface);margin-top:40px}
+.footer-inner{max-width:1120px;margin:0 auto;padding:34px 24px;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;color:var(--muted);font-size:14px}
+.footer-links a{text-decoration:none;font-weight:600;color:var(--accent)}
+@media (max-width:640px){.nav{align-items:flex-start;flex-direction:column;padding:12px 16px}.nav-links{width:100%;justify-content:flex-start;gap:4px}main{padding:0 16px 46px}.block{padding:18px}.step{padding:14px 14px 12px 50px}.step::before{left:12px}.footer-inner{padding:28px 16px}}
+a:focus-visible,button:focus-visible,textarea:focus-visible{outline:3px solid var(--accent-2);outline-offset:2px}
+</style>
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+</head><body>
+<a class="skip-link" href="#main">Skip to main content</a>
+<header class="site-header"><nav class="nav" aria-label="Primary"><a class="brand" href="https://www.kokoroflow.net/">KokoroFlow</a><div class="nav-links"><a href="https://www.kokoroflow.net/7tools.html">All Tools</a><a href="https://www.kokoroflow.net/guides.html">Guides</a></div></nav></header>
+
+<main id="main">
+  <div class="page-hero">
+    <p class="eyebrow">Free tools / Printer help</p>
+    <h1>Printer Offline Troubleshooter</h1>
+    <p class="lead">Your printer is on, but your computer or phone says it's offline. Answer four quick questions and get a checklist in the order most likely to fix it: simple steps first, nothing you don't need.</p>
+    <ul class="facts"><li>Windows, Mac, iPhone/iPad, Chromebook</li><li>Wi-Fi, USB and Ethernet</li><li>No account, no phone numbers</li><li>Last updated: October 2026</li></ul>
+    <p class="disclosure-top">As an Amazon Associate I earn from qualifying purchases. Product links appear only in the "time to replace it?" section.</p>
+  </div>
+
+  <section class="block" aria-labelledby="q-title">
+    <h2 id="q-title">Tell us about your setup</h2>
+    <form id="qform" novalidate>
+      <fieldset><legend><span class="qnum">1</span>Printer brand</legend><div class="chips" data-q="brand">
+        <label><input type="radio" name="brand" value="hp"><span>HP</span></label>
+        <label><input type="radio" name="brand" value="canon"><span>Canon</span></label>
+        <label><input type="radio" name="brand" value="epson"><span>Epson</span></label>
+        <label><input type="radio" name="brand" value="brother"><span>Brother</span></label>
+        <label><input type="radio" name="brand" value="other"><span>Other / not sure</span></label>
+      </div></fieldset>
+      <fieldset><legend><span class="qnum">2</span>How is the printer connected?</legend><div class="chips" data-q="conn">
+        <label><input type="radio" name="conn" value="wifi"><span>Wi-Fi</span></label>
+        <label><input type="radio" name="conn" value="usb"><span>USB cable</span></label>
+        <label><input type="radio" name="conn" value="ethernet"><span>Network (Ethernet) cable</span></label>
+      </div></fieldset>
+      <fieldset><legend><span class="qnum">3</span>What are you printing from?</legend><div class="chips" data-q="os">
+        <label><input type="radio" name="os" value="windows"><span>Windows PC</span></label>
+        <label><input type="radio" name="os" value="mac"><span>Mac</span></label>
+        <label><input type="radio" name="os" value="ios"><span>iPhone / iPad</span></label>
+        <label><input type="radio" name="os" value="chromebook"><span>Chromebook</span></label>
+      </div></fieldset>
+      <fieldset><legend><span class="qnum">4</span>When did it start?</legend><div class="chips" data-q="start">
+        <label><input type="radio" name="start" value="sudden"><span>It worked, then suddenly stopped</span></label>
+        <label><input type="radio" name="start" value="update"><span>After a Windows or Mac update</span></label>
+        <label><input type="radio" name="start" value="router"><span>After a new router or Wi-Fi change</span></label>
+        <label><input type="radio" name="start" value="never"><span>It has never worked</span></label>
+      </div></fieldset>
+      <div class="row"><button class="btn" type="submit" id="go" disabled>Show my checklist</button><span class="hint" id="qhint">Answer all four questions to continue.</span></div>
+    </form>
+  </section>
+
+  <section class="block" id="plan" hidden aria-labelledby="plan-title" tabindex="-1">
+    <h2 id="plan-title">Your checklist</h2>
+    <div class="summary" id="summary"></div>
+    <div class="note" id="plan-note" hidden></div>
+    <p class="progress" id="progress"></p>
+    <div class="bar" aria-hidden="true"><i id="bar"></i></div>
+    <ol class="checklist" id="steps"></ol>
+    <div class="row" style="margin-top:14px">
+      <button class="btn" type="button" id="all-tried">I tried everything – still offline</button>
+      <button class="btn btn-ghost" type="button" id="copy-link">Copy link to this checklist</button>
+      <button class="btn btn-ghost" type="button" id="reset">Start over</button>
+    </div>
+  </section>
+
+  <section class="block" id="outcome" hidden aria-live="polite" tabindex="-1"></section>
+
+  <section class="block" aria-labelledby="ai-title">
+    <h2 id="ai-title">Ask an AI assistant with full context</h2>
+    <p class="hint" style="margin:0 0 10px">If you'd rather ask ChatGPT, Gemini or Copilot, copy this prompt. It includes your answers and the steps you've already tried, so the assistant doesn't start from scratch.</p>
+    <textarea id="prompt" readonly aria-label="AI prompt text">Answer the four questions above to build a prompt.</textarea>
+    <div class="row" style="margin-top:10px"><button class="btn btn-ghost" type="button" id="copy-prompt">Copy prompt</button></div>
+  </section>
+
+  <article class="content">
+    <h2>Why a printer shows "offline" when it is clearly on</h2>
+    <p>"Offline" is your computer's or phone's way of saying it can't reach the printer right now. It does not mean the printer is switched off. In home setups, the cause is usually one of five things:</p>
+    <ol>
+      <li><strong>The printer dropped off Wi-Fi.</strong> A power blip, a router restart, or a weak signal can disconnect it, and some printers don't reconnect on their own.</li>
+      <li><strong>The printer's address changed.</strong> Routers hand out IP addresses automatically. After a restart the printer may get a new one, while your computer keeps looking for the old one.</li>
+      <li><strong>You're on a different network.</strong> Guest networks, a separate 5 GHz network name, a phone hotspot, or a VPN can all hide the printer.</li>
+      <li><strong>The print queue is stuck.</strong> One failed job can block everything behind it, and Windows may then mark the printer offline.</li>
+      <li><strong>The printer has its own error.</strong> A paper jam, an open cover, or an ink or toner problem can make the computer report "offline" instead of the real error.</li>
+    </ol>
+    <p>That's why the checklist starts with the printer itself, then the network, then your computer's settings, and only reaches drivers and updates near the end. Most offline problems are fixed in the first few steps.</p>
+
+    <h2>Prevent it from happening again</h2>
+    <ul>
+      <li><strong>Reserve the printer's IP address.</strong> In your router's settings, look for DHCP reservation (sometimes called a static lease or address reservation) and assign one address to the printer. This prevents the most common repeat cause.</li>
+      <li><strong>Keep it on your main network.</strong> Not the guest network, and not a network your computer rarely uses.</li>
+      <li><strong>Give it a good signal.</strong> Printers often sit in corners, basements, or home offices far from the router. If it works only when you move it closer, the spot has weak coverage.</li>
+      <li><strong>Update from official sources only.</strong> Download drivers and firmware from the manufacturer's own website.</li>
+    </ul>
+
+    <h2>A note on printer "support" phone numbers</h2>
+    <p>Printer searches attract fake support pages that list phone numbers that don't belong to HP, Canon, Epson or Brother. Use only contact details you find on the manufacturer's own site, which are linked in the results above. Never give remote access to your computer to someone who contacted you unexpectedly. This page doesn't list any phone numbers.</p>
+
+    <h2>Frequently asked questions</h2>
+    <div class="geo-faq">
+      <details><summary>Why does my printer say offline when it is turned on?</summary><p>Offline means your computer or phone cannot reach the printer, not that the printer is off. The most common causes are the printer dropping off Wi-Fi, the printer getting a new IP address after a router restart, being on a different network (such as a guest network), a stuck print queue, or an error on the printer itself such as a paper jam.</p></details>
+      <details><summary>Do I need the HP Smart app or an HP account to print?</summary><p>For most HP printers, no. Windows can add the printer from Settings, and Mac, iPhone and iPad can print with AirPrint on supported models. The exception is HP+ printers: HP states that HP+ requires an HP account, an internet connection and Original HP Ink for the life of the printer.</p></details>
+      <details><summary>Why did my printer go offline after I got a new router?</summary><p>The printer still remembers the old network name and password, so it needs to be connected to the new network. Some printers also only support 2.4 GHz Wi-Fi, which can cause problems with routers that combine 2.4 GHz and 5 GHz under one network name.</p></details>
+      <details><summary>How do I stop my printer from going offline again?</summary><p>Reserve the printer's IP address in your router (DHCP reservation), keep it on your main network rather than a guest network, place it where the Wi-Fi signal is strong, and install firmware and driver updates from the manufacturer's official website.</p></details>
+      <details><summary>Should I call a printer support phone number I found online?</summary><p>Only use contact details found on the manufacturer's own website. Fake support numbers are common in printer search results and pop-ups, and real manufacturers will not ask for remote access to your computer through an unsolicited call.</p></details>
+    </div>
+
+    <h2>Sources</h2>
+    <ul class="src">
+      <li><a href="https://support.microsoft.com/help/4496876" rel="noopener" target="_blank">Microsoft: Troubleshooting offline printer problems in Windows</a></li>
+      <li><a href="https://support.microsoft.com/kb/810894" rel="noopener" target="_blank">Microsoft: Fix printer connection and printing problems in Windows</a></li>
+      <li><a href="https://support.apple.com/en-ph/guide/mac-help/-mh14001/14.0/mac/14.0" rel="noopener" target="_blank">Apple: Reset the printing system on your Mac</a></li>
+      <li><a href="https://www.hp.com/us-en/printers/hp-plus/faq.html" rel="noopener" target="_blank">HP: HP+ frequently asked questions</a></li>
+      <li><a href="https://hp.com/go/tools" rel="noopener" target="_blank">HP: Print and Scan Doctor</a></li>
+    </ul>
+    <p class="src">Checked October 2026. Menu names can change between system versions; if a menu looks different, search your device's Settings for the same words.</p>
+    <p class="src">Related: <a href="../printer-cost-per-page-calculator.html">Printer cost per page calculator</a> · <a href="../guides.html">Practical guides</a></p>
+  </article>
+</main>
+
+<div class="toast" id="toast" role="status"></div>
+
+<footer class="site-footer"><div class="footer-inner"><span>© 2026 KokoroFlow · Free tools &amp; practical guides</span><div class="footer-links"><a href="https://www.kokoroflow.net/about.html">About</a> · <a href="https://www.kokoroflow.net/contact.html">Contact</a> · <a href="https://www.kokoroflow.net/privacy.html">Privacy</a> · <a href="https://www.kokoroflow.net/affiliate-disclosure.html">Affiliate disclosure</a></div></div></footer>
+
+<script type="application/json" id="tree">
+{
+  "version": "2026-10-20",
+  "labels": {
+    "brand": {"hp": "HP", "canon": "Canon", "epson": "Epson", "brother": "Brother", "other": "another brand"},
+    "conn": {"wifi": "Wi-Fi", "usb": "USB", "ethernet": "Ethernet"},
+    "os": {"windows": "a Windows PC", "mac": "a Mac", "ios": "an iPhone or iPad", "chromebook": "a Chromebook"},
+    "start": {"sudden": "it worked, then suddenly stopped", "update": "it started after a system update", "router": "it started after a router or Wi-Fi change", "never": "it has never worked"}
+  },
+  "support": {
+    "hp": {"name": "HP Customer Support", "url": "https://support.hp.com/us-en"},
+    "canon": {"name": "Canon U.S.A. Support", "url": "https://www.usa.canon.com/support"},
+    "epson": {"name": "Epson Support", "url": "https://epson.com/support"},
+    "brother": {"name": "Brother USA Support", "url": "https://www.brother-usa.com/support"}
+  },
+  "paths": {
+    "wifi": {
+      "sudden": ["restart", "panel", "printer-wifi", "same-network", "router-restart", "queue", "spooler", "mac-readd", "ios-airprint", "chrome-readd", "ip-change", "signal", "hp-noapp"],
+      "router": ["restart", "panel", "rejoin", "band", "guest", "queue", "spooler", "readd-all", "ios-airprint", "ip-reserve", "hp-noapp"],
+      "update": ["restart", "panel", "queue", "spooler", "readd", "ios-airprint", "chrome-readd", "driver", "mac-update", "ios-update", "chrome-update", "win-rollback", "mac-reset", "hp-noapp"],
+      "never": ["restart", "panel", "setup", "band", "same-network", "guest", "ios-airprint", "chrome-readd", "readd", "driver", "hp-noapp"]
+    },
+    "usb": {
+      "sudden": ["restart", "panel", "usb-cable", "usb-detect-win", "usb-detect-mac", "chrome-usb", "queue", "spooler", "usb-port", "readd", "hp-noapp"],
+      "update": ["restart", "panel", "usb-cable", "queue", "spooler", "usb-detect-win", "usb-detect-mac", "chrome-usb", "readd", "driver", "mac-update", "chrome-update", "win-rollback", "mac-reset", "hp-noapp"],
+      "router": ["restart", "panel", "usb-cable", "usb-detect-win", "usb-detect-mac", "chrome-usb", "queue", "spooler", "readd", "hp-noapp"],
+      "never": ["restart", "panel", "usb-cable", "usb-detect-win", "usb-detect-mac", "chrome-usb", "driver", "usb-port", "readd", "hp-noapp"]
+    },
+    "ethernet": {
+      "sudden": ["restart", "panel", "eth-cable", "same-network", "router-restart", "queue", "spooler", "mac-readd", "ios-airprint", "chrome-readd", "ip-change", "hp-noapp"],
+      "router": ["restart", "panel", "eth-cable", "same-network", "guest", "readd-all", "ip-reserve", "hp-noapp"],
+      "update": ["restart", "panel", "eth-cable", "same-network", "queue", "spooler", "readd", "ios-airprint", "chrome-readd", "driver", "mac-update", "ios-update", "chrome-update", "win-rollback", "mac-reset", "hp-noapp"],
+      "never": ["restart", "panel", "eth-cable", "same-network", "guest", "readd", "driver", "hp-noapp"]
+    }
+  },
+  "steps": {
+    "restart": {"tag": "Printer", "title": "Restart the printer properly", "body": "<p>Turn the printer off, unplug it from the wall, wait 30 seconds, then plug it back in and turn it on. Wait until it has fully started (lights stop blinking) before you try to print.</p>", "cause": "The printer's connection had stalled and a full power cycle reset it."},
+    "panel": {"tag": "Printer", "title": "Check the printer's own screen or lights", "body": "<p>A paper jam, empty tray, open cover, or ink or toner error can make your computer say \"offline\" instead of showing the real problem. If the printer shows an error or a blinking warning light, fix that first.</p>", "cause": "An error on the printer itself (paper, cover, ink or toner) was blocking printing."},
+    "printer-wifi": {"tag": "Network", "title": "Confirm the printer is still on Wi-Fi", "body": "<p>Check the printer's Wi-Fi light or the wireless menu on its screen. Most printers can print a <strong>network configuration</strong> or <strong>wireless test</strong> page from the control panel. It shows whether the printer is connected, the network name (SSID) and its IP address.</p><p>If it isn't connected, run the wireless setup wizard on the printer and choose your network.</p>", "cause": "The printer had dropped off the Wi-Fi network."},
+    "same-network": {"tag": "Network", "title": "Make sure your device is on the same network", "body": "<p>Your computer or phone has to be on the same network as the printer. Common mix-ups:</p><ul><li>Connected to a <strong>guest network</strong> or a separate \"-5G\" network name</li><li>Using a <strong>phone hotspot</strong> instead of home Wi-Fi</li><li>A <strong>VPN</strong> that blocks local devices. Pause it and try again.</li></ul>", "cause": "Your device and the printer were on different networks."},
+    "router-restart": {"tag": "Network", "title": "Restart the router, then the printer", "body": "<p>Unplug your router (and any mesh units) for 30 seconds, plug it back in and wait about two minutes for Wi-Fi to come back. Then restart the printer so it rejoins the network.</p>", "cause": "The router had stopped passing traffic to the printer until it was restarted."},
+    "queue": {"tag": "Windows", "os": ["windows"], "title": "Clear the print queue", "body": "<p>Go to <strong>Start &gt; Settings &gt; Bluetooth &amp; devices &gt; Printers &amp; scanners</strong>, select your printer and choose <strong>Open print queue</strong>. Select the <strong>…</strong> menu and <strong>Cancel all</strong>.</p><p>If you see a <strong>Printer</strong> menu with <strong>Use Printer Offline</strong>, make sure it is unchecked.</p>", "cause": "A stuck job in the print queue was blocking everything behind it.", "src": "microsoft"},
+    "spooler": {"tag": "Windows", "os": ["windows"], "title": "Restart the Print Spooler service", "body": "<p>Search for <strong>Services</strong> from the taskbar and open it. Find <strong>Print Spooler</strong> in the list, right-click it and choose <strong>Restart</strong>. Then try printing again.</p>", "cause": "The Windows Print Spooler service had stopped responding.", "src": "microsoft"},
+    "mac-readd": {"tag": "Mac", "os": ["mac"], "title": "Remove the printer and add it again", "body": "<p>Open <strong>System Settings &gt; Printers &amp; Scanners</strong>. Select the printer and remove it, then choose <strong>Add Printer, Scanner, or Fax</strong> and add it again from the list.</p>", "cause": "Your Mac was still using an old connection to the printer."},
+    "ios-airprint": {"tag": "iPhone / iPad", "os": ["ios"], "title": "Check AirPrint and Local Network access", "body": "<ul><li>AirPrint only finds printers on the <strong>same Wi-Fi network</strong>. Check <strong>Settings &gt; Wi-Fi</strong> first.</li><li>Make sure your printer supports AirPrint (it's usually listed on the box or in the specs).</li><li>If you print from a printer maker's app, open <strong>Settings &gt; Privacy &amp; Security &gt; Local Network</strong> and allow that app.</li><li>Restart the iPhone or iPad, then try <strong>Share &gt; Print</strong> again.</li></ul>", "cause": "The iPhone or iPad couldn't see the printer on the local network."},
+    "chrome-readd": {"tag": "Chromebook", "os": ["chromebook"], "title": "Remove and re-add the printer in ChromeOS", "body": "<p>Open <strong>Settings</strong> and search for <strong>Printers</strong>. Remove your printer from the saved printers, then add it again from the list of printers found on your network.</p>", "cause": "The Chromebook was still using an old connection to the printer."},
+    "ip-change": {"tag": "Network", "title": "Fix a changed IP address", "body": "<p>After a router restart or power outage, the router may give the printer a new IP address while your device keeps looking for the old one. Compare the IP on the printer's network page with the one your device uses, or simply remove the printer and add it again.</p><p><strong>To prevent it:</strong> in your router's settings, set up a <strong>DHCP reservation</strong> (also called a static lease) for the printer.</p>", "cause": "The printer got a new IP address and your device was still using the old one."},
+    "ip-reserve": {"tag": "Network", "title": "Reserve the printer's IP address on the new router", "body": "<p>Once everything prints, open your new router's settings or app and set up a <strong>DHCP reservation</strong> (static lease) for the printer. That keeps its address the same after future restarts.</p>", "cause": "The printer's address changed on the new network."},
+    "signal": {"tag": "Network", "title": "Test for a weak Wi-Fi signal", "body": "<p>Move the printer closer to the router (or bring a laptop next to the printer) and print a test page. If it works up close but not in its usual spot, the Wi-Fi signal there is too weak. A mesh Wi-Fi system or Wi-Fi extender can cover that area.</p>", "cause": "The printer sits in a weak-signal area and keeps losing Wi-Fi.", "aff": "signal"},
+    "rejoin": {"tag": "Network", "title": "Connect the printer to the new network", "body": "<p>Printers remember the old network name and password. Connect yours to the new network using one of these:</p><ul><li>The <strong>wireless setup wizard</strong> on the printer's control panel</li><li>The router's <strong>WPS</strong> button, if both the printer and router support it</li><li>The manufacturer's official setup instructions or app</li></ul>", "cause": "The printer was still trying to join the old Wi-Fi network."},
+    "band": {"tag": "Network", "title": "Check for a 2.4 GHz-only printer", "body": "<p>Some printers only support <strong>2.4 GHz</strong> Wi-Fi. Routers and mesh systems that combine 2.4 GHz and 5 GHz under one network name can make these printers fail to connect or keep dropping.</p><p>Check your printer's specifications. If it is 2.4 GHz-only, temporarily turn off 5 GHz or create a separate 2.4 GHz network name while the printer connects. Some routers have a setting for this.</p>", "cause": "The printer only supports 2.4 GHz and the router's combined network was confusing it."},
+    "guest": {"tag": "Network", "title": "Avoid guest networks and client isolation", "body": "<p>Guest networks, and router settings called <strong>client isolation</strong> or <strong>AP isolation</strong>, stop devices from seeing each other. Put the printer and your devices on the main network.</p>", "cause": "A guest network or isolation setting was hiding the printer from your device."},
+    "readd-all": {"tag": "Your devices", "title": "Re-add the printer on each device", "body": "<p>On a new network the printer usually has a new address, so every computer, phone and tablet needs to find it again. Remove the old printer entry on each device and add it again.</p>", "cause": "Your devices were still pointing at the printer's old network address.", "os_body": {"windows": "<p>On Windows: <strong>Settings &gt; Bluetooth &amp; devices &gt; Printers &amp; scanners</strong>, select the printer, choose <strong>Remove</strong>, then <strong>Add device</strong>.</p>", "mac": "<p>On Mac: <strong>System Settings &gt; Printers &amp; Scanners</strong>, remove the printer, then add it again.</p>"}},
+    "readd": {"tag": "Your device", "title": "Remove the printer and add it again", "body": "<p>Removing and re-adding the printer clears old settings and lets your device install a fresh connection.</p>", "cause": "The printer entry on your device was out of date or damaged.", "src": "microsoft", "os_body": {"windows": "<p>Go to <strong>Settings &gt; Bluetooth &amp; devices &gt; Printers &amp; scanners</strong>, select the printer and choose <strong>Remove</strong>. With the printer on and connected, choose <strong>Add device</strong> and follow the prompts.</p>", "mac": "<p>Open <strong>System Settings &gt; Printers &amp; Scanners</strong>, remove the printer, then choose <strong>Add Printer, Scanner, or Fax</strong>.</p>", "chromebook": "<p>Open <strong>Settings</strong>, search for <strong>Printers</strong>, remove the saved printer and add it again.</p>", "ios": "<p>iPhone and iPad don't keep a printer list. Just make sure you're on the same Wi-Fi and choose the printer again in the Print screen.</p>"}},
+    "driver": {"tag": "Drivers", "title": "Install the current software from the manufacturer", "body": "<p>Download the latest driver or full software package for your <strong>exact model</strong> from the manufacturer's official support website, not from a third-party download site.</p>", "cause": "The printer driver or software was outdated or broken.", "os_skip": ["ios"], "brand_body": {"hp": "<p>HP also offers <strong>HP Print and Scan Doctor</strong>, a free Windows diagnostic tool, on its official site (hp.com/go/tools).</p>"}},
+    "mac-update": {"tag": "Mac", "os": ["mac"], "title": "Install pending macOS and printer updates", "body": "<p>Go to <strong>System Settings &gt; General &gt; Software Update</strong> and install any available updates. Then check the manufacturer's site for updated Mac software for your model.</p>", "cause": "The Mac needed an update to work with the printer again."},
+    "win-rollback": {"tag": "Windows · last resort", "os": ["windows"], "title": "Consider uninstalling the latest update", "body": "<p>Only if printing broke right after a Windows update and nothing above helped: go to <strong>Settings &gt; Windows Update &gt; Update history &gt; Uninstall updates</strong>. Removing security updates leaves your PC less protected, so check the manufacturer's support site for a fix first.</p>", "cause": "A recent Windows update conflicted with the printer."},
+    "mac-reset": {"tag": "Mac · last resort", "os": ["mac"], "title": "Reset the printing system", "body": "<p>Apple recommends this only after other fixes fail. It removes <strong>all</strong> printers, print history and presets. In <strong>System Settings &gt; Printers &amp; Scanners</strong>, Control-click the printer list and choose <strong>Reset Printing System</strong>, then add your printer again.</p>", "cause": "The Mac's printing system settings were damaged.", "src": "apple"},
+    "ios-update": {"tag": "iPhone / iPad", "os": ["ios"], "title": "Update iOS and the printer app", "body": "<p>Go to <strong>Settings &gt; General &gt; Software Update</strong> and install any update. If you print through a printer maker's app, update it from the App Store, then open <strong>Settings &gt; Privacy &amp; Security &gt; Local Network</strong> to check the app is still allowed. Updates can reset this permission.</p>", "cause": "An iOS or app update had changed how the device finds the printer."},
+    "chrome-update": {"tag": "Chromebook", "os": ["chromebook"], "title": "Check for a ChromeOS update", "body": "<p>Open <strong>Settings</strong>, go to <strong>About ChromeOS</strong> and choose <strong>Check for updates</strong>. After restarting, remove the printer and add it again.</p>", "cause": "The Chromebook needed an update to work with the printer again."},
+    "setup": {"tag": "Setup", "title": "Finish the printer's Wi-Fi setup", "body": "<p>If the printer has never printed over Wi-Fi, its first-time wireless setup may not have finished. Run it again from the printer's control panel wizard, or follow the official setup guide for your model. Print a network configuration page afterward to confirm it's connected.</p>", "cause": "The printer's initial Wi-Fi setup had never completed."},
+    "usb-cable": {"tag": "USB", "title": "Check the cable and port", "body": "<p>Make sure the USB cable is firmly connected at both ends. Plug it <strong>directly into the computer</strong>, not into a hub, dock or monitor port, then try a different port. If you have a spare cable, try that too.</p>", "cause": "The USB cable or port wasn't making a reliable connection.", "aff": "cable"},
+    "usb-detect-win": {"tag": "Windows", "os": ["windows"], "title": "Check that Windows detects the printer", "body": "<p>Open <strong>Device Manager</strong> and look for the printer under <strong>Print queues</strong> or <strong>Printers</strong>. If it doesn't appear when plugged in, try another cable or port.</p>", "cause": "Windows wasn't detecting the printer over USB."},
+    "usb-port": {"tag": "Windows", "os": ["windows"], "title": "Select the right USB port in printer properties", "body": "<p>In <strong>Settings &gt; Bluetooth &amp; devices &gt; Printers &amp; scanners</strong>, select the printer and open <strong>Printer properties</strong>. On the <strong>Ports</strong> tab, make sure a USB port (for example <strong>USB001</strong>) is checked. If there are several, try another.</p>", "cause": "Windows was sending print jobs to the wrong USB port."},
+    "usb-detect-mac": {"tag": "Mac", "os": ["mac"], "title": "Check that the Mac detects the printer", "body": "<p>Press <strong>Command + Space</strong>, type <strong>System Information</strong> and open it, then select <strong>USB</strong> in the sidebar. If the printer isn't listed while it's plugged in and turned on, try another cable or port.</p>", "cause": "The Mac wasn't detecting the printer over USB."},
+    "chrome-usb": {"tag": "Chromebook", "os": ["chromebook"], "title": "Add the USB printer in ChromeOS", "body": "<p>With the printer connected and on, open <strong>Settings</strong>, search for <strong>Printers</strong> and add it from the list. ChromeOS supports many USB printers without extra software.</p>", "cause": "The Chromebook hadn't set up the USB printer."},
+    "eth-cable": {"tag": "Network", "title": "Check the network cable", "body": "<p>Make sure the Ethernet cable is firmly connected and that the port lights on both the printer and the router are lit. Try a different port on the router or a different cable.</p>", "cause": "The network cable or router port wasn't connected properly."},
+    "hp-noapp": {"tag": "HP", "brand": ["hp"], "title": "Print without HP Smart or an HP account", "body": "<p>You don't need the HP Smart app to print with most HP printers. Windows can add the printer from <strong>Settings &gt; Printers &amp; scanners</strong>, and Mac, iPhone and iPad can use <strong>AirPrint</strong> on supported models. HP Smart is optional for basic printing.</p><p><strong>Exception:</strong> HP states that <strong>HP+</strong> printers require an HP account, an internet connection and Original HP Ink for the life of the printer, so they may stop printing when they can't reach HP's service.</p>", "cause": "The HP Smart app or account connection was the problem, not the printer."}
+  },
+  "special": {
+    "ios-usb": "iPhone and iPad generally don't print over a USB cable. Choose <strong>Wi-Fi</strong> as the connection and use AirPrint. Your checklist below assumes the printer is on Wi-Fi."
+  },
+  "aff": {
+    "signal": [["Mesh Wi-Fi system", "mesh wifi system"], ["Wi-Fi range extender", "wifi range extender"]],
+    "cable": [["USB 2.0 printer cable (USB-A to USB-B)", "usb printer cable a to b"]],
+    "replace": [["Wireless monochrome laser printer", "wireless monochrome laser printer"], ["Wireless color laser printer", "wireless color laser printer"], ["Ink tank (refillable) printer", "ink tank printer"]]
+  }
+}
+</script>
+<script>
+(function(){
+  var T = JSON.parse(document.getElementById('tree').textContent);
+  var Q = ['brand','conn','os','start'];
+  var form = document.getElementById('qform'), go = document.getElementById('go'), qhint = document.getElementById('qhint');
+  var plan = document.getElementById('plan'), stepsEl = document.getElementById('steps'), outcome = document.getElementById('outcome');
+  var promptEl = document.getElementById('prompt'), toast = document.getElementById('toast');
+  var state = {}, current = [];
+
+  function esc(s){ return String(s).replace(/[&<>"]/g, function(c){ return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]; }); }
+  function amz(q){ return 'https://www.amazon.com/s?k=' + encodeURIComponent(q).replace(/%20/g,'+') + '&tag=kokoroflow-20'; }
+  function affBlock(key, intro){
+    var items = T.aff[key] || [];
+    return '<div class="aff"><p class="disc">As an Amazon Associate I earn from qualifying purchases. Links go to Amazon search results; check current prices and reviews there.</p>' +
+      (intro ? '<p>' + intro + '</p>' : '') + '<ul>' +
+      items.map(function(i){ return '<li><a href="' + amz(i[1]) + '" rel="nofollow sponsored noopener" target="_blank">' + esc(i[0]) + ' – search on Amazon</a></li>'; }).join('') + '</ul></div>';
+  }
+  function show(msg){ toast.textContent = msg; toast.classList.add('show'); setTimeout(function(){ toast.classList.remove('show'); }, 1800); }
+  function copy(text, ok){
+    if (navigator.clipboard && window.isSecureContext) { navigator.clipboard.writeText(text).then(function(){ show(ok); }, function(){ fallback(); }); }
+    else fallback();
+    function fallback(){ var t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); try { document.execCommand('copy'); show(ok); } catch(e) { show('Copy failed – select and copy manually'); } document.body.removeChild(t); }
+  }
+  function readForm(){ Q.forEach(function(k){ var c = form.querySelector('input[name="' + k + '"]:checked'); state[k] = c ? c.value : ''; }); }
+  function complete(){ return Q.every(function(k){ return state[k]; }); }
+  function updateBtn(){ readForm(); go.disabled = !complete(); qhint.textContent = complete() ? '' : 'Answer all four questions to continue.'; buildPrompt(); }
+
+  function applicable(id){
+    var s = T.steps[id]; if (!s) return false;
+    if (s.os && s.os.indexOf(state.os) < 0) return false;
+    if (s.brand && s.brand.indexOf(state.brand) < 0) return false;
+    if (s.os_skip && s.os_skip.indexOf(state.os) >= 0) return false;
+    return true;
+  }
+  function stepHtml(id, i){
+    var s = T.steps[id];
+    var body = s.body + ((s.os_body && s.os_body[state.os]) || '') + ((s.brand_body && s.brand_body[state.brand]) || '');
+    if (s.aff) body += affBlock(s.aff, '');
+    return '<li class="step" data-id="' + id + '"><span class="tag">' + esc(s.tag) + '</span><h3>' + esc(s.title) + '</h3>' + body +
+      '<div class="actions"><label class="tried"><input type="checkbox" data-tried="' + id + '"> I tried this</label>' +
+      '<button type="button" class="btn btn-ok" data-fixed="' + id + '">This fixed it</button></div></li>';
+  }
+  function build(scroll){
+    var conn = state.conn, special = '';
+    if (state.os === 'ios' && conn === 'usb') { conn = 'wifi'; special = T.special['ios-usb']; }
+    var ids = (T.paths[conn] && T.paths[conn][state.start]) || [];
+    current = ids.filter(applicable);
+    var L = T.labels;
+    document.getElementById('summary').innerHTML = 'Checklist for <strong>' + esc(L.brand[state.brand]) + '</strong> printer on <strong>' + esc(L.conn[state.conn]) + '</strong>, printing from <strong>' + esc(L.os[state.os]) + '</strong> – ' + esc(L.start[state.start]) + '. Work from the top; stop when it prints.';
+    var note = document.getElementById('plan-note'); note.hidden = !special; note.innerHTML = special;
+    stepsEl.innerHTML = current.map(stepHtml).join('');
+    outcome.hidden = true; outcome.innerHTML = '';
+    plan.hidden = false; progress();
+    var url = new URL(location.href); Q.forEach(function(k){ url.searchParams.set(k, state[k]); });
+    history.replaceState(null, '', url.toString());
+    if (scroll) { plan.scrollIntoView({behavior:'smooth', block:'start'}); plan.focus({preventScroll:true}); }
+    buildPrompt();
+  }
+  function tried(){ return Array.prototype.filter.call(stepsEl.querySelectorAll('input[data-tried]'), function(c){ return c.checked; }).map(function(c){ return c.getAttribute('data-tried'); }); }
+  function progress(){
+    var n = tried().length, total = current.length;
+    document.getElementById('progress').textContent = n + ' of ' + total + ' steps tried';
+    document.getElementById('bar').style.width = total ? (n / total * 100) + '%' : '0';
+  }
+  function supportLink(){
+    var s = T.support[state.brand];
+    return s ? '<a href="' + s.url + '" rel="noopener" target="_blank">' + esc(s.name) + '</a> (official site)' : 'the support page on your printer manufacturer\'s official website';
+  }
+  function fixed(id){
+    var s = T.steps[id];
+    outcome.innerHTML = '<h2>Great – it\'s printing again</h2><div class="outcome-card good"><p><strong>Most likely cause:</strong> ' + esc(s.cause) + '</p>' +
+      '<h3>Keep it from happening again</h3><ul>' +
+      (state.conn !== 'usb' ? '<li>Reserve the printer\'s IP address in your router (DHCP reservation) so it doesn\'t change after a restart.</li><li>Keep the printer on your main network, not a guest network.</li>' : '<li>Plug the printer directly into the computer rather than a hub or dock.</li>') +
+      '<li>Install driver and firmware updates only from the manufacturer\'s official website.</li>' +
+      (id === 'signal' ? '<li>Fix the weak-signal spot, or move the printer closer to the router.</li>' : '') + '</ul></div>';
+    outcome.hidden = false; outcome.scrollIntoView({behavior:'smooth', block:'start'}); outcome.focus({preventScroll:true});
+    buildPrompt();
+  }
+  function stuck(){
+    outcome.innerHTML = '<h2>Still offline after every step</h2>' +
+      '<div class="outcome-card"><h3>It may be a hardware or network fault</h3><p>When the printer can\'t be found even on a direct connection, or its network page shows it connected but nothing reaches it, the problem may be in the printer\'s network hardware, the router, or the printer itself.</p><ul>' +
+      '<li>Contact ' + supportLink() + '. Check warranty status with your serial number.</li>' +
+      '<li><strong>Stay safe:</strong> only use phone numbers or chat links shown on the manufacturer\'s own website. Don\'t call numbers from ads or pop-ups, and don\'t give remote access to anyone who contacts you unexpectedly.</li>' +
+      '<li>Prefer to ask an AI assistant? Copy the prompt below. It already lists everything you tried.</li></ul></div>' +
+      '<div class="outcome-card"><h3>Is it time to replace it?</h3><p>Replacing is worth considering if the printer is out of warranty and also:</p><ul><li>keeps going offline every few weeks, even after the fixes above;</li><li>shows a hardware error on its own screen; or</li><li>would cost a large share of a new printer\'s price to repair.</li></ul>' +
+      '<p>Before buying, compare running costs, not just the sticker price, with the <a href="../printer-cost-per-page-calculator.html">printer cost per page calculator</a>. If you mainly print documents, include laser printers in the comparison alongside inkjets.</p>' +
+      affBlock('replace', 'Starting points to compare:') + '</div>';
+    outcome.hidden = false; outcome.scrollIntoView({behavior:'smooth', block:'start'}); outcome.focus({preventScroll:true});
+    buildPrompt();
+  }
+  function buildPrompt(){
+    if (!complete()) { promptEl.value = 'Answer the four questions above to build a prompt.'; return; }
+    var L = T.labels, t = tried().map(function(id){ return '- ' + T.steps[id].title; });
+    promptEl.value = 'My ' + L.brand[state.brand] + ' printer shows as "offline". It is connected by ' + L.conn[state.conn] + ' and I am printing from ' + L.os[state.os] + '. When it started: ' + L.start[state.start] + '.\n' +
+      'Printer model: [type your exact model]\nAny error shown on the printer screen: [type it or "none"]\n\n' +
+      (t.length ? 'I have already tried:\n' + t.join('\n') + '\n\n' : '') +
+      'Please give me the next troubleshooting steps in order, one at a time, with exact menu names for my device. Do not suggest calling phone numbers that are not on the manufacturer\'s official website.';
+  }
+
+  form.addEventListener('change', updateBtn);
+  form.addEventListener('submit', function(e){ e.preventDefault(); readForm(); if (complete()) build(true); });
+  stepsEl.addEventListener('change', function(e){ var c = e.target.closest('input[data-tried]'); if (!c) return; c.closest('.step').classList.toggle('done', c.checked); progress(); buildPrompt(); });
+  stepsEl.addEventListener('click', function(e){ var b = e.target.closest('button[data-fixed]'); if (!b) return; var cb = stepsEl.querySelector('input[data-tried="' + b.getAttribute('data-fixed') + '"]'); if (cb && !cb.checked) { cb.checked = true; cb.closest('.step').classList.add('done'); progress(); } fixed(b.getAttribute('data-fixed')); });
+  document.getElementById('all-tried').addEventListener('click', stuck);
+  document.getElementById('reset').addEventListener('click', function(){ form.reset(); state = {}; plan.hidden = true; outcome.hidden = true; history.replaceState(null, '', location.pathname); updateBtn(); document.getElementById('q-title').scrollIntoView({behavior:'smooth'}); });
+  document.getElementById('copy-link').addEventListener('click', function(){ copy(location.href, 'Link copied'); });
+  document.getElementById('copy-prompt').addEventListener('click', function(){ copy(promptEl.value, 'Prompt copied'); });
+
+  var params = new URLSearchParams(location.search), all = true;
+  Q.forEach(function(k){ var v = params.get(k), inp = v && form.querySelector('input[name="' + k + '"][value="' + CSS.escape(v) + '"]'); if (inp) inp.checked = true; else all = false; });
+  updateBtn();
+  if (all && complete()) build(false);
+})();
+</script>
+</body></html>
