@@ -63,6 +63,7 @@ File tools (PDF, images, bookmarks, folders) process files locally on the device
 - [Better Password Habits: A Practical Guide](https://www.kokoroflow.net/guide-passwords.html)
 - [Can My PC Run Windows 11? How to Check](https://www.kokoroflow.net/guide-windows-11-check.html)
 - [Windows 10 ESU: How to Get Security Updates](https://www.kokoroflow.net/guide-windows-10-esu.html)
+- [Safe Troubleshooting Guide for Older PCs](https://www.kokoroflow.net/guide-old-pc-troubleshooting.html) (Traditional Chinese: https://www.kokoroflow.net/guide-old-pc-troubleshooting-zh.html)
 - [Sales Tax vs VAT: A Practical Guide](https://www.kokoroflow.net/guide-sales-tax-vat.html)
 - [How to Build a Realistic Savings Goal](https://www.kokoroflow.net/guide-savings-goal.html)
 - [How to Plan Meetings Across Time Zones](https://www.kokoroflow.net/guide-time-zones.html)

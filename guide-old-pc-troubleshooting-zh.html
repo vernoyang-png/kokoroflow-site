@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="zh-Hant"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>舊電腦安全故障排除指南 | KokoroFlow</title><meta name="description" content="以資料安全為優先的舊電腦故障排除指南：先保護資料、定義一項症狀、一次只改一項，並知道何時應該停止。"><link rel="canonical" href="https://www.kokoroflow.net/guide-old-pc-troubleshooting-zh.html"><link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/guide-old-pc-troubleshooting.html"><link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/guide-old-pc-troubleshooting.html"><link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/guide-old-pc-troubleshooting-zh.html"><link rel="icon" href="kokoroflow-logo.jpg"><link rel="stylesheet" href="guide.css"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet"><meta name="google-adsense-account" content="ca-pub-7127191372584167">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+<meta property="og:type" content="article"><meta property="og:site_name" content="KokoroFlow"><meta property="og:title" content="舊電腦安全故障排除指南 | KokoroFlow"><meta property="og:description" content="以資料安全為優先的舊電腦故障排除指南：先保護資料、定義一項症狀、一次只改一項，並知道何時應該停止。"><meta property="og:url" content="https://www.kokoroflow.net/guide-old-pc-troubleshooting-zh.html"><meta property="og:image" content="https://www.kokoroflow.net/kokoroflow-logo.jpg"><meta property="og:locale" content="zh_TW"><meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "Article", "headline": "舊電腦安全故障排除指南", "description": "以資料安全為優先的舊電腦故障排除指南：先保護資料、定義一項症狀、一次只改一項，並知道何時應該停止。", "dateModified": "2026-10-31", "inLanguage": "zh-Hant", "mainEntityOfPage": "https://www.kokoroflow.net/guide-old-pc-troubleshooting-zh.html", "author": {"@id": "https://www.kokoroflow.net/#organization"}, "publisher": {"@type": "Organization", "@id": "https://www.kokoroflow.net/#organization", "name": "KokoroFlow", "logo": "https://www.kokoroflow.net/kokoroflow-logo.jpg"}}</script></head>
+<body><a class="skip-link" href="#main">跳到主要內容</a><header class="site-header"><nav class="nav" aria-label="主要導覽"><a class="brand" href="index-zh.html"><img src="kokoroflow-logo.jpg" alt=""><span>KokoroFlow</span></a><div class="nav-links"><a href="index-zh.html">首頁</a><a href="free-tools-zh.html">工具</a><a href="guides.html">指南</a><a href="about-zh.html">關於</a><a href="contact-zh.html">聯絡</a><a class="lang-link" href="guide-old-pc-troubleshooting.html" lang="en">English</a></div></nav></header>
+<main id="main"><section class="page-hero"><div class="wrap content"><p class="eyebrow">電腦指南</p><h1>舊電腦安全故障排除指南</h1><p class="lead">先保護資料、觀察症狀、一次只測試一項，並知道什麼時候應該停止。適合家庭與小型辦公室，不是元件級維修手冊。</p><p class="meta">更新：2026 年 10 月 · 約 10 分鐘 · 由近 30 年經驗的電腦維修技術員撰寫</p></div></section>
+<article class="wrap content">
+<nav aria-label="目錄"><ul class="kf-toc"><li><a href="#start">安全開始</a></li><li><a href="#sequence">檢查順序</a></li><li><a href="#symptoms">症狀路徑</a></li><li><a href="#mistakes">常見誤判</a></li><li><a href="#sounds">聲音線索</a></li><li><a href="#stop">停止警訊</a></li></ul></nav>
+<div class="principle"><strong>核心原則：</strong>成功的故障排除，不是執行最多測試，而是在不造成第二個問題的情況下保住資料並縮小原因。</div>
+
+    <h2 id="start">一 診斷以前先安全開始</h2>
+    <h3>嘗試維修以前先保護資料</h3>
+    <p>一台今天還能開機的電腦，其儲存裝置可能已經開始故障。反覆重新啟動、掃描磁碟、重灌作業系統或大量讀寫的診斷，可能把原本還能救援的情況變成無法讀取。</p>
+    <p>改變任何設定以前，先確認家庭照片、商業紀錄、電子郵件存檔、瀏覽器資料、軟體授權、應用程式資料庫、加密金鑰、BitLocker復原金鑰，以及已停止開發軟體所建立的資料，是否已有另一份可用副本。</p>
+
+    <h3>記錄最初出現的症狀</h3>
+    <ul class="checklist">
+      <li>問題發生時，電腦正在做什麼？</li>
+      <li>症狀是突然出現，還是逐漸發生？</li>
+      <li>問題持續存在，還是偶爾發生？</li>
+      <li>問題在Windows啟動以前發生，還是登入後才出現？</li>
+      <li>是否有檔案消失或開啟速度異常緩慢？</li>
+      <li>最近是否更新、停電、摔落、進水或更換硬體？</li>
+      <li>出現什麼錯誤訊息或嗶聲規律？</li>
+      <li>最後一次正常運作時的狀況是什麼？</li>
+    </ul>
+    <p>拍下錯誤訊息並錄下異常聲音。原始症狀是重要線索，不要同時改變多項設定而把它消除。</p>
+
+    <h3>辨識聲音大約來自哪裡</h3>
+    <p>注意喀喀聲、摩擦聲、嗡嗡聲、碰撞聲、高頻聲、嗶聲或反覆啟動的聲音，大約來自傳統硬碟、散熱風扇、電源供應器、光碟機、主機板蜂鳴器、充電器或水冷幫浦。進行判斷時不要拆解設備，也不要將臉靠近運轉中的風扇。</p>
+    <p>震動會透過機殼傳遞，因此聽起來的方向不一定就是實際來源。聲音只能當作線索，不能單獨證明哪個元件故障。可以使用手機錄音，避免為了再次確認而反覆開機。</p>
+
+    <h2 id="sequence">二 使用低風險的故障排除順序</h2>
+    <div class="flow" aria-label="故障排除順序">
+      <div><strong>步驟一</strong><span>先保護資料與安全</span></div>
+      <div><strong>步驟二</strong><span>定義一項主要症狀</span></div>
+      <div><strong>步驟三</strong><span>先檢查外部原因</span></div>
+      <div><strong>步驟四</strong><span>一次隔離一個變因</span></div>
+      <div><strong>步驟五</strong><span>重現並驗證結果</span></div>
+    </div>
+
+    <h3>步驟一 建立安全基準</h3>
+    <p>確認沒有冒煙、電池膨脹、進水、異常高溫、麻電感或傳統硬碟反覆喀喀作響。確認重要資料是否已有備份，以及磁碟加密復原資料是否可用。</p>
+
+    <h3>步驟二 定義一項主要症狀</h3>
+    <p>「電腦壞了」不是可用的診斷描述。應選擇最接近的起點：完全沒有電源、通電但沒有畫面、無法啟動Windows、啟動後停止回應、速度變慢、負載時重新啟動、網路中斷，或出現異常聲音。</p>
+
+    <h3>步驟三 先檢查外部且可以還原的原因</h3>
+    <p>先檢查插座、延長線、充電器、線材、螢幕輸入來源、擴充基座、鬆脫的外接裝置、儲存空間及最近連接的周邊。這些檢查比更換內部零件安全，也比較容易還原。</p>
+
+    <h3>步驟四 一次只改變一個變因</h3>
+    <p>一次只中斷或改變一項，然後在相同條件下重新測試。如果同時更換記憶體、線材、驅動程式、設定及軟體，即使症狀改善，也無法知道哪一項有效，還可能引入新的故障。</p>
+
+    <h3>步驟五 不要只驗證一次開機</h3>
+    <p>電腦成功開機一次，不代表問題已經修好。應重新執行原本會引發問題的工作、確認檔案可以正常開啟、觀察錯誤是否再度出現，並確認備份仍然可用。記錄做過的改變，以及支持結論的證據。</p>
+
+    <h2 id="symptoms">三 選擇正確的症狀路徑</h2>
+    <div class="kf-table-wrap"><table class="kf-guide-table">
+      <thead><tr><th>主要症狀</th><th>最先進行的安全觀察</th><th>不要直接假設</th></tr></thead>
+      <tbody>
+        <tr><td>完全沒有電源</td><td>插座、線材、充電器、電池狀態、電源按鈕、指示燈、異味與溫度</td><td>電源供應器或主機板一定故障</td></tr>
+        <tr><td>通電但沒有畫面</td><td>螢幕電源與輸入來源、線材、亮度、外接螢幕、嗶聲，以及系統是否繼續啟動</td><td>主機板或顯示晶片一定故障</td></tr>
+        <tr><td>無法啟動Windows</td><td>完整錯誤訊息、是否偵測到磁碟、最近更新、加密提示、復原環境及資料重要性</td><td>必須立刻重灌Windows</td></tr>
+        <tr><td>停止回應或重新啟動</td><td>是否發生於高負載、存取檔案、特定溫度或連接某項周邊時</td><td>只是軟體問題</td></tr>
+        <tr><td>速度非常緩慢</td><td>剩餘空間、記憶體壓力、磁碟活動、溫度、背景更新及檔案存取延遲</td><td>只有電腦年齡或處理器是原因</td></tr>
+        <tr><td>網路速度很慢</td><td>比較另一台設備、有線與無線結果、路由器位置、訊號、背景傳輸及服務狀態</td><td>電腦的Wi-Fi介面故障</td></tr>
+        <tr><td>出現異常聲音</td><td>大約位置、發生時間、工作負載、重複規律，以及是否影響檔案存取</td><td>所有喀喀聲都來自硬碟</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="mistakes">四 十種常見誤判</h2>
+    <div class="cards">
+      <article class="card"><h4><span class="number">一</span> 電腦很慢所以處理器太舊</h4><p>儲存裝置故障、記憶體不足、過熱、背景工作、惡意程式、空間不足或軟體損壞，都可能產生相同抱怨。</p></article>
+      <article class="card"><h4><span class="number">二</span> 沒有電源所以電源供應器壞了</h4><p>插座、線材、充電器、電源按鈕、電池、擴充基座或接點，可能比內部電源更早故障。</p></article>
+      <article class="card"><h4><span class="number">三</span> 沒有畫面所以主機板故障</h4><p>螢幕輸入來源、線材、亮度、記憶體接點、顯示輸出、背光及外接裝置都可能造成相同症狀。</p></article>
+      <article class="card"><h4><span class="number">四</span> 藍畫面就是記憶體故障</h4><p>驅動程式、儲存裝置、過熱、韌體、系統檔損壞及電源不穩也可能造成藍畫面。</p></article>
+      <article class="card"><h4><span class="number">五</span> 停止回應只是Windows問題</h4><p>電腦可能正在等待故障的磁碟，也可能有過熱、記憶體不穩、電源不足或周邊異常。</p></article>
+      <article class="card"><h4><span class="number">六</span> 高溫一定是散熱膏問題</h4><p>風道阻塞、灰塵、風扇故障、熱導管損壞、水冷幫浦故障、工作負載或感測器也可能是原因。</p></article>
+      <article class="card"><h4><span class="number">七</span> 網路慢就是Wi-Fi介面故障</h4><p>路由器位置、干擾、壅塞、DNS延遲、網路服務、背景傳輸及線材都需要一起考慮。</p></article>
+      <article class="card"><h4><span class="number">八</span> 筆電不能充電就是電池壞了</h4><p>充電器、線材、充電孔、USB-C供電協議、韌體、電池接點或充電電路都可能故障。</p></article>
+      <article class="card"><h4><span class="number">九</span> 檔案錯誤就是Windows損壞</h4><p>資料夾消失、存取緩慢、讀取錯誤及喀喀聲可能是儲存裝置故障。修復檔案系統以前先保護資料。</p></article>
+      <article class="card"><h4><span class="number">十</span> 不能安裝Windows 11所以電腦沒用了</h4><p>應分開判斷TPM、Secure Boot、韌體、空間及處理器支援，以及電腦是否仍適合離線或特殊用途。</p></article>
+    </div>
+
+    <h2 id="sounds">五 將聲音當成線索而不是結論</h2>
+    <div class="kf-table-wrap"><table class="kf-guide-table">
+      <thead><tr><th>聲音</th><th>可能來源</th><th>安全的第一個反應</th></tr></thead>
+      <tbody>
+        <tr><td>規律喀喀聲</td><td>傳統硬碟或光碟機</td><td>確認大約位置；如果影響檔案存取，停止操作並先保護資料。</td></tr>
+        <tr><td>摩擦或刮擦聲</td><td>風扇、線材碰觸扇葉或傳統硬碟</td><td>關機，只檢查安全且從外部可見的位置，避免反覆重新啟動。</td></tr>
+        <tr><td>間歇嗡嗡聲</td><td>風扇、變壓器、電氣線圈或水冷幫浦</td><td>記錄發生時間，以及是否隨工作負載改變。</td></tr>
+        <tr><td>高頻尖銳聲</td><td>電源供應器、顯示卡線圈或變壓器</td><td>如果伴隨異常高溫、電弧、不穩定或燒焦味，立即停止。</td></tr>
+        <tr><td>反覆轉起又停止</td><td>硬碟、風扇或光碟機</td><td>先確認大約來源，不要直接判定硬碟故障。</td></tr>
+        <tr><td>嗶聲規律</td><td>主機板蜂鳴器、UPS或外部警報設備</td><td>記錄次數、長短及規律，再查閱正確設備的文件。</td></tr>
+      </tbody>
+    </table></div>
+
+    <h2 id="stop">六 停止警訊與後續處理</h2>
+    <div class="warning"><strong>出現以下情況應立即停止：</strong>冒煙、火花、燒焦味、電弧聲、電池膨脹、設備進水、磁碟反覆喀喀作響、機殼麻電、充電器或電源異常高溫，或無法取代的資料只存在於不穩定的磁碟。</div>
+    <ul>
+      <li>不要拆開桌上型電腦的電源供應器。拔除電源後，內部電容仍可能保有危險電能。</li>
+      <li>不要刺穿、擠壓、充電或繼續使用膨脹的電池。</li>
+      <li>懷疑磁碟有物理故障時，不要執行磁碟重組、完整表面掃描、反覆修復指令或重灌作業系統。</li>
+      <li>確認復原金鑰與備份以前，不要清除已加密磁碟。</li>
+      <li>不要因為電腦仍能開機就繼續冒險；最後一次成功開機可能是複製資料的最後機會。</li>
+    </ul>
+
+    <h3>以有證據的結果結束</h3>
+    <p>有效的故障排除結果可能是「可以安全繼續使用」、「必須先備份」、「更換一項已確認故障的零件」、「移轉到受支援的系統」、「停止連網使用」，或「交由專業資料救援」。找到負責任的停止點，本身就是有效診斷。</p>
+    <p class="small"><strong>安全聲明：</strong>本頁提供一般教育資訊，不能取代特定機型的維修文件，或合格的電氣、電池、資料救援與維修服務。</p>
+<h2>相關指南</h2><ul><li><a href="guide-windows-11-check.html">Can My PC Run Windows 11?（英文）</a></li><li><a href="guide-windows-10-esu.html">Windows 10 ESU 安全更新（英文）</a></li></ul>
+<p class="small">本頁為依作者維修經驗整理的一般教育資訊，請以設備原廠的維修文件為準。</p>
+</article></main><footer class="site-footer"><div class="footer-inner"><div><strong>KokoroFlow</strong></div><div class="footer-links"><a href="guides.html">所有指南</a><a href="privacy-zh.html">隱私權</a><a href="contact-zh.html">聯絡</a></div></div></footer></body></html>
