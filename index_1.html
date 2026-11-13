@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f7f4ee">
+  <title>KokoroFlow – Free Calculators for Pay, Taxes &amp; Home Costs</title>
+  <meta name="description" content="Free, practical calculators for US salary, taxes, mortgages, investing, retirement, freelance work, travel, currency, and everyday decisions.">
+  <link rel="canonical" href="https://www.kokoroflow.net/"><link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/index-zh.html"><link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/">
+      <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/">
+<link rel="icon" type="image/jpeg" href="kokoroflow-logo.jpg">
+
+  
+  
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --surface: #fffdf8;
+      --surface-2: #eee7dc;
+      --text: #202124;
+      --muted: #5f6368;
+      --line: #ded7cc;
+      --accent: #2f6f62;
+      --accent-2: #b35a2a;
+      --accent-soft: #e6f1ed;
+      --shadow: 0 16px 50px rgba(32, 33, 36, .08);
+      --radius: 8px;
+      --wrap: 1080px;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      font-family: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.75;
+      text-size-adjust: 100%;
+    }
+    a { color: inherit; }
+    .skip-link {
+      position: absolute;
+      left: 16px;
+      top: -48px;
+      z-index: 20;
+      background: var(--text);
+      color: #fff;
+      padding: 10px 14px;
+      border-radius: 6px;
+      transition: top .2s;
+    }
+    .skip-link:focus { top: 16px; }
+    .site-header {
+      border-bottom: 1px solid rgba(222, 215, 204, .9);
+      background: rgba(247, 244, 238, .94);
+      backdrop-filter: blur(14px);
+    }
+    .nav {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 14px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .brand-logo { width: 164px; height: 48px; display: block; object-fit: contain; border-radius: 6px; }
+    .nav-links {
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+    .nav-links a {
+      min-height: 40px;
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 12px;
+      border-radius: 999px;
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 15px;
+      font-weight: 500;
+    }
+    .nav-links a:hover {
+      color: var(--text);
+      background: var(--surface);
+    }
+    .nav-links a.lang-link { color: var(--accent); background: var(--accent-soft); }
+    main {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 84px 24px 72px;
+    }
+    .hero {
+      max-width: 820px;
+      margin-bottom: 36px;
+    }
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 800;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+    }
+    h1, h2, p { margin-top: 0; }
+    h1 {
+      margin-bottom: 18px;
+      font-size: clamp(38px, 7vw, 72px);
+      line-height: 1.1;
+      letter-spacing: 0;
+    }
+    .lead {
+      color: var(--muted);
+      font-size: clamp(17px, 2.2vw, 20px);
+    }
+    .options {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 18px;
+    }
+    .option-card {
+      min-height: 300px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform .18s, border-color .18s, box-shadow .18s;
+    }
+    .option-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(47, 111, 98, .45);
+      box-shadow: 0 18px 56px rgba(32, 33, 36, .12);
+    }
+    .tag {
+      display: inline-flex;
+      align-self: flex-start;
+      margin-bottom: 18px;
+      padding: 5px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 12px;
+      font-weight: 800;
+    }
+    .option-card h2 {
+      margin-bottom: 10px;
+      font-size: clamp(26px, 4vw, 36px);
+      line-height: 1.2;
+    }
+    .option-card p {
+      color: var(--muted);
+      font-size: 16px;
+    }
+    .card-link {
+      margin-top: 24px;
+      color: var(--accent-2);
+      font-weight: 800;
+    }
+    .section {
+      margin-top: 34px;
+      padding: 28px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+    .section h2 {
+      margin-bottom: 12px;
+      font-size: clamp(24px, 3vw, 34px);
+      line-height: 1.2;
+    }
+    .section p { color: var(--muted); }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 16px;
+    }
+    .feature {
+      padding: 18px;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: #fbf8f1;
+    }
+    .feature h3 {
+      margin: 0 0 8px;
+      font-size: 18px;
+      line-height: 1.3;
+    }
+    .feature p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+    .cta-row {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+    }
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 11px 18px;
+      border-radius: 999px;
+      background: var(--text);
+      color: #fff;
+      text-decoration: none;
+      font-weight: 800;
+    }
+    .button.secondary {
+      background: var(--surface-2);
+      color: var(--text);
+      border: 1px solid var(--line);
+    }
+    .site-footer {
+      border-top: 1px solid var(--line);
+      background: var(--surface);
+    }
+    .footer-inner {
+      max-width: var(--wrap);
+      margin: 0 auto;
+      padding: 30px 24px;
+      display: flex;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .footer-links {
+      display: flex;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+    .footer-links a { text-decoration: none; }
+    .footer-links a:hover { color: var(--text); }
+    @media (max-width: 760px) {
+      .nav {
+        align-items: flex-start;
+        flex-direction: column;
+        padding: 12px 16px;
+      }
+      .nav-links { justify-content: flex-start; }
+      main { padding: 52px 16px 54px; }
+      .options { grid-template-columns: 1fr; }
+      .feature-list { grid-template-columns: 1fr; }
+      .option-card { min-height: 240px; padding: 22px; }
+      .footer-inner { padding: 28px 16px; }
+    }
+  </style>
+<link rel="stylesheet" href="flow-palette.css">
+<style>
+    /* Start here block (homepage). Loads after flow-palette.css. */
+    .kf-icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .start-here { margin-bottom: 8px; }
+    .start-here > h2 { margin-bottom: 18px; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.2; }
+    .start-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
+    .start-card { min-height: 0 !important; padding: 24px !important; border-radius: 14px !important; cursor: pointer; }
+    .start-card h3 { margin: 0 0 8px; font-size: 21px; line-height: 1.3; color: var(--flow-ink); }
+    .start-card p { margin: 0; font-size: 15px; line-height: 1.6; }
+    .start-card .card-link { margin-top: 18px; color: var(--flow-green) !important; }
+    .start-card:hover .card-link { text-decoration: underline; text-underline-offset: 3px; }
+    .card-icon { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 12px; background: var(--flow-mint-soft); color: var(--flow-green); border: 1px solid var(--flow-mint); }
+    .start-card:nth-child(even) .card-icon { background: var(--flow-coral-soft); color: #b4472f; border-color: #f8c9bb; }
+    .all-tools-link { margin: 18px 0 0; font-weight: 800; }
+    .all-tools-link a { color: var(--flow-green); text-underline-offset: 3px; }
+    /* Contrast: coral eyebrow (3:1) and muted text (4.2:1) darkened to pass WCAG AA. */
+    .lead, .section p, .option-card p { color: #556a64 !important; }
+    .eyebrow, .section .eyebrow { color: #b4472f !important; }
+    a:focus-visible { outline: 3px solid var(--flow-green); outline-offset: 3px; border-radius: 6px; }
+    @media (max-width: 760px) { .start-grid { grid-template-columns: 1fr !important; } }
+    @media (prefers-reduced-motion: reduce) { .option-card, .option-card:hover { transition: none !important; transform: none !important; } }
+  </style>
+
+  <!--
+    ANALYTICS & SEARCH CONSOLE — currently empty on purpose.
+    1) Google Search Console: replace YOUR_VERIFICATION_CODE below with the
+       code from https://search.google.com/search-console (Settings > Ownership
+       verification > HTML tag), then uncomment the line.
+    2) GA4: replace G-XXXXXXXXXX in both places below with your real
+       Measurement ID from https://analytics.google.com, then uncomment
+       the two script tags. Do NOT paste a fake ID — it will silently fail.
+  -->
+  <!-- <meta name="google-site-verification" content="YOUR_VERIFICATION_CODE"> -->
+  <!-- <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script> -->
+  <!-- <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-XXXXXXXXXX');
+  </script> --><meta name="google-adsense-account" content="ca-pub-7127191372584167">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@graph": [{"@type": "Organization", "@id": "https://www.kokoroflow.net/#organization", "name": "KokoroFlow", "url": "https://www.kokoroflow.net/", "logo": {"@type": "ImageObject", "url": "https://www.kokoroflow.net/kokoroflow-logo.jpg"}, "founder": {"@type": "Person", "name": "Verno Yang"}, "sameAs": ["https://github.com/vernoyang-png"]}, {"@type": "WebSite", "@id": "https://www.kokoroflow.net/#website", "name": "KokoroFlow", "url": "https://www.kokoroflow.net/", "inLanguage": ["en", "zh-Hant"], "publisher": {"@id": "https://www.kokoroflow.net/#organization"}}]}</script>
+<meta property="og:type" content="website"><meta property="og:site_name" content="KokoroFlow"><meta property="og:title" content="KokoroFlow – Free Calculators for Pay, Taxes &amp; Home Costs"><meta property="og:description" content="Free, practical calculators for US salary, taxes, mortgages, investing, retirement, freelance work, travel, currency, and everyday decisions."><meta property="og:url" content="https://www.kokoroflow.net/"><meta property="og:image" content="https://www.kokoroflow.net/kokoroflow-logo.jpg"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary"></head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="site-header">
+    <nav class="nav" aria-label="Main navigation">
+      <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
+      <div class="nav-links">
+        <a href="https://www.kokoroflow.net/7tools.html">Tools</a>
+        
+        <a href="https://www.kokoroflow.net/about.html">About</a>
+        <a href="https://www.kokoroflow.net/contact.html">Contact</a>
+        <a href="https://www.kokoroflow.net/privacy.html">Privacy</a>
+        <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main">
+    <section class="hero">
+      <p class="eyebrow">Free practical tools · No sign-up</p><h1>Practical free tools for money, files, and PC problems.</h1><p class="lead">Pick what you need to do. Estimate US pay, taxes, and home costs, work with images and PDFs in your browser, or get a calm first step when your computer acts up.</p>
+    </section>
+
+    <section class="start-here" aria-labelledby="start-here-title">
+      <p class="eyebrow">Start here</p>
+      <h2 id="start-here-title">What do you need to do right now?</h2>
+      <div class="options start-grid">
+        <a class="option-card start-card" href="pc-first-aid.html">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+            <h3>My computer has a problem</h3>
+            <p>Start with a safety-first next step before you reset, repair, or keep trying.</p>
+          </div>
+          <span class="card-link">Start PC First Aid <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#files-privacy">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+            <h3>I need to work with a file</h3>
+            <p>Convert, compress, organize, compare, or prepare a file without uploading it to KokoroFlow.</p>
+          </div>
+          <span class="card-link">Browse file tools <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#money-work">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+            <h3>I need to calculate a cost or pay decision</h3>
+            <p>Estimate pay, tax, home costs, travel budgets, and common day-to-day numbers.</p>
+          </div>
+          <span class="card-link">Browse money tools <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#print-quick">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg></span>
+            <h3>I need a quick answer or printable</h3>
+            <p>Use a small utility, create a QR code, or open a worksheet you can print today.</p>
+          </div>
+          <span class="card-link">Open quick tools <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <p class="all-tools-link"><a href="7tools.html">See every tool by category <span aria-hidden="true">→</span></a></p>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Popular calculators</p>
+      <h2>Featured financial calculators</h2>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="salary-calculator.html">Salary &amp; Take-Home Pay</a></h3><p>Convert pay periods and estimate 2026 federal, payroll, and state taxes.</p></div>
+        <div class="feature"><h3><a href="income-tax-calculator.html">Income Tax by State</a></h3><p>Estimate federal income tax, FICA, state income tax, and take-home income.</p></div>
+        <div class="feature"><h3><a href="mortgage-calculator.html">Mortgage Calculator</a></h3><p>Estimate monthly principal and interest for a home purchase.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Grow and protect your money</h2>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="compound-interest-calculator.html">Compound Interest</a></h3><p>Project investment growth with monthly contributions and flexible compounding.</p></div>
+        <div class="feature"><h3><a href="retirement-calculator.html">Retirement Savings</a></h3><p>Estimate your future balance, target progress, and illustrative retirement income.</p></div>
+        <div class="feature"><h3><a href="freelance-rate-calculator.html">Freelance Rate</a></h3><p>Build a sustainable hourly and project rate from income goals and real business costs.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Should you do it?</p>
+      <h2>Decision calculators &amp; state-specific paychecks</h2>
+      <p>Beyond a single formula — these tools are built around a specific decision or a specific state's rules.</p>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="rent-vs-buy-calculator.html">Rent vs. Buy</a></h3><p>Compare the true long-term cost of renting versus buying, including opportunity cost.</p></div>
+        <div class="feature"><h3><a href="texas-paycheck-calculator.html">Texas Paycheck Calculator</a></h3><p>Take-home pay with no state income tax, broken down line by line.</p></div>
+        
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Travel and everyday money tools</h2>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="trip-budget-calculator.html">Trip Budget</a></h3><p>Plan transportation, lodging, food, activities, and a safety buffer.</p></div>
+        <div class="feature"><h3><a href="currency-converter.html">Currency Converter</a></h3><p>Convert common currencies with a current public reference rate.</p></div>
+      </div>
+      <div class="cta-row"><a class="button" href="7tools.html">Browse every free tool</a></div>
+    </section>
+    <section class="section">
+      <p class="eyebrow">New privacy-first tools</p>
+      <h2>Work with images and PDFs without uploading them.</h2>
+      <p class="lead">These focused tools process selected files inside your browser. No account, no watermark, and no file storage on KokoroFlow.</p>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="image-compressor.html">Image Compressor</a></h3><p>Reduce JPG, PNG, or WebP dimensions and file size on your device.</p></div>
+        <div class="feature"><h3><a href="image-converter.html">JPG, PNG &amp; WebP Converter</a></h3><p>Change common image formats while keeping control of transparency and quality.</p></div>
+        <div class="feature"><h3><a href="image-dpi-print-calculator.html">DPI &amp; Print Size</a></h3><p>Check practical print dimensions or calculate the pixels a print needs.</p></div>
+        <div class="feature"><h3><a href="pdf-merge.html">PDF Merge</a></h3><p>Arrange and combine PDF documents locally in the browser.</p></div>
+        <div class="feature"><h3><a href="pdf-split-reorder.html">PDF Split &amp; Reorder</a></h3><p>Extract page ranges or create a new custom page order.</p></div>
+        <div class="feature"><h3><a href="exif-metadata-remover.html">EXIF Metadata Remover</a></h3><p>Create a clean image copy without common location and camera metadata.</p></div>
+        <div class="feature"><h3><a href="business-days-calculator.html">Business Days Calculator</a></h3><p>Count weekdays or add workdays using optional custom holidays.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <p class="eyebrow">Free to print</p>
+      <h2>Printable worksheets for common life admin.</h2>
+      <p class="lead">No account, no download, no editing software — open, print, and fill in by hand.</p>
+      <div class="feature-list">
+        <div class="feature"><h3><a href="printable-worksheets.html#moving-checklist">Moving Checklist</a></h3><p>An 8-week countdown checklist from booking movers to updating your address.</p></div>
+        <div class="feature"><h3><a href="printable-worksheets.html#budget-worksheet">Monthly Budget Worksheet</a></h3><p>A one-page template to track income, fixed costs, and savings by hand.</p></div>
+      </div>
+    </section>
+
+    <section class="section">
+      <h2>Transparent estimates, built for practical planning</h2>
+      <div class="feature-list">
+        <div class="feature"><h3>No account required</h3><p>Most calculations run directly in your browser without collecting personal financial details.</p></div>
+        <div class="feature"><h3>Assumptions explained</h3><p>Every calculator shows what is included, what is simplified, and where official guidance matters.</p></div>
+        <div class="feature"><h3>Free and mobile-friendly</h3><p>Use the calculators on a phone, tablet, or computer without a subscription.</p></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div>© 2026 KokoroFlow. All rights reserved.</div>
+      <div class="footer-links"><a href="about.html">About</a><a href="contact.html">Contact</a><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="third-party-licenses.html">Open-source licenses</a><a href="disclaimer.html">Disclaimer</a></div>
+    </div>
+  </footer>
+
+
+
+
+</body></html>
