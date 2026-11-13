@@ -266,6 +266,28 @@
     }
   </style>
 <link rel="stylesheet" href="flow-palette.css">
+<style>
+    /* Start here block (homepage). Loads after flow-palette.css. */
+    .kf-icon { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+    .start-here { margin-bottom: 8px; }
+    .start-here > h2 { margin-bottom: 18px; font-size: clamp(26px, 3.4vw, 34px); line-height: 1.2; }
+    .start-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; gap: 16px !important; }
+    .start-card { min-height: 0 !important; padding: 24px !important; border-radius: 14px !important; cursor: pointer; }
+    .start-card h3 { margin: 0 0 8px; font-size: 21px; line-height: 1.3; color: var(--flow-ink); }
+    .start-card p { margin: 0; font-size: 15px; line-height: 1.6; }
+    .start-card .card-link { margin-top: 18px; color: var(--flow-green) !important; }
+    .start-card:hover .card-link { text-decoration: underline; text-underline-offset: 3px; }
+    .card-icon { display: inline-grid; place-items: center; width: 44px; height: 44px; margin-bottom: 14px; border-radius: 12px; background: var(--flow-mint-soft); color: var(--flow-green); border: 1px solid var(--flow-mint); }
+    .start-card:nth-child(even) .card-icon { background: var(--flow-coral-soft); color: #b4472f; border-color: #f8c9bb; }
+    .all-tools-link { margin: 18px 0 0; font-weight: 800; }
+    .all-tools-link a { color: var(--flow-green); text-underline-offset: 3px; }
+    /* Contrast: coral eyebrow (3:1) and muted text (4.2:1) darkened to pass WCAG AA. */
+    .lead, .section p, .option-card p { color: #556a64 !important; }
+    .eyebrow, .section .eyebrow { color: #b4472f !important; }
+    a:focus-visible { outline: 3px solid var(--flow-green); outline-offset: 3px; border-radius: 6px; }
+    @media (max-width: 760px) { .start-grid { grid-template-columns: 1fr !important; } }
+    @media (prefers-reduced-motion: reduce) { .option-card, .option-card:hover { transition: none !important; transform: none !important; } }
+  </style>
 
   <!--
     ANALYTICS & SEARCH CONSOLE — currently empty on purpose.
@@ -305,21 +327,51 @@
 
   <main id="main">
     <section class="hero">
-      <p class="eyebrow">Free calculators for real-life decisions</p><h1>Clear answers for pay, taxes, and everyday money decisions.</h1><p class="lead">Use practical, privacy-friendly calculators built for US users. No sign-up, no confusing spreadsheets—just useful estimates with transparent assumptions.</p>
+      <p class="eyebrow">Free practical tools · No sign-up</p><h1>Practical free tools for money, files, and PC problems.</h1><p class="lead">Pick what you need to do. Estimate US pay, taxes, and home costs, work with images and PDFs in your browser, or get a calm first step when your computer acts up.</p>
     </section>
 
-    <section class="options" aria-label="Main tools">
-      <a class="option-card" href="https://www.kokoroflow.net/7tools.html">
-        <div>
-          <span class="tag">Utility Toolkit</span>
-          <h2>Free Online Calculators</h2>
-          <p>Salary and take-home pay, income tax, mortgage, compound interest, retirement, freelance pricing, travel, currency, and everyday utilities.</p>
-        </div>
-        <span class="card-link">Open the toolkit</span>
-      </a>
-</section>
+    <section class="start-here" aria-labelledby="start-here-title">
+      <p class="eyebrow">Start here</p>
+      <h2 id="start-here-title">What do you need to do right now?</h2>
+      <div class="options start-grid">
+        <a class="option-card start-card" href="pc-first-aid.html">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>
+            <h3>My computer has a problem</h3>
+            <p>Start with a safety-first next step before you reset, repair, or keep trying.</p>
+          </div>
+          <span class="card-link">Start PC First Aid <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#files-privacy">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>
+            <h3>I need to work with a file</h3>
+            <p>Convert, compress, organize, compare, or prepare a file without uploading it to KokoroFlow.</p>
+          </div>
+          <span class="card-link">Browse file tools <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#money-work">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>
+            <h3>I need to calculate a cost or pay decision</h3>
+            <p>Estimate pay, tax, home costs, travel budgets, and common day-to-day numbers.</p>
+          </div>
+          <span class="card-link">Browse money tools <span aria-hidden="true">→</span></span>
+        </a>
+        <a class="option-card start-card" href="7tools.html#print-quick">
+          <div>
+            <span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg></span>
+            <h3>I need a quick answer or printable</h3>
+            <p>Use a small utility, create a QR code, or open a worksheet you can print today.</p>
+          </div>
+          <span class="card-link">Open quick tools <span aria-hidden="true">→</span></span>
+        </a>
+      </div>
+      <p class="all-tools-link"><a href="7tools.html">See every tool by category <span aria-hidden="true">→</span></a></p>
+    </section>
 
     <section class="section">
+      <p class="eyebrow">Popular calculators</p>
       <h2>Featured financial calculators</h2>
       <div class="feature-list">
         <div class="feature"><h3><a href="salary-calculator.html">Salary &amp; Take-Home Pay</a></h3><p>Convert pay periods and estimate 2026 federal, payroll, and state taxes.</p></div>

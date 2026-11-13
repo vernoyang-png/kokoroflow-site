@@ -3,8 +3,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f2ea">
-  <title>KokoroFlow Tools | Free Calculators for Everyday US Use</title>
-  <meta name="description" content="Free everyday calculators in one place: salary, tip, sales tax, mortgage, currency, time zones, passwords, unit conversion, word count and a random picker.">
+  <title>KokoroFlow Tools | Money, Files, PC Help & Everyday Decisions</title>
+  <meta name="description" content="Find a practical KokoroFlow tool by task: money and work, private file tools, PC help, everyday decisions, and printable or quick utilities.">
   <link rel="canonical" href="https://www.kokoroflow.net/7tools.html"><link rel="alternate" hreflang="x-default" href="https://www.kokoroflow.net/7tools.html">
   <link rel="alternate" hreflang="en" href="https://www.kokoroflow.net/7tools.html">
   <link rel="alternate" hreflang="zh-Hant" href="https://www.kokoroflow.net/free-tools-zh.html">
@@ -65,9 +65,12 @@
     .link-card .card-arrow{margin-top:16px;color:var(--accent-2);font-weight:800;font-size:14px}
     @media (max-width:920px) { .grid { grid-template-columns:1fr; } }
     @media (max-width:640px) { .nav { align-items:flex-start; flex-direction:column; padding:12px 16px; } .nav-links { justify-content:flex-start; } main { padding:42px 16px; } .fields { grid-template-columns:1fr; } .tool { padding:20px; } .footer-inner { padding:28px 16px; } }
-  </style><meta name="google-adsense-account" content="ca-pub-7127191372584167">
+  </style>
+  <link rel="stylesheet" href="flow-palette.css">
+  <link rel="stylesheet" href="tools-polish.css">
+  <meta name="google-adsense-account" content="ca-pub-7127191372584167">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
-<meta property="og:type" content="website"><meta property="og:site_name" content="KokoroFlow"><meta property="og:title" content="KokoroFlow Tools | Free Calculators for Everyday US Use"><meta property="og:description" content="Free everyday calculators in one place: salary, tip, sales tax, mortgage, currency, time zones, passwords, unit conversion, word count and a random picker."><meta property="og:url" content="https://www.kokoroflow.net/7tools.html"><meta property="og:image" content="https://www.kokoroflow.net/kokoroflow-logo.jpg"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary"></head>
+<meta property="og:type" content="website"><meta property="og:site_name" content="KokoroFlow"><meta property="og:title" content="KokoroFlow Tools | Money, Files, PC Help & Everyday Decisions"><meta property="og:description" content="Find a practical KokoroFlow tool by task: money and work, private file tools, PC help, everyday decisions, and printable or quick utilities."><meta property="og:url" content="https://www.kokoroflow.net/7tools.html"><meta property="og:image" content="https://www.kokoroflow.net/kokoroflow-logo.jpg"><meta property="og:locale" content="en_US"><meta name="twitter:card" content="summary"></head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="site-header">
@@ -75,7 +78,7 @@
       <a class="brand" href="https://www.kokoroflow.net/"><img class="brand-logo" src="kokoroflow-logo.jpg" alt="KokoroFlow"></a>
       <div class="nav-links">
         <a href="https://www.kokoroflow.net/">Home</a>
-        <a href="#tools">Tools</a>
+        <a href="#tools" aria-current="page">Tools</a>
         <a href="https://www.kokoroflow.net/guides.html">Guides</a>
         <a class="lang-link" href="https://www.kokoroflow.net/free-tools-zh.html" lang="zh-Hant">中文</a>
       </div>
@@ -83,182 +86,97 @@
   </header>
 
   <main id="main">
-    <section class="hero">
-      <p class="eyebrow">Free everyday calculators</p>
-      <h1>Practical online tools for common US daily tasks.</h1>
-      <p class="lead">Calculate salary conversions, tips, sales tax, mortgage payments, BMI with feet and pounds, time zones, currency estimates, and more. No sign-up required.</p>
+    <section class="hero page-hero">
+      <p class="eyebrow">Free practical tools</p>
+      <h1>Start with the task in front of you.</h1>
+      <p class="lead">Choose a clear next step for money and work, files and privacy, PC help, everyday decisions, or a quick printable task. No account required.</p>
     </section>
 
-    <nav class="tool-nav" aria-label="Tool navigation" id="tools">
-      <a href="salary-calculator.html">Salary</a><a href="income-tax-calculator.html">Income Tax</a><a href="mortgage-calculator.html">Mortgage</a><a href="compound-interest-calculator.html">Compound Interest</a><a href="retirement-calculator.html">Retirement</a><a href="freelance-rate-calculator.html">Freelance Rate</a><a href="currency-converter.html">Currency</a><a href="trip-budget-calculator.html">Trip Budget</a><a href="tip-calculator.html">Tip</a><a href="sales-tax-calculator.html">Sales Tax</a><a href="#picker">Random Picker</a><a href="password-generator.html">Password</a><a href="#unit">Unit</a><a href="#wordcount">Word Count</a><a href="time-zone-converter.html">Time Zone</a><a href="rent-vs-buy-calculator.html">Rent vs. Buy</a><a href="texas-paycheck-calculator.html">State Paychecks</a><a href="printable-worksheets.html">Printables</a><a href="sudoku-generator.html">Sudoku</a><a href="image-compressor.html">Image Compressor</a><a href="image-converter.html">Image Converter</a><a href="image-dpi-print-calculator.html">DPI &amp; Print Size</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split-reorder.html">PDF Split</a><a href="exif-metadata-remover.html">EXIF Remover</a><a href="business-days-calculator.html">Business Days</a>
+    <nav class="tool-nav" aria-label="Tool categories" id="tools">
+      <a href="#money-work"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg><span>Money &amp; Work</span></a><a href="#files-privacy"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg><span>Files &amp; Privacy</span></a><a href="#pc-device-help"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg><span>PC &amp; Device Help</span></a><a href="#everyday-decisions"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0z"/><path d="M19 7l-3 7a3 3 0 0 0 6 0z"/></svg><span>Everyday Decisions</span></a><a href="#print-quick"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg><span>Print &amp; Quick Tools</span></a>
     </nav>
-    <section class="hero" aria-labelledby="private-tools-title">
-      <p class="eyebrow">Privacy-first file tools</p>
-      <h2 id="private-tools-title">Selected files stay in your browser.</h2>
-      <p class="lead">Compress and convert images, prepare files for print, merge or extract PDF pages, and remove common image metadata. No account and no file upload to KokoroFlow.</p>
-      <nav class="tool-nav" aria-label="Privacy-first tools">
-        <a href="image-compressor.html">Image Compressor</a><a href="image-converter.html">JPG / PNG / WebP</a><a href="image-dpi-print-calculator.html">DPI &amp; Print Size</a><a href="pdf-merge.html">PDF Merge</a><a href="pdf-split-reorder.html">PDF Split &amp; Reorder</a><a href="exif-metadata-remover.html">EXIF Remover</a><a href="business-days-calculator.html">Business Days</a>
-      </nav>
+
+    <section class="hero tool-section" aria-labelledby="start-here-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9"/><path d="m10 8 5 4-5 4z"/></svg></span>Start here</p>
+      <h2 id="start-here-title">What do you need to do right now?</h2>
+      <div class="grid">
+        <a class="tool link-card start-card" href="pc-first-aid.html"><div><span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span><h2>My computer has a problem</h2><p class="tool-desc">Start with a safety-first next step before you reset, repair, or keep trying.</p></div><span class="card-arrow">Start PC First Aid →</span></a>
+        <a class="tool link-card start-card" href="#files-privacy"><div><span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span><h2>I need to work with a file</h2><p class="tool-desc">Convert, compress, organize, compare, or prepare a file without uploading it to KokoroFlow.</p></div><span class="card-arrow">Browse file tools →</span></a>
+        <a class="tool link-card start-card" href="#money-work"><div><span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span><h2>I need to calculate a cost or pay decision</h2><p class="tool-desc">Estimate pay, tax, home costs, travel budgets, and common day-to-day numbers.</p></div><span class="card-arrow">Browse money tools →</span></a>
+        <a class="tool link-card start-card" href="#print-quick"><div><span class="card-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg></span><h2>I need a quick answer or printable</h2><p class="tool-desc">Use a small utility, create a QR code, or open a worksheet you can print today.</p></div><span class="card-arrow">Open quick tools →</span></a>
+      </div>
     </section>
 
-    <section class="hero" aria-labelledby="linked-tools-title">
-      <p class="eyebrow">Full calculators</p>
-      <h2 id="linked-tools-title">Open the full version of each calculator.</h2>
-      <p class="lead">These tools have their own dedicated page with a complete input set, worked examples, and detailed guidance. Tap a card to open it.</p>
-    </section>
-
-    <div class="grid">
-      <a class="tool link-card" href="tip-calculator.html">
-        <div><h2>Tip Calculator</h2><p class="tool-desc">Estimate tip, total, and per-person amount for restaurants or deliveries.</p></div>
-        <span class="card-arrow">Open Tip Calculator →</span>
-      </a>
-      <a class="tool link-card" href="sales-tax-calculator.html">
-        <div><h2>Sales Tax Calculator</h2><p class="tool-desc">Enter a price and local tax rate to estimate the final checkout total.</p></div>
-        <span class="card-arrow">Open Sales Tax Calculator →</span>
-      </a>
-      <a class="tool link-card" href="currency-converter.html">
-        <div><h2>Currency Converter</h2><p class="tool-desc">Convert common currencies using a current public reference rate.</p></div>
-        <span class="card-arrow">Open Currency Converter →</span>
-      </a>
-      <a class="tool link-card" href="mortgage-calculator.html">
-        <div><h2>Mortgage Calculator</h2><p class="tool-desc">Estimate a US-style monthly principal and interest payment, with an extra-payment option.</p></div>
-        <span class="card-arrow">Open Mortgage Calculator →</span>
-      </a>
-      
-      <a class="tool link-card" href="password-generator.html">
-        <div><h2>Password Generator</h2><p class="tool-desc">Generate a local random password with optional symbols and similar-character exclusion.</p></div>
-        <span class="card-arrow">Open Password Generator →</span>
-      </a>
-    <a class="tool link-card" href="sudoku-generator.html">
-        <div><h2>Sudoku Generator</h2><p class="tool-desc">Make printable sudoku puzzles with exactly one solution, easy to hard, and download a print-ready PDF with answers.</p></div>
-        <span class="card-arrow">Open Sudoku Generator →</span>
-      </a>
-    
-      
-      
-      <a class="tool link-card" href="Tools/json-formatter-merger.html">
-        <div><h2>JSON Formatter &amp; Merger</h2><p class="tool-desc">Pretty-print, validate, and deep-merge JSON objects entirely in your browser.</p></div>
-        <span class="card-arrow">Open JSON Formatter →</span>
-      </a>
-      <a class="tool link-card" href="pc-first-aid.html">
-        <div><h2>PC First Aid</h2><p class="tool-desc">Answer three questions about a computer problem and get a calm, safety-first next step before you reset or repair.</p></div>
-        <span class="card-arrow">Start PC First Aid →</span>
-      </a>
-      <a class="tool link-card" href="Tools/printer-offline-troubleshooter.html">
-        <div><h2>Printer Offline Troubleshooter</h2><p class="tool-desc">Answer four questions and get an ordered checklist to bring a Wi-Fi or USB printer back online.</p></div>
-        <span class="card-arrow">Fix My Printer →</span>
-      </a>
-      <a class="tool link-card" href="Tools/image-to-text-ocr.html">
-        <div><h2>Image to Text (OCR)</h2><p class="tool-desc">Extract text from a photo or screenshot in English or Chinese, processed entirely on your device.</p></div>
-        <span class="card-arrow">Open OCR Tool →</span>
-      </a>
-      
-      
-      
-      
-    </div>
-      <p class="eyebrow">Decision calculators</p>
-      <h2 id="decision-tools-title">Should you do it? Run the numbers first.</h2>
-      <p class="lead">These tools are built around a specific decision, not just a formula — enter your situation and see which option comes out ahead.</p>
+    <section class="hero tool-section" id="money-work" aria-labelledby="money-work-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="2" y="6" width="20" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 12h.01M18 12h.01"/></svg></span>Money &amp; work</p>
+      <h2 id="money-work-title">Plan a cost, pay, or travel decision.</h2>
+      <p class="lead">Use a transparent estimate first, then review the assumptions before you make a real-world choice.</p>
     </section>
     <div class="grid">
-      <a class="tool link-card" href="rent-vs-buy-calculator.html">
-        <div><h2>Rent vs. Buy Calculator</h2><p class="tool-desc">Compare the true long-term cost of renting versus buying, including taxes, maintenance, and opportunity cost.</p></div>
-        <span class="card-arrow">Open Rent vs. Buy →</span>
-      </a>
-      <a class="tool link-card" href="freelance-rate-calculator.html">
-        <div><h2>Should I Take This Project?</h2><p class="tool-desc">Weigh a freelance offer's pay against your time, expenses, and opportunity cost before saying yes.</p></div>
-        <span class="card-arrow">Open Freelance Rate Calculator →</span>
-      </a>
+      <a class="tool link-card" href="salary-calculator.html"><div><h2>Salary &amp; Take-Home Pay</h2><p class="tool-desc">Compare pay periods and estimate US take-home pay.</p></div><span class="card-arrow">Open Salary Calculator →</span></a>
+      <a class="tool link-card" href="income-tax-calculator.html"><div><h2>Income Tax by State</h2><p class="tool-desc">Estimate federal, payroll, and state taxes.</p></div><span class="card-arrow">Open Income Tax Calculator →</span></a>
+      <a class="tool link-card" href="mortgage-calculator.html"><div><h2>Mortgage Calculator</h2><p class="tool-desc">Estimate principal and interest with an extra-payment option.</p></div><span class="card-arrow">Open Mortgage Calculator →</span></a>
+      <a class="tool link-card" href="freelance-rate-calculator.html"><div><h2>Freelance Rate</h2><p class="tool-desc">Check whether a project supports your time, costs, and income goal.</p></div><span class="card-arrow">Open Freelance Rate →</span></a>
+      <a class="tool link-card" href="trip-budget-calculator.html"><div><h2>Trip Budget</h2><p class="tool-desc">Plan travel costs with a practical buffer.</p></div><span class="card-arrow">Open Trip Budget →</span></a>
+      <a class="tool link-card" href="rent-vs-buy-calculator.html"><div><h2>Rent vs. Buy</h2><p class="tool-desc">Compare long-term housing costs and opportunity cost.</p></div><span class="card-arrow">Open Rent vs. Buy →</span></a>
     </div>
 
-    <section class="hero" aria-labelledby="local-tools-title">
-      <p class="eyebrow">Localized calculators</p>
-      <h2 id="local-tools-title">Numbers that actually match where you live.</h2>
-      <p class="lead">State and local rules can change salary, tax, and take-home pay significantly. These versions build the local rules in — pick your state to get started.</p>
+    <section class="hero tool-section" id="files-privacy" aria-labelledby="files-privacy-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/><path d="M9 13h6M9 17h4"/></svg></span>Files &amp; privacy</p>
+      <h2 id="files-privacy-title">Work with files without uploading them.</h2>
+      <p class="lead">These tools process selected files in your browser. Review each page for its supported formats and practical limits.</p>
     </section>
     <div class="grid">
-      <a class="tool link-card" href="texas-paycheck-calculator.html">
-        <div><h2>Texas Paycheck Calculator</h2><p class="tool-desc">Estimate take-home pay in Texas, which has no state income tax — see exactly what changes.</p></div>
-        <span class="card-arrow">Open Texas Paycheck Calculator →</span>
-      </a>
+      <a class="tool link-card" href="image-compressor.html"><div><h2>Image Compressor</h2><p class="tool-desc">Reduce common image file sizes on your device.</p></div><span class="card-arrow">Open Image Compressor →</span></a>
+      <a class="tool link-card" href="image-converter.html"><div><h2>JPG, PNG &amp; WebP Converter</h2><p class="tool-desc">Convert common image formats while controlling transparency and quality.</p></div><span class="card-arrow">Open Image Converter →</span></a>
+      <a class="tool link-card" href="pdf-merge.html"><div><h2>PDF Merge</h2><p class="tool-desc">Arrange and combine PDF pages locally in your browser.</p></div><span class="card-arrow">Open PDF Merge →</span></a>
+      <a class="tool link-card" href="pdf-split-reorder.html"><div><h2>PDF Split &amp; Reorder</h2><p class="tool-desc">Extract page ranges or create a new PDF order.</p></div><span class="card-arrow">Open PDF Split &amp; Reorder →</span></a>
+      <a class="tool link-card" href="image-to-text-ocr.html"><div><h2>Image to Text (OCR)</h2><p class="tool-desc">Extract English or Chinese text from a photo or screenshot on your device.</p></div><span class="card-arrow">Open OCR Tool →</span></a>
+      <a class="tool link-card" href="duplicate-image-finder.html"><div><h2>Duplicate Image Finder</h2><p class="tool-desc">Find exact and near-duplicate photos in a selected batch.</p></div><span class="card-arrow">Open Duplicate Finder →</span></a>
+      <a class="tool link-card" href="batch-file-renamer.html"><div><h2>Batch File Renamer</h2><p class="tool-desc">Rename selected files with predictable, reviewable rules.</p></div><span class="card-arrow">Open Batch File Renamer →</span></a>
+      <a class="tool link-card" href="folder-diff-checker.html"><div><h2>Folder Comparison Report</h2><p class="tool-desc">Compare two folders without copying, moving, or syncing files.</p></div><span class="card-arrow">Open Folder Comparison →</span></a>
     </div>
 
-    <section class="hero" aria-labelledby="printable-tools-title">
-      <p class="eyebrow">Printable worksheets</p>
-      <h2 id="printable-tools-title">Free templates you can print and use today.</h2>
-      <p class="lead">Simple, ad-light PDF and print-ready templates for common life admin — no account, no editing software required.</p>
+    <section class="hero tool-section" id="pc-device-help" aria-labelledby="pc-device-help-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/></svg></span>PC &amp; device help</p>
+      <h2 id="pc-device-help-title">Protect the data, then choose the next step.</h2>
+      <p class="lead">Start with the PC First Aid flow for an unfamiliar computer problem. It helps you choose a lower-risk action; it does not diagnose hardware.</p>
     </section>
     <div class="grid">
-      <a class="tool link-card" href="printable-worksheets.html">
-        <div><h2>Printable Worksheets Library</h2><p class="tool-desc">Browse every free printable — checklists, budget sheets, and planning templates in one place.</p></div>
-        <span class="card-arrow">Browse Printable Worksheets →</span>
-      </a>
-      <a class="tool link-card" href="printable-worksheets.html#moving-checklist">
-        <div><h2>Moving Checklist</h2><p class="tool-desc">An 8-week countdown checklist for moving house, from booking movers to updating your address.</p></div>
-        <span class="card-arrow">Open Moving Checklist →</span>
-      </a>
-      <a class="tool link-card" href="printable-worksheets.html#budget-worksheet">
-        <div><h2>Monthly Budget Worksheet</h2><p class="tool-desc">A simple one-page budget template to track income, fixed costs, and savings by hand.</p></div>
-        <span class="card-arrow">Open Budget Worksheet →</span>
-      </a>
+      <a class="tool link-card" href="pc-first-aid.html"><div><h2>PC First Aid</h2><p class="tool-desc">Answer three questions and get a calm, safety-first next step before you reset or repair.</p></div><span class="card-arrow">Start PC First Aid →</span></a>
+      <a class="tool link-card" href="Tools/printer-offline-troubleshooter.html"><div><h2>Printer Offline Troubleshooter</h2><p class="tool-desc">Get an ordered checklist for a Wi-Fi, USB, or Ethernet printer that appears offline.</p></div><span class="card-arrow">Fix My Printer →</span></a>
+      <a class="tool link-card" href="printer-cost-per-page-calculator.html"><div><h2>Printer Cost per Page</h2><p class="tool-desc">Compare running costs and the break-even point between printing options.</p></div><span class="card-arrow">Open Printer Cost Calculator →</span></a>
+      <a class="tool link-card" href="password-generator.html"><div><h2>Password Generator</h2><p class="tool-desc">Generate a local random password with practical character options.</p></div><span class="card-arrow">Open Password Generator →</span></a>
     </div>
 
-    <section class="hero" aria-labelledby="file-tools-title">
-      <p class="eyebrow">File &amp; photo tools</p>
-      <h2 id="file-tools-title">Clean up photos, files, and bookmarks.</h2>
-      <p class="lead">Every tool below runs entirely in your browser — nothing is uploaded to a server.</p>
+    <section class="hero tool-section" id="everyday-decisions" aria-labelledby="everyday-decisions-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 3v18M5 7h14"/><path d="M5 7l-3 7a3 3 0 0 0 6 0z"/><path d="M19 7l-3 7a3 3 0 0 0 6 0z"/></svg></span>Everyday decisions</p>
+      <h2 id="everyday-decisions-title">Run the numbers before you decide.</h2>
+      <p class="lead">Use these tools when the right answer depends on your own timing, use, and trade-offs—not a generic rule.</p>
     </section>
     <div class="grid">
-      <a class="tool link-card" href="duplicate-image-finder.html">
-        <div><h2>Duplicate Image Finder</h2><p class="tool-desc">Scan a batch of photos and instantly spot exact duplicates and visually similar images.</p></div>
-        <span class="card-arrow">Open Duplicate Image Finder →</span>
-      </a>
-      <a class="tool link-card" href="batch-file-renamer.html">
-        <div><h2>Batch File Renamer</h2><p class="tool-desc">Rename dozens of files at once with prefixes, sequential numbers, or find-and-replace, then download as a ZIP.</p></div>
-        <span class="card-arrow">Open Batch File Renamer →</span>
-      </a>
-      <a class="tool link-card" href="folder-diff-checker.html">
-        <div><h2>Folder Comparison Report</h2><p class="tool-desc">Compare two folders and see what's only in A, only in B, or different — a report only, nothing is copied or synced.</p></div>
-        <span class="card-arrow">Open Folder Comparison →</span>
-      </a>
-      <a class="tool link-card" href="bookmark-organizer.html">
-        <div><h2>Bookmark Cleaner &amp; Organizer</h2><p class="tool-desc">Import your exported bookmarks, remove duplicates, and export a cleaned-up file.</p></div>
-        <span class="card-arrow">Open Bookmark Organizer →</span>
-      </a>
-      <a class="tool link-card" href="qr-code-generator.html">
-        <div><h2>QR Code Generator</h2><p class="tool-desc">Create a QR code for a link, Wi-Fi, LINE/WhatsApp/Telegram chat, social profile, or contact card.</p></div>
-        <span class="card-arrow">Open QR Code Generator →</span>
-      </a>
-      <a class="tool link-card" href="fuel-economy-converter.html">
-        <div><h2>Fuel Economy Converter</h2><p class="tool-desc">Calculate real-world MPG from a trip, convert MPG ↔ L/100km, or compare two vehicles' annual fuel cost.</p></div>
-        <span class="card-arrow">Open Fuel Economy Converter →</span>
-      </a>
-      
-      <a class="tool link-card" href="return-or-keep-calculator.html">
-        <div><h2>Return or Keep Calculator</h2><p class="tool-desc">Compare returning, reselling, or keeping an item once shipping, fees, and your time are counted.</p></div>
-        <span class="card-arrow">Open Return or Keep →</span>
-      </a>
-      <a class="tool link-card" href="printer-cost-per-page-calculator.html">
-        <div><h2>Printer Cost per Page</h2><p class="tool-desc">Real cost per printed page, plus the break-even point between two printers or a print shop.</p></div>
-        <span class="card-arrow">Open Printer Cost Calculator →</span>
-      </a>
-      <a class="tool link-card" href="real-use-unit-cost-calculator.html">
-        <div><h2>Real-Use Unit Cost</h2><p class="tool-desc">What a product actually costs per use once the share you never finish is accounted for.</p></div>
-        <span class="card-arrow">Open Real-Use Unit Cost →</span>
-      </a>
-      <a class="tool link-card" href="partial-month-utilities-split-calculator.html">
-        <div><h2>Partial-Month Utilities Split</h2><p class="tool-desc">Split a bill fairly by days lived there when someone moved in or out mid-cycle.</p></div>
-        <span class="card-arrow">Open Utilities Split →</span>
-      </a>
-      <a class="tool link-card" href="time-zone-converter.html">
-        <div><h2>Time Zone Converter</h2><p class="tool-desc">Convert a time across multiple time zones at once, with automatic daylight saving handling.</p></div>
-        <span class="card-arrow">Open Time Zone Converter →</span>
-      </a>
+      <a class="tool link-card" href="return-or-keep-calculator.html"><div><h2>Return or Keep</h2><p class="tool-desc">Compare returning, reselling, or keeping an item after fees and time.</p></div><span class="card-arrow">Open Return or Keep →</span></a>
+      <a class="tool link-card" href="real-use-unit-cost-calculator.html"><div><h2>Real-Use Unit Cost</h2><p class="tool-desc">Compare what an item costs per use after realistic waste.</p></div><span class="card-arrow">Open Unit Cost Calculator →</span></a>
+      <a class="tool link-card" href="partial-month-utilities-split-calculator.html"><div><h2>Partial-Month Utilities Split</h2><p class="tool-desc">Split a bill by the days each person lived there.</p></div><span class="card-arrow">Open Utilities Split →</span></a>
+      <a class="tool link-card" href="time-zone-converter.html"><div><h2>Time Zone Converter</h2><p class="tool-desc">Compare local times across time zones with daylight-saving handling.</p></div><span class="card-arrow">Open Time Zone Converter →</span></a>
+      <a class="tool link-card" href="fuel-economy-converter.html"><div><h2>Fuel Economy Converter</h2><p class="tool-desc">Compare MPG, L/100km, or an annual fuel-cost estimate.</p></div><span class="card-arrow">Open Fuel Economy Converter →</span></a>
+      <a class="tool link-card" href="business-days-calculator.html"><div><h2>Business Days</h2><p class="tool-desc">Count weekdays or calculate a date using optional holidays.</p></div><span class="card-arrow">Open Business Days →</span></a>
     </div>
 
-    <section class="hero" aria-labelledby="quick-tools-title">
-      <p class="eyebrow">Quick tools</p>
+    <section class="hero tool-section" id="print-quick" aria-labelledby="print-quick-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M6 9V3h12v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg></span>Print &amp; quick tools</p>
+      <h2 id="print-quick-title">Create, check, or print something quickly.</h2>
+      <p class="lead">Use a worksheet, a lightweight utility, or a browser-based helper without opening a spreadsheet.</p>
+    </section>
+    <div class="grid">
+      <a class="tool link-card" href="printable-worksheets.html"><div><h2>Printable Worksheets</h2><p class="tool-desc">Open checklists, budget sheets, and other practical printables.</p></div><span class="card-arrow">Browse Printables →</span></a>
+      <a class="tool link-card" href="qr-code-generator.html"><div><h2>QR Code Generator</h2><p class="tool-desc">Create a QR code for a link, Wi-Fi, contact card, or supported chat link.</p></div><span class="card-arrow">Open QR Code Generator →</span></a>
+      <a class="tool link-card" href="sudoku-generator.html"><div><h2>Sudoku Generator</h2><p class="tool-desc">Create a printable puzzle and answer sheet.</p></div><span class="card-arrow">Open Sudoku Generator →</span></a>
+      <a class="tool link-card" href="json-formatter-merger.html"><div><h2>JSON Formatter &amp; Merger</h2><p class="tool-desc">Format, validate, and combine JSON in your browser.</p></div><span class="card-arrow">Open JSON Formatter →</span></a>
+    </div>
+
+    <section class="hero tool-section" aria-labelledby="quick-tools-title">
+      <p class="eyebrow section-eyebrow"><span class="eyebrow-icon"><svg class="kf-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M13 2 4 14h7l-1 8 9-12h-7z"/></svg></span>Quick tools</p>
       <h2 id="quick-tools-title">No dedicated page needed — use these right here.</h2>
       <p class="lead">These simple utilities run entirely on this page.</p>
     </section>
