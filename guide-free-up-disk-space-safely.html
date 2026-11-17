@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Windows Storage Full? Free Up Disk Space Safely</title>
+  <meta name="description" content="A data-safe checklist for freeing Windows disk space without deleting files you may need. Start with low-risk cleanup, then decide whether to move files, upgrade storage, or get help.">
+  <link rel="canonical" href="https://www.kokoroflow.net/guide-free-up-disk-space-safely.html">
+  <link rel="icon" href="kokoroflow-logo.jpg">
+  <link rel="stylesheet" href="guide.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <meta name="google-adsense-account" content="ca-pub-7127191372584167">
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7127191372584167" crossorigin="anonymous"></script>
+  <meta property="og:type" content="article">
+  <meta property="og:site_name" content="KokoroFlow">
+  <meta property="og:title" content="Windows Storage Full? Free Up Disk Space Safely">
+  <meta property="og:description" content="A data-safe checklist for freeing Windows disk space without deleting files you may need.">
+  <meta property="og:url" content="https://www.kokoroflow.net/guide-free-up-disk-space-safely.html">
+  <meta property="og:image" content="https://www.kokoroflow.net/kokoroflow-logo.jpg">
+  <meta property="og:locale" content="en_US">
+  <meta name="twitter:card" content="summary">
+  <script type="application/ld+json">[{"@context":"https://schema.org","@type":"Article","headline":"Windows storage full? Free up disk space safely","description":"A data-safe checklist for freeing Windows disk space without deleting files you may need.","dateModified":"2026-11-13","inLanguage":"en","mainEntityOfPage":"https://www.kokoroflow.net/guide-free-up-disk-space-safely.html","author":{"@id":"https://www.kokoroflow.net/#organization"},"publisher":{"@type":"Organization","@id":"https://www.kokoroflow.net/#organization","name":"KokoroFlow","logo":"https://www.kokoroflow.net/kokoroflow-logo.jpg"}},{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Should I delete Windows.old to free up space?","acceptedAnswer":{"@type":"Answer","text":"Only if you are sure you do not need to return to the previous Windows version. Deleting it removes that rollback option."}},{"@type":"Question","name":"Will freeing disk space fix every slow PC?","acceptedAnswer":{"@type":"Answer","text":"No. Low space can contribute to update and performance problems, but hardware, heat, failing storage, malware, or a single app can also cause slowness."}},{"@type":"Question","name":"Is cloud sync the same as a backup?","acceptedAnswer":{"@type":"Answer","text":"Not necessarily. Sync can copy deletion, corruption, or unwanted changes. Check that important files open from another device or a separate backup."}}]}]</script>
+<style id="kf-deep-style">
+.kf-deep{max-width:880px;margin:48px auto 24px;padding:28px 24px;background:var(--surface,#fffdf8);border:1px solid var(--line,#ddd4c6);border-radius:16px;color:var(--text,#202124);line-height:1.7;box-sizing:border-box}
+.kf-deep h2{font-size:clamp(24px,3.2vw,32px);line-height:1.25;margin:0 0 14px}
+.kf-deep h3{font-size:19px;line-height:1.35;margin:28px 0 8px}
+.kf-deep p,.kf-deep li{font-size:16px}
+.kf-deep ul,.kf-deep ol{padding-left:22px}
+.kf-deep li{margin:6px 0}
+.kf-deep .kf-eyebrow{margin:0 0 8px;color:var(--accent,#2f6f62);font-size:13px;font-weight:800;letter-spacing:.12em;text-transform:uppercase}
+.kf-table{width:100%;border-collapse:collapse;margin:14px 0 6px;font-size:15px;display:block;overflow-x:auto}
+.kf-table caption{text-align:left;font-weight:700;margin-bottom:6px;color:var(--muted,#62666c)}
+.kf-table th,.kf-table td{border:1px solid var(--line,#ddd4c6);padding:8px 10px;text-align:left;vertical-align:top;white-space:nowrap}
+.kf-table td:last-child{white-space:normal}
+.kf-table th{background:var(--surface-2,#ece4d7)}
+.kf-sources{font-size:14px}
+.kf-note{font-size:14px;color:var(--muted,#62666c)}
+@media (max-width:640px){.kf-deep{margin:32px 12px;padding:20px 16px}}
+
+.kf-guide{max-width:880px;margin:32px auto;padding:28px 24px;line-height:1.7;box-sizing:border-box}
+.kf-guide h2{font-size:clamp(22px,3vw,28px);margin:32px 0 10px}.kf-guide h3{font-size:19px;margin:22px 0 8px}
+.kf-guide p,.kf-guide li{font-size:17px}.kf-guide ol,.kf-guide ul{padding-left:22px}.kf-guide li{margin:6px 0}
+.kf-guide code{background:#ece4d7;padding:1px 6px;border-radius:4px}
+.kf-box{border-left:4px solid #2f6f62;background:#f3efe6;padding:12px 16px;border-radius:8px;margin:16px 0}
+@media (max-width:640px){.kf-guide{margin:16px 12px;padding:16px}}
+</style>
+<style id="kf-check-style">
+.kf-progress{position:sticky;top:72px;z-index:5;display:flex;align-items:center;gap:12px;margin:0 0 20px;padding:10px 14px;border:1px solid var(--line,#ded7cc);border-radius:8px;background:var(--surface,#fffdf8);font-size:14px;font-weight:700}
+.kf-progress .track{flex:1;height:8px;border-radius:999px;background:var(--surface-2,#eee7dc);overflow:hidden}
+.kf-progress .fill{width:0;height:100%;background:var(--accent,#2f6f62);transition:width .2s}
+.kf-progress button,.kf-btn{border:1px solid var(--accent,#2f6f62);border-radius:999px;padding:6px 14px;background:transparent;color:var(--accent,#2f6f62);font:inherit;font-size:14px;font-weight:700;cursor:pointer}
+.kf-checks{display:grid;gap:8px;margin:12px 0}
+.kf-check{display:grid;grid-template-columns:22px 1fr;gap:10px;align-items:start;padding:10px 12px;border:1px solid var(--line,#ded7cc);border-radius:8px;background:var(--surface,#fffdf8);cursor:pointer}
+.kf-check input{width:18px;height:18px;margin-top:4px;accent-color:var(--accent,#2f6f62)}
+.kf-check.danger input{accent-color:#9f2d27}
+.kf-check:has(input:checked){background:var(--accent-soft,#e6f1ed);border-color:var(--accent,#2f6f62)}
+.kf-check.danger:has(input:checked){background:#fbeceb;border-color:#9f2d27}
+.kf-check strong{display:block;font-size:16px}.kf-check small{display:block;color:var(--muted,#5f6368);font-size:14px;line-height:1.5}
+.kf-result{display:none}.kf-guide .kf-toc{padding-left:0}@media (max-width:640px){.kf-progress{top:0}}.kf-result.show{display:block}
+@media print{.kf-progress,.kf-btn,.site-header,.site-footer{display:none!important}.kf-check{break-inside:avoid}}
+</style>
+<style id="kf-page">.kf-guide .kf-table{display:table}.kf-guide .kf-table th,.kf-guide .kf-table td{white-space:normal}.kf-guide .kf-table td:first-child{width:22%}@media (max-width:640px){.kf-guide .kf-table{display:block;overflow-x:auto}}</style>
+</head>
+<body>
+  <header class="site-header"><nav class="nav" aria-label="Main navigation"><a class="brand" href="index.html"><img src="kokoroflow-logo.jpg" alt=""><span>KokoroFlow</span></a><div class="nav-links"><a href="index.html">Home</a><a href="7tools.html">Tools</a><a href="guides.html">Guides</a><a href="about.html">About</a><a href="contact.html">Contact</a><a class="lang-link" href="index-zh.html" lang="zh-Hant">中文</a></div></nav></header>
+  <main><article class="kf-guide">
+    <p class="kf-eyebrow">PC guide · Data safety</p>
+    <h1>Windows storage full? Free up disk space safely</h1>
+    <p class="lead">A full C: drive can make updates fail, leave too little working room, and turn a small problem into a rushed deletion. Start with the lowest-risk cleanup, verify what matters, and only then consider moving files or upgrading storage.</p>
+    <p class="kf-note">Reviewed: November 2026 · General educational guidance, not data-recovery advice.</p>
+
+    <ul class="kf-toc"><li><a href="#which-drive">1. Which drive is full?</a></li><li><a href="#low-risk-order">2. Low-risk order</a></li><li><a href="#safe-or-pause">3. Safe or pause?</a></li><li><a href="#checklist">4. Safety checklist</a></li><li><a href="#real-fix">5. When cleanup is not the fix</a></li></ul>
+    <div class="warning"><strong>Stop before cleaning if the drive is disappearing, clicking, producing read errors, or the PC is repeatedly freezing.</strong> Do not run large cleanups, move hundreds of files, or keep restarting to "test" it. Protect the data first and read <a href="guide-before-reset-or-repair.html">Before You Reset or Repair: Data-Safety Checklist</a>.</div>
+
+    <h2 id="which-drive">First: confirm which drive is full</h2>
+    <p>Open <strong>File Explorer &gt; This PC</strong>. Look at the free space shown below each drive. Most Windows problems involve the system drive, usually <strong>C:</strong>, but an external backup drive can be full for a completely different reason.</p>
+    <div class="kf-box"><strong>Do not assume that a red storage bar means you should delete files immediately.</strong> First identify the drive, check whether your important files have another verified copy, and use Windows' built-in recommendations before installing a cleanup app.</div>
+
+    <h2 id="low-risk-order">A low-risk order for freeing space</h2>
+    <div class="cards"><div class="card"><h4><span class="number">1</span> Check the size of the problem</h4><p>Note the total size and free space of C:. If Windows updates are failing, save the exact error message before changing anything.</p></div><div class="card"><h4><span class="number">2</span> Use Windows' built-in storage view</h4><p>In Windows 11, open <strong>Settings &gt; System &gt; Storage</strong>, then review <strong>Cleanup recommendations</strong>. Read every category before selecting it.</p></div><div class="card"><h4><span class="number">3</span> Start with replaceable items</h4><p>Temporary files, an emptied Recycle Bin, duplicate downloads, and apps you truly do not use are safer targets than documents, photos, or unknown folders.</p></div><div class="card"><h4><span class="number">4</span> Copy, then verify, before moving important files</h4><p>For large videos, photos, or project folders, copy to a separate drive or trusted location. Open a small sample from the destination before deleting anything from C:.</p></div><div class="card"><h4><span class="number">5</span> Check again after each small change</h4><p>Stop when you have enough room for the task at hand. A large one-time purge makes it harder to notice what went wrong.</p></div></div>
+
+    <h2 id="safe-or-pause">What is usually safe, and what needs a pause?</h2>
+    <table class="kf-table"><caption>Common space users and the safer next step</caption><thead><tr><th>Item</th><th>Safer next action</th><th>Why pause first?</th></tr></thead><tbody>
+      <tr><td>Recycle Bin</td><td>Review it, then empty files you do not need.</td><td>Emptying it makes ordinary recovery harder.</td></tr>
+      <tr><td>Downloads</td><td>Sort by size and date. Keep installers or documents you may need again.</td><td>Downloads often contain tax files, device drivers, or one-off project exports.</td></tr>
+      <tr><td>Temporary files</td><td>Use Cleanup recommendations or Storage Sense and read the category labels.</td><td>Some options can remove previous-installation files or offline content.</td></tr>
+      <tr><td>Large photos and videos</td><td>Copy to a separate, checked destination first.</td><td>Cloud sync alone may not be a separate backup.</td></tr>
+      <tr><td>Unused apps</td><td>Uninstall from Settings, one app at a time.</td><td>Do not remove drivers, security tools, or unfamiliar system components to gain a little space.</td></tr>
+      <tr><td><code>Windows.old</code></td><td>Leave it until you are sure you do not need to roll back Windows.</td><td>Deleting it removes the option to return to the previous Windows version.</td></tr>
+    </tbody></table>
+
+    <h2 id="checklist">Use this small safety checklist</h2>
+    <div class="kf-progress" aria-label="Checklist progress"><span>Checklist <span id="kfPct">0%</span></span><div class="track" aria-hidden="true"><div class="fill" id="kfFill"></div></div><button type="button" class="kf-print">Print</button><button type="button" class="kf-reset">Reset</button></div>
+    <div class="kf-checks"><label class="kf-check"><input type="checkbox"><span><strong>I know which drive is full.</strong><small>I checked This PC instead of guessing from a single warning.</small></span></label>
+    <label class="kf-check"><input type="checkbox"><span><strong>I saved any update or error message.</strong><small>I can describe the original problem if cleanup does not solve it.</small></span></label>
+    <label class="kf-check"><input type="checkbox"><span><strong>I started with temporary or replaceable items.</strong><small>I did not delete a document, photo, or unknown folder just because it was large.</small></span></label>
+    <label class="kf-check"><input type="checkbox"><span><strong>I opened sample files from my copy before deleting the original.</strong><small>A completed copy message does not prove that every important file opens.</small></span></label>
+    <label class="kf-check"><input type="checkbox"><span><strong>I did not install a registry cleaner, driver-updater bundle, or "one-click speedup" tool.</strong><small>Low disk space is not proof that such software is needed.</small></span></label></div>
+
+    <h2 id="real-fix">When cleanup is not the real fix</h2>
+    <p>Freeing space can help Windows update and gives the system room to work, but it does not repair every slow or unstable PC. Use the symptom to choose the next step:</p>
+    <ul>
+      <li><strong>The drive is nearly full because your files have grown:</strong> decide on a regular backup location, archive infrequently used files, or add storage.</li>
+      <li><strong>The PC has a small, healthy drive but otherwise works well:</strong> an SSD upgrade may be worthwhile. Read <a href="guide-ssd-upgrade.html">Is an SSD Upgrade Worth It for an Old Laptop?</a> before buying.</li>
+      <li><strong>The PC is also freezing, noisy, hot, or restarting:</strong> follow the safer symptom sequence in <a href="guide-old-pc-troubleshooting.html">Safe Troubleshooting for Older PCs</a>.</li>
+      <li><strong>You are considering a reset because space is low:</strong> read the <a href="guide-before-reset-or-repair.html">data-safety checklist</a> first. A reset should not be your first cleanup method.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+    <h3>Should I delete Windows.old to free up space?</h3>
+    <p>Only if you are confident you do not need to return to the previous Windows version. Removing it takes away that rollback option.</p>
+    <h3>Will freeing disk space fix every slow PC?</h3>
+    <p>No. It can help with update problems and lack of working room, but it does not rule out heat, failing storage, malware, a hardware fault, or a single demanding app.</p>
+    <h3>Is cloud sync the same as a backup?</h3>
+    <p>Not necessarily. Sync can carry deletion, corruption, or unwanted changes to another device. For irreplaceable files, confirm that a separate copy opens correctly from another location.</p>
+
+    <h2>Related guides</h2>
+    <ul><li><a href="pc-first-aid.html">PC First Aid: What to Do First When Your Computer Has a Problem</a></li><li><a href="guide-before-reset-or-repair.html">Before You Reset or Repair a PC: Data-Safety Checklist</a></li><li><a href="guide-ssd-upgrade.html">Is an SSD Upgrade Worth It for an Old Laptop?</a></li><li><a href="guide-old-pc-troubleshooting.html">Safe Troubleshooting Guide for Older PCs</a></li></ul>
+
+    <h3>Sources</h3>
+    <ul class="kf-sources"><li><a href="https://support.microsoft.com/en-gb/windows/experience/storage-filemanagement/free-up-drive-space-in-windows" rel="noopener" target="_blank">Microsoft Support: Free up drive space in Windows</a></li><li><a href="https://support.microsoft.com/en-us/windows/security/windows-security/device-performance-and-health-in-the-windows-security-app" rel="noopener" target="_blank">Microsoft Support: Device performance and health in Windows Security</a></li></ul>
+    <p class="kf-note">Checked November 13, 2026. Windows labels and available cleanup options can vary by version and device configuration.</p>
+  </article>
+<script>
+(function(){var c=[].slice.call(document.querySelectorAll('.kf-check input')),k='kfDiskSpace-v1',p=document.getElementById('kfPct'),f=document.getElementById('kfFill');
+function u(){var n=c.filter(function(i){return i.checked}).length,r=Math.round(n/c.length*100);p.textContent=r+'%';f.style.width=r+'%';try{localStorage.setItem(k,JSON.stringify(c.map(function(i){return i.checked})))}catch(e){}}
+try{var st=JSON.parse(localStorage.getItem(k));if(Array.isArray(st))c.forEach(function(i,x){i.checked=!!st[x]})}catch(e){}
+c.forEach(function(i){i.addEventListener('change',u)});
+[].forEach.call(document.querySelectorAll('.kf-print'),function(b){b.addEventListener('click',function(){window.print()})});
+[].forEach.call(document.querySelectorAll('.kf-reset'),function(b){b.addEventListener('click',function(){c.forEach(function(i){i.checked=false});try{localStorage.removeItem(k)}catch(e){}u()})});
+u()})();
+</script></main>
+  <footer class="site-footer"><div class="footer-inner"><div><strong>KokoroFlow</strong></div><div class="footer-links"><a href="guides.html">All guides</a><a href="privacy.html">Privacy</a><a href="contact.html">Contact</a></div></div></footer>
+</body>
+</html>
