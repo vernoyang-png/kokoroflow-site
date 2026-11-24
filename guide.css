@@ -1,5 +1,6 @@
+@import url("kf-design.css");
 /* Shared layout for guide pages (guides.html, guide-*.html, salary-converter.html) */
-:root{--bg:#f7f4ee;--surface:#fffdf8;--surface-2:#eee7dc;--text:#202124;--muted:#5f6368;--line:#ded7cc;--accent:#2f6f62;--accent-soft:#e6f1ed;--shadow:0 16px 50px rgba(32,33,36,.08);--radius:8px}
+:root{--bg:var(--kf-paper);--surface:var(--kf-white);--surface-2:var(--kf-surface-2);--text:var(--kf-ink);--muted:var(--kf-muted);--line:var(--kf-line);--accent:var(--kf-green);--accent-soft:var(--kf-mint-soft);--shadow:var(--kf-shadow);--radius:12px}
 *{box-sizing:border-box}
 body{margin:0;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:var(--text);background:var(--bg);line-height:1.7;-webkit-text-size-adjust:100%;text-size-adjust:100%}
 a{color:inherit}
@@ -72,3 +73,31 @@ article h2[id]{scroll-margin-top:84px}
 @media print{.site-header,.site-footer,.kf-toc{display:none}body{background:#fff}}
 html[lang^="zh"] body{font-family:"Noto Sans TC","Microsoft JhengHei",system-ui,sans-serif;line-height:1.85}
 @media (max-width:640px){.site-header{position:static}.nav-links a{padding:6px 8px;font-size:14px;min-height:34px}.brand img{height:34px}}
+
+/* ---- KokoroFlow design refresh (visual only; tokens in kf-design.css) ---- */
+body{font-family:var(--kf-body);color:var(--kf-ink);background:var(--kf-paper)}
+h1,h2,h3{font-family:var(--kf-head);letter-spacing:-.01em;color:var(--kf-ink)}
+h1{font-weight:700}h2,h3{font-weight:600}
+.eyebrow{color:var(--kf-coral-text)}
+.lead{color:var(--kf-muted)}
+.site-header{background:rgba(251,250,244,.94);border-bottom-color:var(--kf-line)}
+.nav-links a{min-height:44px;display:inline-flex;align-items:center;font-weight:500;transition:background-color .2s,color .2s}
+.nav-links a:hover,.nav-links a[aria-current=page]{background:var(--kf-mint-soft);color:var(--kf-ink)}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:var(--kf-focus);outline-offset:3px;border-radius:8px}
+input:focus,select:focus,textarea:focus{outline:3px solid var(--kf-mint);border-color:var(--kf-green)}
+button{background:var(--kf-green);transition:background-color .2s,box-shadow .2s}
+button:hover{transform:none;box-shadow:0 6px 18px rgba(29,112,95,.22)}
+.site-footer{background:var(--kf-white);border-top-color:var(--kf-line)}
+.footer-links a,.footer a{min-height:32px;display:inline-flex;align-items:center}
+.footer-links a:hover,.footer a:hover{color:var(--kf-ink);text-decoration:underline;text-underline-offset:3px}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important;scroll-behavior:auto!important}}
+.article-card,.calculator{border-color:var(--kf-line);border-radius:var(--kf-radius);box-shadow:var(--kf-shadow);transition:border-color .2s,box-shadow .2s}
+.article-card:hover{border-color:var(--kf-green);box-shadow:var(--kf-shadow-hover)}
+.article-card h2{font-family:var(--kf-head)}
+.tag{background:var(--kf-mint-soft);color:var(--kf-green-dark)}
+.text-link{color:var(--kf-green)}
+.callout,.principle{border-left-color:var(--kf-green);background:var(--kf-mint-soft)}
+.calculator button{background:var(--kf-green)}
+.fields input,.fields select{border-radius:8px}
+.kf-toc a{min-height:44px;transition:background-color .2s,border-color .2s}
+.flow div{border-radius:var(--kf-radius-sm)}
