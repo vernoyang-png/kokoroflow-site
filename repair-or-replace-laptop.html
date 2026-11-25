@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Laptop Repair or Replacement Calculator | KokoroFlow</title><meta name="description" content="Compare the estimated cost per month of keeping your current laptop versus buying a replacement.">
+<meta name="theme-color" content="#145e5a"><meta property="og:type" content="website"><meta property="og:site_name" content="KokoroFlow"><meta property="og:title" content="Laptop Repair or Replacement Calculator | KokoroFlow"><meta property="og:description" content="Compare the estimated cost per month of keeping your current laptop versus buying a replacement.">
+<link rel="stylesheet" href="computer-help.css"></head>
+<body><a class="skip" href="#main">Skip to content</a>
+<header class="site-header"><div class="wrap nav"><a class="brand" href="https://www.kokoroflow.net/"><span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 12c3-6 6-6 9 0s6 6 9 0"/></svg></span>KokoroFlow</a>
+<nav aria-label="Main"><a href="index.html">Computer help</a><a href="https://www.kokoroflow.net/guides.html">All guides</a></nav></div></header>
+<main id="main" class="wrap"><nav class="crumbs" aria-label="Breadcrumb"><a href="https://www.kokoroflow.net/">KokoroFlow</a><span aria-hidden="true">/</span><a href="index.html">Computer help</a><span aria-hidden="true">/</span><span>Laptop Repair or Replacement Calculator</span></nav><section class="hero"><p class="eyebrow">Computer help · Calculator</p><h1>Laptop Repair or Replacement Calculator</h1><p class="lead">Compare the estimated cost per month of keeping your current laptop versus buying a replacement.</p><ul class="chips"><li>Live results as you type</li><li>Your numbers stay in this browser tab</li><li>Works in USD, TWD, EUR, GBP</li></ul></section>
+<form class="card" id="calculator" novalidate>
+<div class="field" style="max-width:260px"><label for="currency">Currency</label><select id="currency"><option>USD</option><option>TWD</option><option>EUR</option><option>GBP</option></select></div>
+<div class="cols"><div><h2><span class="dot" style="background:#145e5a"></span>Repair</h2>
+<div class="field"><label for="repair">Repair quote</label><input id="repair" type="number" inputmode="decimal" min="0" max="10000000" step="0.01" required value="250"></div><div class="field"><label for="repairExtra">Other repair costs</label><input id="repairExtra" type="number" inputmode="decimal" min="0" max="10000000" step="0.01" required value="0"><span class="hint">Parts you buy yourself, shipping, backup. Add the cost of downtime if it matters to you.</span></div><div class="field"><label for="repairMonths">Expected months after repair</label><input id="repairMonths" type="number" inputmode="decimal" min="0" max="600" step="1" required value="18"></div></div>
+<div><h2><span class="dot" style="background:#b7791f"></span>Replace</h2>
+<div class="field"><label for="replacement">Replacement price</label><input id="replacement" type="number" inputmode="decimal" min="0" max="10000000" step="0.01" required value="850"></div><div class="field"><label for="migration">Setup and migration cost</label><input id="migration" type="number" inputmode="decimal" min="0" max="10000000" step="0.01" required value="50"><span class="hint">Data transfer, software, accessories, or paid setup help.</span></div><div class="field"><label for="replaceMonths">Expected months with replacement</label><input id="replaceMonths" type="number" inputmode="decimal" min="0" max="600" step="1" required value="48"></div></div></div>
+<button class="btn" type="submit">Compare monthly costs</button></form>
+<section class="card" aria-labelledby="rt"><h2 id="rt">Estimated monthly cost</h2>
+<div class="compare" aria-live="polite"><div class="price" id="boxRepair"><small>Repair</small><strong id="costRepair">–</strong><em>per month</em><div class="bar"><i id="barRepair" style="width:0"></i></div><span class="badge" id="badgeRepair" hidden>Lower</span></div>
+<div class="price" id="boxReplace"><small>Replace</small><strong id="costReplace">–</strong><em>per month</em><div class="bar"><i id="barReplace" style="width:0;background:#b7791f"></i></div><span class="badge" id="badgeReplace" hidden>Lower</span></div></div>
+<p class="verdict" id="difference" role="status"></p><p class="error" id="calcError" role="alert" hidden></p></section>
+<div class="note"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg><p>Monthly cost equals the total upfront estimate divided by expected months of use. Figures are examples until you enter your own. Changing currency changes the display only, so enter every amount in the currency you selected.</p></div>
+<p>See the <a href="https://www.kokoroflow.net/guide-ssd-upgrade.html">SSD upgrade guide</a> and <a href="https://www.kokoroflow.net/Evaluation/business-laptops-top-10.html">business laptop guide</a>.</p>
+<section class="section" aria-labelledby="more"><h2 id="more">More computer help</h2><ul class="cards"><li><a class="link-card" href="wifi-connected-no-internet.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.4a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0"/><circle cx="12" cy="19.5" r="1" fill="currentColor"/></svg></span><h3>Wi-Fi Connected but No Internet</h3><p>Find out whether to check your PC, your network, or a single website.</p><span class="go">Open →</span></a></li><li><a class="link-card" href="windows-nas-shared-folder.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg></span><h3>Windows Can’t Access a NAS or Shared Folder</h3><p>Narrow down why a shared folder stopped opening after a PC replacement or change.</p><span class="go">Open →</span></a></li><li><a class="link-card" href="usb-c-dock-monitor-no-display.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/></svg></span><h3>USB-C Dock Connected but No Monitor Signal</h3><p>Identify where to look when a dock powers up but an external display stays blank.</p><span class="go">Open →</span></a></li><li><a class="link-card" href="outlook-not-receiving-email.html"><span class="ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></svg></span><h3>Outlook Not Receiving Email</h3><p>Compare Outlook on your PC with your mailbox in a browser to find where mail stops appearing.</p><span class="go">Open →</span></a></li></ul></section></main>
+<footer><div class="wrap foot"><span><a href="https://www.kokoroflow.net/pc-first-aid.html">PC First Aid</a> · <a href="https://www.kokoroflow.net/guides.html">All KokoroFlow guides</a></span><span>General guidance only. Check your device or IT policy before making changes.</span></footer><script>(function(){
+var $=function(i){return document.getElementById(i)};
+var form=$('calculator');
+var ids=['repair','repairExtra','repairMonths','replacement','migration','replaceMonths'];
+function read(id){var v=$(id).valueAsNumber;return v}
+function valid(){
+  for(var i=0;i<ids.length;i++){var v=read(ids[i]);if(!isFinite(v)||v<0)return false}
+  return read('repairMonths')>=1&&read('replaceMonths')>=1;
+}
+function compare(){
+  var err=$('calcError');
+  if(!valid()){
+    err.hidden=false;err.textContent='Enter a number in every field. Costs can’t be negative, and months must be at least 1.';
+    $('costRepair').textContent='–';$('costReplace').textContent='–';$('difference').textContent='';
+    $('barRepair').style.width='0';$('barReplace').style.width='0';
+    ['Repair','Replace'].forEach(function(k){$('badge'+k).hidden=true;$('box'+k).classList.remove('win')});
+    return;
+  }
+  err.hidden=true;
+  var repair=Math.round(100*((read('repair')+read('repairExtra'))/read('repairMonths')))/100;
+  var replace=Math.round(100*((read('replacement')+read('migration'))/read('replaceMonths')))/100;
+  var cur=$('currency').value;
+  var money=new Intl.NumberFormat('en',{style:'currency',currency:cur,minimumFractionDigits:cur==='TWD'?0:2,maximumFractionDigits:cur==='TWD'?0:2});
+  $('costRepair').textContent=money.format(repair);
+  $('costReplace').textContent=money.format(replace);
+  var max=Math.max(repair,replace,0.01);
+  $('barRepair').style.width=(repair/max*100)+'%';
+  $('barReplace').style.width=(replace/max*100)+'%';
+  var same=money.format(repair)===money.format(replace);
+  $('badgeRepair').hidden=same||repair>replace;
+  $('badgeReplace').hidden=same||replace>repair;
+  $('boxRepair').classList.toggle('win',!same&&repair<replace);
+  $('boxReplace').classList.toggle('win',!same&&replace<repair);
+  $('difference').textContent=same
+    ?'Both options have the same estimated monthly cost.'
+    :(repair<replace?'Repair':'Replacement')+' costs '+money.format(Math.abs(repair-replace))+' less per month under these assumptions.';
+}
+form.addEventListener('submit',function(e){e.preventDefault();compare()});
+form.addEventListener('input',compare);
+form.addEventListener('change',compare);
+compare();
+})();</script></body></html>
